@@ -64,3 +64,6 @@ alert(salutacions());
 let salutacion = ()=>{
     return "Hola array function";
 }
+
+//document
+document.getElementById("hello").innerHTML="hola a tots"; //cojemos el id que tenga de nombre hello en el hmtl i lo machacamos el contenido que tenga esta id con hola a tots
