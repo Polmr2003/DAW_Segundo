@@ -6,9 +6,9 @@ declare(strict_types=1);
 require_once './Funtions.php';
     myHeader(); 
     myMenu();
-
 ?>
 
+<html>
 <body>
     <?php
     //Main
