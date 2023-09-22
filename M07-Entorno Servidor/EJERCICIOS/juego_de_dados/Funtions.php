@@ -2,7 +2,6 @@
 //_______________funciones______________________________
 //------------------------------------------------------
 
-
 function myHeader(){
     $head = <<<CABECERA
     <!DOCTYPE html>
@@ -19,7 +18,7 @@ function myHeader(){
 }
 
 function myMenu(){
-    
+
     $menu = <<<MENU
     <div class="menu">
        <ul>
@@ -59,7 +58,7 @@ function Random_dado(): int{
  * -> en este caso es un numero i asi poderlo mostrar con el random
  */
 function mostrar_dado($random): void{
-    echo "<img src='./". $random. ".png' alt='".$random."'>";
+    echo "<img src='./img/". $random. ".png' alt='".$random."'>";
 }
 
 /**
