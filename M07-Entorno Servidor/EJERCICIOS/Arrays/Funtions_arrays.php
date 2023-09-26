@@ -2,7 +2,7 @@
 //Forzar a que sea estricto en poner los datos --- tiene que estar antes que cualquier linea de codigo
 declare(strict_types=1);
 
-//Función print Array Pretty with print_r
+//Funtions print Array
 //------------------------------------------------------------------------------------------------------------
 function printArray_Asociativo_ByPHPFunctions($array)
 {
@@ -11,7 +11,8 @@ function printArray_Asociativo_ByPHPFunctions($array)
     print_Array_Asociativo_Pretty($array);
 }
 
-function print_Array_Asociativo_Pretty(mixed $array){
+function print_Array_Asociativo_Pretty(mixed $array)
+{
     echo "<pre>" . print_r($array, true) . "</pre>";
 }
 
@@ -28,7 +29,8 @@ function print_Array_Indexado($array){
         echo $value . '<br>';
     };
 };
-//Arrays
+
+// Crear Arrays
 //-----------------------------------------------
 function Array_indexado(){
     $ArrrayIndexado = ['1', '2', '3'];

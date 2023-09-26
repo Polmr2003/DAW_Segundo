@@ -1,0 +1,8 @@
+-tutorial recomendado:
+https://www.phptutorial.net/
+
+-oficial:
+https://www.php.net/
+
+-w3schools:
+https://www.w3schools.com/php/

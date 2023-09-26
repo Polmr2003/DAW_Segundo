@@ -12,7 +12,6 @@ require_once './Funtions.php';
 <html>
 <body>
     <?php
-    
     //Main
     //----------------------------------------------------------------
     function main(): void
