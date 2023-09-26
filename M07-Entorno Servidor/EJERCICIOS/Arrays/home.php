@@ -11,19 +11,20 @@ require_once './Funtions.php';
 <html>
 <body>
     <?php
-    //Main
+    //Function Main
     //----------------------------------------------------------------
+    /**
+     * $Title - cremaos la variable Title i guardamos el contenido en nuestro caso un titulo i un segundo titulo
+     * echo - mostramos el Title para visualizar el contenido en nuestra paguina
+     */
     function main(): void
     {
-        echo "<h2>Jugador 1</h2>";
-        $num1 = Random_dado();
-        echo "<img src=" . mostrar_dado($num1) . ">";
-        
-        echo "<h2>Jugador 2</h2>";
-        $num2 = Random_dado();
-        echo "<img src=" . mostrar_dado($num2) . ">";
-        
-        echo ganador($num1, $num2);
+        $Title = <<< TITULO
+        <h1>Welcome</h1>
+        <h2>Testing...</h2>
+        TITULO;
+
+        echo $Title;
     }
 
     //Web Code

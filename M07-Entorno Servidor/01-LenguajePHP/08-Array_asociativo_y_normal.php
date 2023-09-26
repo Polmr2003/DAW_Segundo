@@ -20,7 +20,7 @@ function array_asociativo(){
     };
 };
 
-function array_normal(){
+function array_indexado (){ /*Array normal*/
     $colors = ['red', 'green', 'blue'];
 
     //para mostrar el array
