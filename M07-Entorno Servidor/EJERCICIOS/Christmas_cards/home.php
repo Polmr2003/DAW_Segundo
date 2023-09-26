@@ -12,12 +12,21 @@ require_once './Funtions.php';
 <html>
 <body>
     <?php
-    //Main
+    //Function Main
     //----------------------------------------------------------------
+    /**
+     * $Title - cremaos la variable Title i guardamos el contenido en nuestro caso un titulo i un segundo titulo
+     * echo - mostramos el Title para visualizar el contenido en nuestra paguina
+     */
     function main(): void
     {
-        $arrayMultidimensional=Array_Multidimensional();
-        printArray_Multidimensional_ByPHPFunctions($arrayMultidimensional);  
+        $Title = <<< TITULO
+        <h1>Welcome</h1>
+        <h2>Christmas</h2>
+        <h2>Cards</h2>
+        TITULO;
+
+        echo $Title;
     }
 
     //Web Code

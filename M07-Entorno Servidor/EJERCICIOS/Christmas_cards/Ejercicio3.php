@@ -16,8 +16,7 @@ require_once './Funtions.php';
     //----------------------------------------------------------------
     function main(): void
     {
-        $arrayMultidimensional=Array_Multidimensional();
-        printArray_Multidimensional_ByPHPFunctions($arrayMultidimensional);  
+        
     }
 
     //Web Code
