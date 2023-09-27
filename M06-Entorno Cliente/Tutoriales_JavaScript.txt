@@ -1,0 +1,17 @@
+-tutorial recomendado:
+https://es.javascript.info/
+
+-w3schools:
+https://www.w3schools.com/js/default.asp
+
+-Comprovar quins navegadores web suporten propietats css, elements html i mètodes de js:
+https://caniuse.com/
+
+-
+https://lenguajejs.com/javascript/
+
+-tambien esta bien el tutorial
+https://www.arkaitzgarro.com/javascript/index.html
+
+-testear expresiones regulares:
+https://regex101.com/

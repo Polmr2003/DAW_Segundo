@@ -32,9 +32,6 @@ function myMenu(){
                 <li class="nav-item">
                     <a class="nav-link" href="./Ejercicio2.php">Exercici 2</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./Ejercicio3.php">Exercici 3</a>
-                </li>
             </ul>
             </div>
             HERE;
@@ -71,7 +68,7 @@ function println($something): string{
 /**
  * $random - hacemos un random del 1 al 6 con los dos incluidos i los retornamos
  */
-function Random_dado(): int{
+function Random_1_al_6(): int{
     return $random= rand(1,6);
 };
 
@@ -80,7 +77,7 @@ function Random_dado(): int{
  * echo - mostramos con la etiqueta <img> de html i ponemos el random para mostrar la imagen con el nombre que tenga
  * -> en este caso es un numero i asi poderlo mostrar con el random
  */
-function mostrar_dado($random): void{
+function mostrar_img_random($random): void{
     echo "<img src='./img/". $random. ".png' alt='".$random."'>";
 };
 

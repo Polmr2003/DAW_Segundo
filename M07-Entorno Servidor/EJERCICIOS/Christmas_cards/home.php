@@ -7,6 +7,18 @@ require_once './Funtions_arrays.php';
 require_once './Funtions.php';
     myHeader(); 
     myMenu();
+
+//funciones
+function title(){
+    $Title = <<< TITULO
+        <h1>Welcome</h1>
+        <h2>Christmas</h2>
+        <h2>Cards</h2>
+        TITULO;
+
+    return $Title;
+}
+
 ?>
 
 <html>
@@ -20,13 +32,14 @@ require_once './Funtions.php';
      */
     function main(): void
     {
-        $Title = <<< TITULO
-        <h1>Welcome</h1>
-        <h2>Christmas</h2>
-        <h2>Cards</h2>
-        TITULO;
+        //mostramos el titulo
+        echo title();
 
-        echo $Title;
+        //variables con el array
+        $imagenes_array= Christmas_img();
+        
+        //mostramos el array
+        mostrar_Array_de_img($imagenes_array);
     }
 
     //Web Code

@@ -15,4 +15,8 @@ var fecha_ida;
 var fecha_vuelta;
 var pasajeros;
 
+//cuando cargue la pagina
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("h1").style.display="none";
 
+});
