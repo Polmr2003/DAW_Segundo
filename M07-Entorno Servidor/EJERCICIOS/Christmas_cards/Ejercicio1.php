@@ -21,9 +21,6 @@ require_once './Funtions.php';
         //variables
         $imagenes_array= Christmas_img();
         $imagenes_random=Random_Array($imagenes_array);
-        
-        //mostramos el array
-        mostrar_Array_de_img($imagenes_array);
 
         //mostramos el array random
         mostrar_Array_de_img($imagenes_random);
