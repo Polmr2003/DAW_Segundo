@@ -35,10 +35,6 @@ function menu(){
     function main(): void
     {
         menu();
-
-        echo "<h2>Jugador 1</h2>";
-        $num1 = Random_dado();
-        echo "<img src=" . mostrar_dado($num1) . ">";
     }
 
     //Web Code
