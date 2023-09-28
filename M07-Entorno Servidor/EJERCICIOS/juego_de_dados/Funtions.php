@@ -107,6 +107,17 @@ function jugador_2(): int{
 }
 
 /**
+ * $cara - guardamos en esta variable lo que hemos capturado de la funcion Random_dado (un int)
+ * mostrar_dado - mandamos la variable cara a la funcion mostrar_dado
+ * return - retornamos la variable cara 
+ */
+function jugador_3(): int{
+    $cara = Random_dado();
+    mostrar_dado($cara);
+    return $cara;
+}
+
+/**
  * $cara_jugador_1, $cara_jugador_2 - recojemos las caras de el jugador 1 i jugador 2 (que es un int)
  * $message - creamos una variable vacia para que dependiendo de el resultado tenga un valor o otro
  * if - si el jugador 1 (el int) es mas grande que el del jugador dos, ponemos como mensaje que a ganado el jugador 1 
@@ -114,7 +125,7 @@ function jugador_2(): int{
  * else - i si son iguales saldra empate
  * return - retornamos el String con el mensaje que hemos programado en las condiciones (is, elseif, else) 
  */
-function ganador($cara_jugador_1 , $cara_jugador_2): string{
+function ganador_2_jugadores($cara_jugador_1 , $cara_jugador_2): string{
     $message;
     if($cara_jugador_1 > $cara_jugador_2){
         $message="<h2>A ganado el jugador 1</h2>";
@@ -123,6 +134,38 @@ function ganador($cara_jugador_1 , $cara_jugador_2): string{
     }
     else{
         $message="<h2>Empate</h2>";
+    }
+    return $message;
+}
+
+/**
+ * $cara_jugador_1, $cara_jugador_2, $cara_jugador_3 - recojemos las caras de el jugador 1, jugador 2 i jugador 3(que es un int)
+ * $message - creamos una variable vacia para que dependiendo de el resultado tenga un valor o otro
+ * if - si el jugador 1 (el int) es mas grande que el del jugador 2 i de el jugador 3, ponemos como mensaje que a ganado el jugador 1 
+ * elseif - si el jugador 2 (el int) es mas grande que el del jugador 1 i de el jugador 3, ponemos como mensaje que a ganado el jugador 2
+ * elseif - si el jugador 3 (el int) es mas grande que el del jugador 1 i de el jugador 2, ponemos como mensaje que a ganado el jugador 3 
+ * elseif - si la cara del jugador 1 (el int) es igual a la del jugador 2 i del 3, ponemos que a habido empate de todos los jugadores
+ * elseif - si la cara del jugador 1 (el int) es igual a la del jugador 2 , ponemos que a habido empate entre estos jugadores
+ * elseif -  si la cara del jugador 1 (el int) es igual a la del jugador 3, ponemos que a habido empate entre estos jugadores
+ * elseif -  si la cara del jugador 2 (el int) es igual a la del jugador 3, ponemos que a habido empate entre estos jugadores
+ * return - retornamos el String con el mensaje que hemos programado en las condiciones (is, elseif, elseif, else) 
+ */
+function ganador_3_jugadores($cara_jugador_1 , $cara_jugador_2, $cara_jugador_3 ): string{
+    $message="";
+    if($cara_jugador_1 > $cara_jugador_2 && $cara_jugador_1 > $cara_jugador_3){
+        $message="<h2>A ganado el jugador 1</h2>";
+    }elseif($cara_jugador_2 > $cara_jugador_1 && $cara_jugador_2 > $cara_jugador_3){
+        $message="<h2>A ganado el jugador 2</h2>";
+    }elseif($cara_jugador_3 > $cara_jugador_1 && $cara_jugador_3 > $cara_jugador_2){
+        $message="<h2>A ganado el jugador 3</h2>";
+    }elseif($cara_jugador_1 == $cara_jugador_2 && $cara_jugador_2== $cara_jugador_3){
+        $message="<h2>Empate jugador 1, jugador 2 i 3</h2>";
+    }elseif($cara_jugador_1 == $cara_jugador_2){
+        $message="<h2>Empate jugador 1 i jugador 2</h2>";
+    }elseif($cara_jugador_1== $cara_jugador_3){
+        $message="<h2>Empate jugador 1 i jugador 3</h2>";
+    }elseif($cara_jugador_2 == $cara_jugador_3){
+        $message="<h2>Empate jugador 2 i 3</h2>";
     }
     return $message;
 }
