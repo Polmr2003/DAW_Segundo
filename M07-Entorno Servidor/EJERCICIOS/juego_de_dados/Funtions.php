@@ -24,16 +24,16 @@ function myMenu(){
             <div class="menu">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="./09-arrays-indexados-y-asociativos.php">Home</a>
+                    <a class="nav-link active" href="./home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="0902-arrays-print-functions-PHP.php">Exercici 1</a>
+                    <a class="nav-link" href="./Juego_1.php">Juego 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ex2.php">Exercici 2</a>
+                    <a class="nav-link" href="./Juego_2.php">Juego 2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ex3.php">Exercici 3</a>
+                    <a class="nav-link" href="./Juego_3.php">Juego 3</a>
                 </li>
             </ul>
             </div>

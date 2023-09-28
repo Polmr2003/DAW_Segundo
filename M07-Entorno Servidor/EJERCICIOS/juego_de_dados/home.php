@@ -6,6 +6,25 @@ declare(strict_types=1);
 require_once './Funtions.php';
     myHeader(); 
     myMenu();
+
+//funciones
+function menu(){
+    $menu=<<<HERE
+    <ul>
+    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./Juego_1.php">Juego 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./Juego_2.php">Juego 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./Juego_3.php">Juego 3</a>
+            </li>
+        </ul>
+    HERE;
+    echo $menu;
+}
 ?>
 
 <html>
@@ -15,6 +34,8 @@ require_once './Funtions.php';
     //----------------------------------------------------------------
     function main(): void
     {
+        menu();
+
         echo "<h2>Jugador 1</h2>";
         $num1 = Random_dado();
         echo "<img src=" . mostrar_dado($num1) . ">";
