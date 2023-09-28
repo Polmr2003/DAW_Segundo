@@ -86,16 +86,21 @@ function mostrar_Array_de_img($array): void{
 };
 
 /**
+ * $num_ims - variable para indicar cuantas imagnes random queremos extraer
  * $claves_aleatorias - creamos la variable para almacenar los strings que nos pase el metodo array_rand
  * $imagenes_aletorias - es un array que nos almacena los string de la variable $clave_aleatorias
  * return - retornamos la variable $imagenes_aleatorias con los strings
  */
-function Random_Array($array): mixed{ 
-    $claves_aleatorias = array_rand($array, 3); // array_rand nos hace un random i nos extrae en este caso como hemos puesto 3 
-                                                // -> nos a extraido 3 strings de el array
+function Random_contenido_de_Array($array): mixed{ 
+    $num_img=4;
+    $claves_aleatorias = array_rand($array, $num_img); // array_rand nos extrae de manera random contenido de el string, en este caso como hemos puesto num_img que es 4, nos a 
+                                                       // -> extraido 4 posiciones de el array con el nombre de las imagenes
     
     //añadimos los string que nos a extraido en claves_aleatorias en un array - $variable=[$array[variable que contiene el array_rand[posicion de el string extraido]]...];
-    $imagenes_aleatorias=[$array[$claves_aleatorias[0]], $array[$claves_aleatorias[1]], $array[$claves_aleatorias[2]]];
+    for ($i = 0; $i < $num_img; $i++) { 
+        //$imagenes_aleatorias=[$array[$claves_aleatorias[0]], $array[$claves_aleatorias[1]], $array[$claves_aleatorias[2]]];
+        $imagenes_aleatorias[] = $array[$claves_aleatorias[$i]];
+    }
 
     return $imagenes_aleatorias;
 };
