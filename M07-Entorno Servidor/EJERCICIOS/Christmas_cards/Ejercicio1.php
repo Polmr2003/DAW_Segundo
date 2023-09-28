@@ -19,11 +19,27 @@ require_once './Funtions.php';
     function main(): void
     {
         //variables
-        $imagenes_array= Christmas_img();
-        $imagenes_random=Random_contenido_de_Array($imagenes_array);
+        $imagenes_array= Christmas_img(); //variable que nos guarda el array con el nombre de todas las imagenes
+        $imagenes_random=Random_contenido_de_Array($imagenes_array); //variable que le pasamos el nombre con todas las imagenes a la funcion Random_contenido_de_Array
+        $quitada_primera_img=quitar_primera_img($imagenes_random);//
+        $añadida_img=Añadir_img($imagenes_random);//
+        
+        //***********************-Mostramos por pantalla-***********************/ //
+            print('<h2>' . '<br>' . '*** Array Random de 4 imagenes ***' . '</h2>');
+            echo '<hr>';
+            //mostramos el array random
+            mostrar_Array_de_img($imagenes_random);
 
-        //mostramos el array random
-        mostrar_Array_de_img($imagenes_random);
+            print('<h2>' . '<br>' . '*** Quitamos la primera imagen ***' . '</h2>');
+            echo '<hr>';   
+            //mostramos el array con la imagen quitada
+            mostrar_Array_de_img($quitada_primera_img);
+
+            print('<h2>' . '<br>' . '*** añadimos una imagen ***' . '</h2>');
+            echo '<hr>';
+            //mostramos el array con la imagen añadida
+            mostrar_Array_de_img($añadida_img);
+
     }
 
     //Web Code
