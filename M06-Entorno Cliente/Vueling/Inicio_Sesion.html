@@ -4,13 +4,18 @@
 <head>
   <title>Inicio de Sesión y Registro</title>
   <script src="/Vueling/js/index.js"></script>
+  <!-- Link al CSS -->
   <link rel="stylesheet" href="./css/Vueling_css.css">
+
+  <!-- Link a los iconos de el formaulario -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  
   <!-- boostrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -33,23 +38,36 @@
     </div>
   </nav>
   <!------------------------ Contenido ---------------------------------->
-  <div class="container">
-    <div class="left">
-        <h2>Iniciar Sesión</h2>
-        <form action="login.php" method="post">
-            <label for="usuario">Usuario:</label>
-            <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required>
-            <br>
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
-            <br>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
-            </div>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
+  <form class="formulario">
+
+    <h1>Login</h1>
+    <div class="contenedor">
+      <!--  Pedimos el Correo Electronico -->
+      <div class="input-contenedor">
+        <!-- icono de el correo -->
+        <i class="fas fa-envelope icon"></i>
+        <!-- ponemos el lugar donde el usuario pondra el Correo Electronico en el formulario i lo pedimos -->
+        <input type="text" placeholder="Correo Electronico">
+
+      </div>
+
+      <!--  Pedimos la contraseña -->
+      <div class="input-contenedor">
+        <!-- icono de la llave -->
+        <i class="fas fa-key icon"></i>
+        <!-- ponemos el lugar donde el usuario pondra la contraseña en el formulario i la pedimos -->
+        <input type="password" placeholder="Contraseña">
+
+      </div>
+
+      <!-- boton de login/registro -->
+      <input type="submit" value="Login" class="button">
+
+      <!-- frase debajo de el boton i link al otro formulario-->
+      <p>¿No tienes una cuenta? <a class="link" href="Nuevo_Usuario.html">Registrate</a></p>
     </div>
+  </form>
+
 </body>
 
 </html>

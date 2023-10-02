@@ -4,7 +4,12 @@
 <head>
     <title>Inicio de Sesión y Registro</title>
     <script src="/Vueling/js/index.js"></script>
+    <!-- Link al CSS -->
     <link rel="stylesheet" href="./css/Vueling_css.css">
+
+    <!-- Link a los iconos de el formaulario -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
     <!-- boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -34,28 +39,62 @@
     </nav>
     <!------------------------ Contenido ---------------------------------->
 
-    <div class="right">
-        <h2>Registrarse</h2>
-        <form action="registro.php" method="post">
-            <label for="Nombre">Nombre:</label>
-            <input type="text" id="Nombre" name="Nombre" placeholder="Ingrese su Nombre" required>
-            <br>
-            <label for="Apellidos">Apellidos:</label>
-            <input type="text" id="Apellidos" name="Apellidos" placeholder="Ingrese sus Apellidos" required>
-            <br>
-            <label for="Correo_electronico">Correo Electronico:</label>
-            <input type="text" id="Correo_electronico" name="Correo_electronico"
-                placeholder="Ingrese su correo Electronico" required>
-            <br>
-            <label for="Nombre_de_usuario">Nombre de Usuario:</label>
-            <input type="text" id="Nombre_de_usuario" name="Nombre_de_usuario"
-                placeholder="Ingrese el Nombre de usuario" required>
-            <br>
-            <label for="Contraseña">Contraseña:</label>
-            <input type="password" id="Contraseña" name="Contraseña" placeholder="Ingrese la Contrasena" required>
-            <br>
-            <button type="submit">Registrarse</button>
-        </form>
+    <form class="formulario">
+
+        <h1>Registrate</h1>
+        <div class="contenedor">
+            <!-- Pedimos el Nombre -->
+            <div class="input-contenedor">
+                <!-- icono de la persona -->
+                <i class="fas fa-user icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra el Nombre en el formulario i lo pedimos -->
+                <input type="text" placeholder="Nombre">
+
+            </div>
+
+            <!-- Pedimos los Apellidos -->
+            <div class="input-contenedor">
+                <!-- icono de la persona -->
+                <i class="fas fa-user icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra los Apellidos en el formulario i los pedimos -->
+                <input type="text" placeholder="Apellidos">
+
+            </div>
+
+            <!-- Pedimos el correo electronico -->
+            <div class="input-contenedor">
+                <!-- icono de el correo electronico  -->
+                <i class="fas fa-envelope icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra el Correo Electronico en el formulario i lo pedimos -->
+                <input type="text" placeholder="Correo Electronico">
+
+            </div>
+
+            <!-- Pedimos el nombre de usuario -->
+            <div class="input-contenedor">
+                <!-- icono de la persona -->
+                <i class="fas fa-user icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra el Nombre de usuario en el formulario i lo pedimos -->
+                <input type="text" placeholder="Nombre de usuario">
+
+            </div>
+
+            <!-- Pedimos la contraseña -->
+            <div class="input-contenedor">
+                <!-- icono de la llave -->
+                <i class="fas fa-key icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra la contraseña en el formulario i la pedimos -->
+                <input type="password" placeholder="Contraseña">
+
+            </div>
+            <!-- boton de login/registro -->
+            <input type="submit" value="Registrate" class="button">
+
+            <!-- frase debajo de el boton i link al otro formulario-->
+            <p>¿Ya tienes una cuenta?<a class="link" href="Inicio_Sesion.html">Iniciar Sesion</a></p>
+        </div>
+    </form>
+
     </div>
     </div>
 </body>

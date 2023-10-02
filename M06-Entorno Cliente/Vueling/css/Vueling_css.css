@@ -1,81 +1,96 @@
-/* Estilo general para el cuerpo de la página */
+/* Estilo de el contenido */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    font-family: Arial, Helvetica, sans-serif; /* Fuente de letra */
     margin: 0;
-    padding: 0;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-/* Estilo para el encabezado del menú de navegación */
-.navbar {
-    background-color: #3498db;
-    color: #fff;
+* {
+    box-sizing: border-box;
 }
 
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
+/* Estilo de el contenedor donde ponemos i creamos los valores de el formulario*/
+.contenedor{
+    width: 100%; 
+    padding: 40px; /* tamaño de el contenedor (largo) (ancho), donde ponemos los iconos i los valores */
 }
 
-/* Estilo para el contenedor principal */
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
+/* Estilo de el formulario entero (con el titulo i la frase que ponemos para ir al otro) */
+.formulario{
+    background: white; /* Color de el formulario*/
+    margin-top: 300px;
+    padding: 3px;
 }
 
-.left, .right {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/*  Estilo del titulo */
+h1{
+    text-align: center; /* Lo centramos */
+    color: #1a2537; /* Color de el titulo */
+    font-size: 40px; /* Tamaño de el titulo */
 }
 
-.left h2, .right h2 {
-    text-align: center;
-    color: #3498db;
-}
-
-/* Estilo para los formularios */
-form {
-    text-align: left;
-    margin-top: 10px;
-}
-
-label, input {
-    display: block;
-    margin: 10px 0;
-}
-
-input[type="text"], input[type="password"] {
-    width: 100%;
+input[type="text"],
+input[type="password"]{
+    font-size: 20px;
+    width: 82%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #3498db;
-    color: #fff;
     border: none;
+}
+
+.input-contenedor{
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+}
+/* iconos de los formularios (llave, correo...) */
+.icon{
+    min-width: 50px; /* */
+    text-align: center; /* Alineamos los iconos en el centro (entre la frase pidiendo los valores i el principio de el contenedor)*/
+    color: #999; /* Color de los iconos */
+}
+
+/*boton de login/registro */
+.button{
+    border: none;
+    width: 100%;
+    color: black; /* color de la letra */
+    font-size: 20px; /* tamaño de la letra */
+    background:  #fcf8ad; /* color de el boton */
+    padding: 15px 40px; /* tamaño de el boton (largo) (ancho) */
     border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
 }
 
-button:hover {
-    background-color: #297fb8;
+/* cuando pasas por encima del boton de login/registro cambia de color */
+.button:hover{
+    background: black; /* Color de el fondo */
+    color: white; /* Color de la letra */
 }
 
-/* Estilo para el botón "Recuérdame" */
-.form-check {
-    margin-top: 10px;
-    text-align: left;
+/* Estilos de la etiqueta p (frases) */
+p{
+    text-align: center; /* Lo centramos*/
 }
 
-/* Estilo para los mensajes de error (aún no están en el HTML proporcionado) */
-#error-message {
-    color: red;
+/* estilo de el link de la frase que ponemos si ya tiene una cuenta o quiere registrarse */
+.link{
+    text-decoration: none;
+    color: #1a2537;
+    font-weight: 600;
 }
+
+/* cuando pasemos por encima del link cambiara de color */
+.link:hover{ 
+     color: cadetblue;
+}
+
+/* estilo para poner el formulario en el medio i los campos tambien */
+@media(min-width:768px)
+{
+    .formulario{
+        margin: auto;
+        width: 500px;/* ancho de los campos */
+        margin-top: 150px; /* margen con el "techo" */
+        border-radius: 2%;
+    }
+}
+
