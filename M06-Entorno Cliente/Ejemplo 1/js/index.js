@@ -103,16 +103,3 @@ document.getElementById("clic").addEventListener("click", function () {
     };
 
 });
-
-//recojer el contenido de las cajas
-let MyNum=document.getElementById("myNum").value; 
-let MyLle=document.getElementById("myLle").value; 
-
-//verificar el contenido de las cajas
-if(MyNum.lenght!=8){
-    document.getElementById("ErrorNum").innerHTML="Longitud incorrecta";
-    document.getElementById("myNum").value=""; 
-}else if(isNaN(MyNum)){
-    document.getElementById("ErrorNum").innerHTML="Solo se aceptan numeros";
-    document.getElementById("myNum").value=""; 
-}
