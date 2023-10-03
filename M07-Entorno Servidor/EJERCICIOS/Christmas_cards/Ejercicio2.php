@@ -19,27 +19,29 @@ require_once './Funtions.php';
     function main(): void
     {
         //variables
-        $random=Random(); //
+        $random=Random();
+        $ciudades=Ciudades_array();
         $imagenes_array= Christmas_img(); //variable que nos guarda el array con el nombre de todas las imagenes
-        $imagenes_random=Random_contenido_de_Array($imagenes_array,$random); //variable que le pasamos el nombre con todas las imagenes a la funcion Random_contenido_de_Array
-        $quitada_primera_img=quitar_primera_img($imagenes_random);//
-        $añadida_img=Añadir_img($imagenes_random);//
+        
+        $informacion_img=informacion_img($ciudades, $imagenes_array);
+        $info_img_par=img_pares($informacion_img);
+        $info_img_inpar=img_impares($informacion_img);
         
         //***********************-Mostramos por pantalla-***********************/ //
-            print('<h2>' . '<br>' . '*** Array Random ***' . '</h2>');
+            print('<h2>' . '<br>' . '*** Array asociativo ***' . '</h2>');
             echo '<hr>';
             //mostramos el array random
-            mostrar_Array_de_img($imagenes_random);
+            imprimir_img_con_informacion($imagenes_array, $informacion_img);
 
-            print('<h2>' . '<br>' . '*** Quitamos la primera imagen ***' . '</h2>');
+            print('<h2>' . '<br>' . '*** iconos pares ***' . '</h2>');
             echo '<hr>';   
             //mostramos el array con la imagen quitada
-            mostrar_Array_de_img($quitada_primera_img);
+            imprimir_img_con_informacion($imagenes_array, $info_img_par);
 
-            print('<h2>' . '<br>' . '*** añadimos una imagen ***' . '</h2>');
+            print('<h2>' . '<br>' . '*** iconos impares ***' . '</h2>');
             echo '<hr>';
             //mostramos el array con la imagen añadida
-            mostrar_Array_de_img($añadida_img);
+            imprimir_img_con_informacion($imagenes_array, $info_img_inpar);
 
     }
 

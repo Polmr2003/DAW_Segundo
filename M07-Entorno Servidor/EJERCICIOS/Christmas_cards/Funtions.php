@@ -29,11 +29,13 @@ function myMenu(){
                 <li class="nav-item">
                     <a class="nav-link" href="./Ejercicio1.php">Exercici 1</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./Ejercicio2.php">Exercici 2</a>
+                </li>
             </ul>
             </div>
             HERE;
             echo $menu;
             echo '<hr>';
 };
-
 ?>

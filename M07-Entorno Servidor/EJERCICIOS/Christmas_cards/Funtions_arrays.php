@@ -5,6 +5,13 @@ declare(strict_types=1);
 //Funtions print Array
 //------------------------------------------------------------------------------------------------------------
 
+/**
+ * return - retornamos un numero aleatorio entre 1 i 10
+ */
+function Random(): int{
+    return $random= rand(2,6);
+}
+
 /**                                       
  * $array - recojemos un int
  * foreach - recorremos el array, ponemos la etiqueta de img i mostramos las imagenes con el nombre que esten en el array
@@ -15,15 +22,42 @@ function mostrar_Array_de_img($array): void{
     }
 };
 
+function imprimir_img_con_informacion($imagenes_array, $img_asociativo) {
+    echo '<div style="display: flex; flex-wrap: wrap;">'; // ponemos un display flex para ponerlo una img al lado de otra
+
+    foreach ($img_asociativo as $key_aso => $value_aso) {
+        foreach ($imagenes_array as $value_array) {
+            if ($value_array == $value_aso['nombre de archivo']) {
+                // Contenedor para cada par de imagen e información, la ponemos para crear un contenedor para cada img i ponerlo bonito
+                echo '<div style="margin: 10px; text-align: center;">';
+                
+                //mostramos img
+                echo "<img src='./img/" . $value_aso['nombre de archivo'] . ".png' width='100' height='100'>";
+
+                //mostramos info
+                echo "<p> <strong>Tagname</strong> ={$value_aso['tagname']}</p>";
+                echo "<p> <strong>Likes</strong> ={$value_aso['likes']}</p>";
+                echo "<p> <strong>Nombre de archivo </strong> ={$value_aso['nombre de archivo']}</p>";
+                echo "<p> <strong>ciudad</strong> ={$value_aso['ciudad']}</p>";
+
+                echo '</div>'; // Cierre del contenedor
+            }
+        }
+    }
+
+    echo '</div>'; // Cierre del contenedor flex
+}
+
 /**
  * $array - recojemos el array con todas las imagenes
- * $num_img - variable para indicar cuantas imagnes random queremos extraer
+ * $random - recojermos un int, que cada vez nos dara uno diferente
+ * $num_img - variable para indicar cuantas imagnes random queremos extraer i la asociamos a la variable $random
  * $claves_aleatorias - creamos la variable para almacenar los strings que nos pase el metodo array_rand
  * $imagenes_aletorias[] - es un array que nos almacena los string de la variable $clave_aleatorias con el nombre de la imagen
  * return - retornamos el array $imagenes_aleatorias[] con los strings de los nombres de las imagenes
  */
-function Random_contenido_de_Array($array): mixed{ 
-    $num_img=4;
+function Random_contenido_de_Array($array, $random): mixed{ 
+    $num_img =$random;
     $claves_aleatorias = array_rand($array, $num_img); // array_rand nos extrae de manera random contenido de el string, en este caso como hemos puesto num_img que es 4, nos a 
                                                        // -> extraido 4 posiciones de el array con el nombre de las imagenes
     
@@ -66,13 +100,106 @@ function Añadir_img($array): mixed{
     return $array_con_imagen_añadida;
 };
 
+/**
+ * $img - recojemos el array con todas nuestras img con los valores
+ * foreach - recorremos el array con el valor como nombre $icono
+ * $tagname - cojemos las variables de el array con identificador de tagname
+ * $numero - hacemos un filter_var para filtar el contenido de el tagname i lo almacene en la variable $numero
+ * if - si el numero que hemos almecenado en la variable $numero es par entonces hara lo que pongamos dentro de el if
+ * $img_par[] - guardamos en esta variable que es un array que contendra todas las imagenes que sean pares
+ * return - retornamos todas las imagenes que esten en la variable $img_par
+ */
+function img_pares(mixed $img): mixed{
+    foreach ($img as $icono) {
+        $tagname = $icono["tagname"];
+        // Extraer el número del identificador "tagname"
+        $numero = filter_var($tagname, FILTER_SANITIZE_NUMBER_INT);//FILTER_SANITIZE_NUMBER_INT coje los numeros en la varible que hallas puesto
+        
+        if ($numero %2 == 0) {
+            $img_par[] = $icono;
+        }
+    }
+    return $img_par;
+}
 
+/**
+ * $img - recojemos el array con todas nuestras img con los valores
+ * foreach - recorremos el array con el valor como nombre $icono
+ * $tagname - cojemos las variables de el array con identificador de tagname
+ * $numero - hacemos un filter_var para filtar el contenido de el tagname i lo almacene en la variable $numero
+ * if - si el numero que hemos almecenado en la variable $numero es inpar entonces hara lo que pongamos dentro de el if
+ * $img_inpar[] - guardamos en esta variable que es un array que contendra todas las imagenes que sean inpares
+ * return - retornamos todas las imagenes que esten en la variable $img_inpar
+ */
+function img_impares(mixed $img){
+    foreach ($img as $icono) {
+        $tagname = $icono["tagname"];
+        // Extraer el número del identificador "tagname"
+        $numero = filter_var($tagname, FILTER_SANITIZE_NUMBER_INT); //FILTER_SANITIZE_NUMBER_INT coje los numeros en la varible que hallas puesto
+        
+        if ($numero % 2 != 0) {
+            $img_inpar[] = $icono;
+        }
+    }
+    return $img_inpar;
+}
+
+/**
+ * $array - recojemos un array para mostrarlo
+ * echo - recorremos i mostramos con el metodo print_r el array i en cada lado ponemos la etiqueta <pre> para mostrar el array de forma bonita 
+ * -> ni que se ponga una linea de texto detras de la otra
+ */
+function print_Array_Asociativo_Pretty(mixed $array)
+{
+    echo "<pre>" . print_r($array, true) . "</pre>"; 
+    
+}
 
 // Crear Array
 //-----------------------------------------------
 function Christmas_img(){
-    $img =['Muñeco_de_nieve', 'Adorno', 'Arbol', 'Chimenea', 'Papa_noel', 'Reno'];
-    return $img;
+    $img_array =['Muñeco_de_nieve', 'Adorno', 'Arbol', 'Chimenea', 'Papa_noel', 'Reno'];
+    return $img_array;
+}
+
+/**
+ * $ciudad - recojemos el array con las ciudades
+ * $img_array - recojemos el array con las imagenes de las fotos
+ * for - hacemos un bucle para crear 6 arrays para guardar nuestras 6 imagenes con los identificadores
+ * $icono - creamos el array donde estaran los identificadores con los valores
+ * $iconos[] - cremoas la variable para guardar todos los array de los iconos 
+ * rturn - retornamos el array con todos los iconos i identificadores con las variables
+ */
+function informacion_img($ciudad, $img_array){
+    $ciudades_utilizadas = array(); // Para rastrear las ciudades utilizadas
+
+    for ($i = 0; $i < 6; $i++) {
+        $ciudad_aleatoria = $ciudad[array_rand($ciudad)];
+
+        // Verificar si la ciudad ya se ha utilizado en otro icono
+        while (in_array($ciudad_aleatoria, $ciudades_utilizadas)) {
+            $ciudad_aleatoria = $ciudad[array_rand($ciudad)];
+        }
+
+        // Agregar la ciudad al array de ciudades utilizadas
+        $ciudades_utilizadas[] = $ciudad_aleatoria;
+
+        $icono = array(
+            "tagname" => "Icono " . ($i + 1),
+            "likes" => rand(1, 100),
+            "nombre de archivo" => "$img_array[$i]",
+            "ciudad" => $ciudad_aleatoria
+        );
+        
+        $iconos[] = $icono;
+    }
+    return $iconos;
+}
+
+
+function Ciudades_array(){
+    $ciudades_array= ['Nueva York', 'París', 'Tokio', 'Río de Janeiro', 'Sídney', 'Ciudad del Cabo'];
+    return $ciudades_array;
 }
 
 ?>
