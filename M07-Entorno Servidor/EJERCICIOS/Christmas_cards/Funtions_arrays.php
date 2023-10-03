@@ -22,6 +22,9 @@ function mostrar_Array_de_img($array): void{
     }
 };
 
+/**
+ * 
+ */
 function imprimir_img_con_informacion($imagenes_array, $img_asociativo) {
     echo '<div style="display: flex; flex-wrap: wrap;">'; // ponemos un display flex para ponerlo una img al lado de otra
 
@@ -165,35 +168,41 @@ function Christmas_img(){
 /**
  * $ciudad - recojemos el array con las ciudades
  * $img_array - recojemos el array con las imagenes de las fotos
- * for - hacemos un bucle para crear 6 arrays para guardar nuestras 6 imagenes con los identificadores
- * $icono - creamos el array donde estaran los identificadores con los valores
- * $iconos[] - cremoas la variable para guardar todos los array de los iconos 
+ * $ciudades_utilizadas - 
+ * $ciudad_aleatoria -
+ * while - Verificar si la ciudad ya se ha utilizado mirando si el resultado de $ciudad_aleatoria esta en el array $ciudades_utilizadas
+ * $ciudades_utilizadas[] - 
+ * $info_img - creamos un array de la informacion de una imagen
+ * $iconos[] - cremoas la variable para guardar todos los array con la informacion de todas las imagenes 
  * rturn - retornamos el array con todos los iconos i identificadores con las variables
  */
 function informacion_img($ciudad, $img_array){
-    $ciudades_utilizadas = array(); // Para rastrear las ciudades utilizadas
+    $ciudades_utilizadas = array(); // Para guardar las ciudades utilizadas
 
     for ($i = 0; $i < 6; $i++) {
+        //cojemos una ciudad aleatoria
         $ciudad_aleatoria = $ciudad[array_rand($ciudad)];
 
         // Verificar si la ciudad ya se ha utilizado en otro icono
-        while (in_array($ciudad_aleatoria, $ciudades_utilizadas)) {
-            $ciudad_aleatoria = $ciudad[array_rand($ciudad)];
+        while (in_array($ciudad_aleatoria, $ciudades_utilizadas)) { // in_array busca si existe un elemento en un array, si encuentra el elemento hara lo que le indiquemos abajo
+            $ciudad_aleatoria = $ciudad[array_rand($ciudad)]; //vuelve a hacer un array_rand para cojer una ciudad aleatoria
         }
 
         // Agregar la ciudad al array de ciudades utilizadas
         $ciudades_utilizadas[] = $ciudad_aleatoria;
 
-        $icono = array(
-            "tagname" => "Icono " . ($i + 1),
-            "likes" => rand(1, 100),
-            "nombre de archivo" => "$img_array[$i]",
-            "ciudad" => $ciudad_aleatoria
+        //creamos la informacion de la img
+        $info_img = array(
+            "tagname" => "Icono " . ($i + 1), //ponemos el nombre de icono mas un numero que valla aumentando
+            "likes" => rand(1, 100), // ponemos en likes un numero aleatorio entre 1 i 100
+            "nombre de archivo" => "$img_array[$i]", //ponemos el nombre de la imagen que tenemos en el array de la variable $img_array i la posicion que ira aumentando
+            "ciudad" => $ciudad_aleatoria // ponemos la ciudad aleatoria que halla salido con el array_rand
         );
         
-        $iconos[] = $icono;
+        //añadimos el array $info_img en este array para guardar todos los que creemos
+        $info_imgs[] = $info_img;
     }
-    return $iconos;
+    return $info_imgs;
 }
 
 
