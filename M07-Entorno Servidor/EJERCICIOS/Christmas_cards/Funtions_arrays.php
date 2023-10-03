@@ -25,31 +25,28 @@ function mostrar_Array_de_img($array): void{
 /**
  * 
  */
-function imprimir_img_con_informacion($imagenes_array, $img_asociativo) {
-    echo '<div style="display: flex; flex-wrap: wrap;">'; // ponemos un display flex para ponerlo una img al lado de otra
+function imprimir_img_con_informacion($imagenes_array, $info_img) {
+    echo '<div style="display: flex; flex-wrap: wrap;">'; // Contenedor flex para imágenes
 
-    foreach ($img_asociativo as $key_aso => $value_aso) {
-        foreach ($imagenes_array as $value_array) {
-            if ($value_array == $value_aso['nombre de archivo']) {
-                // Contenedor para cada par de imagen e información, la ponemos para crear un contenedor para cada img i ponerlo bonito
-                echo '<div style="margin: 10px; text-align: center;">';
-                
-                //mostramos img
-                echo "<img src='./img/" . $value_aso['nombre de archivo'] . ".png' width='100' height='100'>";
+    foreach ($info_img as $value_aso) {    
+        $nombre_archivo = $value_aso['nombre de archivo'];
 
-                //mostramos info
-                echo "<p> <strong>Tagname</strong> ={$value_aso['tagname']}</p>";
-                echo "<p> <strong>Likes</strong> ={$value_aso['likes']}</p>";
-                echo "<p> <strong>Nombre de archivo </strong> ={$value_aso['nombre de archivo']}</p>";
-                echo "<p> <strong>ciudad</strong> ={$value_aso['ciudad']}</p>";
+        if (in_array($nombre_archivo, $imagenes_array)) {
+            echo '<div style="margin: 10px; text-align: center;">';
 
-                echo '</div>'; // Cierre del contenedor
-            }
+            echo "<img src='./img/$nombre_archivo.png' width='100' height='100'>";
+            echo "<p><strong>Tagname</strong> = {$value_aso['tagname']}</p>";
+            echo "<p><strong>Likes</strong> = {$value_aso['likes']}</p>";
+            echo "<p><strong>Nombre de archivo</strong> = $nombre_archivo</p>";
+            echo "<p><strong>Ciudad</strong> = {$value_aso['ciudad']}</p>";
+
+            echo '</div>'; // Cierre del contenedor
         }
     }
 
     echo '</div>'; // Cierre del contenedor flex
 }
+
 
 /**
  * $array - recojemos el array con todas las imagenes
@@ -143,10 +140,83 @@ function img_impares(mixed $img){
         if ($numero % 2 != 0) {
             $img_inpar[] = $icono;
         }
+        
     }
     return $img_inpar;
 }
 
+/**
+ * 
+ */
+function img_con_mas_likes($info_array) {
+    $img_mas_likes = array();
+    $likes = 0;
+
+    foreach ($info_array as $key => $value) {
+        if ($value['likes'] == $likes) {
+            $img_mas_likes[] = array(
+                "tagname" => "{$value['tagname']}",
+                "likes" => "{$value['likes']}",
+                "nombre de archivo" => "{$value['nombre de archivo']}",
+                "ciudad" => "{$value['ciudad']}"
+            );
+        } elseif ($value['likes'] > $likes) {
+            $img_mas_likes = array(); // borramos el contenido para que nos muestre solo el que tenga mas likes
+            $img_mas_likes[] = array(
+                "tagname" => "{$value['tagname']}",
+                "likes" => "{$value['likes']}",
+                "nombre de archivo" => "{$value['nombre de archivo']}",
+                "ciudad" => "{$value['ciudad']}"
+            );
+            $likes = $value['likes'];
+        }
+    }
+
+    return $img_mas_likes;
+}
+
+
+function img_con_menos_likes($info_array) {
+    $img_mas_likes = array();
+    $likes = 100;
+
+    foreach ($info_array as $key => $value) {
+        if ($value['likes'] == $likes) {
+            $img_mas_likes[]= array(
+                "tagname" => "{$value['tagname']}",
+                "likes" => "{$value['likes']}",
+                "nombre de archivo" => "{$value['nombre de archivo']}",
+                "ciudad" => "{$value['ciudad']}"
+            );
+        } elseif ($value['likes'] < $likes) {
+            $img_mas_likes = array(); // borramos el contenido para que nos muestre solo el que tenga mas likes
+            $img_mas_likes[] = array(
+                "tagname" => "{$value['tagname']}",
+                "likes" => "{$value['likes']}",
+                "nombre de archivo" => "{$value['nombre de archivo']}",
+                "ciudad" => "{$value['ciudad']}"
+            );
+
+            $likes = $value['likes'];
+        }
+    }
+
+    return $img_mas_likes;
+}
+
+/**
+ * $array - recibimos el array que queremos ordenar
+ * usort - le decimos que queremos ordenar el array i hacemos una funcion anonima pasandole los valores de el array como $a i $b
+ * return strcmp - retornamos el contenido de la variable que esten almacenada en nombre de archivo ordenada
+ * return - retornamos el array ordenado
+ */
+function ordenar_array($array){
+    usort($array, function ($a, $b) { //usort - ordena un array de la forma en la que nosotros le digamos
+        return strcmp($a['nombre de archivo'], $b['nombre de archivo']); // strcmp -  implementa un algoritmo de comparación que ordena strings alfanuméricos, devuelve un valor negativo si la primera cadena es menor que la segunda, un valor positivo si es mayor o cero si son iguales.
+    });
+    return $array;
+
+}
 /**
  * $array - recojemos un array para mostrarlo
  * echo - recorremos i mostramos con el metodo print_r el array i en cada lado ponemos la etiqueta <pre> para mostrar el array de forma bonita 
