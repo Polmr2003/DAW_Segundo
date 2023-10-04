@@ -83,6 +83,14 @@ function Array_indexado(){
 };
 
 function Array_Asociativo(){
+    /*$html = array();
+
+    //ponemos las variables
+    $html['title'] = 'PHP Associative Arrays';
+    $html['description'] = 'Learn how to use associative arrays in PHP';
+    return $html;
+    */
+
     $Array= [
         '1'=>'Numero 1',
         '2'=>'Numero 2', 

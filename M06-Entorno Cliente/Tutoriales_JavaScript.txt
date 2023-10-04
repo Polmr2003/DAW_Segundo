@@ -1,6 +1,9 @@
 -tutorial recomendado:
 https://es.javascript.info/
 
+-web mozilla
+https://developer.mozilla.org/es/docs/Learn/JavaScript/First_steps
+
 -w3schools:
 https://www.w3schools.com/js/default.asp
 
