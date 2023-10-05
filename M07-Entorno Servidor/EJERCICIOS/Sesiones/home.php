@@ -10,6 +10,7 @@ require_once './Funtions.php';
 
 //funciones
 inicio_sesion();
+$_SESSION['visita']=0;
 ?>
 
 <html>
@@ -27,7 +28,8 @@ inicio_sesion();
         echo(title());
 
         //
-        $_SESSION["favcolor"] = "yellow";
+        $_SESSION['visitasd']++;
+
 
         print_r($_SESSION);
     }

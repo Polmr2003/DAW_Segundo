@@ -92,14 +92,5 @@ document.getElementById("link").href = "http://proven.cat";
 //manera alternativa de incrustar una pagina
 document.write("hello hello"); // no respeta lo que hubiera antes, te lo mete a saco donde quepa
 
-//recojo un valor de un formulario, le pongo una condicion para hacerlo que es que clicke
-document.getElementById("clic").addEventListener("click", function () {
-
-    let my_name = document.getElementById("nom").value;
-
-    if (my_name == "David") {
-        alert("HOLA DAVID!!");
-
-    };
-
-});
+//
+window.open();
