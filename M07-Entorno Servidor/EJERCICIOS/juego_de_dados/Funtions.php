@@ -126,7 +126,7 @@ function jugador_3(): int{
  * return - retornamos el String con el mensaje que hemos programado en las condiciones (is, elseif, else) 
  */
 function ganador_2_jugadores($cara_jugador_1 , $cara_jugador_2): string{
-    $message;
+    $message="";
     if($cara_jugador_1 > $cara_jugador_2){
         $message="<h2>A ganado el jugador 1</h2>";
     }elseif($cara_jugador_1 < $cara_jugador_2){
@@ -168,6 +168,20 @@ function ganador_3_jugadores($cara_jugador_1 , $cara_jugador_2, $cara_jugador_3 
         $message="<h2>Empate jugador 2 i 3</h2>";
     }
     return $message;
+}
+
+function start_session(){
+    return session_start();
+};
+
+function remove_session(){
+    // destroy the session
+    return session_destroy();
+}
+
+function remove_var_session(){
+    // remove all session variables
+    return session_unset();
 }
 
 ?>

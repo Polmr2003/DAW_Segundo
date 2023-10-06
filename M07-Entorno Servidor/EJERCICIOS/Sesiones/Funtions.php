@@ -47,8 +47,18 @@ function title(){
     return $Title;
 };
 
-function inicio_sesion(){
+function start_session(){
     return session_start();
 };
+
+function remove_session(){
+    // destroy the session
+    return session_destroy();
+}
+
+function remove_var_session(){
+    // remove all session variables
+    return session_unset();
+}
 
 ?>

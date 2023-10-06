@@ -9,7 +9,7 @@ require_once './Funtions.php';
     myMenu();
 
 //funciones
-inicio_sesion();
+start_session();
 $_SESSION['visita']=0;
 ?>
 
@@ -26,11 +26,17 @@ $_SESSION['visita']=0;
     {
         //printamos el titulo
         echo(title());
+        
+        // Comprobar si la variable de sesión está definida
+        if (isset($_SESSION['isset_normal_1'])) { // isset comprueba una variable i devuelve un booleano (true: si esta creada i tiene valores | falso: si no esta creado o esta null)
+            // Si está definida, sumar uno
+            $_SESSION['isset_normal_1']++;
+        } else {
+            // Si no está definida, crearla e inicializarla en 1
+            $_SESSION['isset_normal_1'] = 1;
+        }
 
-        //
-        $_SESSION['visitasd']++;
-
-
+        //printamos las variables de sessiones i sus valores
         print_r($_SESSION);
     }
 
