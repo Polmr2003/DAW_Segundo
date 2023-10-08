@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // verifico el nombre de usuario
             if (usuari.length < 1) {
-                document.getElementById("errorUsuari").innerHTML = "No puede estar vacío";
+                document.getElementById("errorUsuari").innerHTML = "No puede estar vacio";
                 document.getElementById("new_usuari").value = "";
                 flag_registro = false;
             } else if (usuari.length > 10) {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // verifico la contraseña
             if (password.length < 1) {
-                document.getElementById("errorPassword").innerHTML = "No puede estar vacío";
+                document.getElementById("errorPassword").innerHTML = "No puede estar vacio";
                 document.getElementById("new_password").value = "";
                 flag_registro = false;
             } else if (password.length > 8) {
