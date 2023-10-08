@@ -26,13 +26,13 @@ function mostrar_Array_de_img($array): void{
  * 
  */
 function imprimir_img_con_informacion($imagenes_array, $info_img) {
-    echo '<div style="display: flex; flex-wrap: wrap;">'; // Contenedor flex para poner las imagenes una al lado de otra
+    echo '<div style="display: flex; flex-wrap: wrap;">'; // Contenedor flex para imágenes
 
     foreach ($info_img as $value_aso) {    
         $nombre_archivo = $value_aso['nombre de archivo'];
 
         if (in_array($nombre_archivo, $imagenes_array)) {
-            echo '<div style="margin: 10px; text-align: center;">'; // creamos un contenedor donde mostraremos las imagenes con la informacion, en este caso hemos centrado la informacion con la imagen
+            echo '<div style="margin: 10px; text-align: center;">';
 
             echo "<img src='./img/$nombre_archivo.png' width='100' height='100'>";
             echo "<p><strong>Tagname</strong> = {$value_aso['tagname']}</p>";
@@ -175,9 +175,7 @@ function img_con_mas_likes($info_array) {
     return $img_mas_likes;
 }
 
-/**
- * 
- */
+
 function img_con_menos_likes($info_array) {
     $img_mas_likes = array();
     $likes = 100;

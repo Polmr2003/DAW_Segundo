@@ -3,7 +3,6 @@
 
 <head>
     <title>Inicio de Sesión y Registro</title>
-    <script src="/Vueling/js/index.js"></script>
     <!-- Link al CSS -->
     <link rel="stylesheet" href="./css/Vueling_css.css">
 
@@ -48,7 +47,7 @@
                 <!-- icono de la persona -->
                 <i class="fas fa-user icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra el Nombre en el formulario i lo pedimos -->
-                <input type="text" placeholder="Nombre">
+                <input type="text" id="name" placeholder="Nombre">
 
             </div>
 
@@ -57,7 +56,7 @@
                 <!-- icono de la persona -->
                 <i class="fas fa-user icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra los Apellidos en el formulario i los pedimos -->
-                <input type="text" placeholder="Apellidos">
+                <input type="text" id="subname" placeholder="Apellidos">
 
             </div>
 
@@ -66,7 +65,7 @@
                 <!-- icono de el correo electronico  -->
                 <i class="fas fa-envelope icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra el Correo Electronico en el formulario i lo pedimos -->
-                <input type="text" placeholder="Correo Electronico">
+                <input type="text" id="gmail" placeholder="Correo Electronico">
 
             </div>
 
@@ -75,7 +74,7 @@
                 <!-- icono de la persona -->
                 <i class="fas fa-user icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra el Nombre de usuario en el formulario i lo pedimos -->
-                <input type="text" placeholder="Nombre de usuario">
+                <input type="text" id="usuari" placeholder="Nombre de usuario">
 
             </div>
 
@@ -84,19 +83,19 @@
                 <!-- icono de la llave -->
                 <i class="fas fa-key icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra la contraseña en el formulario i la pedimos -->
-                <input type="password" placeholder="Contraseña">
+                <input type="password" id="password" placeholder="Contraseña">
 
             </div>
             <!-- boton de login/registro -->
-            <input type="submit" value="Registrate" class="button">
+            <input type="submit" id="myBtn" class="button">
 
             <!-- frase debajo de el boton i link al otro formulario-->
             <p>¿Ya tienes una cuenta?<a class="link" href="Inicio_Sesion.html">Iniciar Sesion</a></p>
         </div>
     </form>
 
-    </div>
-    </div>
+    <!-- Script -->
+    <script src="js/Nuevo_Usuario.js"></script>
 </body>
 
 </html>
