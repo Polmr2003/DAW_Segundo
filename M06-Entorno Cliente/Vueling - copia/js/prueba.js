@@ -1,19 +1,47 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Inicio de sesión
+    document.getElementById("myBtn_login").addEventListener("click", function () {
+        //booleano para saber si estan bien las credenciales
+        var flag_login = false;
+
+        // Ejercicio Vueling 9/10/2023
+        let usuaris = ["usu01", "usu02", "usu03"];
+        let contrasenyes = ["pass01", "pass02", "pass03"];
+
+        // Obtener los valores del formulario de inicio de sesión
+        var usuari_login = document.getElementById("login_gmail").value;
+        var password_login = document.getElementById("login_password").value;
+
+        for (let i = 0; i < usuaris.length; i++) {
+            // Comprobar si el usuario y la contraseña coinciden
+            if (usuari_login == usuaris[i] && password_login == contrasenyes[i]) { // Si el usuario que a puesto i la contraseña estan en la misma posicion que en los arrays entrara
+                flag_login = true;
+                break;//salimos de el bucle cuando entre en el if
+            }
+        }
+
+        if (flag_login) {
+            alert("USUARIO CORRECTO");
+        } else {
+            alert("CREDENCIALES INCORRECTAS");
+        }
+    });
+
 
     // Registro de un nuevo usuario
     document.getElementById("myBtn_registro").addEventListener("click", function () {
         //booleano para saber si estan bien las credenciales
         var flag_registro = true;
-        
+
         // Obtener los valores del formulario de registro
         var nombre = document.getElementById("new_nombre").value;
         var apellidos = document.getElementById("new_apellido").value;
         var gmail = document.getElementById("new_gmail").value;
         var usuari = document.getElementById("new_usuari").value;
         var password = document.getElementById("new_password").value;
-        
+
         //--------------------------Realizar validaciones aquí para el registro ---------------------------------
-        
+
         // verifico el nombre
         if (nombre.length < 1) {
             document.getElementById("errorName").innerHTML = "No puede estar vacio";
@@ -26,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             document.getElementById("errorName").innerHTML = "";
         }
-        
+
         // verifico el apellido
         if (apellidos.length < 1) {
             document.getElementById("errorSubname").innerHTML = "No puede estar vacio";
@@ -79,40 +107,12 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorPassword").innerHTML = "";
         }
 
-        if (flag_registro) {
-            alert("USUARIO REGISTRADO CORRECTAMENTE");
-        } else {
-            event.preventDefault(); // Evitar que se recargue la página
+        //comprovamos que los campos esten bien
+        if(flag==true){ // si las credenciales estan bien
+            alert("USUARI ENREGISTRAT CORRECTAMENT");
+        }else{ // si alguna credencial esta mal
+            event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
         }
     });
-
-    // Inicio de sesión
-    document.getElementById("myBtn_login").addEventListener("click", function () {
-        //booleano para saber si estan bien las credenciales
-        var flag_login = false;
-        
-        // Ejercicio Vueling 9/10/2023
-        let usuaris = ["usu01", "usu02", "usu03"];
-        let contrasenyes = ["pass01", "pass02", "pass03"];
-    
-        // Obtener los valores del formulario de inicio de sesión
-        var usuari_login = document.getElementById("login_gmail").value;
-        var password_login = document.getElementById("login_password").value;
-    
-        for (let i = 0; i < usuaris.length; i++) {
-            // Comprobar si el usuario y la contraseña coinciden
-            if (usuari_login == usuaris[i] && password_login == contrasenyes[i]) {
-                flag_login = true;
-                break;
-            }
-        }
-    
-        if (flag_login) {
-            alert("USUARIO CORRECTO");
-        } else {
-            alert("CREDENCIALES INCORRECTAS");
-        }
-    });
-
 
 });
