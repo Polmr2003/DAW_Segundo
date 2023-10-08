@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Inicio de Sesión y Registro</title>
+    <title>Registrarse</title>
     <!-- Link al CSS -->
     <link rel="stylesheet" href="./css/Vueling_css.css">
 
@@ -18,13 +18,14 @@
 </head>
 
 <body>
-    <!------------------------ menu ---------------------------------->
-    <nav class="navbar navbar-expand-lg" style="background-color: #fcf8ad;">
+       <!------------------------ menu ---------------------------------->
+       <nav class="navbar navbar-expand-lg" style="background-color: #fcf8ad;">
         <!-- Navbar content -->
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">Vueling</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -38,8 +39,7 @@
     </nav>
     <!------------------------ Contenido ---------------------------------->
 
-    <form class="formulario">
-
+    <form class="formulario" id="registro-form">
         <h1>Registrate</h1>
         <div class="contenedor">
             <!-- Pedimos el Nombre -->
@@ -47,10 +47,9 @@
                 <!-- icono de la persona -->
                 <i class="fas fa-user icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra el Nombre en el formulario i lo pedimos -->
-                <input type="text" id="name" placeholder="Nombre">
+                <input type="text" id="new_nombre" placeholder="Nombre">
                 <!-- ponemos -->
                 <span style="color:red" id="errorName"></span>
-
             </div>
 
             <!-- Pedimos los Apellidos -->
@@ -58,10 +57,9 @@
                 <!-- icono de la persona -->
                 <i class="fas fa-user icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra los Apellidos en el formulario i los pedimos -->
-                <input type="text" id="subname" placeholder="Apellidos">
+                <input type="text" id="new_apellido" placeholder="Apellidos">
                 <!-- ponemos -->
                 <span style="color:red" id="errorSubname"></span>
-
             </div>
 
             <!-- Pedimos el correo electronico -->
@@ -69,10 +67,9 @@
                 <!-- icono de el correo electronico  -->
                 <i class="fas fa-envelope icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra el Correo Electronico en el formulario i lo pedimos -->
-                <input type="text" id="gmail" placeholder="Correo Electronico">
+                <input type="text" id="new_gmail" placeholder="Correo Electronico">
                 <!-- ponemos -->
                 <span style="color:red" id="errorGmail"></span>
-                
             </div>
 
             <!-- Pedimos el nombre de usuario -->
@@ -80,10 +77,9 @@
                 <!-- icono de la persona -->
                 <i class="fas fa-user icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra el Nombre de usuario en el formulario i lo pedimos -->
-                <input type="text" id="usuari" placeholder="Nombre de usuario">
+                <input type="text" id="new_usuari" placeholder="Nombre de usuario">
                 <!-- ponemos -->
                 <span style="color:red" id="errorUsuari"></span>
-
             </div>
 
             <!-- Pedimos la contraseña -->
@@ -91,13 +87,13 @@
                 <!-- icono de la llave -->
                 <i class="fas fa-key icon"></i>
                 <!-- ponemos el lugar donde el usuario pondra la contraseña en el formulario i la pedimos -->
-                <input type="password" id="password" placeholder="Contraseña">
+                <input type="password" id="new_password" placeholder="Contraseña">
                 <!-- ponemos -->
                 <span style="color:red" id="errorPassword"></span>
-
             </div>
-            <!-- boton de login/registro -->
-            <input type="submit" id="myBtn" class="button">
+
+            <!-- boton de registro -->
+            <input type="submit" id="myBtn_registro" class="button" value="Registrarse">
 
             <!-- frase debajo de el boton i link al otro formulario-->
             <p>¿Ya tienes una cuenta?<a class="link" href="Inicio_Sesion.html">Iniciar Sesion</a></p>
@@ -105,7 +101,7 @@
     </form>
 
     <!-- Script -->
-    <script src="js/Nuevo_Usuario.js"></script>
+    <script src="js/Inicio_Registro.js"></script>
 </body>
 
 </html>

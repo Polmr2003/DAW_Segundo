@@ -1,27 +1,28 @@
 //cuando cargue la página
 document.addEventListener("DOMContentLoaded", function () {
+    // Registro de un nuevo usuario
+    document.getElementById("myBtn_registro").addEventListener("click", function () {
+        //booleano para saber si estan bien las credenciales
+        var flag_registro = true;
 
-    document.getElementById("myBtn").addEventListener("click", function () {
+        // Obtener los valores del formulario de registro
+        var nombre = document.getElementById("new_nombre").value;
+        var apellidos = document.getElementById("new_apellido").value;
+        var gmail = document.getElementById("new_gmail").value;
+        var usuari = document.getElementById("new_usuari").value;
+        var password = document.getElementById("new_password").value;
 
-        // booleano para verificar que todas las credenciales estan correctas
-        var flag = true;
-
-        // variables del nuevo usuario
-        var nombre = document.getElementById("name").value;
-        var apellidos = document.getElementById("subname").value;
-        var gmail = document.getElementById("gmail").value;
-        var usuari = document.getElementById("usuari").value;
-        var password = document.getElementById("password").value;
+        //--------------------------Realizar validaciones aquí para el registro ---------------------------------
 
         // verifico el nombre
         if (nombre.length < 1) {
             document.getElementById("errorName").innerHTML = "No puede estar vacio";
-            document.getElementById("name").value = "";
-            flag = false;
+            document.getElementById("new_nombre").value = "";
+            flag_registro = false;
         } else if (!(isNaN(nombre))) {
             document.getElementById("errorName").innerHTML = "Solo puede contener letras";
-            document.getElementById("name").value = "";
-            flag = false;
+            document.getElementById("new_nombre").value = "";
+            flag_registro = false;
         } else {
             document.getElementById("errorName").innerHTML = "";
         }
@@ -29,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // verifico el apellido
         if (apellidos.length < 1) {
             document.getElementById("errorSubname").innerHTML = "No puede estar vacio";
-            document.getElementById("subname").value = "";
-            flag = false;
+            document.getElementById("new_apellido").value = "";
+            flag_registro = false;
         } else if (!(isNaN(apellidos))) {
             document.getElementById("errorSubname").innerHTML = "Solo puede contener letras";
-            document.getElementById("subname").value = "";
-            flag = false;
+            document.getElementById("new_apellido").value = "";
+            flag_registro = false;
         } else {
             document.getElementById("errorSubname").innerHTML = "";
         }
@@ -42,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // verifico el gmail
         if (gmail.length < 1) {
             document.getElementById("errorGmail").innerHTML = "No puede estar vacio";
-            document.getElementById("gmail").value = "";
-            flag = false;
-        } else if (!/@/.test(gmail)) { //verifica si contiene @ en el contenido de el gmail ||  ( /^\S+@\S+\.\S+$/ :: ^ al principio de la expresión regular indica que la cadena debe comenzar con el patrón que sigue a continuación, \S+ representa cualquier carácter que no sea un espacio en blanco)
-            document.getElementById("errorGmail").innerHTML = "Pon un formato de correo valida, tiene que contener @";
-            document.getElementById("gmail").value = "";
-            flag = false;
+            document.getElementById("new_gmail").value = "";
+            flag_registro = false;
+        } else if (!/@/.test(gmail)) {
+            document.getElementById("errorGmail").innerHTML = "Pon un formato de correo válido, debe contener @";
+            document.getElementById("new_gmail").value = "";
+            flag_registro = false;
         } else {
             document.getElementById("errorGmail").innerHTML = "";
         }
@@ -55,12 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // verifico el nombre de usuario
         if (usuari.length < 1) {
             document.getElementById("errorUsuari").innerHTML = "No puede estar vacio";
-            document.getElementById("usuari").value = "";
-            flag = false;
+            document.getElementById("new_usuari").value = "";
+            flag_registro = false;
         } else if (usuari.length > 10) {
-            document.getElementById("errorUsuari").innerHTML = "No puede tener mas de 10 caracteres";
-            document.getElementById("usuari").value = "";
-            flag = false;
+            document.getElementById("errorUsuari").innerHTML = "No puede tener más de 10 caracteres";
+            document.getElementById("new_usuari").value = "";
+            flag_registro = false;
         } else {
             document.getElementById("errorUsuari").innerHTML = "";
         }
@@ -68,22 +69,22 @@ document.addEventListener("DOMContentLoaded", function () {
         // verifico la contraseña
         if (password.length < 1) {
             document.getElementById("errorPassword").innerHTML = "No puede estar vacio";
-            document.getElementById("password").value = "";
-            flag = false;
-        } else if (password.length >8) {
-            document.getElementById("errorPassword").innerHTML = "No puede tener mas de 8 caracteres";
-            document.getElementById("password").value = "";
-            flag = false;
+            document.getElementById("new_password").value = "";
+            flag_registro = false;
+        } else if (password.length > 8) {
+            document.getElementById("errorPassword").innerHTML = "No puede tener más de 8 caracteres";
+            document.getElementById("new_password").value = "";
+            flag_registro = false;
         } else {
             document.getElementById("errorPassword").innerHTML = "";
         }
 
         //comprovamos que los campos esten bien
-        if(flag==true){ // si las credenciales estan bien
+        if (flag_registro) { // si las credenciales estan bien
             alert("USUARI ENREGISTRAT CORRECTAMENT");
-        }else{ // si alguna credencial esta mal
+        } else { // si alguna credencial esta mal
             event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
         }
-
     });
+
 });
