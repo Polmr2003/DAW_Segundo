@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obtener la URL actual
     var currentPage = window.location.href;
 
-    if (currentPage.includes("Inicio_Sesion.html")) {
+    // si en la URL actual inluye:
+    if (currentPage.includes("Inicio_Sesion.html")) { // si estamos en la paguina de Inicio_Sesion.html entrara
         // Inicio de sesión
         document.getElementById("myBtn_login").addEventListener("click", function () {
             //booleano para saber si estan bien las credenciales
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("CREDENCIALES INCORRECTAS");
             }
         });
-    } else if (currentPage.includes("Nuevo_Usuario.html")) {
+    } else if (currentPage.includes("Nuevo_Usuario.html")) { // si estamos en la paguina de Nuevo_Usuario.html entrara
         // Registro de un nuevo usuario
         document.getElementById("myBtn_registro").addEventListener("click", function () {
             //booleano para saber si estan bien las credenciales
