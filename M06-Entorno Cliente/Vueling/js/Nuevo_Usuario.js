@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //comprovamos que los campos esten bien
         if(flag==true){ // si las credenciales estan bien
-            alert("hola");
+            alert("USUARI ENREGISTRAT CORRECTAMENT");
         }else{ // si alguna credencial esta mal
-            event.preventDefault(); // Evita que se recargue la página
+            event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
         }
 
     });

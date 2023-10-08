@@ -2,6 +2,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("myBtn").addEventListener("click", function () {
+        
+        // booleano para verificar que todas las credenciales estan correctas
+        var flag = false;
+        
         //ejercicio vueling 9/10/2023
         let usuaris = ["usu01", "usu02", "usu03"];
         let contrasenyes = ["pass01", "pass02", "pass03"];
@@ -16,13 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //comprovamos si el usuario i su contraseña estan bien
             if(usuari==usuaris[i] && password==contrasenyes[i]){ // Si el usuario que a puesto i la contraseña estan en la misma posicion que en los arrays entrara
-                alert("correcto");
+                flag = true;
                 break; // salimos de el bucle cuando entre en el if
-
-            }else{ // si no es asi entrara en el else
-                alert("incorrecto");
             }
         }
 
+        if(flag == true){
+            alert("USUARI CORRECTE");
+        }else{
+            alert("CREDENCIALS INCORRECTES");
+        }
     });
 });
