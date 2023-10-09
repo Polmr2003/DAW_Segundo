@@ -17,20 +17,41 @@ document.addEventListener("DOMContentLoaded", function () {
             var usuari_login = document.getElementById("login_gmail").value;
             var password_login = document.getElementById("login_password").value;
 
+            //recorremos los arrays buscando el usuario i su contraseña
             for (let i = 0; i < usuaris.length; i++) {
                 // Comprobar si el usuario y la contraseña coinciden
                 if (usuari_login == usuaris[i] && password_login == contrasenyes[i]) { // Si el usuario que a puesto i la contraseña estan en la misma posicion que en los arrays entrara
                     flag_login = true;
                     break;//salimos de el bucle cuando entre en el if
+                }else if (usuari_login.length<1) { // Si ponen vacio el campo usuario entrara
+                    document.getElementById("errorLogin_gmail").innerHTML = "No puede estar vacio";
+                    document.getElementById("login_gmail").value = "";
+
+                }else if (!(usuaris.includes(usuari_login))) { // Si en el array no existe el usuario que hemos puesto
+                    //ponemos errorLogin_password vacio porque si entra en este else if es que el usuario esta mal asi que en la contraseña no ponemos nada
+                    document.getElementById("errorLogin_password").innerHTML = "";
+
+                    //ponemos que el usuario no existe porque no lo a encontrado en el array
+                    document.getElementById("errorLogin_gmail").innerHTML = "Usuario/gmail no esta registrado";
+                    document.getElementById("login_gmail").value = "";
+                }else if (usuari_login == usuaris[i] && !(password_login == contrasenyes[i])) { // Si el usuario esta bien pero la contraseña no                   
+                    //ponemos errorLogin_gmail vacio porque si entra en este else if es que solo la contraseña esta mal
+                    document.getElementById("errorLogin_gmail").innerHTML = "";
+                    
+                    //ponemos que la contraseña es incorrecta
+                    document.getElementById("errorLogin_password").innerHTML = "Contraseña incorrecta";
+                    document.getElementById("login_password").value = "";
                 }
             }
 
             if (flag_login) {
-                alert("USUARIO CORRECTO");
-            } else {
-                alert("CREDENCIALES INCORRECTAS");
+                alert("Hola " + usuari_login);
+            } else { // si alguna credencial esta mal
+                event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
             }
         });
+
+
     } else if (currentPage.includes("Nuevo_Usuario.html")) { // si estamos en la paguina de Nuevo_Usuario.html entrara
         // Registro de un nuevo usuario
         document.getElementById("myBtn_registro").addEventListener("click", function () {
@@ -77,8 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("errorGmail").innerHTML = "No puede estar vacio";
                 document.getElementById("new_gmail").value = "";
                 flag_registro = false;
-            } else if (!/@/.test(gmail)) {
-                document.getElementById("errorGmail").innerHTML = "Pon un formato de correo válido, debe contener @";
+            } else if (! /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{3,10})+$/ .test(gmail)) { //Empezar por el identificador o nombre del usuario ^\w+([.-_+]?\w+)*, Seguido por el símbolo de la arroba @, Por último, el nombre del dominio del correo \w+([.-]?\w+)*(\.\w{2,10})+$, la largaria minima despues de el punto de el arroba es: \w{3,10})
+                document.getElementById("errorGmail").innerHTML = "Pon un formato de correo valido";
                 document.getElementById("new_gmail").value = "";
                 flag_registro = false;
             } else {
@@ -103,8 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("errorPassword").innerHTML = "No puede estar vacio";
                 document.getElementById("new_password").value = "";
                 flag_registro = false;
-            } else if (password.length > 8) {
-                document.getElementById("errorPassword").innerHTML = "No puede tener más de 8 caracteres";
+            } else if (password.length < 5) {
+                document.getElementById("errorPassword").innerHTML = "Minimo 5 caracteres";
                 document.getElementById("new_password").value = "";
                 flag_registro = false;
             } else {

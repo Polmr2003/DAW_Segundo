@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorGmail").innerHTML = "No puede estar vacio";
             document.getElementById("new_gmail").value = "";
             flag_registro = false;
-        } else if (!/@/.test(gmail)) {
-            document.getElementById("errorGmail").innerHTML = "Pon un formato de correo válido, debe contener @";
+        } else if (! /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{3,10})+$/ .test(gmail)) { //Empezar por el identificador o nombre del usuario ^\w+([.-_+]?\w+)*, Seguido por el símbolo de la arroba @, Por último, el nombre del dominio del correo \w+([.-]?\w+)*(\.\w{2,10})+$, la largaria minima despues de el punto de el arroba es: \w{3,10})
+            document.getElementById("errorGmail").innerHTML = "Pon un formato de correo valido";
             document.getElementById("new_gmail").value = "";
             flag_registro = false;
         } else {
@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorPassword").innerHTML = "No puede estar vacio";
             document.getElementById("new_password").value = "";
             flag_registro = false;
-        } else if (password.length > 8) {
-            document.getElementById("errorPassword").innerHTML = "No puede tener más de 8 caracteres";
+        } else if (password.length < 5) {
+            document.getElementById("errorPassword").innerHTML = "Minimo 5 caracteres";
             document.getElementById("new_password").value = "";
             flag_registro = false;
         } else {

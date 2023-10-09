@@ -43,7 +43,7 @@ const max_tiradas=3;
                 //si esta definida sumra los puntos anteriores mas los que a sacado ahora
                 $_SESSION['puntos_jug_1'] += $num1;
             } else {
-                // Si no está definida, la creamos e inicializamos en 1
+                // Si no está definida, la creamos e inicializamos con los puntos de la primera tirada
                 $_SESSION['puntos_jug_1'] = $num1;
             }
             echo "</br>";

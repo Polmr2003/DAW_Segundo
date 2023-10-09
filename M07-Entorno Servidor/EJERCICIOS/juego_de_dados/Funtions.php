@@ -2,7 +2,8 @@
 //_______________funciones______________________________
 //------------------------------------------------------
 
-function myHeader(){
+function myHeader()
+{
     $head = <<<CABECERA
     <!DOCTYPE html>
     <html lang="en">
@@ -19,8 +20,9 @@ function myHeader(){
     echo $head;
 }
 
-function myMenu(){
-            $menu=<<<HERE
+function myMenu()
+{
+    $menu = <<<HERE
             <div class="menu">
             <ul class="nav">
                 <li class="nav-item">
@@ -38,12 +40,13 @@ function myMenu(){
             </ul>
             </div>
             HERE;
-            echo $menu;
-            echo '<hr>';
+    echo $menu;
+    echo '<hr>';
 }
 
-function myFooter(){
-        $footerHTML = <<<MYFOOTER
+function myFooter()
+{
+    $footerHTML = <<<MYFOOTER
             <footer>
                 <hr>
                 <p>
@@ -51,28 +54,30 @@ function myFooter(){
                 </p>
             </footer>
         MYFOOTER;
-        echo $footerHTML;
-        date_default_timezone_set('Europe/Madrid');
+    echo $footerHTML;
+    date_default_timezone_set('Europe/Madrid');
 
-        $fechaActual = date("d-m-Y");
-        $horaActual = date("h:i:s");
-    
-        echo "La fecha es: $fechaActual y la hora es $horaActual " ;
+    $fechaActual = date("d-m-Y");
+    $horaActual = date("h:i:s");
+
+    echo "La fecha es: $fechaActual y la hora es $horaActual ";
 }
 
 /**
  * $someting - es la frase que queremos mostrar
  * return - con el return retornamos la frase con \n para que nos haga un salto de linea
  */
-function println($something): string{
+function println($something): string
+{
     return "$something\n";
 };
 
 /**
  * $random - hacemos un random del 1 al 6 con los dos incluidos i los retornamos
  */
-function Random_dado(): int{
-    return $random= rand(1,6);
+function Random_dado(): int
+{
+    return $random = rand(1, 6);
 }
 
 /**                                       
@@ -80,8 +85,9 @@ function Random_dado(): int{
  * echo - mostramos con la etiqueta <img> de html i ponemos el random para mostrar la imagen con el nombre que tenga
  * -> en este caso es un numero i asi poderlo mostrar con el random
  */
-function mostrar_dado($random): void{
-    echo "<img src='./img/". $random. ".png' alt='".$random."'>";
+function mostrar_dado($random): void
+{
+    echo "<img src='./img/" . $random . ".png' alt='" . $random . "'>";
 }
 
 /**
@@ -89,7 +95,8 @@ function mostrar_dado($random): void{
  * mostrar_dado - mandamos la variable cara a la funcion mostrar_dado
  * return - retornamos la variable cara 
  */
-function jugador_1(): int{
+function jugador_1(): int
+{
     $cara = Random_dado();
     mostrar_dado($cara);
     return $cara;
@@ -100,7 +107,8 @@ function jugador_1(): int{
  * mostrar_dado - mandamos la variable cara a la funcion mostrar_dado
  * return - retornamos la variable cara 
  */
-function jugador_2(): int{
+function jugador_2(): int
+{
     $cara = Random_dado();
     mostrar_dado($cara);
     return $cara;
@@ -111,7 +119,8 @@ function jugador_2(): int{
  * mostrar_dado - mandamos la variable cara a la funcion mostrar_dado
  * return - retornamos la variable cara 
  */
-function jugador_3(): int{
+function jugador_3(): int
+{
     $cara = Random_dado();
     mostrar_dado($cara);
     return $cara;
@@ -125,15 +134,15 @@ function jugador_3(): int{
  * else - i si son iguales saldra empate
  * return - retornamos el String con el mensaje que hemos programado en las condiciones (is, elseif, else) 
  */
-function ganador_2_jugadores($cara_jugador_1 , $cara_jugador_2): string{
-    $message="";
-    if($cara_jugador_1 > $cara_jugador_2){
-        $message="<h2>A ganado el jugador 1</h2>";
-    }elseif($cara_jugador_1 < $cara_jugador_2){
-        $message="<h2>A ganado el jugador 2</h2>";
-    }
-    else{
-        $message="<h2>Empate</h2>";
+function ganador_2_jugadores($cara_jugador_1, $cara_jugador_2): string
+{
+    $message = "";
+    if ($cara_jugador_1 > $cara_jugador_2) {
+        $message = "<h2>A ganado el jugador 1</h2>";
+    } elseif ($cara_jugador_1 < $cara_jugador_2) {
+        $message = "<h2>A ganado el jugador 2</h2>";
+    } else {
+        $message = "<h2>Empate</h2>";
     }
     return $message;
 }
@@ -150,38 +159,46 @@ function ganador_2_jugadores($cara_jugador_1 , $cara_jugador_2): string{
  * elseif -  si la cara del jugador 2 (el int) es igual a la del jugador 3, ponemos que a habido empate entre estos jugadores
  * return - retornamos el String con el mensaje que hemos programado en las condiciones (is, elseif, elseif, else) 
  */
-function ganador_3_jugadores($cara_jugador_1 , $cara_jugador_2, $cara_jugador_3 ): string{
-    $message="";
-    if($cara_jugador_1 > $cara_jugador_2 && $cara_jugador_1 > $cara_jugador_3){
-        $message="<h2>A ganado el jugador 1</h2>";
-    }elseif($cara_jugador_2 > $cara_jugador_1 && $cara_jugador_2 > $cara_jugador_3){
-        $message="<h2>A ganado el jugador 2</h2>";
-    }elseif($cara_jugador_3 > $cara_jugador_1 && $cara_jugador_3 > $cara_jugador_2){
-        $message="<h2>A ganado el jugador 3</h2>";
-    }elseif($cara_jugador_1 == $cara_jugador_2 && $cara_jugador_2== $cara_jugador_3){
-        $message="<h2>Empate jugador 1, jugador 2 i 3</h2>";
-    }elseif($cara_jugador_1 == $cara_jugador_2){
-        $message="<h2>Empate jugador 1 i jugador 2</h2>";
-    }elseif($cara_jugador_1== $cara_jugador_3){
-        $message="<h2>Empate jugador 1 i jugador 3</h2>";
-    }elseif($cara_jugador_2 == $cara_jugador_3){
-        $message="<h2>Empate jugador 2 i 3</h2>";
+function ganador_3_jugadores($dado_jug_1_1, $dado_jug_1_2, $dado_jug_2_1, $dado_jug_2_2, $dado_jug_3_1, $dado_jug_3_2): string
+{
+    //variables
+    $message = "";
+    $cara_jugador_1 = $dado_jug_1_1 + $dado_jug_1_2;
+    $cara_jugador_2 = $dado_jug_2_1 + $dado_jug_2_2;
+    $cara_jugador_3 = $dado_jug_3_1 + $dado_jug_3_2;
+
+    //comprovamos quien a ganado
+    if ($cara_jugador_1 > $cara_jugador_2 && $cara_jugador_1 > $cara_jugador_3) {
+        $message = "<h2>A ganado el jugador 1</h2>";
+    } elseif ($cara_jugador_2 > $cara_jugador_1 && $cara_jugador_2 > $cara_jugador_3) {
+        $message = "<h2>A ganado el jugador 2</h2>";
+    } elseif ($cara_jugador_3 > $cara_jugador_1 && $cara_jugador_3 > $cara_jugador_2) {
+        $message = "<h2>A ganado el jugador 3</h2>";
+    } elseif ($cara_jugador_1 == $cara_jugador_2 && $cara_jugador_2 == $cara_jugador_3) {
+        $message = "<h2>Empate jugador 1, jugador 2 i 3</h2>";
+    } elseif ($cara_jugador_1 == $cara_jugador_2) {
+        $message = "<h2>Empate jugador 1 i jugador 2</h2>";
+    } elseif ($cara_jugador_1 == $cara_jugador_3) {
+        $message = "<h2>Empate jugador 1 i jugador 3</h2>";
+    } elseif ($cara_jugador_2 == $cara_jugador_3) {
+        $message = "<h2>Empate jugador 2 i 3</h2>";
     }
     return $message;
 }
 
-function start_session(){
+function start_session()
+{
     return session_start();
 };
 
-function remove_session(){
+function remove_session()
+{
     // destroy the session
     return session_destroy();
 }
 
-function remove_var_session(){
+function remove_var_session()
+{
     // remove all session variables
     return session_unset();
 }
-
-?>
