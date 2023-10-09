@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Obtener la URL actual
     var currentPage = window.location.href;
+    
+    // Ejercicio Vueling 9/10/2023
+    let usuaris = ["usu01", "usu02", "usu03"];
+    let contrasenyes = ["pass01", "pass02", "pass03"];
+
+    function name(usuari, password) {
+        usuaris.push(usuari);
+        contrasenyes.push(password);
+    }
+    
 
     // si en la URL actual inluye:
     if (currentPage.includes("Inicio_Sesion.html")) { // si estamos en la paguina de Inicio_Sesion.html entrara
@@ -8,10 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("myBtn_login").addEventListener("click", function () {
             //booleano para saber si estan bien las credenciales
             var flag_login = false;
-
-            // Ejercicio Vueling 9/10/2023
-            let usuaris = ["usu01", "usu02", "usu03"];
-            let contrasenyes = ["pass01", "pass02", "pass03"];
 
             // Obtener los valores del formulario de inicio de sesión
             var usuari_login = document.getElementById("login_gmail").value;
@@ -23,21 +29,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (usuari_login == usuaris[i] && password_login == contrasenyes[i]) { // Si el usuario que a puesto i la contraseña estan en la misma posicion que en los arrays entrara
                     flag_login = true;
                     break;//salimos de el bucle cuando entre en el if
-                }else if (usuari_login.length<1) { // Si ponen vacio el campo usuario entrara
+                } else if (usuari_login.length < 1) { // Si ponen vacio el campo usuario entrara
                     document.getElementById("errorLogin_gmail").innerHTML = "No puede estar vacio";
                     document.getElementById("login_gmail").value = "";
 
-                }else if (!(usuaris.includes(usuari_login))) { // Si en el array no existe el usuario que hemos puesto
+                } else if (!(usuaris.includes(usuari_login))) { // Si en el array no existe el usuario que hemos puesto
                     //ponemos errorLogin_password vacio porque si entra en este else if es que el usuario esta mal asi que en la contraseña no ponemos nada
                     document.getElementById("errorLogin_password").innerHTML = "";
 
                     //ponemos que el usuario no existe porque no lo a encontrado en el array
                     document.getElementById("errorLogin_gmail").innerHTML = "Usuario/gmail no esta registrado";
                     document.getElementById("login_gmail").value = "";
-                }else if (usuari_login == usuaris[i] && !(password_login == contrasenyes[i])) { // Si el usuario esta bien pero la contraseña no                   
+                } else if (usuari_login == usuaris[i] && !(password_login == contrasenyes[i])) { // Si el usuario esta bien pero la contraseña no                   
                     //ponemos errorLogin_gmail vacio porque si entra en este else if es que solo la contraseña esta mal
                     document.getElementById("errorLogin_gmail").innerHTML = "";
-                    
+
                     //ponemos que la contraseña es incorrecta
                     document.getElementById("errorLogin_password").innerHTML = "Contraseña incorrecta";
                     document.getElementById("login_password").value = "";
@@ -98,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("errorGmail").innerHTML = "No puede estar vacio";
                 document.getElementById("new_gmail").value = "";
                 flag_registro = false;
-            } else if (! /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{3,10})+$/ .test(gmail)) { //Empezar por el identificador o nombre del usuario ^\w+([.-_+]?\w+)*, Seguido por el símbolo de la arroba @, Por último, el nombre del dominio del correo \w+([.-]?\w+)*(\.\w{2,10})+$, la largaria minima despues de el punto de el arroba es: \w{3,10})
+            } else if (! /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{3,10})+$/.test(gmail)) { //Empezar por el identificador o nombre del usuario ^\w+([.-_+]?\w+)*, Seguido por el símbolo de la arroba @, Por último, el nombre del dominio del correo \w+([.-]?\w+)*(\.\w{2,10})+$, la largaria minima despues de el punto de el arroba es: \w{3,10})
                 document.getElementById("errorGmail").innerHTML = "Pon un formato de correo valido";
                 document.getElementById("new_gmail").value = "";
                 flag_registro = false;
@@ -134,12 +140,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //comprovamos que los campos esten bien
             if (flag_registro) { // si las credenciales estan bien
+                usuaris.push(usuari);
+                contrasenyes.push(password);
+                console.log(usuaris);
                 alert("USUARI ENREGISTRAT CORRECTAMENT");
             } else { // si alguna credencial esta mal
                 event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
             }
 
         });
+        console.log(usuaris);
 
     }
 
