@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 //importamos los archivos que hemos creado para utilizar sus funciones
-require_once './Funtions_arrays.php';
 require_once './Funtions.php';
     myHeader(); 
     myMenu();

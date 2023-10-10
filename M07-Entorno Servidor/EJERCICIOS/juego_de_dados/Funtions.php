@@ -138,9 +138,9 @@ function ganador_2_jugadores($cara_jugador_1, $cara_jugador_2): string
 {
     $message = "";
     if ($cara_jugador_1 > $cara_jugador_2) {
-        $message = "<h2>A ganado el jugador 1</h2>";
+        $message = "<h2>Ha ganado el jugador 1</h2>";
     } elseif ($cara_jugador_1 < $cara_jugador_2) {
-        $message = "<h2>A ganado el jugador 2</h2>";
+        $message = "<h2>Ha ganado el jugador 2</h2>";
     } else {
         $message = "<h2>Empate</h2>";
     }
@@ -169,11 +169,11 @@ function ganador_3_jugadores($dado_jug_1_1, $dado_jug_1_2, $dado_jug_2_1, $dado_
 
     //comprovamos quien a ganado
     if ($cara_jugador_1 > $cara_jugador_2 && $cara_jugador_1 > $cara_jugador_3) {
-        $message = "<h2>A ganado el jugador 1</h2>";
+        $message = "<h2>Ha ganado el jugador 1</h2>";
     } elseif ($cara_jugador_2 > $cara_jugador_1 && $cara_jugador_2 > $cara_jugador_3) {
-        $message = "<h2>A ganado el jugador 2</h2>";
+        $message = "<h2>Ha ganado el jugador 2</h2>";
     } elseif ($cara_jugador_3 > $cara_jugador_1 && $cara_jugador_3 > $cara_jugador_2) {
-        $message = "<h2>A ganado el jugador 3</h2>";
+        $message = "<h2>Ha ganado el jugador 3</h2>";
     } elseif ($cara_jugador_1 == $cara_jugador_2 && $cara_jugador_2 == $cara_jugador_3) {
         $message = "<h2>Empate jugador 1, jugador 2 i 3</h2>";
     } elseif ($cara_jugador_1 == $cara_jugador_2) {
