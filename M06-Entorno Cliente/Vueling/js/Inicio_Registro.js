@@ -1,17 +1,18 @@
+// Base de datos
+let usuaris = ["usu01", "usu02", "usu03"];
+let contrasenyes = ["pass01", "pass02", "pass03"];
+
+//hacer push a las variables de la base de datos
+function push(usuari, password) {
+    usuaris.push(usuari);
+    contrasenyes.push(password);
+}
+
+//cuando cargue la pagina
 document.addEventListener("DOMContentLoaded", function () {
     // Obtener la URL actual
     var currentPage = window.location.href;
     
-    // Ejercicio Vueling 9/10/2023
-    let usuaris = ["usu01", "usu02", "usu03"];
-    let contrasenyes = ["pass01", "pass02", "pass03"];
-
-    function name(usuari, password) {
-        usuaris.push(usuari);
-        contrasenyes.push(password);
-    }
-    
-
     // si en la URL actual inluye:
     if (currentPage.includes("Inicio_Sesion.html")) { // si estamos en la paguina de Inicio_Sesion.html entrara
         // Inicio de sesión
@@ -140,18 +141,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //comprovamos que los campos esten bien
             if (flag_registro) { // si las credenciales estan bien
-                usuaris.push(usuari);
-                contrasenyes.push(password);
-                console.log(usuaris);
+                //hacemos un push par poner en el array las credenciales del usuario
+                push(usuari, password);
+
+                // Mostramos que el usuario se a registrado correctamente
                 alert("USUARI ENREGISTRAT CORRECTAMENT");
             } else { // si alguna credencial esta mal
                 event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
             }
 
         });
-        console.log(usuaris);
 
     }
+
+
+/*
+// Función que contiene la base de datos
+    function setupDatabase() {
+        let usuaris = ["usu01", "usu02", "usu03"];
+        let contrasenyes = ["pass01", "pass02", "pass03"];
+
+        function push(usuari, password) {
+            usuaris.push(usuari);
+            contrasenyes.push(password);
+        }
+
+        return { usuaris, contrasenyes, push };
+    }
+
+    // Llama a la función para configurar la base de datos
+    const { usuaris, contrasenyes, push } = setupDatabase();
+*/
 
 
 });

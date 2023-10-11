@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let uniques=[]; // contendra las teperaturas sin repetir
         //recorremos el array
         for (let i = 1; i <=temperaturas.length; i++) {
-            if(uniques.includes(temperaturas[i])){ //sin contiene la temperatura
+            if(uniques.includes(temperaturas[i])){ //si contiene la temperatura
                 //alert("ya tengo la temperatura");
                 let posicion=uniques.indexOf(temperaturas[i]);
                 contador[posicion]+=1;

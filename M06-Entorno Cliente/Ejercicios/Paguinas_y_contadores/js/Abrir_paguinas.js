@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let data= new Date(año, mes-1, dia);// mes va del 0 al 11
             
             let mesos=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octbre", "Noviembre", "Diciembre"];
+            let dias=["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+
             let mes=data.getMonth();
             let dia=data.getDay();
             
