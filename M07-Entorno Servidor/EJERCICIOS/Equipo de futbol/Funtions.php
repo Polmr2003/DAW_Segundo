@@ -88,25 +88,40 @@ function Random($min, $max): int
  * echo - mostramos con la etiqueta <img> de html i ponemos el random para mostrar la imagen con el nombre que tenga
  * -> en este caso es un numero i asi poderlo mostrar con el random
  */
-function mostrar_dado($random): void
+function mostrar_img($img): void
 {
-    echo "<img src='./img/" . $random . ".png' alt='" . $random . "'>";
+    echo "<img src='./img/" . $img . ".png' alt='" . $img . "'>";
 }
 
-
-function start_session()
+/**
+ * $String, $From, $To - Recojemos las variables que queremos utilizar en el metodo strtr
+ * $string_strtr - guardamos el string que nos retorna el metodo
+ * return - retornamos el string con el que hemos utilizado el strtr
+ */
+function Strtr_function($String, $From, $To)
 {
-    return session_start();
-};
+    //Reemplazamos el contenido de el string a otro
+    $string_strtr = strtr($String, [$From => $To]); // strtr: metodo para reemplazar una cadena de caracteres por otra a un string, $String es el string que queremos editar con el metodo, $From caracter que queremos cambiar, $To caracter al que queremos cambiar
 
-function remove_session()
-{
-    // destroy the session
-    return session_destroy();
+    /*
+    //strtr con dos argumentos
+    strtr($String, [$From_1 => $To_1], [$From_2 => $To_2])
+    */
+
+    return $string_strtr;
 }
 
-function remove_var_session()
+/**
+ * $letter_template - creamos el string con el contenido de la carta
+ * return - retornamos el string
+ */
+function letter_template(): string
 {
-    // remove all session variables
-    return session_unset();
+    $letter_template = <<<TEMPLATE
+    Dear {{name}},
+    Congratulations! You has been selected to be part of the Spanish national football team. 
+    I wish you the best!
+    TEMPLATE;
+
+    return $letter_template;
 }

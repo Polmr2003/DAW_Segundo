@@ -14,19 +14,8 @@ myMenu();
 const Random_min = 1; // minimo jugaores
 const Random_max = 10; // maximo jugadores
 
-//cargamos el contenido de la data i lo guardamos en otro array
-$data = loadData();
-
-//
-$letter_template = <<<TEMPLATE
-    Dear {{name}},
-    Congratulations! You has been selected to be part of the Spanish national football team. 
-    I wish you the best!
-    TEMPLATE;
-
 //$letters_array= make_letters($letter_template, $data); strtr
 ?>
-//funciones
 
 <html>
 
@@ -36,10 +25,11 @@ $letter_template = <<<TEMPLATE
     //----------------------------------------------------------------
     function main(): void
     {
+        //cargamos el contenido de la data i lo guardamos en otro array
+        $data = loadData();
+
         //random
         $numero_random = Random(Random_min, Random_max);
-
-        print_r($data);
     }
 
     //Web Code
