@@ -32,7 +32,7 @@ function imprimir_img_con_informacion($imagenes_array, $info_img) {
         $nombre_archivo = $value_aso['nombre de archivo'];
 
         if (in_array($nombre_archivo, $imagenes_array)) {
-            echo '<div style="margin: 10px; text-align: center;">';
+            echo '<div style="margin: 10px; text-align: center;">'; //creamos un contenedor para guardar la informacion con las imagenes
 
             echo "<img src='./img/$nombre_archivo.png' width='100' height='100'>";
             echo "<p><strong>Tagname</strong> = {$value_aso['tagname']}</p>";
