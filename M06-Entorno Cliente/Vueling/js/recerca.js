@@ -19,6 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    idaVueltaRadio.addEventListener("change", function () {
+        if (idaVueltaRadio.checked) {
+            console.log("asd");
+            // Si la opción "Ida" está seleccionada, oculta el div de fecha de vuelta
+            fechaVueltaDiv.style.display = "block";
+        }
+    });
+
 
     // Buscamos un vuelo
     document.getElementById("myBtn_rec").addEventListener("click", function () {
