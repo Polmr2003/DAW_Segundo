@@ -2,19 +2,20 @@
 <html>
 
 <head>
-  <title>Inicio de Sesion</title>
+  <title>Inicio de Sesión</title>
   <!-- Link al CSS -->
   <link rel="stylesheet" href="./css/Vueling_css.css">
 
-  <!-- Link a los iconos de el formaulario -->
+  <!-- Link a los iconos del formulario -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
-  <!-- boostrap -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -41,46 +42,40 @@
 
     <h1>Recerca</h1>
     <div class="contenedor">
-      <!-- Preguntamos si el vuelo es de ida o ida i vuelta || name opcion para que solo pueda eleguir uno, checked para que este seleccionada por defecto-->
+      <!-- Preguntamos si el vuelo es de ida o ida y vuelta || name opcion para que solo pueda elegir uno, checked para que este seleccionada por defecto-->
       <input type="radio" id="ida_vuelta" name="opcion" checked>
       <label for="ida_vuelta">Ida y vuelta</label><br>
 
       <input type="radio" id="ida" name="opcion">
       <label for="ida">Ida</label><br>
 
-      <!-- Pedimos el origen -->
-      <div class="input-contenedor">
-        <!-- icono de el origen -->
+      <!-- Selector de origen -->
+      <h5>Origen</h5>
+      <div class="select-contenedor">
         <i class="fas fa-map-marker-alt icon"></i>
-        <!-- lugar donde el usuario pondrá el origen en el formulario -->
-        <input type="text" id="origen" placeholder="Origen"><br>
-        <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
-        <span style="color:red" id="errorOrigen"></span>
+        <select id="ciudades_origen"></select>
       </div>
 
-      <!-- Pedimos el destino -->
-      <div class="input-contenedor">
-        <!-- icono de el origen -->
+      <!-- Selector de destino -->
+      <h5>Destino</h5>
+      <div class="select-contenedor">
         <i class="fas fa-map-marker-alt icon"></i>
-        <!-- lugar donde el usuario pondrá el destino en el formulario -->
-        <input type="text" id="destino" placeholder="Destino"><br>
-        <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
-        <span style="color:red" id="errorDestino"></span>
+        <select id="ciudades_destino"></select>
       </div>
 
-      <!-- Pedimos la fecha de ida i vuelta -->
-        <div class="d-flex justify-content-between">
-          <div id="div_fecha_ida">
-            <label for="ida_date">Fecha de ida</label><br>
-            <input type="date" id="ida_date">
-          </div>
-          <div id="div_fecha_vuelta">
-            <label for="vuelta_date">Fecha de vuelta</label><br>
-            <input type="date" id="vuelta_date">
-          </div>
+      <!-- Pedimos la fecha de ida y vuelta -->
+      <div class="d-flex justify-content-between">
+        <div id="div_fecha_ida">
+          <label for="ida_date">Fecha de ida</label><br>
+          <input type="date" id="ida_date">
         </div>
-        <span style="color: red;" id="errorIda_date"></span><br>
-        <span style="color: red;" id="errorVuelta_date"></span><br>
+        <div id="div_fecha_vuelta">
+          <label for="vuelta_date">Fecha de vuelta</label><br>
+          <input type="date" id="vuelta_date">
+        </div>
+      </div>
+      <span style="color: red;" id="errorIda_date"></span><br>
+      <span style="color: red;" id="errorVuelta_date"></span><br>
 
       <!-- Botón de recerca -->
       <input type="submit" id="myBtn_rec" class="button" value="Buscar">

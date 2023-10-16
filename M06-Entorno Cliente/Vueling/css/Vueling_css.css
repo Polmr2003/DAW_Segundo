@@ -1,6 +1,7 @@
 /* Estilo de el contenido */
 body {
-    font-family: Arial, Helvetica, sans-serif; /* Fuente de letra */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Fuente de letra */
     margin: 0;
     background-size: cover;
     background-attachment: fixed;
@@ -11,85 +12,142 @@ body {
 }
 
 /* Estilo de el contenedor donde ponemos i creamos los valores de el formulario*/
-.contenedor{
-    width: 100%; 
-    padding: 40px; /* tamaño de el contenedor (largo) (ancho), donde ponemos los iconos i los valores */
+.contenedor {
+    width: 100%;
+
+    /* tamaño de el contenedor (largo) (ancho), donde ponemos los iconos i los valores */
+    padding: 40px;
 }
 
 /* Estilo de el formulario entero (con el titulo i la frase que ponemos para ir al otro) */
-.formulario{
-    background: white; /* Color de el formulario*/
+.formulario {
+    /* Color de el formulario*/
+    background: white;
+
     margin-top: 300px;
     padding: 3px;
 }
 
 /*  Estilo del titulo */
-h1{
-    text-align: center; /* Lo centramos */
-    color: #1a2537; /* Color de el titulo */
-    font-size: 40px; /* Tamaño de el titulo */
+h1 {
+    /* Lo centramos */
+    text-align: center;
+
+    /* Color de el titulo */
+    color: #0d69fd;
+
+    /* Tamaño de el titulo */
+    font-size: 40px;
+}
+
+h5 {
+    /* Lo centramos */
+    text-align: center;
+
+    /* Color de el titulo */
+    color: #d91a1a;
 }
 
 input[type="text"],
-input[type="password"]{
+input[type="password"] {
     font-size: 20px;
     width: 82%;
     padding: 10px;
     border: none;
 }
 
-.input-contenedor{
+.input-contenedor {
     margin-bottom: 15px;
     border: 1px solid #aaa;
 }
+
 /* iconos de los formularios (llave, correo...) */
-.icon{
-    min-width: 50px; /* */
-    text-align: center; /* Alineamos los iconos en el centro (entre la frase pidiendo los valores i el principio de el contenedor)*/
-    color: #999; /* Color de los iconos */
+.icon {
+    /* */
+    min-width: 50px;
+
+    /* Alineamos los iconos en el centro (entre la frase pidiendo los valores i el principio de el contenedor)*/
+    text-align: center;
+
+    /* Color de los iconos */
+    color: #999;
 }
 
 /*boton de login/registro */
-.button{
+.button {
     border: none;
     width: 100%;
-    color: black; /* color de la letra */
-    font-size: 20px; /* tamaño de la letra */
-    background:  #fcf8ad; /* color de el boton */
-    padding: 15px 40px; /* tamaño de el boton (largo) (ancho) */
+
+    /* color de la letra */
+    color: black;
+
+    /* tamaño de la letra */
+    font-size: 20px;
+
+    /* color de el boton */
+    background: #fcf8ad;
+
+    /* tamaño de el boton (largo) (ancho) */
+    padding: 15px 40px;
+
     border-radius: 5px;
 }
 
 /* cuando pasas por encima del boton de login/registro cambia de color */
-.button:hover{
-    background: black; /* Color de el fondo */
-    color: white; /* Color de la letra */
+.button:hover {
+    /* Color de el fondo */
+    background: black;
+
+    /* Color de la letra */
+    color: white;
 }
 
 /* Estilos de la etiqueta p (frases) */
-p{
-    text-align: center; /* Lo centramos*/
+p {
+    /* Lo centramos*/
+    text-align: center;
 }
 
 /* estilo de el link de la frase que ponemos si ya tiene una cuenta o quiere registrarse */
-.link{
+.link {
     text-decoration: none;
     color: #1a2537;
     font-weight: 600;
 }
 
 /* cuando pasemos por encima del link cambiara de color */
-.link:hover{ 
-     color: cadetblue;
+.link:hover {
+    color: cadetblue;
 }
 
 /* estilo para poner el formulario en el medio i los campos tambien */
-@media(min-width:768px)
-{
-    .formulario{
+@media(min-width:768px) {
+    .formulario {
         margin: auto;
-        width: 500px;/* ancho de los campos */
-        margin-top: 150px; /* margen con el "techo" */
+
+        /* ancho de los campos */
+        width: 500px;
+
+        /* margen con el "techo" */
+        margin-top: 150px;
+
         border-radius: 2%;
     }
+}
+
+/* Estilo personalizado para los selectores */
+.select-contenedor {
+
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.select-contenedor select {
+    flex: 1;
+    padding: 5px;
+}
+
+.select-contenedor i {
+    padding: 5px;
 }

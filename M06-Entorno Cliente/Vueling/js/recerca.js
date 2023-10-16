@@ -29,7 +29,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     //array con las ciudades
-    let ciudades = [];
+    let ciutats = ["Barcelona", "Girona", "Tarragona", "Lleida", "Valencia"];
+
+    //selectores en el html que vamos a poner las ciudades
+    let ciudades_origen = document.getElementById("ciudades_origen");
+    let ciudades_destino = document.getElementById("ciudades_destino");
+
+    //añadir las ciudades al selector de el html
+    for (let i = 0; i < ciutats.length; i++) {
+        let option = document.createElement("option");
+        option.value = ciutats[i];
+        option.innerHTML = ciutats[i];
+
+        ciudades_origen.appendChild(option);
+    }
+
+    //añadir las ciudades al selector de el html
+    for (let i = 0; i < ciutats.length; i++) {
+        let option = document.createElement("option");
+        option.value = ciutats[i];
+        option.innerHTML = ciutats[i];
+
+        ciudades_destino.appendChild(option);
+    }
 
     // Buscamos un vuelo
     document.getElementById("myBtn_rec").addEventListener("click", function () {
