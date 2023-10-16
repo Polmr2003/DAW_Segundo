@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    //array con las ciudades
+    let ciudades = [];
+
     // Buscamos un vuelo
     document.getElementById("myBtn_rec").addEventListener("click", function () {
         //booleano para saber si estan bien las credenciales
@@ -57,6 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("origen").value = "";
             document.getElementById("destino").value = "";
             flag_recerca = false;
+        } else {
+            document.getElementById("errorOrigen").innerHTML = "";
+            document.getElementById("errorDestino").innerHTML = "";
         }
 
         // verificacion de fecha ida i vuelta
@@ -75,11 +81,24 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorVuelta_date").innerHTML = "La fecha de vuelta no puede ser del pasado";
             document.getElementById("vuelta_date").value = "";
             flag_recerca = false;
+        } else if (fechaVuelta < fechaIda) {
+            // La fecha de vuelta es menor que la ida
+            document.getElementById("errorVuelta_date").innerHTML = "La fecha de vuelta no puede ser menor que la de ida";
+            document.getElementById("vuelta_date").value = "";
+            flag_recerca = false;
+        } else if (fechaVuelta.getMonth() > (fechaActual.getMonth() + 6)) {
+            // La fecha de ida es mallor a 6 messes
+            document.getElementById("errorVuelta_date").innerHTML = "La fecha de vuelta no puede ser mallor a 6 meses";
+            document.getElementById("vuelta_date").value = "";
+            flag_recerca = false;
+        } else {
+            document.getElementById("errorIda_date").innerHTML = "";
+            document.getElementById("errorVuelta_date").innerHTML = "";
         }
 
         //comprovamos que los campos esten bien
         if (flag_recerca) { // si las credenciales estan bien
-            alert("USUARI ENREGISTRAT CORRECTAMENT");
+            alert("Recerca feta");
         } else { // si alguna credencial esta mal
             event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
         }
