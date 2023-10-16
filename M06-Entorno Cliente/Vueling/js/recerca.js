@@ -7,22 +7,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Miramos si el radio "Ida i vuelta" está seleccionado
     let idaVueltaRadio = document.getElementById("ida_vuelta");
 
-    // Div de la fecha de vuelta
+    // Div para poner la fecha de vuelta
     let fechaVueltaDiv = document.getElementById("div_fecha_vuelta");
 
+    
     // Agregar un controlador de eventos para el cambio en el radio "Ida"
     idaRadio.addEventListener("change", function () {
         if (idaRadio.checked) {
-            console.log("asd");
             // Si la opción "Ida" está seleccionada, oculta el div de fecha de vuelta
             fechaVueltaDiv.style.display = "none";
         }
     });
 
+    // Agregar un controlador de eventos para el cambio en el radio "Ida i vuelta"
     idaVueltaRadio.addEventListener("change", function () {
         if (idaVueltaRadio.checked) {
-            console.log("asd");
-            // Si la opción "Ida" está seleccionada, oculta el div de fecha de vuelta
+            // Si la opción "Ida i vuelta" está seleccionada, muestra el div de fecha de vuelta
             fechaVueltaDiv.style.display = "block";
         }
     });
