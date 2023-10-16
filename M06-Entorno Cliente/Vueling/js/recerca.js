@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // el origen i el destino son los mismos
             document.getElementById("errorOrigen").innerHTML = "El origen i el destino no pueden ser los mismos";
             document.getElementById("errorDestino").innerHTML = "El origen i el destino no pueden ser los mismos";
-            document.getElementById("ciudades_origen").value = "";
-            document.getElementById("ciudades_destino").value = "";
+            document.getElementById("ciudades_origen").value = ciutats[0]; // ponemos la primera posicion del array para que cuando halla un error no este en blanco el campo origen
+            document.getElementById("ciudades_destino").value = ciutats[0]; // ponemos la primera posicion del array para que cuando halla un error no este en blanco el campo destino
             flag_recerca = false;
         } else {
             document.getElementById("errorOrigen").innerHTML = "";
