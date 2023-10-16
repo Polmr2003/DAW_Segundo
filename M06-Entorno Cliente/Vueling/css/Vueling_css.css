@@ -34,7 +34,7 @@ h1 {
     text-align: center;
 
     /* Color de el titulo */
-    color: #0d69fd;
+    color: black;
 
     /* Tamaño de el titulo */
     font-size: 40px;
@@ -45,7 +45,7 @@ h5 {
     text-align: center;
 
     /* Color de el titulo */
-    color: #d91a1a;
+    color: black;
 }
 
 input[type="text"],
@@ -138,8 +138,9 @@ p {
 /* Estilo personalizado para los selectores */
 .select-contenedor {
 
+    /* para que ocupe todo el ancho el selector */
     display: flex;
-    align-items: center;
+    
     margin: 10px 0;
 }
 
@@ -150,4 +151,8 @@ p {
 
 .select-contenedor i {
     padding: 5px;
+}
+
+.errorOrigen{
+    display: block;
 }

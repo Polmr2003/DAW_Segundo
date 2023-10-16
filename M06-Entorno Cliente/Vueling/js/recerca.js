@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
         var flag_recerca = true;
 
         //recojemos los valores
-        let origen = document.getElementById("origen").value;
-        let destino = document.getElementById("destino").value;
+        let OrigenSelect = document.getElementById("ciudades_origen").value; //agafo id del select_origen
+        let DestinoSelect = document.getElementById("ciudades_destino").value; //agafo id del select_destino
         let fecha_ida = document.getElementById("ida_date").value;
         let fecha_vuelta = document.getElementById("vuelta_date").value;
 
@@ -74,13 +74,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //-------------------------------Realizar validaciones para la recerca ----------------------------------------
 
+        console.log(OrigenSelect);
+        console.log(DestinoSelect);
+
         // verificacion de origen/destino
-        if (origen == destino) {
+        if (OrigenSelect == DestinoSelect) {
             // el origen i el destino son los mismos
             document.getElementById("errorOrigen").innerHTML = "El origen i el destino no pueden ser los mismos";
             document.getElementById("errorDestino").innerHTML = "El origen i el destino no pueden ser los mismos";
-            document.getElementById("origen").value = "";
-            document.getElementById("destino").value = "";
+            document.getElementById("ciudades_origen").value = "";
+            document.getElementById("ciudades_destino").value = "";
             flag_recerca = false;
         } else {
             document.getElementById("errorOrigen").innerHTML = "";
