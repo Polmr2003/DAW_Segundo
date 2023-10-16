@@ -41,32 +41,55 @@
 
     <h1>Recerca</h1>
     <div class="contenedor">
-      <!-- Pedimos el Correo Electrónico -->
+      <!-- Preguntamos si el vuelo es de ida o ida i vuelta || name opcion para que solo pueda eleguir uno, checked para que este seleccionada por defecto-->
+      <input type="radio" id="ida_vuelta" name="opcion" checked>
+      <label for="ida_vuelta">Ida y vuelta</label><br>
+
+      <input type="radio" id="ida" name="opcion">
+      <label for="ida">Ida</label><br>
+
+      <!-- Pedimos el origen -->
       <div class="input-contenedor">
-        <!-- icono de el lugar -->
-        
-        <!-- lugar donde el usuario pondrá el Correo Electrónico en el formulario -->
-        <input type="text" id="Origen" placeholder="Origen">
+        <!-- icono de el origen -->
+        <i class="fas fa-map-marker-alt icon"></i>
+        <!-- lugar donde el usuario pondrá el origen en el formulario -->
+        <input type="text" id="origen" placeholder="Origen"><br>
         <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
-        <span style="color:red" id="errorLogin_gmail"></span>
+        <span style="color:red" id="errorOrigen"></span>
       </div>
 
-      <!-- Pedimos la contraseña -->
+      <!-- Pedimos el destino -->
       <div class="input-contenedor">
-        <!-- lugar donde el usuario pondrá la contraseña en el formulario -->
-        <input type="password" id="Destino" placeholder="Destino">
+        <!-- icono de el origen -->
+        <i class="fas fa-map-marker-alt icon"></i>
+        <!-- lugar donde el usuario pondrá el destino en el formulario -->
+        <input type="text" id="destino" placeholder="Destino"><br>
         <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
-        <span style="color:red" id="errorLogin_password"></span>
+        <span style="color:red" id="errorDestino"></span>
       </div>
 
-      <!-- Botón de inicio de sesión -->
-      <input type="submit" id="myBtn_login" class="button" value="Buscar">
+      <!-- Pedimos la fecha de ida i vuelta -->
+        <div class="d-flex justify-content-between">
+          <div id="div_fecha_ida">
+            <label for="ida_date">Fecha de ida</label><br>
+            <input type="date" id="ida_date">
+          </div>
+          <div id="div_fecha_vuelta">
+            <label for="vuelta_date">Fecha de vuelta</label><br>
+            <input type="date" id="vuelta_date">
+          </div>
+        </div>
+        <span style="color: red;" id="errorIda_date"></span><br>
+        <span style="color: red;" id="errorVuelta_date"></span><br>
+
+      <!-- Botón de recerca -->
+      <input type="submit" id="myBtn_rec" class="button" value="Buscar">
 
     </div>
   </form>
 
   <!-- Script -->
-  <script src="js/Inicio_Registro.js"></script>
+  <script src="js/recerca.js"></script>
 </body>
 
 </html>

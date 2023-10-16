@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var usuari = document.getElementById("new_usuari").value;
         var password = document.getElementById("new_password").value;
 
-        //--------------------------Realizar validaciones aquí para el registro ---------------------------------
+        //--------------------------Realizar validaciones para el registro ---------------------------------
 
         // verifico el nombre
         if (nombre.length < 1) {

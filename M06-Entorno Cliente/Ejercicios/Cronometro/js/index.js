@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let now = new Date();
 
         // Recoger los valores de las cajas
-        let dia = now.getDate();
+        let dia = now.getDay();
         let mes = now.getMonth();
         let año = now.getFullYear();
         let hora = now.getHours();
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let dies = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
 
         // Formatear la fecha y hora final
-        let current_data = `${dies[now.getDay() - 1]} dia ${dia} de ${mesos[mes]} de ${año}, ${hora}:${minutos}:${segundos}`;
+        let current_data = `${dies[dia - 1]} dia ${dia} de ${mesos[mes]} de ${año}, ${hora}:${minutos}:${segundos}`; // ${dies[dia - 1]} : nombre de el dia ||  ${dia} : numero del dia || ${mesos[mes]} : nombre del mes ...
 
         // Mostrar la fecha final en un cuadro de diálogo
         alert(current_data);

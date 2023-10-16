@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let nom = document.getElementById("nom").value;
         let date = document.getElementById("date").value;
 
+        /*
         //ponemos el contenido de la fehca en un array separado para poderlo verificar
         const fechaArray = date.split('-'); //.split divide la cadena || string.split(separador, limite) string: Es la cadena de texto que se va a dividir, separador: Es el carácter o subcadena por la cual se dividirá la cadena original, limite (opcional): Es un valor numérico que especifica el número máximo de divisiones a realizar. Si se omite, se dividirá la cadena por todas las apariciones del separador.
         console.log(fechaArray);
@@ -17,16 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let año = fechaArray[0];// año
         let mes = fechaArray[1];// mes
         let dia = fechaArray[2];// dia
+        */
 
-        //variable con los años de esa persona
-        let edad;
+        // Obtenemos la fecha actual
+        let fechaActual = new Date();
 
-        //fecha actual
-        let current_date = new Date();
-
-        let current_año = current_date.getFullYear();
-        let current_mes = current_date.getMonth();
-        let current_dia = current_date.getDate();
+        // Convertimos la fecha de el usuario en objeto de fecha
+        let fechaUsu = new Date(date);
 
 
         //verifico el nom
@@ -59,11 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorDate").innerHTML = "Pon una fecha valida";
             document.getElementById("date").value = "";
             flag = false;
-        } else if (dia < 1 || año < (current_año -150) || mes < 1) {
+        } else if (dia < 1 || año < (current_año - 150) || mes < 1) {
             document.getElementById("errorDate").innerHTML = "Pon una fecha valida";
             document.getElementById("date").value = "";
             flag = false;
-        } else if (dia > current_dia && año > current_año && mes > current_mes) {
+        } else if (fechaUsu>fechaActual) {
             document.getElementById("errorDate").innerHTML = "No puedes poner una fecha futura";
             document.getElementById("date").value = "";
             flag = false
