@@ -74,9 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //-------------------------------Realizar validaciones para la recerca ----------------------------------------
 
-        console.log(OrigenSelect);
-        console.log(DestinoSelect);
-
         // verificacion de origen/destino
         if (OrigenSelect == DestinoSelect) {
             // el origen i el destino son los mismos
