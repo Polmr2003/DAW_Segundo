@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    //array con las ciudades
+    let ciudades = [];
+
     // Buscamos un vuelo
     document.getElementById("myBtn_rec").addEventListener("click", function () {
         //booleano para saber si estan bien las credenciales
@@ -88,6 +91,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorVuelta_date").innerHTML = "La fecha de vuelta no puede ser mallor a 6 meses";
             document.getElementById("vuelta_date").value = "";
             flag_recerca = false;
+        } else {
+            document.getElementById("errorIda_date").innerHTML = "";
+            document.getElementById("errorVuelta_date").innerHTML = "";
         }
 
         //comprovamos que los campos esten bien
