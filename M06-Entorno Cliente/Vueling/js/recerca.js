@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Miramos si el radio "Ida i vuelta" está seleccionado
     let idaVueltaRadio = document.getElementById("ida_vuelta");
 
-    // Div para poner la fecha de vuelta
+    // Div con el fomrulario de la fecha de vuelta
     let fechaVueltaDiv = document.getElementById("div_fecha_vuelta");
 
-    
+
     // Agregar un controlador de eventos para el cambio en el radio "Ida"
     idaRadio.addEventListener("change", function () {
         if (idaRadio.checked) {
