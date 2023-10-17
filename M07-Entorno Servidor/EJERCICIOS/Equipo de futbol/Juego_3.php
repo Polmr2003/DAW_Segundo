@@ -23,6 +23,21 @@ myMenu();
         // Cargamos la base de datos i lo guardamos en otro array
         $data = loadData();
 
+        //leemos el fichero index.view.html donde esta la plantilla de la carta
+        $file_read=leer_contenido_archivo('index.view.html');
+
+        //recorremos el array con la base de datos
+        for ($i = 0; $i < count($data); $i++) { //count para mirar el tamaño del array
+            // cambiamos el contenido {{name}} de la  carta por el nombre de el jugador
+            $carta = Strtr_function($file_read, "{{name}}", "$data[$i]");
+
+            //mostramos las cartas con las etiquetas <pre> para sapararlas
+            echo "<pre>";
+            echo "$carta";
+            echo "</pre>";
+        }
+
+        /* ---------------------------------- Leer un fichero txt i mostrarlo -----------------------------------------
         // Recorremos el array con la base de datos
         for ($i = 0; $i < count($data); $i++) { // count para mirar el tamaño del array
             // Ruta del archivo que estan guardadas las cartas i que vamos a leer
@@ -36,6 +51,7 @@ myMenu();
             echo "$file_read";
             echo "</pre>";
         }
+        */
     }
 
     //Web Code

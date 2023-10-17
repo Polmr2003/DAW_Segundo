@@ -14,7 +14,7 @@ function myHeader()
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Juego de dados</title>
+        <title>Equipo de futbol</title>
     </head>
     CABECERA;
     echo $head;
@@ -124,4 +124,61 @@ function letter_template(): string
     TEMPLATE;
 
     return $letter_template;
+}
+
+/**
+ * $array - recojemos un array para mostrarlo
+ * echo - recorremos i mostramos con el metodo print_r el array i en cada lado ponemos la etiqueta <pre> para mostrar el array de forma bonita 
+ * -> ni que se ponga una linea de texto detras de la otra
+ */
+function print_Array_Asociativo_Pretty(mixed $array)
+{
+    echo "<pre>" . print_r($array, true) . "</pre>";
+}
+
+/**
+ * $ruta_archivo - recivimos la ruta del archivo que queremos eliminar el contenido
+ */
+function limpiar_archivo($ruta_archivo)
+{
+    // Utiliza file_put_contents con una cadena vacía para borrar el contenido del archivo i poner el nuevo contenido
+    return file_put_contents($ruta_archivo, '');
+}
+
+/**
+ * $ruta_archivo, $contenido - recivimos la ruta del archivo i el contenido que queremos añadir al archivo
+ */
+function añadir_contenido($ruta_archivo, $contenido)
+{
+    // Utiliza file_put_contents para añadir contenido que le digamos a la ruta que le especifiquemos
+    return file_put_contents($ruta_archivo, $contenido);
+}
+
+/**
+ * $ruta_archivo, $contenido - recivimos la ruta del archivo i el contenido que queremos añadir al archivo
+ * if - si se a añadido nos mostrara un mensaje de verificacion
+ * else - si no se a añadido nos mostrara un mensaje de error
+ */
+function añadir_contenido_Con_verificacion($rutaArchivo, $contenido)
+{
+    if (file_put_contents($rutaArchivo, $contenido)) {
+        //se a guardado el contenido
+        echo "Los datos se han guardado exitosamente en el fichero '$rutaArchivo' .";
+        echo "<br>";
+    } else {
+        //no se a guardado el contenido
+        echo "Ha ocurrido un error al guardar los datos en el archivo.";
+    }
+}
+
+/**
+ * $rutaArchivo - recivimos la ruta del archivo que queremos leer
+ * return - retornamos el fichero leido con el string
+ */
+function leer_contenido_archivo($rutaArchivo)
+{
+    // file_get_contents lee el contenido de un fichero i te devuelve un string con el contenido
+    $file_read = file_get_contents($rutaArchivo);
+
+    return $file_read;
 }

@@ -29,15 +29,10 @@ myMenu();
             $carta = Strtr_function(letter_template(), "{{name}}", "$data[$i]");
 
             // Ruta del archivo al que vamos a guardar las cartas
-            $rutaArchivo = "cartas/$data[$i].txt"; // $data[$i]: nombre de el jugador .txt
+            $rutaArchivo = "cartas.txt/$data[$i].txt"; // $data[$i]: nombre de el jugador .txt
 
-            // Utilizar file_put_contents para escribir los datos en el archivo
-            if (file_put_contents($rutaArchivo, $carta)) { // si se a guardado el contenido
-                echo "Los datos se han guardado en el archivo '$data[$i].txt' exitosamente.";
-                echo "<br>";
-            } else { // si no se a guardado el contenido
-                echo "Ha ocurrido un error al guardar los datos en el archivo.";
-            }
+            // guardamos las cartas en la ruta que le hemos especificado
+            añadir_contenido_Con_verificacion($rutaArchivo, $carta);
         }
     }
 
