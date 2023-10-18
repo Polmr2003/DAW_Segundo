@@ -16,7 +16,7 @@ $contador_a=0;
 
 //cuantas palabras tiene
 //-----------------------------
-print "La cadena tiene: " . strlen ($cadena) /* strelen sirve para contar los caracteres*/ */ . " caracteres\n"; // los . son como los + en java
+print "La cadena tiene: " . strlen ($cadena) /* strelen sirve para contar los caracteres*/ . " caracteres\n"; // los . son como los + en java
 
 //frase al reves 
 //------------------------------

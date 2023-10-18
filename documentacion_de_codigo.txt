@@ -1,0 +1,18 @@
+Exemple 1: DOCUMENTACIÓ D'UNA FUNCIÓ
+/**
+   * Determina el volumen de un cilindro con la altura y radio especificado
+   * @param {number} radio -  El radio de los círculos laterales del cilindro
+   * @param {number} altura - La altura del cilindro
+   * @return {number}
+*/
+ this.volumen = function obtenerVolumen(radio, altura) {
+    const volumen = (Math.PI * Math.pow(radio, 2) * altura);
+    return volumen;
+  }
+
+
+Exemple 2: DOCUMENTACIÓ D'UN FITXER
+/**
+   * @file Manages the configuration settings for the widget.
+   * @author Pep Garcia
+*/

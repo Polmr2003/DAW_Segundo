@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let ciudades_origen = document.getElementById("ciudades_origen");
     let ciudades_destino = document.getElementById("ciudades_destino");
 
-    //añadir las ciudades al selector de el html
+    //añadir las ciudades_origen al selector de el html
     for (let i = 0; i < ciutats.length; i++) {
         let option = document.createElement("option");
         option.value = ciutats[i];
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ciudades_origen.appendChild(option);
     }
 
-    //añadir las ciudades al selector de el html
+    //añadir las ciudades_destino al selector de el html
     for (let i = 0; i < ciutats.length; i++) {
         let option = document.createElement("option");
         option.value = ciutats[i];

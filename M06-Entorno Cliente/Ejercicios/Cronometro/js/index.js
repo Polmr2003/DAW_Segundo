@@ -36,12 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Función para actualizar y mostrar el contador de segundos
         function actualizarCronometro() {
             segundos++;
-            document.getElementById("contador").textContent = segundos + " segundos";
+            document.getElementById("contador").innerHTML = segundos + " segundos";
         }
 
         // Actualiza el cronómetro cada segundo (1000 milisegundos)
         cronometro =setInterval(actualizarCronometro, 1000);
-
 
     });
 
