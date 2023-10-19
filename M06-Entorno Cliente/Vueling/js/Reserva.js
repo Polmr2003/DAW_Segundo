@@ -1,3 +1,6 @@
+//importamos el objeto vuelo
+//import {Viatge} from "./Model/Viatge.js";
+
 //cuando cargue la página
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -53,10 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
         ciudades_destino.appendChild(option);
     }
 
-    // Buscamos un vuelo
-    document.getElementById("myBtn_rec").addEventListener("click", function () {
+    // Reservamos un vuelo
+    document.getElementById("myBtn_res").addEventListener("click", function () {
         //booleano para saber si estan bien las credenciales
-        var flag_recerca = true;
+        var flag_reserva = true;
 
         //recojemos los valores
         let OrigenSelect = document.getElementById("ciudades_origen").value; //agafo id del select_origen
@@ -81,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorDestino").innerHTML = "El origen i el destino no pueden ser los mismos";
             document.getElementById("ciudades_origen").value = ciutats[0]; // ponemos la primera posicion del array para que cuando halla un error no este en blanco el campo origen
             document.getElementById("ciudades_destino").value = ciutats[0]; // ponemos la primera posicion del array para que cuando halla un error no este en blanco el campo destino
-            flag_recerca = false;
+            flag_reserva = false;
         } else {
             document.getElementById("errorOrigen").innerHTML = "";
             document.getElementById("errorDestino").innerHTML = "";
@@ -92,35 +95,42 @@ document.addEventListener("DOMContentLoaded", function () {
             // La fecha de ida es del pasado
             document.getElementById("errorIda_date").innerHTML = "La fecha de ida no puede ser del pasado";
             document.getElementById("ida_date").value = "";
-            flag_recerca = false;
+            flag_reserva = false;
         } else if (fechaIda.getMonth() > (fechaActual.getMonth() + 6)) {
             // La fecha de ida es mallor a 6 messes
             document.getElementById("errorIda_date").innerHTML = "La fecha de ida no puede ser mallor a 6 meses";
             document.getElementById("ida_date").value = "";
-            flag_recerca = false;
+            flag_reserva = false;
         } else if (fechaVuelta < fechaActual) {
             // La fecha de vuelta es del pasado
             document.getElementById("errorVuelta_date").innerHTML = "La fecha de vuelta no puede ser del pasado";
             document.getElementById("vuelta_date").value = "";
-            flag_recerca = false;
+            flag_reserva = false;
         } else if (fechaVuelta < fechaIda) {
             // La fecha de vuelta es menor que la ida
             document.getElementById("errorVuelta_date").innerHTML = "La fecha de vuelta no puede ser menor que la de ida";
             document.getElementById("vuelta_date").value = "";
-            flag_recerca = false;
+            flag_reserva = false;
         } else if (fechaVuelta.getMonth() > (fechaActual.getMonth() + 6)) {
             // La fecha de ida es mallor a 6 messes
             document.getElementById("errorVuelta_date").innerHTML = "La fecha de vuelta no puede ser mallor a 6 meses";
             document.getElementById("vuelta_date").value = "";
-            flag_recerca = false;
+            flag_reserva = false;
         } else {
             document.getElementById("errorIda_date").innerHTML = "";
             document.getElementById("errorVuelta_date").innerHTML = "";
         }
 
         //comprovamos que los campos esten bien
-        if (flag_recerca) { // si las credenciales estan bien
-            alert("Recerca feta");
+        if (flag_reserva) { // si las credenciales estan bien
+            //creamos la variable con el objeto de viatge i con la informacion de la reserva
+            //let reserva = new Viatge(OrigenSelect, DestinoSelect, fecha_ida, fecha_vuelta);
+
+            //mostramos la informacion de la reserva
+            //reserva.printing_ida();
+
+
+            alert("Reserva echa");
         } else { // si alguna credencial esta mal
             event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
         }

@@ -31,8 +31,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="./Inicio_Sesion.html">Login</a>
-          <a class="nav-link" href="./Nuevo_Usuario.html">Registre</a>
-          <a class="nav-link" href="./recerca.html">Recerca</a>
+          <a class="nav-link" href="./Nuevo_Usuario.html">Registrarse</a>
+          <a class="nav-link" href="./recerca.html">Reserva</a>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
   <!------------------------ Contenido ---------------------------------->
   <form class="formulario">
 
-    <h1>Recerca</h1>
+    <h1>Reserva de vuelo</h1>
     <div class="contenedor">
       <!-- Preguntamos si el vuelo es de ida o ida y vuelta || name opcion para que solo pueda elegir uno, checked para que este seleccionada por defecto-->
       <input type="radio" id="ida_vuelta" name="opcion" checked>
@@ -84,14 +84,27 @@
       <span style="color: red;" id="errorIda_date"></span><br>
       <span style="color: red;" id="errorVuelta_date"></span><br>
 
-      <!-- Botón de recerca -->
-      <input type="submit" id="myBtn_rec" class="button" value="Buscar">
+      <!-- Numero de pasajeros -->
+      <div>
+        <!--subrayado -->
+        <u>
+          <!--titulo -->
+          <h5>Pasajeros</h5>
+        </u>
+
+        <!-- Pedimos los pasajeros  -->
+        <label for="pasajeros">Cuantos pasajeros son:</label><br>
+        <input type="text" id="pasajeros">
+      </div>
+
+      <!-- Botón de reserva -->
+      <input type="submit" id="myBtn_res" class="button" value="Reservar">
 
     </div>
   </form>
 
   <!-- Script -->
-  <script src="js/recerca.js"></script>
+  <script src="js/Reserva.js"></script>
 </body>
 
 </html>

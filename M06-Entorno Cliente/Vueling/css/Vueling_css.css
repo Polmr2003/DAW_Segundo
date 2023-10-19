@@ -135,6 +135,9 @@ p {
     }
 }
 
+.Pasajeros_title{
+    text-align: left;
+}
 /* Estilo personalizado para los selectores */
 .select-contenedor {
 

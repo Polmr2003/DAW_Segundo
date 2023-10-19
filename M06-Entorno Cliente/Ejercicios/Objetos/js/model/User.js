@@ -6,7 +6,7 @@ class User {
     email; // publico
 
     //constructor (en JavaSript solo se puede poner uno)
-    constructor(nom, contraseña) {
+    constructor(nom, contraseña="1234") { // si solo nos da el nombre por defecto nos pondra de contraseña 1234 i asi con esto es como si tuvieramos 2 constructores
         this.#username = nom;
         this.#password = contraseña;
     }
