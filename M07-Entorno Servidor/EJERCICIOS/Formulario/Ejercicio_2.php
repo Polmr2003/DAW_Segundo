@@ -36,9 +36,17 @@ $numero = $_GET;
         }
     }
 
-    if (isset($_GET["numero"]) && verificar_numero()) {
-        for ($i=0; $i < $_GET["numero"]; $i++) { 
-            
+    if (verificar_numero($_GET["numero"])) {
+        if ($numero !== null) {
+            echo '<h2>Taula de multiplicar del número ' . $_GET["numero"] . ':</h2>';
+            echo '<table border="1">';
+            for ($i = 1; $i <= 10; $i++) {
+                echo '<tr>';
+                echo '<td>' . $_GET["numero"] . ' x ' . $i . '</td>';
+                echo '<td>' . ($_GET["numero"] * $i) . '</td>';
+                echo '</tr>';
+            }
+            echo '</table>';
         }
     }
 
