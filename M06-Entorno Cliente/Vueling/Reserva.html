@@ -32,7 +32,7 @@
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="./Inicio_Sesion.html">Login</a>
           <a class="nav-link" href="./Nuevo_Usuario.html">Registrarse</a>
-          <a class="nav-link" href="./recerca.html">Reserva</a>
+          <a class="nav-link" href="./Reserva.html">Reserva</a>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
       <span style="color: red;" id="errorIda_date"></span><br>
       <span style="color: red;" id="errorVuelta_date"></span><br>
 
-      <!-- Numero de pasajeros -->
+      <!-- Titulo donde pedimos el numero de pasajeros -->
       <div>
         <!--subrayado -->
         <u>
@@ -93,14 +93,22 @@
         </u>
 
         <!-- Pedimos los pasajeros  -->
-        <label for="pasajeros">Cuantos pasajeros son:</label><br>
-        <input type="text" id="pasajeros">
+        <div>
+          <label for="pasajeros">Cuantos pasajeros son:</label><br>
+          <input type="text" id="pasajeros" style="font-size: 16px;" placeholder="Numero total de pasajeros">
+        </div><br>
+        <div id="edades_pasajeros" style="display: none;">
+          <h5>Edad de los pasajeros:</h5>
+          <div id="edad_pasajeros_container">
+            <!-- Aquí s'afegiran els camps d'edat mitjançant JavaScript -->
+          </div>
+        </div><br>
+
+
+        <!-- Botón de reserva -->
+        <input type="submit" id="myBtn_res" class="button" value="Reservar">
+
       </div>
-
-      <!-- Botón de reserva -->
-      <input type="submit" id="myBtn_res" class="button" value="Reservar">
-
-    </div>
   </form>
 
   <!-- Script -->

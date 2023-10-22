@@ -1,3 +1,41 @@
+// Funció que genera camps d'edat segons el nombre de passatgers
+const pasajerosInput = document.getElementById("pasajeros");
+const edadesPasajerosContainer = document.getElementById("edad_pasajeros_container");
+
+pasajerosInput.addEventListener("input", () => {
+    const numPasajeros = pasajerosInput.value;
+    if (numPasajeros > 0) {
+        // Mostrem els camps d'edat
+        edadesPasajerosContainer.innerHTML = ""; // borramos lo que halla en el container anteriormente
+        for (let i = 1; i <= numPasajeros; i++) {
+            const edadInput = document.createElement("input");
+            edadInput.type = "number";
+            edadInput.id = "pasajero_" + i;
+            edadInput.style = "width: 160px;";
+            edadInput.placeholder = "Pasajero " + i;
+            edadInput.min = 0;
+            edadInput.max = 99; // Ajusta els límits de la edad
+
+            //añadimos un texto para añadir informacion para que el usuario ponga la edad
+            const text = document.createElement("p");
+
+            text.innerHTML = "edad del pasajero " + i + ":"; //texto que estara en la etiqueta p
+            text.style = "text-align: left; margin: 16px 0px"; // lo centramos a al izquierda
+
+            // Afegim un salt de línia després de cada input
+            const lineBreak = document.createElement("br");
+
+            // Afegim l'input i el salt de línia al contenidor
+            edadesPasajerosContainer.appendChild(text);
+            edadesPasajerosContainer.appendChild(edadInput);
+        }
+        document.getElementById("edades_pasajeros").style.display = "block";
+    } else {
+        // Amaguem els camps d'edat si el nombre de passatgers és 0 o negatiu
+        document.getElementById("edades_pasajeros").style.display = "none";
+    }
+});
+
 //importamos el objeto vuelo
 //import {Viatge} from "./Model/Viatge.js";
 
@@ -55,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         ciudades_destino.appendChild(option);
     }
+
 
     // Reservamos un vuelo
     document.getElementById("myBtn_res").addEventListener("click", function () {
@@ -127,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //let reserva = new Viatge(OrigenSelect, DestinoSelect, fecha_ida, fecha_vuelta);
 
             //mostramos la informacion de la reserva
-            //reserva.printing_ida();
+            //console.log(reserva.printing_ida());
 
 
             alert("Reserva echa");
