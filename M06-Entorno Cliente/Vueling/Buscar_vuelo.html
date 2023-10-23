@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Inicio de Sesión</title>
+  <title>Buscar vuelo</title>
   <!-- Link al CSS -->
   <link rel="stylesheet" href="./css/Vueling_css.css">
 
@@ -32,7 +32,7 @@
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="./Inicio_Sesion.html">Login</a>
           <a class="nav-link" href="./Nuevo_Usuario.html">Registrarse</a>
-          <a class="nav-link" href="./Reserva.html">Reserva</a>
+          <a class="nav-link" href="./Buscar_vuelo.html">Buscar vuelo</a>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
   <!------------------------ Contenido ---------------------------------->
   <form class="formulario">
 
-    <h1>Reserva de vuelo</h1>
+    <h1>Buscar vuelo</h1>
     <div class="contenedor">
       <!-- Preguntamos si el vuelo es de ida o ida y vuelta || name opcion para que solo pueda elegir uno, checked para que este seleccionada por defecto-->
       <input type="radio" id="ida_vuelta" name="opcion" checked>
@@ -92,13 +92,16 @@
           <h5>Pasajeros</h5>
         </u>
 
-        <!-- Pedimos los pasajeros  -->
+        <!-- Pedimos el numero de pasajeros -->
         <div>
-          <label for="pasajeros">Cuantos pasajeros son:</label><br>
-          <input type="text" id="pasajeros" style="font-size: 16px;" placeholder="Numero total de pasajeros">
+          <label for="pasajeros">Cuantos pasajeros son:</label>
+          <input type="text" id="pasajeros" style="font-size: 16px;" placeholder="Numero total de pasajeros"><br>
+          <span style="color: red;" id="errorNum_pasajeros"></span><br>
         </div><br>
         <div id="edades_pasajeros" style="display: none;">
           <h5>Edad de los pasajeros:</h5>
+          <span style="color: red;" id="errorNum_edad_adult"></span><br>
+          <span style="color: red;" id="errorNum_edad_nen"></span>
           <div id="edad_pasajeros_container">
             <!-- Aquí s'afegiran els camps d'edat mitjançant JavaScript -->
           </div>
@@ -106,13 +109,13 @@
 
 
         <!-- Botón de reserva -->
-        <input type="submit" id="myBtn_res" class="button" value="Reservar">
+        <input type="submit" id="myBtn_bus" class="button" value="Buscar">
 
       </div>
   </form>
 
   <!-- Script -->
-  <script src="js/Reserva.js"></script>
+  <script src="js/Buscar_vuelo.js"></script>
 </body>
 
 </html>

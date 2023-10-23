@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // windos.open ; (abre una ventana donde esta);
         
         // abrir la url que le pongamos
-        // window.open("https://campus.proven.cat/");
+        //window.open("https://campus.proven.cat/");
 
         // a los 3 segundos lanzara esta funcion
         //setTimeout(saludo, 3000);
