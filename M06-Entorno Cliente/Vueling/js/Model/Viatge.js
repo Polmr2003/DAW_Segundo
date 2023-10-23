@@ -9,7 +9,7 @@ class Viatge {
     #pasajeros;  // # : privado
 
     //constructor (en JavaSript solo se puede poner uno)
-    constructor(origen, destino, data_ida, data_vuelta, precio=0, pasajeros=0) { // si solo nos da el nombre por defecto nos pondra de contraseña 1234 i asi con esto es como si tuvieramos 2 constructores
+    constructor(origen, destino, data_ida, data_vuelta = "", precio = 0, pasajeros = 0) { // si solo nos da el nombre por defecto nos pondra de contraseña 1234 i asi con esto es como si tuvieramos 2 constructores
         this.#origen = origen;
         this.#destino = destino;
         this.#data_ida = data_ida;

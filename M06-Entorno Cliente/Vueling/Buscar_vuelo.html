@@ -84,7 +84,7 @@
       <span style="color: red;" id="errorIda_date"></span><br>
       <span style="color: red;" id="errorVuelta_date"></span><br>
 
-      <!-- Titulo donde pedimos el numero de pasajeros -->
+      <!-- Pedimos el numero de pasajeros -->
       <div>
         <!--subrayado -->
         <u>
@@ -97,24 +97,36 @@
           <label for="pasajeros">Cuantos pasajeros son:</label>
           <input type="text" id="pasajeros" style="font-size: 16px;" placeholder="Numero total de pasajeros"><br>
           <span style="color: red;" id="errorNum_pasajeros"></span><br>
-        </div><br>
-        <div id="edades_pasajeros" style="display: none;">
-          <h5>Edad de los pasajeros:</h5>
-          <span style="color: red;" id="errorNum_edad_adult"></span><br>
-          <span style="color: red;" id="errorNum_edad_nen"></span>
-          <div id="edad_pasajeros_container">
-            <!-- Aquí s'afegiran els camps d'edat mitjançant JavaScript -->
-          </div>
-        </div><br>
-
-
-        <!-- Botón de reserva -->
-        <input type="submit" id="myBtn_bus" class="button" value="Buscar">
-
+        </div>
       </div>
+
+      <!-- Pedimos la edad de los pasajeros -->
+      <div>
+        <h5>Edad de los pasajeros:</h5>
+
+        <!-- Pedimos el numero de pasajeros -->
+        <div>
+          <label for="Adultos">Cuantos Adultos son:</label>
+          <input type="text" id="Adultos" style="font-size: 16px;" placeholder="Numero total de Adultos"><br>
+          <span style="color: red;" id="errorNum_edad_adult"></span><br>
+
+          <label for="Adultos">Cuantos Niños son:</label>
+          <input type="text" id="Nens" style="font-size: 16px;" placeholder="Numero total de Niños"><br>
+          <span style="color: red;" id="errorNum_edad_nen"></span><br>
+
+          <label for="Adultos">Cuantos bebes son:</label>
+          <input type="text" id="Bebes" style="font-size: 16px;" placeholder="Numero total de Bebes"><br>
+          <span style="color: red;" id="errorNum_edad_bebes"></span>
+        </div>
+      </div>
+
+    </div>
+    <!-- Botón de reserva -->
+    <input type="submit" id="myBtn_bus" class="button" value="Buscar">
   </form>
 
   <!-- Script -->
+  <script type="module" src="js/Model/Viatge.js"></script>
   <script src="js/Buscar_vuelo.js"></script>
 </body>
 
