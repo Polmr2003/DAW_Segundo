@@ -177,18 +177,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         //comprovamos que los campos esten bien
         if (flag_reserva) { // si las credenciales estan bien
-            //creamos la variable con el objeto de viatge i con la informacion de la reserva
-            //const vuelo = new Viatge(OrigenSelect, DestinoSelect, ob_fechaIda, ob_fechaVuelta, 500, 2);
+            // Crear una URL con parámetros para pasar los datos
+            const url = `Vuelo.html?origen=${OrigenSelect}&destino=${DestinoSelect}&ida=${fecha_ida}&vuelta=${fecha_vuelta}&pasajeros=${numero_pasajeros}&adultos=${numero_adult}&nenos=${numero_nen}&bebes=${numero_bebe}`;
 
-            // Guardar la instancia de vuelo en localStorage
-            //localStorage.setItem("vuelo", JSON.stringify(vuelo));
-
-            //mostramos la informacion de la reserva
-            //console.log(reserva.printing_ida());
-
-            //abrimos 
-            window.open("Vuelo.html");
-
+            // Redirigir a la página Vuelo.html con los datos en la URL
+            window.location.href = url;
             //alert("Reserva echa");
         } else { // si alguna credencial esta mal
             event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario

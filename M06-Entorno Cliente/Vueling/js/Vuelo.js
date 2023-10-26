@@ -1,28 +1,22 @@
-// Leer la información del vuelo desde localStorage
-const vueloJSON = localStorage.getItem("vuelo");
+// Obtener los parámetros de la URL
+const urlParams = new URLSearchParams(window.location.search);
 
-if (vueloJSON) {
-    // Convertir el JSON del vuelo de nuevo a un objeto (en este caso, una instancia de Viatge)
-    const vuelo = JSON.parse(vueloJSON);
+// Obtener los valores de los parámetros
+const origen = urlParams.get("origen");
+const destino = urlParams.get("destino");
+const ida = urlParams.get("ida");
+const vuelta = urlParams.get("vuelta");
+const pasajeros = urlParams.get("pasajeros");
+const adultos = urlParams.get("adultos");
+const ninos = urlParams.get("nenos");
+const bebes = urlParams.get("bebes");
 
-    // Realizar alguna acción con la información del vuelo, como mostrarla en la consola
-    if (vuelo.data_vuelta) {
-        console.log(vuelo.printing_ida_vuelta());
-    } else {
-        console.log(vuelo.printing_ida());
-    }
-} else {
-    console.log("No se encontró información del vuelo.");
-}
-
-//selectores en el html que vamos a poner las ciudades
-let obj_vuelo = document.getElementById("obj_vuelo");
-
-//añadir las ciudades_origen al selector de el html
-for (let i = 0; i < obj_vuelo.length; i++) {
-    let input = document.createElement("input");
-    option.value = ciutats[i];
-    option.innerHTML = ciutats[i];
-
-    ciudades_origen.appendChild(option);
-}
+// Utiliza los valores como desees en la página Vuelo.html
+console.log("Origen: " + origen);
+console.log("Destino: " + destino);
+console.log("Fecha de Ida: " + ida);
+console.log("Fecha de Vuelta: " + vuelta);
+console.log("Número de Pasajeros: " + pasajeros);
+console.log("Número de Adultos: " + adultos);
+console.log("Número de Niños: " + ninos);
+console.log("Número de Bebés: " + bebes);
