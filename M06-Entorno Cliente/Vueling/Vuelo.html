@@ -37,9 +37,54 @@
         </div>
     </nav>
     <!------------------------ Contenido ---------------------------------->
-    <div id="Obj_vuelo">
+    <form class="formulario">
+        <!-- Titulo -->
+        <div>
+            <u>
+                <h1>Vuelos Disponibles</h1><br>
+            </u>
 
-    </div>
+            <!-- ------------ Informacion de lo vuelos ------------ -->
+            <!-- Mostramos los datos de el vuelo 1 -->
+            <div>
+                <ul>
+                    <li>
+                        <!-- Titulo -->
+                        <h4>Vuelo 1</h4>
+
+                        <!-- Informacion -->
+                        <ul>
+                            <li>
+                                <label for="Origen">Nombre de origen: </label>
+                                <span id="Origen"></span>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <label for="Origen">Nombre de origen: </label>
+                                <span id="Origen"></span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><br>
+
+            <!-- Mostramos los datos de el vuelo 2 -->
+            <div>
+                <ul>
+                    <li>
+                        <h4>Vuelo 2</h4>
+                    </li>
+                </ul>
+                <label for="Adultos">Vuelo 1:</label>
+                <span></span>
+
+                <label for="Adultos">Cuantos Niños son:</label>
+                <span style="color: red;" id="errorNum_edad_nen"></span><br>
+
+            </div>
+        </div>
+    </form>
     <!-- Script -->
     <script src="js/Vuelo.js"></script>
 </body>

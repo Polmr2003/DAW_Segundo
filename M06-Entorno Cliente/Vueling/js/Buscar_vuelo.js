@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             document.getElementById("errorNum_edad_bebes").innerHTML = "";
         }
-
+        event.preventDefault();
         //comprovamos que los campos esten bien
         if (flag_reserva) { // si las credenciales estan bien
             // Crear una URL con parámetros para pasar los datos
