@@ -12,10 +12,10 @@ let div_Sneakers = document.getElementById("div_sneakers");
 
 // ------------------------------------------ Mostramos la informacion de el articulo seleccionado ------------------------------------------
 // Array con los productos de clothes
-let prodcuts_clothes = ["Chicago Bulls T-shirt", "Chicago Bulls pants"];
+let products_clothes = ["Chicago Bulls T-shirt", "Chicago Bulls pants"];
 
 // Array con los productos de Sneakers
-let prodcuts_Sneakers = ["Air Jordan sneakers", "Nike Air sneakers"];
+let products_Sneakers = ["Air Jordan sneakers", "Nike Air sneakers"];
 
 
 if (article == "Sports clothes") {
@@ -27,18 +27,18 @@ if (article == "Sports clothes") {
     let div_product_clothes = document.getElementById("div_product_clothes");
 
     // Añadimos el prodcuto al div
-    for (let i = 0; i < prodcuts_clothes.length; i++) {
+    for (let i = 0; i < products_clothes.length; i++) {
         // Input de los productos
         let input = document.createElement("input");
         input.type = "text";
-        input.value = prodcuts_clothes[i];
-        input.innerHTML = prodcuts_clothes[i];
-        input.id = prodcuts_clothes[i];
+        input.value = products_clothes[i];
+        input.innerHTML = products_clothes[i];
+        input.id = products_clothes[i];
 
         //chekbox para seleccionar el producto
         let input_chekbox = document.createElement("input");
         input_chekbox.type = "checkbox";
-        input_chekbox.id = prodcuts_clothes[i] + "_chekbox";
+        input_chekbox.id = products_clothes[i] + "_chekbox";
 
         // Salto de linea
         let line_break = document.createElement("br");
@@ -63,14 +63,14 @@ if (article == "Sports clothes") {
         // Input de los productos
         let input = document.createElement("input");
         input.type = "text";
-        input.value = prodcuts_Sneakers[i];
-        input.innerHTML = prodcuts_Sneakers[i];
-        input.id = prodcuts_Sneakers[i];
+        input.value = products_Sneakers[i];
+        input.innerHTML = products_Sneakers[i];
+        input.id = products_Sneakers[i];
 
         //chekbox para seleccionar el producto
         let input_chekbox = document.createElement("input");
         input_chekbox.type = "checkbox";
-        input_chekbox.id = prodcuts_Sneakers[i] + "_chekbox";
+        input_chekbox.id = products_Sneakers[i] + "_chekbox";
 
         // Salto de linea
         let line_break = document.createElement("br");
@@ -91,9 +91,9 @@ document.getElementById("prepare_invoice").addEventListener("click", function ()
 
     if (article == "Sports clothes") {
         //si estamos en el prodcuto article
-        for (let i = 0; i < prodcuts_clothes.length; i++) {
+        for (let i = 0; i < products_clothes.length; i++) {
             //miramos cuantos productos estan marcados en su checkbox
-            let product = document.getElementById(prodcuts_clothes[i] + "_chekbox").checked;
+            let product = document.getElementById(products_clothes[i] + "_chekbox").checked;
 
             if (product) {
                 //si esta marcado añadimos un uno a el contador
@@ -113,9 +113,9 @@ document.getElementById("prepare_invoice").addEventListener("click", function ()
 
     else if (article == "Sneakers") {
         //si estamos en el prodcuto article
-        for (let i = 0; i < prodcuts_Sneakers.length; i++) {
+        for (let i = 0; i < products_Sneakers.length; i++) {
             //miramos cuantos productos estan marcados en su checkbox
-            let product = document.getElementById(prodcuts_Sneakers[i] + "_chekbox").checked;
+            let product = document.getElementById(products_Sneakers[i] + "_chekbox").checked;
 
             if (product) {
                 //si esta marcado añadimos un uno a el contador
