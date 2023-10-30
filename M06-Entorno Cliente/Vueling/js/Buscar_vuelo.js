@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else if (numero_pasajeros < Num_total_pas) {
             // si el numero de pasajeros es menor a el numero que a puesto el usuario
-            document.getElementById("errorNum_pasajeros").innerHTML = "El numero con el total de pasajeros no puede ser menor que el total de Edad de los pasajeross";
+            document.getElementById("errorNum_pasajeros").innerHTML = "El numero con el total de pasajeros no puede ser menor que el total de Edad de los pasajeros";
             flag_reserva = false;
         } else if (numero_pasajeros > Num_total_pas) {
             // si el numero de pasajeros es mallor a el numero que a puesto el usuario
