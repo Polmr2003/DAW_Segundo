@@ -1,7 +1,7 @@
 // Obtener los parámetros de la URL
 const urlParams = new URLSearchParams(window.location.search);
 
-// Obtener los valores de los parámetros
+// Obtenemos los valores de los parámetros
 const origen = urlParams.get("origen");
 const destino = urlParams.get("destino");
 const ida = urlParams.get("ida");
@@ -13,7 +13,7 @@ const bebes = urlParams.get("bebes");
 
 // Cuando cargue la pagina
 document.addEventListener("DOMContentLoaded", function () {
-    // mostrar los parametros de la busqueda en los vuelos
+    // Mostrar los parametros de la busqueda en los vuelos
     document.getElementById("Origen").innerHTML = origen;
     document.getElementById("Destino").innerHTML = destino;
     document.getElementById("Ida").innerHTML = ida;
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div_posible_fecha_vuelta.style.display = "none"; // escondemos la frase con la hora de vuelta
     }
 
-    // Ponemos las fechas de el vuelo con randoms
+    // Ponemos las fechas de el vuelo 1 con randoms
     let hora_ida_1 = Math.floor(Math.random() * (23 - 0 + 1) + 0); //Math.floor(Math.random() * (max - min + 1) + min) || Math.floor para redondear un numero , Math.random para hacer un random con decimales
     let minutos_ida_1 = Math.floor(Math.random() * (59 - 1 + 1) + 1); //Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -70,4 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("Hora_ida_2").innerHTML = hora_ida_2 + ":" + minutos_ida_2;
     document.getElementById("Hora_vue_2").innerHTML = hora_vue_2 + ":" + minutos_vue_2;
+
+
+    // Ponemos el precio
+    let precio = (adultos * 100) + (ninos * 50) + (bebes * 25); // Por adulto son 100€, por niños son 50€ i por bebes 25€
+
+    document.getElementById("precio_vuelo").innerHTML = precio + " Euros";
 });

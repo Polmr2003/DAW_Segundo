@@ -20,4 +20,4 @@ console.log(user);
 let numbers = ["0 , 1, 2, 3"]
 console.log(numbers); //antes del parse
 numbers=JSON.parse(numbers);
-console.log(numbers); //desoues del parse
+console.log(numbers); //despues del parse
