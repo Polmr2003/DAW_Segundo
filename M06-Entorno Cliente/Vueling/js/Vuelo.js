@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div_posible_fecha_vuelta.style.display = "none"; // escondemos la frase con la hora de vuelta
     }
 
-    // Ponemos las fechas de el vuelo 1 con randoms
+    // Ponemos las fechas de el vuelo con randoms
     let hora_ida_1 = Math.floor(Math.random() * (23 - 0 + 1) + 0); //Math.floor(Math.random() * (max - min + 1) + min) || Math.floor para redondear un numero , Math.random para hacer un random con decimales
     let minutos_ida_1 = Math.floor(Math.random() * (59 - 1 + 1) + 1); //Math.floor(Math.random() * (max - min + 1) + min);
 
