@@ -28,13 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
         // ------------------------------------------ Validaciones total articles  ------------------------------------------
         num_article = document.getElementById("num_article").value;
 
+        // Convierte el valor a un número de punto flotante
+        var numero = parseFloat(num_article);
+
         if (num_article < 1) {
             // Si el numero de articulos es menor a 0
             document.getElementById("Error_num_art").innerHTML = "El numero de articulos no puede ser menor a 0";
             flag = false;
-        } else if (num_article == 0) {
+        } else if (!(num_article % 1 == 0)) {
             // Si el numero de ariticulos tiene decimal
-            document.getElementById("Error_num_art").innerHTML = "El numero de articulos no puede ser menor a 0";
+            document.getElementById("Error_num_art").innerHTML = "El numero de articulos no puede tener decimales";
             flag = false;
         } else {
             document.getElementById("Error_num_art").innerHTML = "";
