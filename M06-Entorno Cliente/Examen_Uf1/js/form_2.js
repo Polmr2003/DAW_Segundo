@@ -89,25 +89,49 @@ document.getElementById("prepare_invoice").addEventListener("click", function ()
     // Variable con el contador de los productos seleccionados
     let cont = 0;
 
-    //miramos cuantos productos estan marcados en su checkbox
     if (article == "Sports clothes") {
+        //si estamos en el prodcuto article
         for (let i = 0; i < prodcuts_clothes.length; i++) {
-            let product = document.getElementById(prodcuts_clothes[i] + "_chekbox");
+            //miramos cuantos productos estan marcados en su checkbox
+            let product = document.getElementById(prodcuts_clothes[i] + "_chekbox").checked;
+
             if (product) {
+                //si esta marcado añadimos un uno a el contador
                 cont++;
             }
         }
-    } else if (article == "Sneakers") {
+
+        if (cont > num_article) {
+            document.getElementById("errors").innerHTML = "no puedes poner mas productos que el numero que pusiste en la pagina anterior";
+        } else if (cont < num_article) {
+            document.getElementById("errors").innerHTML = "no puedes poner menos productos que el numero que pusiste en la pagina anterior";
+        } else {
+            document.getElementById("errors").innerHTML = "";
+        }
+
+    }
+
+    else if (article == "Sneakers") {
+        //si estamos en el prodcuto article
         for (let i = 0; i < prodcuts_Sneakers.length; i++) {
-            let product = document.getElementById(prodcuts_Sneakers[i] + "_chekbox");
-            if (product.spellcheck) {
+            //miramos cuantos productos estan marcados en su checkbox
+            let product = document.getElementById(prodcuts_Sneakers[i] + "_chekbox").checked;
+
+            if (product) {
+                //si esta marcado añadimos un uno a el contador
                 cont++;
             }
+        }
+
+        if (cont > num_article) {
+            document.getElementById("errors").innerHTML = "No puedes poner mas productos que el numero que pusiste en la pagina anterior";
+        } else if (cont < num_article) {
+            document.getElementById("errors").innerHTML = "No puedes poner menos productos que el numero que pusiste en la pagina anterior";
+        } else {
+            document.getElementById("errors").innerHTML = "";
         }
     }
-    console.log(cont);
 
-    document.getElementById("");
 });
 
 
