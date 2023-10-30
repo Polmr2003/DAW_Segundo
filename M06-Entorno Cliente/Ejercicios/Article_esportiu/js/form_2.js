@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("hora").innerHTML = current_data;
         }
 
-        // Muestro la fecha actual
+        // Actualizamos la fecha actual
         actualizarCronometro();
     }
 
