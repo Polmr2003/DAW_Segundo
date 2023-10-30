@@ -38,53 +38,98 @@
     </nav>
     <!------------------------ Contenido ---------------------------------->
     <form class="formulario">
-        <!-- Titulo -->
+
+        <!-- informacion del vuelo-->
         <div>
             <u>
-                <h1>Vuelos Disponibles</h1><br>
+                <h1>Informacion del vuelo</h1><br>
             </u>
 
-            <!-- ------------ Informacion de lo vuelos ------------ -->
-            <!-- Mostramos los datos de el vuelo 1 -->
-            <div>
-                <ul>
-                    <li>
-                        <!-- Titulo -->
-                        <h4>Vuelo 1</h4>
-
-                        <!-- Informacion -->
-                        <ul>
-                            <li>
-                                <label for="Origen">Nombre de origen: </label>
-                                <span id="Origen"></span>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <label for="Origen">Nombre de origen: </label>
-                                <span id="Origen"></span>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><br>
-
-            <!-- Mostramos los datos de el vuelo 2 -->
-            <div>
-                <ul>
-                    <li>
-                        <h4>Vuelo 2</h4>
-                    </li>
-                </ul>
-                <label for="Adultos">Vuelo 1:</label>
-                <span></span>
-
-                <label for="Adultos">Cuantos Niños son:</label>
-                <span style="color: red;" id="errorNum_edad_nen"></span><br>
-
-            </div>
+            <!-- datos del vuelo-->
+            <ul>
+                <li>
+                    <label for="Origen">Origen: </label>
+                    <span id="Origen"></span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label for="Destino">Destino: </label>
+                    <span id="Destino"></span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label for="Ida">Fecha de ida: </label>
+                    <span id="Ida"></span>
+                </li>
+            </ul>
+            <ul id="info_vue">
+                <li>
+                    <label for="Vuelta">Fecha de vuelta: </label>
+                    <span id="Vuelta"></span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label for="Adult">Numero de Adultos: </label>
+                    <span id="Adult"></span>
+                </li>
+            </ul>
+            <ul id="ul_Nin_beb">
+                <li id="li_nin">
+                    <label for="Nen">Numero de niños: </label>
+                    <span id="Nen"></span>
+                </li>
+                <li id="li_beb">
+                    <label for="Beb">Numero de bebes: </label>
+                    <span id="Beb"></span>
+                </li>
+            </ul>
         </div>
+
+
+        <!-- Preguntamos el horario que quiere el usuario -->
+        <u>
+            <h3>Que horario quieres?</h3>
+        </u>
+
+
+        <!-- Horas de ida -->
+        <div>
+            <ul>
+                <li>
+                    <!-- Titulo -->
+                    <h4>Posibles Horas de ida</h4>
+
+                    <!-- Posibles horas de ida -->
+                    <input type="radio" name="hora_ida" checked><span id="Hora_ida_1"></span>
+                    <br><input type="radio" name="hora_ida"><span id="Hora_ida_2"></span>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Horas de vueltas -->
+        <div id="div_pos_fecha_vue">
+            <ul>
+                <li>
+                    <!-- Titulo -->
+                    <h4>Posibles Horas de vuelta</h4>
+
+                    <!-- Posibles horas de ida -->
+                    <input type="radio" name="hora_vue" checked><span id="Hora_vue_1"></span>
+                    <br><input type="radio" name="hora_vue"><span id="Hora_vue_2"></span>
+
+                </li>
+            </ul>
+        </div>
+
+        <!-- Botón de reserva -->
+    <input type="submit" id="myBtn_bus" class="button" value="Reservar">
     </form>
+
     <!-- Script -->
     <script src="js/Vuelo.js"></script>
 </body>
