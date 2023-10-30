@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let ob_fechaVuelta = new Date(fecha_vuelta);
 
         //-------------------------------Realizar validaciones para la recerca ----------------------------------------
-
         // verificacion de origen/destino
         if (OrigenSelect == DestinoSelect) {
             // el origen i el destino son los mismos
@@ -135,14 +134,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (numero_pasajeros < 1) {
             // si el numero de pasajeros es menor a 0
             document.getElementById("errorNum_pasajeros").innerHTML = "Minimo 1 persona";
+            flag_reserva = false;
         }
         else if (numero_pasajeros < Num_total_pas) {
             // si el numero de pasajeros es menor a el numero que a puesto el usuario
             document.getElementById("errorNum_pasajeros").innerHTML = "El numero con el total de pasajeros no puede ser menor que el total de Edad de los pasajeross";
+            flag_reserva = false;
         } else if (numero_pasajeros > Num_total_pas) {
             // si el numero de pasajeros es mallor a el numero que a puesto el usuario
             document.getElementById("errorNum_pasajeros").innerHTML = "Faltan personas por poner en Edad de los pasajeros";
-
+            flag_reserva = false;
         } else {
             document.getElementById("errorNum_pasajeros").innerHTML = "";
         }
@@ -174,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             document.getElementById("errorNum_edad_bebes").innerHTML = "";
         }
-        event.preventDefault();
+
         //comprovamos que los campos esten bien
         if (flag_reserva) { // si las credenciales estan bien
             // Crear una URL con parámetros para pasar los datos
