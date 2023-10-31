@@ -18,7 +18,7 @@ if (isset($_POST['nombre'], $_POST['password'])) {
 		die('Error opening the file ' . $filename);
 	}
 
-	// leemos el fihcero csv i ponemos los datos en el array data para luego mostrarlos o usarlos
+	// Leemos el fihcero csv i ponemos los datos en el array data para luego mostrarlos o usarlos
 	while (($row = fgetcsv($f)) !== false) {
 		$data[] = $row;
 	}
@@ -35,10 +35,10 @@ if (isset($_POST['nombre'], $_POST['password'])) {
 		[$nombre , $contraseña]
 	];
 
-	//fusionamos los datos que ya habian mas los de ahora
+	// Fusionamos los datos que ya habian mas los de ahora
 	$data = array_merge($data, $data_usu);
 
-	// mostramos el array que nos escribira en el fichero
+	// Mostramos el array que nos escribira en el fichero
 	echo "<pre>";
 	print_r($data);
 	echo "</pre>";
