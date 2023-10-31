@@ -7,7 +7,7 @@ $data = [
 $filename = 'archivo.csv';
 
 // open csv file for writing
-$f = fopen($filename, 'w'); // w: write | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
+$f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
 
 if ($f === false) {
 	die('Error opening the file ' . $filename);
