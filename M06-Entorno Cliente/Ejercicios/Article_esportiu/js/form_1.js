@@ -28,8 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // ------------------------------------------ Validaciones total articles  ------------------------------------------
         num_article = document.getElementById("num_article").value;
 
-        // Convierte el valor a un número de punto flotante
-        var numero = parseFloat(num_article);
 
         if (num_article < 1) {
             // Si el numero de articulos es menor a 0
