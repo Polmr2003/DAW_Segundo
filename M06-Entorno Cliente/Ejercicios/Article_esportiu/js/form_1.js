@@ -28,16 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // ------------------------------------------ Validaciones total articles  ------------------------------------------
         num_article = document.getElementById("num_article").value;
 
-        // Convierte el valor a un número de punto flotante
-        var numero = parseFloat(num_article);
-
         if (num_article < 1) {
             // Si el numero de articulos es menor a 0
             document.getElementById("Error_num_art").innerHTML = "El numero de articulos no puede ser menor a 0";
             flag = false;
-        } else if (!(num_article % 1 == 0)) {
-            // Si el numero de ariticulos tiene decimal
-            document.getElementById("Error_num_art").innerHTML = "El numero de articulos no puede tener decimales";
+        } else if (isNaN(num_article)) {
+            // Si el numero de ariticulos no es un numero
+            document.getElementById("Error_num_art").innerHTML = "Pon un numero entero";
             flag = false;
         } else {
             document.getElementById("Error_num_art").innerHTML = "";
@@ -75,19 +72,20 @@ document.addEventListener("DOMContentLoaded", function () {
         let now = new Date();
 
         // Recoger los valores de las cajas
-        let dia = now.getDay();
-        let mes = now.getMonth();
-        let año = now.getFullYear();
-        let hora = now.getHours();
-        let minutos = now.getMinutes();
-        let segundos = now.getSeconds();
+        let dia_semana = now.getDay(); // dia de la semana
+        let dia = now.getDate(); // dia del mes
+        let mes = now.getMonth(); // mes || getMonth() devuelve valores indexados (0-11) donde el 0 es enero y el 11 es diciembre.
+        let año = now.getFullYear(); // año
+        let hora = now.getHours(); // hora
+        let minutos = now.getMinutes(); // minutos
+        let segundos = now.getSeconds(); // segundos
 
         // Definir los nombres de los meses y días de la semana
         let mesos = ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"];
         let dies = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
 
         // Formatear la fecha y hora final
-        let current_data = `Avui es ${dies[dia - 1]} dia ${dia} de ${mesos[mes]} de ${año}, ${hora}:${minutos}:${segundos}`; // ${dies[dia - 1]} : nombre de el dia ||  ${dia} : numero del dia || ${mesos[mes]} : nombre del mes ...
+        let current_data = `Avui es ${dies[dia_semana - 1]} dia ${dia} de ${mesos[mes]} de ${año}, ${hora}:${minutos}:${segundos}`; // ${dies[dia - 1]} : nombre de el dia ||  ${dia} : numero del dia || ${mesos[mes]} : nombre del mes ...
 
         // Función para actualizar la fecha y mostrarla
         function actualizarCronometro() {
