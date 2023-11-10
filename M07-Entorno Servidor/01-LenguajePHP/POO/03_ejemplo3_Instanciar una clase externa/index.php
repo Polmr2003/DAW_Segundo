@@ -19,9 +19,10 @@ echo "
         <strong>".$coche1->getColor()."</strong>.
 ";
 
-//Accedo directamente a los atributos para recuperar la información del coche 2 (opción 2)
+/*//Accedo directamente a los atributos para recuperar la información del coche 2 (opción 2) (Si no estan priavadas las variables)
 echo "
         <strong>".$coche2->propietario."</strong> se ha comprado un
         <strong>".$coche2->marca." ".$coche2->modelo."</strong> de color
         <strong>".$coche2->color."</strong>.
 ";
+*/

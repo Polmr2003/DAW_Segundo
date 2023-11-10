@@ -10,10 +10,10 @@
 class Coche
 {
     //Variables o atributos
-    var $marca;
-    var $modelo;
-    var $color;
-    var $propietario;
+    private $marca;
+    private $modelo;
+    private $color;
+    private $propietario;
 
     function __construct($miMarca,$miModelo,$miColor,$miPropietario){
         $this->marca = $miMarca;
