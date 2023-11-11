@@ -59,6 +59,7 @@ if (!isset($_SESSION['login'])) {
             if (ctype_alnum($frase)) {
                 //Escribir frase en el archivo txt
                 write_data_in_txt($archivo_frases, $frase);
+
             }else{
                 // si no tiene caracteres alfanumericos
                 echo '<span style="color: red;">Solo se acepta caracteres alfanuméricos</span>';

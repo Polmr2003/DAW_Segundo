@@ -4,6 +4,7 @@
 
 //Llamada al archivo con todos los datos (variables) 
 require_once './datos.php';
+require_once './funciones_archivos.php';
 
 //---------------------------------------------------------------------------------------------
 
@@ -295,29 +296,27 @@ function generarArchivosDesdeIndex(array $array): void
     }
 }
 
-function contar_votos(int $voto, array $array_lenght_frases)
+function inicializar_votos(array $array_lenght_frases)
 {
+    $data = [];
 
-    // $num_votos= 0;
+    for ($i=0; $i < count($array_lenght_frases); $i++) { 
+        $data[] = [0];
+    }
 
-    // for ($i=0; $i < count($array_lenght_frases) ; $i++) { 
-    //     $frase_votada = $array_lenght_frases[$voto-1]; //frase votada
-
-    //     if($frase_votada == $array_lenght_frases[$i]){
-    //         $num_votos++;
-    //         echo $num_votos;
-    //     }
-    // }
-    // for ($i=0; $i < count(array_lenght_frases); $i++) { 
-    //     $frase_votada=$array_lenght_frases[$voto-1];
-    //     $num_votos.$i;
-    //     if($array_lenght_frases[$voto-1] == $num_votos.$i){
-
-    //     }
-    //     return $frase_votada;
-    // }
+    write_info_in_csv_with_Overwrite("votos.csv", $data);
 }
 
+function inicializar_votos_with_return(array $array_lenght_frases): mixed
+{
+    $data = [];
+
+    for ($i = 0; $i < count($array_lenght_frases); $i++) {
+        $data[] = [0];
+    }
+
+    return $data;
+}
 
 /** 
  *Función que recibe un array y muestra los jugadores

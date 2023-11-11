@@ -28,7 +28,7 @@ function clear_csv(string $filename)
  * @param string $filename - nombre de el fichero csv en el que queremos leer la informacion
  * @param boolean $table - booleano donde decimos si queremos mostrarlo en tabla o no
  */
-function read_info_csv(string $filename, bool $table)
+function read_info_csv_with_table_list(string $filename, bool $table)
 {
     // Leemos los datos que habian anteriormente para no sobreescibir el fichero
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
@@ -89,6 +89,41 @@ function read_info_csv(string $filename, bool $table)
     // echo "<pre>";
     // print_r($data);
     // echo "</pre>";
+
+    // close the file
+    fclose($f);
+
+    //retornamos el contenido
+    //return $data;
+}
+
+
+/** 
+ *Función que lee contenido de un fichero csv i retorna el contenido
+ * @param string $filename - nombre de el fichero csv en el que queremos leer la informacion
+ */
+function read_info_csv(string $filename)
+{
+    // Leemos los datos que habian anteriormente para no sobreescibir el fichero
+    $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
+
+    // Si no a podido abrir el fichero
+    if ($f === false) {
+        die('Error opening the file ' . $filename);
+    }
+
+    // array donde guardaremos la informacion de el csv
+    $data = [];
+
+    // Leemos el fihcero csv i ponemos los datos en el array data para luego mostrarlos o usarlos
+    while (($row = fgetcsv($f)) !== false) {
+        $data[] = $row;
+    }
+
+    // Mostramos el contenido de el csv
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
 
     // close the file
     fclose($f);
@@ -184,6 +219,37 @@ function write_info_in_csv(string $filename, array $data_input)
             fputcsv($f_write, $row);
         }
 
+
+        // close the file
+        fclose($f_write);
+    }
+}
+
+/** 
+ *Función que sobreescribe en un fichero csv
+ * @param string $filename - nombre de el fichero csv en el que queremos escribir informacion
+ * @param array $data - array con la informacion de el fichero
+ * @param string $data_input - array con la informacion que querenos ponerle al fichero
+ */
+function write_info_in_csv_with_Overwrite(string $filename, array $data_input)
+{
+    if (!empty($data_input)) {
+        // open csv file for writing
+        $f_write = fopen($filename, 'w'); // w: write | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
+
+        // ponemos la informacion en el array $data que utilizaremos para escribir en el csv
+        $data = [];
+        $data = array_merge($data, $data_input);
+
+        // Mostramos el array que nos escribira en el fichero
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
+        // write data in csv
+        foreach ($data as $row) {
+            fputcsv($f_write, $row);
+        }
 
         // close the file
         fclose($f_write);

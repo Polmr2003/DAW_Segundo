@@ -25,7 +25,7 @@ myMenu();
             <br>
             <?php
             //llamo a la función que muestra los entrenadores
-            read_info_csv($archivo_entrenadores, false);
+            read_info_csv_with_table_list($archivo_entrenadores, false);
             ?>
         </div>
     </div>

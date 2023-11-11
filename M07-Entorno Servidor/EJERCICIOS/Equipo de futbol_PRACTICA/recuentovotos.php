@@ -19,6 +19,31 @@ if (isset($_SESSION['login'])) {
     myMenu();
 }
 
+// array con el numero de frases para votar
+$data = read_data_txt_with_return($archivo_frases);
+$frases_length = convertir_string_in_array($data);
+
+// array con el numero de votos de frases para votar inicializadas
+$num_votos_frases_inicializadas =inicializar_votos_with_return($frases_length);
+
+// si aun no hemos inicializado los votos o an añadido nuevas frases
+if (!isset($_SESSION["votos_reiniciados"])) {
+    // inicializamos los votos de las frases a 0
+    inicializar_votos($frases_length);
+    $_SESSION["votos_reiniciados"] = "yes";
+}else if($num_votos_frases_inicializadas < $frases_length){
+    echo "<h1>adiosssssss</h1>";
+    // si an añadido mas frases inicializamos el numero de votos para esa frase
+    $data = [];
+
+    for ($i=$num_votos_frases_inicializadas; $i <= count($frases_length); $i++) { 
+        $data[] = [0];
+    }
+
+    write_info_in_csv("votos.csv", $data);
+}
+
+
 ?>
 <!------------------------------------------------------------------------------------------------------>
 
@@ -31,7 +56,7 @@ if (isset($_SESSION['login'])) {
             <br>
             <br>
             <?php
-            
+            read_info_csv($archivo_votos);
             ?>
         </div>
     </div>

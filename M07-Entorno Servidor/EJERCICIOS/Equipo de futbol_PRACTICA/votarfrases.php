@@ -21,6 +21,17 @@ if (!isset($_SESSION['login'])) {
     header('Location: Login.php');
 }
 
+// creamos las variables para inicializar los votos a 0
+$data = read_data_txt_with_return($archivo_frases);
+$array_data = convertir_string_in_array($data);
+
+// si aun no hemos inicializado los votos
+if (!isset($_SESSION["votos_reiniciados"])) {
+    // inicializamos los votos de las frases a 0
+    inicializar_votos($array_data);
+    $_SESSION["votos_reiniciados"] = "yes";
+}
+
 ?>
 <!------------------------------------------------------------------------------------------------------>
 
@@ -53,28 +64,37 @@ if (!isset($_SESSION['login'])) {
             </form>
 
             <?php
+
             if (isset($_POST['frase'])) {
                 // Si los datos introducidos vienen desde el método POST
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    //variables para escribir en el csv
-                    $data_input = $_POST['frase'] + 1;
+                    // numero de frase votada
+                    $numero_frase = $_POST['frase'];
 
-                    // preparamos la variable para añadirla al fichero csv (hay que meterla en un array)
-                    $data = read_data_txt_with_return($archivo_frases);
-                    $array_data = convertir_string_in_array($data);
+                    // array con el numero de votos de las frases
+                    $votos_frases = read_info_csv_with_return($archivo_votos);
 
-                    //$voto=contar_votos($data_input, $array_data);
+                    // array con el numero de votos de la frase votada
+                    $numero_votos_frase = $votos_frases[$numero_frase];
 
+                    // actualizamos los votos
+                    foreach ($numero_votos_frase as $value) {
+                        //sumamos un 1 a los votos
+                        $vaule = $value++;
 
-                    //$array = [[$voto]];
+                        //añadimos los votos actualizados a un array
+                        $votos_actualizados = [$value];
 
+                        // actualizamos los votos
+                        $votos_frases[$numero_frase] = $votos_actualizados;
+                    }
 
+                    echo "<pre>";
+                    print_r($votos_frases);
+                    echo "</pre>";
 
-
-                    //escribimos en el csv
-                    //write_info_in_csv($archivo_votos, $array);
+                    write_info_in_csv_with_Overwrite("votos.csv", $votos_frases);
                 }
-
             }
 
             ?>
