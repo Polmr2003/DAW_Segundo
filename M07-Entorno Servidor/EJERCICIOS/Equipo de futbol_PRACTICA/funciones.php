@@ -1,4 +1,5 @@
 <?php
+
 //Archivo con todas las funciones 
 
 //Llamada al archivo con todos los datos (variables) 
@@ -122,30 +123,60 @@ function calcularEdad($fechaNacimiento)
 /* ------------------------------------------- Funciones para los ejercicios (1,2,3 y 4) ---------------------------------------------------------------- */
 
 
-
 /** 
  *Función que recibe un array y lo recorre mostrando: las imágenes de la carpeta y la información de cada jugador
  *@param: $array futbolistas 
  */
-function mostrarArrayFutbolistas(array $array): void
+// function mostrarArrayFutbolistas(array $array): void
+// {
+//     foreach ($array as $futbolista) {
+//         echo '<div class="col-md-3">';
+//         echo "<br>";
+//         echo '<img src="imagenes/' . $futbolista['nombre'] . '.png" width="200" height="220" />';
+//         echo "<p class=text-center><b>{$futbolista['nombre']}</b></p>";
+//         echo "<hr>";
+//         echo "<ul>";
+//         echo "<li><p><b>País:</b> {$futbolista['pais']}</p></li>";
+//         echo "<li><p><b>Dorsal:</b> {$futbolista['numCamisa']}</p></li>";
+//         echo "<li><p><b>Edad:</b> " . calcularEdad($futbolista['fechaNacimiento']) . " años</p></li>";
+//         echo "<li><p><b>Posición:</b> {$futbolista['rol']}</li></p>";
+//         echo "<li><p><b>Goles marcados:</b> {$futbolista['numGoles']}</li></p>";
+//         echo "<li><p><b>Partidos jugados:</b> {$futbolista['numPartidos']}</li></p>";
+//         echo "</ul>";
+//         echo "</div>";
+//     }
+// }
+
+
+/** 
+ *Función que recibe un array y muestra la información de los futbolistas desde un archivo jugadoresTemplate.view.html
+ *@param: $array con todos los futbolistas
+ */
+function mostrarJugadoresPlantilla(array $array)
 {
+
     foreach ($array as $futbolista) {
-        echo '<div class="col-md-3">';
-        echo "<br>";
-        echo '<img src="imagenes/' . $futbolista['nombre'] . '.png" width="200" height="220" />';
-        echo "<p class=text-center><b>{$futbolista['nombre']}</b></p>";
-        echo "<hr>";
-        echo "<ul>";
-        echo "<li><p><b>País:</b> {$futbolista['pais']}</p></li>";
-        echo "<li><p><b>Dorsal:</b> {$futbolista['numCamisa']}</p></li>";
-        echo "<li><p><b>Edad:</b> " . calcularEdad($futbolista['fechaNacimiento']) . " años</p></li>";
-        echo "<li><p><b>Posición:</b> {$futbolista['rol']}</li></p>";
-        echo "<li><p><b>Goles marcados:</b> {$futbolista['numGoles']}</li></p>";
-        echo "<li><p><b>Partidos jugados:</b> {$futbolista['numPartidos']}</li></p>";
-        echo "</ul>";
-        echo "</div>";
+
+        $plantilla_carta = file_get_contents('jugadoresTemplate.view.html'); //cogemos el contenido que hay en el archivo 
+
+        //creamos un array asociativo --> clave = marca lo que queremos cambiar en la plantilla  | valor = datos del array
+        $reemplazo = array(
+            "{{nombre}}" => $futbolista['nombre'],
+            "{{pais}}" => $futbolista['pais'],
+            "{{numCamisa}}" => $futbolista['numCamisa'],
+            "{{fechaNacimiento}}" => calcularEdad($futbolista['fechaNacimiento']),
+            "{{rol}}" => $futbolista['rol'],
+            "{{numGoles}}" => $futbolista['numGoles'],
+            "{{numPartidos}}" => $futbolista['numPartidos']
+        );
+
+        //reemplazamos las claves con los valores y lo guardamos todo en la variable $jugador
+        $jugador = strtr($plantilla_carta, $reemplazo);
+
+        echo $jugador;
     }
 }
+
 
 
 /** 
@@ -179,11 +210,12 @@ function reemplazarPlantillaCarta(string $letter_template, array $array): array
         //método strtr para hacer el reemplazo de la carta que devuelve un string
         $nombres_carta = strtr($letter_template, $reemplazo);
         //Array con el nombre del jugador como clave y el valor como carta
-        $carta[] =   ['nombre' => $nombre, 'carta' => $nombres_carta];
+        $carta[] = ['nombre' => $nombre, 'carta' => $nombres_carta];
     }
 
-    return  $carta;
+    return $carta;
 }
+
 
 
 /** 
@@ -215,6 +247,8 @@ function generarArchivostxtCartas(array $array): void
         echo "</div>";
     }
 }
+
+
 
 /** 
  *Función que recibe un array y muestra el contenido 
@@ -261,70 +295,47 @@ function generarArchivosDesdeIndex(array $array): void
     }
 }
 
-/** 
- *Función que sobreescribe el contenido de un fichero csv i lo pone vacio
- * @param string $filename -  nombre de el fichero csv que queremos dejar vacio
- */
-function clear_csv(string $filename)
+function contar_votos(int $voto, array $array_lenght_frases)
 {
-    // open csv file for writing
-    $f_write = fopen($filename, 'w'); // w: write | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
 
-    // Creamos un array vacio que luego utilizaremos para sobreescribir el csv
-    $data = [];
+    // $num_votos= 0;
 
-    // write data in csv
-    foreach ($data as $row) {
-        fputcsv($f_write, $row);
-    }
+    // for ($i=0; $i < count($array_lenght_frases) ; $i++) { 
+    //     $frase_votada = $array_lenght_frases[$voto-1]; //frase votada
 
-    // close the file
-    fclose($f_write);
+    //     if($frase_votada == $array_lenght_frases[$i]){
+    //         $num_votos++;
+    //         echo $num_votos;
+    //     }
+    // }
+    // for ($i=0; $i < count(array_lenght_frases); $i++) { 
+    //     $frase_votada=$array_lenght_frases[$voto-1];
+    //     $num_votos.$i;
+    //     if($array_lenght_frases[$voto-1] == $num_votos.$i){
+
+    //     }
+    //     return $frase_votada;
+    // }
 }
 
+
 /** 
- *Función que escribe contenido en un fichero csv
- * @param string $filename - nombre de el fichero csv en el que queremos escribir informacion
- * @param array $data - array con la informacion de el fichero
- * @param string $data_input - array con la informacion que querenos ponerle al fichero
+ *Función que recibe un array y muestra los jugadores
+ * @param array $data : $array con los datos (jugadores)
  */
-function send_info_in_csv( string $filename, array $data, array $data_input)
+function listar_jugadores($data)
 {
-    if (!empty($data_input)) {
-        // Leemos los datos que habian anteriormente para no sobreescibir el fichero
-        $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
-
-        // Si no a podido abrir el fichero
-        if ($f === false) {
-            die('Error opening the file ' . $filename);
-        }
-
-        // Leemos el fihcero csv i ponemos los datos en el array data para luego mostrarlos o usarlos
-        while (($row = fgetcsv($f)) !== false) {
-            $data[] = $row;
-        }
-
-        // close the file
-        fclose($f);
-
-        // Escribimos el nuevo usuario i contraseña con los que ya habian
-        // open csv file for writing
-        $f_write = fopen($filename, 'w'); // w: write | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
-
-        // Fusionamos los datos que ya habian mas los de ahora
-        $data = array_merge($data, $data_input);
-
-        // Mostramos el array que nos escribira en el fichero
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-
-        // write data in csv
-        foreach ($data as $row) {
-            fputcsv($f_write, $row);
-        }
-
-        // close the file
-        fclose($f_write);
+    //mostramos formato lista
+    foreach ($data as $jugador) {
+        echo "<ul>";
+        echo "<li><b>Nombre:</b> " . $jugador[0] . "</li>";
+        echo "<li><b>País:</b> " . $jugador[1] . "</li>";
+        echo "<li><b>Dorsal:</b> " . $jugador[2] . "</li>";
+        echo "<li><b>Fecha nacimiento:</b> " . $jugador[3] . "</li>";
+        echo "<li><b>Posición:</b> " . $jugador[4] . "</li>";
+        echo "<li><b>Goles marcados:</b> " . $jugador[5] . "</li>";
+        echo "<li><b>Partidos jugados:</b> " . $jugador[6] . "</li>";
+        echo "</ul>";
+        echo "<hr>";
     }
 }

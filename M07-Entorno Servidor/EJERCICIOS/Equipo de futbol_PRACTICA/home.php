@@ -1,6 +1,6 @@
 <?php
 /*
-Mostrar cabecera, menú, pie de página, imágenes de los jugadores y toda su información
+Mostrar cabecera, menú, pie de página, imágenes de los jugadores y toda su información a través de una plantilla 
 */
 
 //Llamada a los archivos 
@@ -10,7 +10,15 @@ require_once './datos.php';
 
 //Llamada a las funciones
 myHeader();
-myMenu();
+session_start();
+
+// si la variable de session login no esta creada redirigimos a la pagina de login
+if (isset($_SESSION['login'])) {
+    menuLogin();
+} else {
+    myMenu();
+}
+
 ?>
 <!------------------------------------------------------------------------------------------------------>
 
@@ -19,11 +27,11 @@ myMenu();
 <body>
     <div class="container">
         <div class="row align-items-start">
-            <h2 class="bi bi-dribbble"> Jugadores de la selección</h2>
+            <h2 class="bi bi-dribbble">Jugadores de la selección</h2>
             <br>
             <br>
             <?php
-            mostrarArrayFutbolistas($futbolistas); //llamada a la función para mostrar todo
+            mostrarJugadoresPlantilla($futbolistas); //llamada a la función para mostrar todo
             ?>
         </div>
     </div>

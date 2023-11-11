@@ -11,7 +11,16 @@ require_once './datos.php';
 
 //Llamada a las funciones
 myHeader();
-myMenu();
+menuLogin();
+
+// iniciamos session
+session_start();
+
+// si la variable de session login no esta creada redirigimos a la pagina de login
+if (!isset($_SESSION['login'])) {
+    header('Location: Login.php');
+}
+
 ?>
 <!------------------------------------------------------------------------------------------------------>
 
@@ -20,12 +29,19 @@ myMenu();
 <body>
     <div class="container">
         <div class="row align-items-start">
-            <h2 class="bi bi-person-square"> Entrenadores</h2>
+            <h2 class="bi bi-person-vcard"> Lista de jugadores </h2>
             <br>
             <br>
             <?php
-            //llamo a la función que muestra los entrenadores
-            read_info_csv($archivo_entrenadores, false);
+            //llamo a la función que muestra los futbolistas 
+            $file_name = "jugadores.csv";
+
+            write_info_in_csv($file_name, $futbolistas);
+            $data=read_info_csv_with_return($file_name);
+
+            //mostramos formato lista
+            listar_jugadores($data);
+
             ?>
         </div>
     </div>

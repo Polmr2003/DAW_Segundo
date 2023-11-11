@@ -6,6 +6,7 @@ Mostrar cabecera, menú, pie de página y lista con todos los archivos .html de 
 //Llamada a los archivos 
 require_once './funciones-estructura.php';
 require_once './funciones.php';
+require_once './funciones_archivos.php';
 require_once './datos.php';
 require_once './generator.php';
 

@@ -6,6 +6,7 @@ Mostrar cabecera, menú, pie de página y generar cartas de todos los futbolista
 //Llamada a los archivos 
 require_once './funciones-estructura.php';
 require_once './funciones.php';
+require_once './funciones_archivos.php';
 require_once './datos.php';
 
 //Llamada a las funciones
