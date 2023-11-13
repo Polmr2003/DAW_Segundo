@@ -13,10 +13,24 @@ for (let i = 0; i < cursos.length; i++) {
     cursos_select.appendChild(option);
 }
 
+
+
+
+// ------------------------------------------ Verificamos que el usuario este logeado ------------------------------------------
+// Cuando cargue la pagina
+document.addEventListener("DOMContentLoaded", function () {
+    // Comprobar si la variable de user de la localStorage esta creada o esta vacia
+    if (!localStorage.getItem("user") || localStorage.getItem("user") == "") {
+        // redirigimos a la paguina con los cursos
+        window.location.href = "./index.html";
+    }
+});
+
+
 // ------------------------------------------ borramos la localStorage ------------------------------------------
 //cuando le demos al boton Cancel
 document.getElementById("myBtn_logout").addEventListener("click", function () {
-    // borramos la localStorage
+    // borramos la variable de user de la localStorage
     localStorage.removeItem("user");
 
     // cerramos esta paguina
