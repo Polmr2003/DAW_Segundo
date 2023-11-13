@@ -55,13 +55,14 @@ if (!isset($_SESSION['login'])) {
             $frase = trim(htmlspecialchars(strip_tags($frase ?? '')));
             
     
-            // // Miramos si la frase contiene caracteres alfanumericos
-            if (ctype_alnum($frase)) {
+            //Miramos si la frase contiene caracteres alfanumericos, comas, puntos y espacios en blanco
+            if (preg_match("/^[a-zA-Z0-9 ,.]+$/", $frase)) {
+
                 //Escribir frase en el archivo txt
                 write_data_in_txt($archivo_frases, $frase);
 
             }else{
-                // si no tiene caracteres alfanumericos
+                // si no tiene caracteres alfanumericos, comas, puntos y espacios en blanco
                 echo '<span style="color: red;">Solo se acepta caracteres alfanuméricos</span>';
             }
 

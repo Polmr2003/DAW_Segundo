@@ -154,11 +154,6 @@ function read_info_csv_with_return(string $filename)
         $data[] = $row;
     }
 
-    // Mostramos el contenido de el csv
-    // echo "<pre>";
-    // print_r($data);
-    // echo "</pre>";
-
     // close the file
     fclose($f);
 
@@ -242,9 +237,9 @@ function write_info_in_csv_with_Overwrite(string $filename, array $data_input)
         $data = array_merge($data, $data_input);
 
         // Mostramos el array que nos escribira en el fichero
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
 
         // write data in csv
         foreach ($data as $row) {
@@ -320,7 +315,7 @@ function read_data_txt(string $filename)
 }
 
 /** 
- *Función que lee contenido de un fichero txt linea a linea i lo devuelve
+ *Función que lee contenido de un fichero txt linea a linea y lo devuelve
  * @param string $filename - nombre de el fichero txt en el que queremos leer la informacion
  */
 function read_data_txt_with_return(string $filename)
@@ -371,6 +366,8 @@ function write_data_in_txt(string $filename, string $data)
 
     // Cerramos el fichero
     fclose($f);
+
+    echo "frase añadida";
 
     // Redirigimos a la misma paguina para que se actualize i se muestre el texto
     header('Location: frases.php'); //

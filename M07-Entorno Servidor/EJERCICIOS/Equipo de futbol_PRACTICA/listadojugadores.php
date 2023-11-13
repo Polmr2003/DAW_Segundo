@@ -33,13 +33,10 @@ if (!isset($_SESSION['login'])) {
             <br>
             <br>
             <?php
-            //llamo a la función que muestra los futbolistas 
-            $file_name = "jugadores.csv";
+            //leemos el archivo con todos los jugadores 
+            $data=read_info_csv_with_return($archivo_jugadores);
 
-            write_info_in_csv($file_name, $futbolistas);
-            $data=read_info_csv_with_return($file_name);
-
-            //mostramos formato lista
+            //mostramos en formato lista
             listar_jugadores($data);
 
             ?>

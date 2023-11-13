@@ -21,14 +21,17 @@ if (!isset($_SESSION['login'])) {
     header('Location: Login.php');
 }
 
+
 // creamos las variables para inicializar los votos a 0
-$data = read_data_txt_with_return($archivo_frases);
-$array_data = convertir_string_in_array($data);
+$data = read_data_txt_with_return($archivo_frases); //no es un array
+
+$array_data = convertir_string_in_array($data); //es un array
 
 // si aun no hemos inicializado los votos
 if (!isset($_SESSION["votos_reiniciados"])) {
     // inicializamos los votos de las frases a 0
     inicializar_votos($array_data);
+
     $_SESSION["votos_reiniciados"] = "yes";
 }
 
@@ -45,7 +48,8 @@ if (!isset($_SESSION["votos_reiniciados"])) {
             <br>
             <form action="" method="post">
                 <?php
-                //llamo a la función que muestra los entrenadores
+                echo '<span style="color: blue;">Para votar por la frase nueva que acabas de añadir, debes cerrar sesión</span>' . "<br>";
+
                 //read_line_x_line_in_txt($archivo_frases);
                 $data = read_data_txt_with_return($archivo_frases);
 
@@ -68,6 +72,7 @@ if (!isset($_SESSION["votos_reiniciados"])) {
             if (isset($_POST['frase'])) {
                 // Si los datos introducidos vienen desde el método POST
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
                     // numero de frase votada
                     $numero_frase = $_POST['frase'];
 
@@ -87,11 +92,10 @@ if (!isset($_SESSION["votos_reiniciados"])) {
 
                         // actualizamos los votos
                         $votos_frases[$numero_frase] = $votos_actualizados;
+
+                        echo "frase votada";
                     }
 
-                    echo "<pre>";
-                    print_r($votos_frases);
-                    echo "</pre>";
 
                     write_info_in_csv_with_Overwrite("votos.csv", $votos_frases);
                 }

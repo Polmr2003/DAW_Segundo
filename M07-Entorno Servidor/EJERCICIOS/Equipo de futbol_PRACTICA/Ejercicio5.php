@@ -1,6 +1,6 @@
 <?php
 /*
-Mostrar cabecera, menú, pie de página y mostrar por pantalla las cartas de todos los futbolistas
+Mostrar cabecera, menú, pie de página y mostrar por pantalla las cartas de todos los entrenadores
 */
 
 //Llamada a los archivos 

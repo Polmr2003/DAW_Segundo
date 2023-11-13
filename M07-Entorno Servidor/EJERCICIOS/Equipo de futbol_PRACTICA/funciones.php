@@ -123,32 +123,6 @@ function calcularEdad($fechaNacimiento)
 
 /* ------------------------------------------- Funciones para los ejercicios (1,2,3 y 4) ---------------------------------------------------------------- */
 
-
-/** 
- *Función que recibe un array y lo recorre mostrando: las imágenes de la carpeta y la información de cada jugador
- *@param: $array futbolistas 
- */
-// function mostrarArrayFutbolistas(array $array): void
-// {
-//     foreach ($array as $futbolista) {
-//         echo '<div class="col-md-3">';
-//         echo "<br>";
-//         echo '<img src="imagenes/' . $futbolista['nombre'] . '.png" width="200" height="220" />';
-//         echo "<p class=text-center><b>{$futbolista['nombre']}</b></p>";
-//         echo "<hr>";
-//         echo "<ul>";
-//         echo "<li><p><b>País:</b> {$futbolista['pais']}</p></li>";
-//         echo "<li><p><b>Dorsal:</b> {$futbolista['numCamisa']}</p></li>";
-//         echo "<li><p><b>Edad:</b> " . calcularEdad($futbolista['fechaNacimiento']) . " años</p></li>";
-//         echo "<li><p><b>Posición:</b> {$futbolista['rol']}</li></p>";
-//         echo "<li><p><b>Goles marcados:</b> {$futbolista['numGoles']}</li></p>";
-//         echo "<li><p><b>Partidos jugados:</b> {$futbolista['numPartidos']}</li></p>";
-//         echo "</ul>";
-//         echo "</div>";
-//     }
-// }
-
-
 /** 
  *Función que recibe un array y muestra la información de los futbolistas desde un archivo jugadoresTemplate.view.html
  *@param: $array con todos los futbolistas
@@ -296,17 +270,31 @@ function generarArchivosDesdeIndex(array $array): void
     }
 }
 
+
+
+
+/** 
+ *Función que recibe un array e inicializa los votos en el archivo csv a 0
+ *@param: $array_lenght_frases con todas lass frases
+ */
 function inicializar_votos(array $array_lenght_frases)
 {
-    $data = [];
+    $data = []; //inicializamos un arrau vacío
 
+    //recorremos el array de las frases
     for ($i=0; $i < count($array_lenght_frases); $i++) { 
-        $data[] = [0];
+        $data[] = [0]; //añadimos al array data los votos a 0
     }
 
-    write_info_in_csv_with_Overwrite("votos.csv", $data);
+    //cuando añadimos todos los votos a 0 de todas las frases
+    write_info_in_csv_with_Overwrite("votos.csv", $data); //escribimos el array data en el archivo
 }
 
+/** 
+ *Función que recibe un array e inicializa los votos a 0
+ *@param: $array_lenght_frases con todas lass frases
+ *@return: $data con todos los votos
+ */
 function inicializar_votos_with_return(array $array_lenght_frases): mixed
 {
     $data = [];
@@ -338,3 +326,7 @@ function listar_jugadores($data)
         echo "<hr>";
     }
 }
+
+
+
+?>

@@ -87,7 +87,7 @@ myMenu();
                 </li>
             </ul>
             <?php
-            main($futbolistas);
+            main($futbolistas); //llamamos al main del archivo generator.php
             ?>
         </div>
     </div>
