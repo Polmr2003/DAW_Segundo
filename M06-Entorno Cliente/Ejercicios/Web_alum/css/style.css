@@ -102,6 +102,34 @@ input[type="password"] {
     color: white;
 }
 
+/*boton de login/registro */
+.myBtn_logout {
+
+    /* color de la letra */
+    color: black;
+
+    /* tamaño de la letra */
+    font-size: 15px;
+
+    /* color de el boton */
+    background: #fcf8ad;
+
+    /* tamaño de el boton (largo) (ancho) */
+    padding: 5px 15px;
+
+    border-radius: 5px;
+}
+
+/* cuando pasas por encima del boton de login/registro cambia de color */
+.myBtn_logout:hover {
+    /* Color de el fondo */
+    background: black;
+
+    /* Color de la letra */
+    color: white;
+}
+
+
 /* Estilos de la etiqueta p (frases) */
 p {
     /* Lo centramos*/

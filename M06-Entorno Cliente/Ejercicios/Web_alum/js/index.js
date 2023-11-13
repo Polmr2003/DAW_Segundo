@@ -84,22 +84,22 @@ document.addEventListener("DOMContentLoaded", function () {
         var flag_login = false;
 
         // Obtener los valores del formulario de inicio de sesión
-        var usuari_usuari = document.getElementById("login_usuario").value;
+        var usuari_login = document.getElementById("login_usuario").value;
         var password_login = document.getElementById("login_password").value;
 
         //recorremos los arrays buscando el usuario i su contraseña
         for (let i = 0; i < usuaris.length; i++) {
             // Comprobar si el usuario y la contraseña coinciden
-            if (usuari_usuari == usuaris[i] && password_login == contrasenyes[i]) {
+            if (usuari_login == usuaris[i] && password_login == contrasenyes[i]) {
                 // Si el usuario que a puesto i la contraseña estan en la misma posicion que en los arrays
                 flag_login = true;
                 break;//salimos de el bucle cuando entre en el if
-            } else if (usuari_usuari.length < 1) {
+            } else if (usuari_login.length < 1) {
                 // Si ponen vacio el campo usuario
                 document.getElementById("errorLogin_usuario").innerHTML = "No puede estar vacio";
                 document.getElementById("login_usuario").value = "";
 
-            } else if (!(usuaris.includes(usuari_usuari))) {
+            } else if (!(usuaris.includes(usuari_login))) {
                 // Si en el array no existe el usuario que hemos puesto
                 //ponemos errorLogin_password vacio porque si entra en este else if es que el usuario esta mal asi que en la contraseña no ponemos nada
                 document.getElementById("errorLogin_password").innerHTML = "";
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 //ponemos que el usuario no existe porque no lo a encontrado en el array
                 document.getElementById("errorLogin_usuario").innerHTML = "Usuario/gmail no esta registrado";
                 document.getElementById("login_usuario").value = "";
-            } else if (usuari_usuari == usuaris[i] && !(password_login == contrasenyes[i])) {
+            } else if (usuari_login == usuaris[i] && !(password_login == contrasenyes[i])) {
                 // Si el usuario esta bien pero la contraseña no                   
                 //ponemos errorLogin_gmail vacio porque si entra en este else if es que solo la contraseña esta mal
                 document.getElementById("errorLogin_usuario").innerHTML = "";
@@ -119,8 +119,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (flag_login) {
-            // si estan bien las credenciales
-            alert("Hola " + usuari_usuari);
+            // guardamos el usuario en la localStorage
+            localStorage.user = usuari_login;
+
+            //mostramos el usuario de la localStorage
+            //alert(localStorage.user);
+
+            // cerramos esta paguina
+            window.close(this);
+
+            // redirigimos a la paguina con los cursos
+            window.open("./cursos.html");
+
         } else {
             // si alguna credencial esta mal
             event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
