@@ -32,7 +32,6 @@ if (!isset($_SESSION["votos_reiniciados"])) {
     inicializar_votos($frases_length);
     $_SESSION["votos_reiniciados"] = "yes";
 } else if ($num_votos_frases_inicializadas < $frases_length) {
-    echo "<h1>adiosssssss</h1>";
     // si an añadido mas frases inicializamos el numero de votos para esa frase
     $data = [];
 
