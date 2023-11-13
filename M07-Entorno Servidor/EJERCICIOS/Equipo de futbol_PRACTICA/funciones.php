@@ -291,22 +291,6 @@ function inicializar_votos(array $array_lenght_frases)
 }
 
 /** 
- *Función que recibe un array e inicializa los votos a 0
- *@param: $array_lenght_frases con todas lass frases
- *@return: $data con todos los votos
- */
-function inicializar_votos_with_return(array $array_lenght_frases): mixed
-{
-    $data = [];
-
-    for ($i = 0; $i < count($array_lenght_frases); $i++) {
-        $data[] = [0];
-    }
-
-    return $data;
-}
-
-/** 
  *Función que recibe un array y muestra los jugadores
  * @param array $data : $array con los datos (jugadores)
  */
