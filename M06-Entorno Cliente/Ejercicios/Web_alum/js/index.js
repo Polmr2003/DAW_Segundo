@@ -4,19 +4,20 @@ function Fecha_actual() {
     let now = new Date();
 
     // Recoger los valores de las cajas
-    let dia = now.getDay();
-    let mes = now.getMonth();
-    let any = now.getFullYear();
-    let hora = now.getHours();
-    let minutos = now.getMinutes();
-    let segundos = now.getSeconds();
+    let dia_semana = now.getDay(); // dia de la semana
+    let dia = now.getDate(); // dia del mes
+    let mes = now.getMonth(); // mes || getMonth() devuelve valores indexados (0-11) donde el 0 es enero y el 11 es diciembre.
+    let any = now.getFullYear(); // año
+    let hora = now.getHours(); // hora
+    let minutos = now.getMinutes(); // minutos
+    let segundos = now.getSeconds(); // segundos
 
     // Definir los nombres de los meses y días de la semana
     let mesos = ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"];
     let dies = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
 
     // Formatear la fecha y hora final
-    let current_data = `Avui es ${dies[dia - 1]} dia ${dia} de ${mesos[mes]} de ${any}, ${hora}:${minutos}:${segundos}`; // ${dies[dia - 1]} : nombre de el dia ||  ${dia} : numero del dia || ${mesos[mes]} : nombre del mes ...
+    let current_data = `Avui es ${dies[dia_semana - 1]} dia ${dia} de ${mesos[mes]} de ${any}, ${hora}:${minutos}:${segundos}`; // ${dies[dia - 1]} : nombre de el dia ||  ${dia} : numero del dia || ${mesos[mes]} : nombre del mes ...
 
     // Función para actualizar la fecha y mostrarla
     function actualizarCronometro() {
@@ -124,6 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // si alguna credencial esta mal
             event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
         }
+
+
     });
 });
 
