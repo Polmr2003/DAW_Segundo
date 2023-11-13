@@ -33,9 +33,6 @@ document.getElementById("myBtn_logout").addEventListener("click", function () {
     // borramos la variable de user de la localStorage
     localStorage.removeItem("user");
 
-    // cerramos esta paguina
-    window.close(this);
-
     // redirigimos a la paguina con los cursos
-    window.open("./index.html");
+    window.location.href = "./index.html";
 });

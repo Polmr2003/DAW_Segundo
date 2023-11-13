@@ -125,8 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
             //mostramos el usuario de la localStorage
             //alert(localStorage.user);
 
-            // cerramos esta paguina
-            window.close(this);
+            // redirigimos a la paguina con los cursos
+            //window.location.href = "./cursos.html";
 
             // redirigimos a la paguina con los cursos
             window.open("./cursos.html");
