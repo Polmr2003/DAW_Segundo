@@ -34,7 +34,7 @@ function clear_csv(string $filename)
  */
 function read_info_csv_with_table_list(string $filename, bool $table)
 {
-    // Leemos los datos que habian anteriormente para no sobreescibir el fichero
+    // Leemos los datos
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
 
     // Si no a podido abrir el fichero
@@ -102,7 +102,7 @@ function read_info_csv_with_table_list(string $filename, bool $table)
  */
 function read_info_csv(string $filename)
 {
-    // Leemos los datos que habian anteriormente para no sobreescibir el fichero
+    // Leemos los datos
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
 
     // Si no a podido abrir el fichero
@@ -134,7 +134,7 @@ function read_info_csv(string $filename)
  */
 function read_info_csv_with_return(string $filename)
 {
-    // Leemos los datos que habian anteriormente para no sobreescibir el fichero
+    // Leemos los datos
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
 
     // Si no a podido abrir el fichero
@@ -233,7 +233,7 @@ function write_info_csv_with_Overwrite(string $filename, array $data_input)
  */
 function read_line_x_line_in_txt(string $filename)
 {
-    // Leemos los datos que habian anteriormente para no sobreescibir el fichero
+    // Leemos los datos
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
 
     // Si no a podido abrir el fichero
@@ -266,7 +266,7 @@ function read_line_x_line_in_txt(string $filename)
  */
 function read_data_txt(string $filename)
 {
-    // Leemos los datos que habian anteriormente para no sobreescibir el fichero
+    // Leemos los datos
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
 
     // Si no a podido abrir el fichero
@@ -293,7 +293,7 @@ function read_data_txt(string $filename)
  */
 function read_data_txt_with_return(string $filename)
 {
-    // Leemos los datos que habian anteriormente para no sobreescibir el fichero
+    // Leemos los datos
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
 
     // Si no a podido abrir el fichero
@@ -337,7 +337,8 @@ function write_info_txt(string $filename, string $data)
     // Cerramos el fichero
     fclose($f);
 
-    echo "frase añadida";
+    // frase para verificar que se nos a añadido el contenido
+    echo "Contenido añadido";
 
     // Redirigimos a la misma paguina para que se actualize i se muestre el texto
     header('Location: frases.php'); //
