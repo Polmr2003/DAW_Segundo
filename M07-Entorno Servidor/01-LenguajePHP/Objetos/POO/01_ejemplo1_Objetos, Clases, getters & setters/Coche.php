@@ -58,8 +58,8 @@ class Coche
 echo "<h1>Ejemplo 1: Definir o instanciar una clase</h1>";
 
 //Instanciar o utilizar una clase
-$coche1 = new Coche;
-$coche2 = new Coche;
+//$coche1 = new Coche;
+//$coche2 = new Coche;
 
 //Accedo a las funciones o métodos set() para configurar el coche 1 (opción 1)
 $coche1->setMarca("Wolkswagen");
