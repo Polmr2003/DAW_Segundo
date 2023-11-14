@@ -62,37 +62,6 @@ function myMenu(): void {
     echo $menu;
 }
 
-//Función que imprime el menú de la página
-function menuLogin(): void {
-    $menu = <<<MENU
-    <div class="menu_login" >
-            <ul class="nav" style="background-color: #e3f2fe;">
-                <li class="nav-item">
-                    <a class="nav-link active" href="home.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="listadojugadores.php">Listar jugadores</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="frases.php">Frases motivadoras</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="votarfrases.php">Votar frases motivadoras</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="recuentovotos.php">Recuento de votos</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
-                </li>
-            </ul>
-    </div>
-    <hr/>
-    MENU;
-
-    echo $menu;
-};
-
 //Función que imprime el pie de página
 function myFooter(){
     $footerHTML = <<<MYFOOTER

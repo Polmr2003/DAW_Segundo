@@ -1,0 +1,253 @@
+/* ------------------------------------------------- Menú ----------------------------------------------------------------------- */
+
+/*Logotipo*/
+.logo {
+    height: 50px;
+    width: 76%;
+    margin: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+/*Menú */
+#menu {
+    display: flex;
+    justify-content: flex-end;
+    /* Alienación a la izquierda*/
+    width: 1000px;
+    height: 50px;
+}
+
+/*--> Menú: elementos lista */
+#menu ul,
+li {
+    list-style-type: none;
+    /*quita el simbolo del listado*/
+    margin: 0;
+    padding: 0;
+    /*para que desaparezcan los espacios de lista*/
+    float: left;
+}
+
+/*--> Menú: Texto */
+#menu a {
+    color: black;
+    /*color fuente*/
+    text-decoration: none;
+    /*quitar subrayado de link*/
+    display: block;
+    /*convertir en bloque para hacer margenes*/
+    padding: 14px 20px;
+    /*margen inferior-superior y lateral*/
+}
+
+#menu a:hover {
+    /*al pasar el ratón por el texto*/
+    color: #E47D2B;
+}
+
+
+/* ------------------------------------------------- Home ----------------------------------------------------------------------- */
+
+/* Titulo página */
+h2 {
+    color: #E47D2B;
+    font-family: Poppins;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 94.8%;
+    /* 91.008px */
+    letter-spacing: -3.36px;
+}
+
+/* Subtítulo página */
+h3 {
+    color: #2F2F2F;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    line-height: 94.8%;
+    /* 28.44px */
+}
+
+/* ------------------------------------------------- Contenido (Body) de el html ----------------------------------------------------------------------- */
+/* body donde aparece todo */
+body {
+    background: #FDF7EF;
+}
+
+/* ------------------------------------------------- Informacion de el usuario----------------------------------------------------------------------- */
+/* Texto que indica que tiene que introducir el usuario */
+.info_usu {
+    color: #000;
+
+    /* Poppins/Body - 16px */
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 175%;
+    /* 28px */
+    letter-spacing: 0.32px;
+}
+
+/* Input donde pone la informacion el usuario */
+.input_usu {
+    /* Tamaño (display: como se muestra, centrado..) (widht: anchura) (height: altura) */
+    display: flex;
+    width: 120px;
+    height: 10px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 227px;
+    border-radius: 24px;
+
+    /* Color... */
+    border: 1px solid #E47D2B;
+    background: var(--FFFFFF-Bg-1, #FFF);
+
+}
+
+/* ------------------------------------------------- Pedido ----------------------------------------------------------------------- */
+/* Menu Pizzas, ofertas */
+h1 {
+    color: #2F2F2F;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 94.8%;
+    /* 28.44px */
+    text-decoration-line: underline;
+}
+
+/* Titulo Pizzas */
+h4 {
+    color: var(--oil-11, #0D0D0D);
+    font-family: DM Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.72px;
+}
+
+/* Precios Pizzas */
+h5 {
+    color: #E47D2B;
+    font-family: DM Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.72px;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+    padding: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+}
+
+/* titulo de los ingredientes, masa especial */
+.tit_info {
+    color: var(--oil-11, #0D0D0D);
+    font-family: DM Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.54px;
+}
+
+/* fondo Buscador */
+.fondo_bus {
+    border-radius: 30px;
+    background: rgba(246, 216, 178, 0.45);
+    box-shadow: 0px 12px 40px -16px rgba(0, 0, 0, 0.10);
+}
+
+/* Ingredientes extra */
+.ingredientes {
+    text-align: left;
+}
+
+/* Div con la informacion de las pizzas */
+.div_informacion {
+    margin: 10px;
+    text-align: center;
+}
+
+/* Boton de pedir pizza */
+.my_Btn {
+    /* Tamaño (widht: anchura) (height: altura)*/
+    width: 100px;
+    height: 50px;
+
+    /* Color... */
+    border-radius: 84px;
+    background: #2F2F2F;
+    box-shadow: 0px 20px 32px -8px rgba(0, 0, 0, 0.20);
+}
+
+/* Text del boton */
+.txt_my_Btn {
+    /* Tamaño (font-size: tamaño de letra)*/
+    font-size: 15px;
+
+    /* Color... */
+    color: #F4ECE1;
+    font-family: Poppins;
+    font-style: normal;
+    line-height: 94.8%;
+    /* 18.96px */
+}
+
+.lista_pedidos {
+    /*mostramos el simbolo del listado*/
+    list-style-type: disc;
+
+    float: none;
+}
+
+/* ------------------------------------------------- Login ----------------------------------------------------------------------- */
+/* Texto que indica que tiene que introducir el usuario */
+
+.div_login {
+    text-align: center;
+}
+
+.info_usu_login {
+    color: #000;
+
+    /* Poppins/Body - 16px */
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 175%;
+    /* 28px */
+    letter-spacing: 0.32px;
+}
+
+/* Input donde pone la informacion el usuario */
+.input_usu_login {
+    /* Tamaño (display: como se muestra, centrado..) (widht: anchura) (height: altura) */
+    width: 170px;
+    height: 30px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 227px;
+    border-radius: 24px;
+
+    /* Color... */
+    border: 1px solid #E47D2B;
+    background: var(--FFFFFF-Bg-1, #FFF);
+
+}
