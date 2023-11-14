@@ -164,8 +164,7 @@ function read_info_csv_with_return(string $filename)
 /** 
  *Función que escribe contenido en un fichero csv
  * @param string $filename - nombre de el fichero csv en el que queremos escribir informacion
- * @param array $data - array con la informacion de el fichero
- * @param string $data_input - array con la informacion que querenos ponerle al fichero
+ * @param array $data_input - array con la informacion que querenos ponerle al fichero
  */
 function write_info_in_csv(string $filename, array $data_input)
 {
@@ -224,7 +223,7 @@ function write_info_in_csv(string $filename, array $data_input)
  *Función que sobreescribe en un fichero csv
  * @param string $filename - nombre de el fichero csv en el que queremos escribir informacion
  * @param array $data - array con la informacion de el fichero
- * @param string $data_input - array con la informacion que querenos ponerle al fichero
+ * @param array $data_input - array con la informacion que querenos ponerle al fichero
  */
 function write_info_in_csv_with_Overwrite(string $filename, array $data_input)
 {
