@@ -30,7 +30,7 @@ function clear_csv(string $filename)
 /** 
  *Función que lee contenido de un fichero csv i lo muestra
  * @param string $filename - nombre de el fichero csv en el que queremos leer la informacion
- * @param boolean $table - booleano donde decimos si queremos mostrarlo en tabla o no
+ * @param boolean $table - booleano donde decimos si queremos mostrarlo en tabla o no (en lista) 
  */
 function read_info_csv_with_table_list(string $filename, bool $table)
 {
