@@ -28,7 +28,7 @@ function clear_csv(string $filename)
 }
 
 /** 
- *Función que lee contenido de un fichero csv i lo muestra
+ *Función que lee contenido de un fichero csv i lo muestra en tabla o el lista
  * @param string $filename - nombre de el fichero csv en el que queremos leer la informacion
  * @param boolean $table - booleano donde decimos si queremos mostrarlo en tabla o no (en lista) 
  */
@@ -341,14 +341,14 @@ function write_info_txt(string $filename, string $data)
     echo "Contenido añadido";
 
     // Redirigimos a la misma paguina para que se actualize i se muestre el texto
-    header('Location: frases.php'); //
+    //header('Location: frases.php');
 
 }
 
 
 
 
-/* ------------------------------------------- Otras Funciones ---------------------------------------------------------------- */
+/* ------------------------------------------- Otras Funciones de ficheros ---------------------------------------------------------------- */
 /**
  * Funcion para convertir un string en un array (cada salto de linea en el string es una nueva posicion del array)
  * @param string $data - String que queremos pasar para convertirlo
