@@ -129,6 +129,18 @@ function print_Array_with_img(array $array): void
     }
 };
 
+/**
+ * Funcion que recibe un array con el nombre de imagenes i las muestra por pantalla con un link que si le damos a la img nos llevara a otro sitio
+ * @param array $array - recojemos el array con el nombre de las imagenes
+ * foreach - recorremos el array, ponemos la etiqueta de img i mostramos las imagenes con el nombre que esten en el array
+ */
+function print_Array_with_img_and_link(array $array): void
+{
+    foreach ($array as $value) {
+        echo "<a href='./" . $value . ".php'><img src='../images/logos_clubs/" . $value . ".png' width='150' height='150'></a>";
+    }
+};
+
 
 
 
@@ -151,17 +163,18 @@ function del_first_position_array(array $array): mixed
 
 /* ------------------------------------------- Ordenar array ---------------------------------------------------------------- */
 /**
- * Funcion para ordenar un array alfanumericamente
- * @param array $array - recojemos el array con el nombre de las imagenes
- * @param string $variable_to_sort - recojemos el nombre de la variable por la que queremos ordenar, ej: nombre de imagenes, nombre de personas...
+ * Funcion para ordenar un array alfanumericamente por sus keys
+ * @param array $array - recojemos el array que queremos ordenar
+ * @param string $key_to_sort - recojemos el nombre de la key del array por la que queremos ordenar, ej: nombre de imagenes, nombre de personas
+ * -> si hay numero ej: si queremos ordenar por nombre i el nombre esta en la posicion 0 pondremos 0 ...
  * usort - le decimos que queremos ordenar el array i hacemos una funcion anonima pasandole los valores de el array como $a i $b
- * @return - strcmp retornamos el contenido de la variable que esten almacenadas en a i b
- * @return - retornamos el array ordenado
+ * return - strcmp retornamos el contenido de la variable que esten almacenadas en a i b
+ * @return array - retornamos el array ordenado
  */
-function sort_array_alphanumerically(array $array, string $variable_to_sort)
+function sort_array_alphanumerically(array $array, string $key_to_sort)
 {
-    usort($array, function ($a, $b,) use ($variable_to_sort) { //usort -> ordena un array de la forma en la que nosotros le digamos || use -> Utilizamos 'use' para pasar la variable al ámbito de la función anónima
-        return strcmp($a[$variable_to_sort], $b[$variable_to_sort]); // strcmp ->  implementa un algoritmo de comparación que ordena strings alfanuméricos, devuelve un valor negativo si la primera cadena es menor que la segunda, un valor positivo si es mayor o cero si son iguales.
+    usort($array, function ($a, $b,) use ($key_to_sort) { //usort -> ordena un array de la forma en la que nosotros le digamos || use -> Utilizamos 'use' para pasar la variable al ámbito de la función anónima
+        return strcmp($a[$key_to_sort], $b[$key_to_sort]); // strcmp ->  implementa un algoritmo de comparación que ordena strings alfanuméricos, devuelve un valor negativo si la primera cadena es menor que la segunda, un valor positivo si es mayor o cero si son iguales.
     });
     return $array;
 }
@@ -234,5 +247,4 @@ function print_Array_layout(array $data, int $layout_number)
             echo "<hr>";
         }
     }
-
 }

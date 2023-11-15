@@ -42,11 +42,13 @@ session_start();
         echo "As visitado esta pagina " . $_SESSION['Jugadores'] . " vez/es";
 
         //mostrar los jugadores
-        $data=read_info_csv_with_return("../lligaACB - lligaACB.csv");
+        $data = read_info_csv_with_return("../lligaACB - lligaACB.csv");
 
-        print_Array_Pretty($data);
-
-        print_Array_layout($data, 1);
+        //print_Array_Pretty($data);
+        // Ordena el array por la clave con el nombre 0 -> 
+        $array = sort_array_alphanumerically($data, '0');
+        //print_Array_Pretty($array);
+        print_Array_layout($array, 1);
     }
 
     //Web Code

@@ -166,15 +166,16 @@ function del_first_position_array(array $array): mixed
 /**
  * Funcion para ordenar un array alfanumericamente
  * @param array $array - recojemos el array con el nombre de las imagenes
- * @param string $variable_to_sort - recojemos el nombre de la variable por la que queremos ordenar, ej: nombre de imagenes, nombre de personas...
+ * @param string $key_to_sort - recojemos el nombre de la key del array por la que queremos ordenar, ej: nombre de imagenes, nombre de personas
+ * -> si hay numero ej: si queremos ordenar por nombre i el nombre esta en la posicion 0 pondremos 0 ...
  * usort - le decimos que queremos ordenar el array i hacemos una funcion anonima pasandole los valores de el array como $a i $b
- * @return - strcmp retornamos el contenido de la variable que esten almacenadas en a i b
- * @return - retornamos el array ordenado
+ * return - strcmp retornamos eyl contenido de la variable que esten almacenadas en a i b
+ * @return array - retornamos el array ordenado
  */
-function sort_array_alphanumerically(array $array, string $variable_to_sort)
+function sort_array_alphanumerically(array $array, string $key_to_sort)
 {
-    usort($array, function ($a, $b,) use ($variable_to_sort) { //usort -> ordena un array de la forma en la que nosotros le digamos || use -> Utilizamos 'use' para pasar la variable al ámbito de la función anónima
-        return strcmp($a[$variable_to_sort], $b[$variable_to_sort]); // strcmp ->  implementa un algoritmo de comparación que ordena strings alfanuméricos, devuelve un valor negativo si la primera cadena es menor que la segunda, un valor positivo si es mayor o cero si son iguales.
+    usort($array, function ($a, $b,) use ($key_to_sort) { //usort -> ordena un array de la forma en la que nosotros le digamos || use -> Utilizamos 'use' para pasar la variable al ámbito de la función anónima
+        return strcmp($a[$key_to_sort], $b[$key_to_sort]); // strcmp ->  implementa un algoritmo de comparación que ordena strings alfanuméricos, devuelve un valor negativo si la primera cadena es menor que la segunda, un valor positivo si es mayor o cero si son iguales.
     });
     return $array;
 }
