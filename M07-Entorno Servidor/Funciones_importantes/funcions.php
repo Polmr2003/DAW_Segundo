@@ -48,61 +48,6 @@ function println($something): string
 
 
 
-/* ------------------------------------------- Funcion para maquetar el contenido de un array ---------------------------------------------------------------- */
-/**
- * Función que lee contenido de un fichero csv y lo muestra maquetado
- * @param array $data - array con el contenido que queremos maquetar
- * @param int $layout_number - numero de el maquetado que le queremos poner al contenido de el csv |
- * 1: tabla, 2: lista
- */
-function print_Array_layout(array $data, int $layout_number)
-{
-    // Obtenemos los encabezados (títulos de las columnas) que es la primera linea de el array || array_shift -> para eliminar la primera fila del array $data y almacenarla en $headers
-    $headers = array_shift($data);
-
-    if ($layout_number == 1) {
-        // Mostramos el contenido del csv en formato tabla
-        echo "<table class='table'>";
-
-        echo "<tr>";
-
-        // Mostramos los encabezados ($headers) de la tabla dinámicamente que hemos obtenido con el array shift
-        foreach ($headers as $value) {
-            echo "<th>$value</th>";
-        }
-
-        echo "</tr>";
-
-        // Mostramos el contenido de la tabla dinamicamente
-        foreach ($data as $row) {
-            echo "<tr>";
-            foreach ($row as $value) {
-                echo "<td>" . $value . "</td>";
-            }
-            echo "</tr>";
-        }
-
-        echo "</table>";
-    } else if ($layout_number == 2) {
-        // Mostramos el contenido del csv en formato lista
-        foreach ($data as $row) {
-            echo "<ul>";
-
-            // Mostrar encabezados y valores dinámicamente
-            foreach ($headers as $index => $header) {
-                echo "<li><b>$header:</b> " . $row[$index] . "</li>";
-            }
-
-            echo "</ul>";
-            echo "<hr>";
-        }
-    }
-
-}
-
-
-
-
 /* ------------------------------------------- Funcion para reemplazar un string por otro ---------------------------------------------------------------- */
 /**
  * Funcion 
