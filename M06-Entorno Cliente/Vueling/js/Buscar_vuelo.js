@@ -4,7 +4,7 @@
 //cuando cargue la página
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Miramos si el radio "Ida" está seleccionado
+    // // Miramos si el radio "Ida" está seleccionado
     let idaRadio = document.getElementById("ida");
 
     // Miramos si el radio "Ida i vuelta" está seleccionado
@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Buscamos un vuelo
     document.getElementById("myBtn_bus").addEventListener("click", function () {
-        //booleano para saber si estan bien las credenciales
+        // booleano para saber si estan bien las credenciales
         var flag_reserva = true;
 
-        //recojemos los valores
+        // //recojemos los valores
         let OrigenSelect = document.getElementById("ciudades_origen").value; //agafo id del select_origen
         let DestinoSelect = document.getElementById("ciudades_destino").value; //agafo id del select_destino
         let fecha_ida = document.getElementById("ida_date").value;
@@ -71,14 +71,14 @@ document.addEventListener("DOMContentLoaded", function () {
         let numero_nen = document.getElementById("Nens").value;
         let numero_bebe = document.getElementById("Bebes").value;
 
-        // Obtenemos la fecha actual
+        // // Obtenemos la fecha actual
         let fechaActual = new Date();
 
-        // Convertimos las fechas de ida y vuelta en objetos de fecha
+        // // Convertimos las fechas de ida y vuelta en objetos de fecha
         let ob_fechaIda = new Date(fecha_ida);
         let ob_fechaVuelta = new Date(fecha_vuelta);
 
-        //-------------------------------Realizar validaciones para la recerca ----------------------------------------
+        // -------------------------------Realizar validaciones para la recerca ----------------------------------------
         // verificacion de origen/destino
         if (OrigenSelect == DestinoSelect) {
             // el origen i el destino son los mismos
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("errorVuelta_date").innerHTML = "";
         }
 
-        // Verficacion numero de pasajeros
+        //Verficacion numero de pasajeros
         let Num_total_pas = Number(numero_adult) + Number(numero_nen) + Number(numero_bebe); //contamos cuantos adultos, niños i bebes a puesto el usuario
 
         if (numero_pasajeros < 1) {
@@ -183,8 +183,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Redirigir a la página Vuelo.html con los datos en la URL
             window.location.href = url;
-            //alert("Reserva echa");
-        } else { // si alguna credencial esta mal
+            alert("Reserva hecha");
+        } else { // si alguna credencial está mal
             event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
         }
     });

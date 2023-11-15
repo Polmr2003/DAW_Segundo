@@ -155,7 +155,7 @@ function del_first_position_array(array $array): mixed
  * @param array $array - recojemos el array con el nombre de las imagenes
  * @param string $variable_to_sort - recojemos el nombre de la variable por la que queremos ordenar, ej: nombre de imagenes, nombre de personas...
  * usort - le decimos que queremos ordenar el array i hacemos una funcion anonima pasandole los valores de el array como $a i $b
- * @return strcmp - retornamos el contenido de la variable que esten almacenadas en a i b
+ * @return - strcmp retornamos el contenido de la variable que esten almacenadas en a i b
  * @return - retornamos el array ordenado
  */
 function sort_array_alphanumerically(array $array, string $variable_to_sort)
