@@ -90,6 +90,9 @@ document.getElementById("myBtn_registro").addEventListener("click", function () 
 
         // Mostramos que el usuario se a registrado correctamente
         alert("USUARI ENREGISTRAT CORRECTAMENT");
+
+        // redirigimos a la misma paguina
+        window.location.reload();
     } else { // si alguna credencial esta mal
         event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
     }

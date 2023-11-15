@@ -40,6 +40,9 @@ document.getElementById("myBtn_login").addEventListener("click", function () {
 
     if (flag_login) {
         alert("Hola " + usuari_login);
+
+        // redirigimos a la misma paguina
+        window.location.reload();   
     } else { // si alguna credencial esta mal
         event.preventDefault(); // Evita que se recargue la página || event.preventDefault() se utiliza en el controlador de eventos del botón para prevenir la acción predeterminada del formulario
     }
