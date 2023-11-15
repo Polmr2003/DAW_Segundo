@@ -1,6 +1,59 @@
 <?php
-//Llamada al archivo con todos los datos (variables) 
-require_once './datos.php';
+/*
+Archivo con todas las funciones de los archivos
+*/
+//---------------------------------------------------------------------------------------------------
+
+
+/* ------------------------------------------- Funciones archivos  ---------------------------------------------------------------- */
+
+/** 
+ * Función que sobreescribe el contenido de un fichero i lo pone vacio
+ * @param string $filename -  nombre de el fichero csv que queremos dejar vacio
+ */
+function clear_arch($filename)
+{
+    // Utiliza file_put_contents con una cadena vacía para borrar el contenido del archivo i poner el nuevo contenido
+    return file_put_contents($filename, '');
+}
+
+/**
+ * $ruta_archivo, $contenido - recivimos la ruta del archivo i el contenido que queremos añadir al archivo
+ */
+function añadir_contenido($ruta_archivo, $contenido)
+{
+    // Utiliza file_put_contents para añadir contenido que le digamos a la ruta que le especifiquemos
+    return file_put_contents($ruta_archivo, $contenido);
+}
+
+/**
+ * $ruta_archivo, $contenido - recivimos la ruta del archivo i el contenido que queremos añadir al archivo
+ * if - si se a añadido nos mostrara un mensaje de verificacion
+ * else - si no se a añadido nos mostrara un mensaje de error
+ */
+function añadir_contenido_Con_verificacion($rutaArchivo, $contenido)
+{
+    if (file_put_contents($rutaArchivo, $contenido)) {
+        //se a guardado el contenido
+        echo "Los datos se han guardado exitosamente en el fichero '$rutaArchivo' .";
+        echo "<br>";
+    } else {
+        //no se a guardado el contenido
+        echo "Ha ocurrido un error al guardar los datos en el archivo.";
+    }
+}
+
+/**
+ * $rutaArchivo - recivimos la ruta del archivo que queremos leer
+ * return - retornamos el fichero leido con el string
+ */
+function leer_contenido_archivo($rutaArchivo)
+{
+    // file_get_contents lee el contenido de un fichero i te devuelve un string con el contenido
+    $file_read = file_get_contents($rutaArchivo);
+
+    return $file_read;
+}
 
 
 
@@ -92,7 +145,6 @@ function read_info_csv_with_table_list(string $filename, bool $table)
 
     // close the file
     fclose($f);
-
 }
 
 
@@ -125,7 +177,6 @@ function read_info_csv(string $filename)
 
     // close the file
     fclose($f);
-
 }
 
 /** 
@@ -344,24 +395,3 @@ function write_info_txt(string $filename, string $data)
     //header('Location: frases.php');
 
 }
-
-
-
-
-/* ------------------------------------------- Otras Funciones de ficheros ---------------------------------------------------------------- */
-/**
- * Funcion para convertir un string en un array (cada salto de linea en el string es una nueva posicion del array)
- * @param string $data - String que queremos pasar para convertirlo
- * @return mixed $data - string convertido en array
- */
-function convert_string_in_array(string $data): array
-{
-    $data = preg_split('/\R/', $data); /// \R/ --> salto de linea 
-    return $data;
-}
-
-
-
-
-
-?>
