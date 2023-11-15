@@ -3,7 +3,8 @@
 Archivo con todas las funciones de los archivos
 */
 //---------------------------------------------------------------------------------------------------
-
+require_once './funcions.php';
+require_once './funcions_array.php';
 
 /* ------------------------------------------- Funciones archivos  ---------------------------------------------------------------- */
 
@@ -17,40 +18,43 @@ function clear_arch($filename)
     return file_put_contents($filename, '');
 }
 
-/**
- * $ruta_archivo, $contenido - recivimos la ruta del archivo i el contenido que queremos añadir al archivo
+/** 
+ * Función que escribe contenido a un fichero
+ * @param string $filename -  nombre de el fichero que queremos poner contenido
+ * @param mixed $data -  contenido que queremos añadir al archivo
  */
-function añadir_contenido($ruta_archivo, $contenido)
+function write_info_arch(string $ruta_archivo, mixed $data)
 {
     // Utiliza file_put_contents para añadir contenido que le digamos a la ruta que le especifiquemos
-    return file_put_contents($ruta_archivo, $contenido);
+    return file_put_contents($ruta_archivo, $data);
 }
 
-/**
- * $ruta_archivo, $contenido - recivimos la ruta del archivo i el contenido que queremos añadir al archivo
- * if - si se a añadido nos mostrara un mensaje de verificacion
- * else - si no se a añadido nos mostrara un mensaje de error
+/** 
+ * Función que escribe contenido a un fichero i te muestra un mensaje si se a añadido
+ * @param string $filename -  nombre de el fichero que queremos poner contenido
+ * @param mixed $data -  contenido que queremos añadir al archivo
  */
-function añadir_contenido_Con_verificacion($rutaArchivo, $contenido)
+function write_info_arch_with_check(string $filename, mixed $data)
 {
-    if (file_put_contents($rutaArchivo, $contenido)) {
-        //se a guardado el contenido
-        echo "Los datos se han guardado exitosamente en el fichero '$rutaArchivo' .";
+    if (file_put_contents($filename, $data)) {
+        // se a guardado el contenido
+        echo "Los datos se han guardado exitosamente en el fichero '$filename' .";
         echo "<br>";
     } else {
-        //no se a guardado el contenido
+        // no se a guardado el contenido
         echo "Ha ocurrido un error al guardar los datos en el archivo.";
     }
 }
 
-/**
- * $rutaArchivo - recivimos la ruta del archivo que queremos leer
- * return - retornamos el fichero leido con el string
+/** 
+ * Función que lee el contenido de un fichero
+ * @param string $filename - nombre de el fichero que queremos leer
+ * @return $file_read - retornamos el fichero leido con el string
  */
-function leer_contenido_archivo($rutaArchivo)
+function read_info_arch($filename)
 {
     // file_get_contents lee el contenido de un fichero i te devuelve un string con el contenido
-    $file_read = file_get_contents($rutaArchivo);
+    $file_read = file_get_contents($filename);
 
     return $file_read;
 }
@@ -79,6 +83,128 @@ function clear_csv(string $filename)
     // close the file
     fclose($f_write);
 }
+
+/**
+ * Función que lee contenido de un fichero csv y lo muestra maquetado
+ * @param string $filename - nombre del fichero csv del que queremos leer la información
+ * @param int $layout_number - numero de el maquetado que le queremos poner al contenido de el csv |
+ * 1: tabla, 2: lista
+ */
+function read_info_csv_and_print_layout(string $filename, int $layout_number)
+{
+    // Leemos los datos
+    $f = fopen($filename, 'r');
+
+    // Si no puede abrir el fichero
+    if ($f === false) {
+        die('Error opening the file ' . $filename);
+    }
+
+    // array donde guardaremos la información del csv
+    $data = [];
+
+    // Leemos el fichero csv y ponemos los datos en el array data para luego mostrarlos o usarlos
+    while (($row = fgetcsv($f)) !== false) {
+        $data[] = $row;
+    }
+
+    // Obtenemos los encabezados (títulos de las columnas) que es la primera fila del CSV || array_shift -> para eliminar la primera fila del array $data y almacenarla en $headers
+    $headers = array_shift($data);
+
+    if ($layout_number == 1) {
+        // Mostramos el contenido del csv en formato tabla
+        echo "<table class='table'>";
+
+        echo "<tr>";
+
+        // Mostramos los encabezados ($headers) de la tabla dinámicamente que hemos obtenido con el array shift
+        foreach ($headers as $value) {
+            echo "<th>$value</th>";
+        }
+
+        echo "</tr>";
+
+        // Mostramos el contenido de la tabla dinamicamente
+        foreach ($data as $row) {
+            echo "<tr>";
+            foreach ($row as $value) {
+                echo "<td>" . $value . "</td>";
+            }
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    } else if ($layout_number == 2) {
+        // Mostramos el contenido del csv en formato lista
+        foreach ($data as $row) {
+            echo "<ul>";
+
+            // Mostrar encabezados y valores dinámicamente
+            foreach ($headers as $index => $header) {
+                echo "<li><b>$header:</b> " . $row[$index] . "</li>";
+            }
+
+            echo "</ul>";
+            echo "<hr>";
+        }
+    }
+
+    // Cerrar el archivo
+    fclose($f);
+}
+
+/* ------------------------------------------- Funcion para maquetar el contenido de un array ---------------------------------------------------------------- */
+/**
+ * Función que lee contenido de un fichero csv y lo muestra maquetado
+ * @param array $data - array con el contenido que queremos maquetar
+ * @param int $layout_number - numero de el maquetado que le queremos poner al contenido de el csv |
+ * 1: tabla, 2: lista
+ */
+function print_Array_layout(array $data, int $layout_number)
+{
+    // Obtenemos los encabezados (títulos de las columnas) que es el primer array de nuestro array multidimensional o la primera linea de el csv || array_shift -> para eliminar la primera fila del array $data y almacenarla en $headers
+    $headers = array_shift($data);
+
+    if ($layout_number == 1) {
+        // Mostramos el contenido del csv en formato tabla
+        echo "<table class='table'>";
+
+        echo "<tr>";
+
+        // Mostramos los encabezados ($headers) de la tabla dinámicamente que hemos obtenido con el array shift
+        foreach ($headers as $value) {
+            echo "<th>$value</th>";
+        }
+
+        echo "</tr>";
+
+        // Mostramos el contenido de la tabla dinamicamente
+        foreach ($data as $row) {
+            echo "<tr>";
+            foreach ($row as $value) {
+                echo "<td>" . $value . "</td>";
+            }
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    } else if ($layout_number == 2) {
+        // Mostramos el contenido del csv en formato lista
+        foreach ($data as $row) {
+            echo "<ul>";
+
+            // Mostrar encabezados y valores dinámicamente
+            foreach ($headers as $index => $header) {
+                echo "<li><b>$header:</b> " . $row[$index] . "</li>";
+            }
+
+            echo "</ul>";
+            echo "<hr>";
+        }
+    }
+
+}
+
 
 /** 
  *Función que lee contenido de un fichero csv i retorna el contenido
@@ -247,7 +373,7 @@ function read_line_x_line_in_txt(string $filename)
  *Función que lee contenido de un fichero txt
  * @param string $filename - nombre de el fichero txt en el que queremos leer la informacion
  */
-function read_data_txt(string $filename)
+function read_info_txt(string $filename)
 {
     // Leemos los datos
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
@@ -274,7 +400,7 @@ function read_data_txt(string $filename)
  *Función que lee contenido de un fichero txt linea a linea y lo devuelve
  * @param string $filename - nombre de el fichero txt en el que queremos leer la informacion
  */
-function read_data_txt_with_return(string $filename)
+function read_info_txt_with_return(string $filename)
 {
     // Leemos los datos
     $f = fopen($filename, 'r'); // r: read | view all the permission: https://www.phptutorial.net/php-tutorial/php-open-file/
