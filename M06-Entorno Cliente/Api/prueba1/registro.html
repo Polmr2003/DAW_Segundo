@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registrarse</title>
+    <!-- Link al CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+    <!------------------------ menu ---------------------------------->
+    <nav class="navbar navbar-expand-lg" style="background-color: #fcf8ad;">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Vueling</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="./registro.html">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!------------------------ Contenido ---------------------------------->
+    <div id="ciutats"></div>
+
+
+    <div class="formulario" id="formulario">
+        <h1>Registrate</h1>
+        <div class="contenedor">
+            <!-- Pedimos el Nombre -->
+            <div class="input-contenedor">
+                <!-- icono de la persona -->
+                <i class="fas fa-user icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra el Nombre en el formulario i lo pedimos -->
+                <input type="text" id="new_nombre" placeholder="Nombre">
+                <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
+                <span style="color:red" id="errorName"></span>
+            </div>
+
+            <!-- Pedimos los Apellidos -->
+            <div class="input-contenedor">
+                <!-- icono de la persona -->
+                <i class="fas fa-user icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra los Apellidos en el formulario i los pedimos -->
+                <input type="text" id="new_apellido" placeholder="Apellidos">
+                <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
+                <span style="color:red" id="errorSubname"></span>
+            </div>
+
+            <!-- Pedimos el correo electronico -->
+            <div class="input-contenedor">
+                <!-- icono de el correo electronico  -->
+                <i class="fas fa-envelope icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra el Correo Electronico en el formulario i lo pedimos -->
+                <input type="text" id="new_gmail" placeholder="Correo Electronico">
+                <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
+                <span style="color:red" id="errorGmail"></span>
+            </div>
+
+            <!-- Pedimos el nombre de usuario -->
+            <div class="input-contenedor">
+                <!-- icono de la persona -->
+                <i class="fas fa-user-tag icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra el Nombre de usuario en el formulario i lo pedimos -->
+                <input type="text" id="new_usuari" placeholder="Nombre de usuario">
+                <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
+                <span style="color:red" id="errorUsuari"></span>
+            </div>
+
+            <!-- Pedimos la contraseña -->
+            <div class="input-contenedor">
+                <!-- icono de la llave -->
+                <i class="fas fa-key icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra la contraseña en el formulario i la pedimos -->
+                <input type="password" id="new_password" placeholder="Contraseña">
+                <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
+                <span style="color:red" id="errorPassword"></span>
+            </div>
+
+            <!-- boton de registro -->
+            <button id="myBtn_registro" class="button">Registrarse</button>
+
+            <!-- frase debajo de el boton i link al otro formulario-->
+            <p>¿Ya tienes una cuenta?<a class="link" href="index.html">Iniciar Sesion</a></p>
+        </div>
+    </div>
+
+    <div class="cookies">
+        <!------------------------ Cookies ---------------------------------->
+        <div id="cookie-message" style="display: none;">
+            <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al hacer clic en Aceptar, acepta
+                nuestra política de cookies.</p>
+                <button id="accept-cookie">Aceptar todas</button>
+                <button id="rechazar-cookie">Rechazar</button>
+                <button id="minim-cookie">Aceptar minimas</button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="js/register.js"></script>
+</body>
+
+</html>
