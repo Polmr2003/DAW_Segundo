@@ -13,6 +13,8 @@ class agenda
         $this->apellidos = $apellidos;
         $this->fecha_de_nacimiento = $fecha_de_nacimiento;
         $this->email = "";
+
+        
     }
 
     function setNombre($miNombre)
@@ -49,10 +51,13 @@ class agenda
     {
         $edad = $this->calcularEdad(); // Utiliza $this para referenciar al objeto actual
 
-        if ($edad >= 18) {
-            $this->email = $miEmail;
+        // Verificar si el email es null y el contacto es mayor de edad
+        if ($miEmail === null && $edad >= 18) {
+            // No crear el contacto
+            echo "No se puede crear el contacto";
         } else {
-            $this->email = "menor de edad";
+            $this->email = $miEmail;
+            echo "Contacto creado exitosamente.";
         }
     }
 
