@@ -70,6 +70,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+function validarDNI(dni) {
+    // Expresión regular para comprobar que el DNI tiene el formato correcto
+    var dniRegex = /^\d{8}[a-zA-Z]$/;
+
+    if (!dniRegex.test(dni)) {
+        return false; // El formato no es válido
+    }
+
+    var letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+    var numero = dni.substr(0, 8);
+    var letraUsuario = dni.substr(8, 1).toUpperCase();
+    var letraCalculada = letras[numero % 23];
+
+    return letraUsuario === letraCalculada;
+}
+
 function verificaDNI(num, lle) {
 
     let flag = false;

@@ -18,6 +18,7 @@ app.get('/hola', (req, res) => {
     res.send({ message: "Hola món des de /hola" })
 })
 
+// post para el recurso hello
 app.post('/hello', (req, res) => {
     res.send({ message: "Hola món des de /hello" })
 })
