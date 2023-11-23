@@ -21,7 +21,7 @@ function Fecha_actual() {
 
   // Función para actualizar la fecha y mostrarla
   function actualizarCronometro() {
-      document.getElementById("hora").innerHTML = current_data;
+    document.getElementById("hora").innerHTML = current_data;
   }
 
   // Muestro la fecha actual
@@ -46,14 +46,14 @@ if (getCookie("usuari") !== "Acepteda la cookie") {
   // Deshabilitar todos los elementos del formulario
   const formElements = formulario.elements;
   for (let i = 0; i < formElements.length; i++) {
-      formElements[i].disabled = true;
+    formElements[i].disabled = true;
   }
 
   // Mostramos el mensaje de aceptar la cookie
   cookieMessage.style.display = "block";
 }
 
-if(getCookie("contador")){
+if (getCookie("contador")) {
   checkCookie("contador");
 }
 
@@ -67,7 +67,7 @@ document.getElementById("accept-cookie").addEventListener("click", function () {
   // Habilito todos los elementos del formulario
   const formElements = formulario.elements;
   for (let i = 0; i < formElements.length; i++) {
-      formElements[i].disabled = false;
+    formElements[i].disabled = false;
   }
 
   // Ocultar el mensaje de cookies
@@ -76,7 +76,7 @@ document.getElementById("accept-cookie").addEventListener("click", function () {
 
 // Si el usario a echo click a el boton de aceptar la cookie
 document.getElementById("rechazar-cookie").addEventListener("click", function () {
-  
+
 });
 
 // Si el usario a echo click a el boton de aceptar la cookie
@@ -87,7 +87,7 @@ document.getElementById("minim-cookie").addEventListener("click", function () {
   // Habilito todos los elementos del formulario
   const formElements = formulario.elements;
   for (let i = 0; i < formElements.length; i++) {
-      formElements[i].disabled = false;
+    formElements[i].disabled = false;
   }
 
   // Ocultar el mensaje de cookies
@@ -101,39 +101,38 @@ document.addEventListener("DOMContentLoaded", function () {
   // ------------------------------------------ Login usuario ------------------------------------------
   // Inicio de sesión
   document.getElementById("myBtn_login").addEventListener("click", function () {
-    let email = document.getElementById("login_usuario").value;
+    let usuari = document.getElementById("login_usuario").value;
     let password = document.getElementById("login_password").value;
 
     // Creación de un objeto userData
     const userData = {
-      usuari: email,
+      usuari: usuari,
       password: password
-  };
+    };
 
-      // Realizar la solicitud POST usando fetch
-      fetch('http://localhost:3000/vueling/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
+    // Realizar la solicitud POST usando fetch
+    fetch('http://localhost:3000/vueling/login', {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json;charset=UTF-8"
+      },
+      body: JSON.stringify(userData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Manejar la respuesta del servidor
+        if (data.success) {
+          document.getElementById("errorLogin_usuario").innerHTML = "USUARI CORRECTE";
+
+          // Redirigir a la página de inicio o realizar alguna acción adicional
+        } else {
+          document.getElementById("errorLogin_usuario").innerHTML = "CREDENCIALS INCORRECTES";
+          // Mostrar un mensaje de error al usuario o realizar alguna acción adicional
+        }
       })
-        .then(response => response.json())
-        .then(data => {
-          // Manejar la respuesta del servidor
-          if (data.success) {
-            document.getElementById("LoginMessage").innerHTML = "USUARI CORRECTE";
-            sessionStorage.setItem('logueado', true);
-            
-            // Redirigir a la página de inicio o realizar alguna acción adicional
-          } else {
-            document.getElementById("LoginMessage").innerHTML = "CREDENCIALS INCORRECTES";
-            // Mostrar un mensaje de error al usuario o realizar alguna acción adicional
-          }
-        })
-        .catch(error => {
-          console.error('Error al realizar la solicitud:', error);
-        });
+      .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+      });
   });
 });
 
@@ -155,13 +154,13 @@ function getCookie(cname) {
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
   for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length);
-      }
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
   }
   return "";
 };
@@ -170,11 +169,11 @@ function getCookie(cname) {
 function checkCookie_cname(getCookie) {
   let cookie = getCookie(cname);
   if (cookie != "") {
-      // si existe
-      alert("Esta creada");
+    // si existe
+    alert("Esta creada");
   } else {
-      //si no existe
-      setCookie(cname, cookie, 1);
+    //si no existe
+    setCookie(cname, cookie, 1);
   }
 }
 
@@ -182,13 +181,13 @@ function checkCookie_cname(getCookie) {
 function checkCookie(cname) {
   let cookie = getCookie(cname);
   if (cookie != "") {
-      // si existe
-      cookie++;
+    // si existe
+    cookie++;
 
-      console.log("contador=" + cookie);
-      document.cookie = "contador=" + cookie;
+    console.log("contador=" + cookie);
+    document.cookie = "contador=" + cookie;
   } else {
-      //si no existe
-      document.cookie = "contador= 1";
+    //si no existe
+    document.cookie = "contador= 1";
   }
 }

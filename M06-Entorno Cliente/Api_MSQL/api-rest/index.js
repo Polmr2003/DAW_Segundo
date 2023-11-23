@@ -46,30 +46,30 @@ var connection = mysql.createConnection({
 // Ruta GET para autenticación
 // establecemos una ruta GET en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes GET enviadas a esa URL específica.
 app.post('/vueling/login', (req, res) => {
-    const { email, password } = req.body;
-  
-    console.log("Usuario recibido en el servidor:", email);
+    const { usuari, password } = req.body;
+
+    console.log("Usuario recibido en el servidor:", usuari);
     console.log("Contraseña recibida en el servidor:", password);
-  
+
     // Consultar la base de datos para verificar las credenciales
-    connection.query('SELECT * FROM users WHERE Email = ? AND Contraseña = ?', [email, password], (error, results, fields) => {
-      if (error) {
-        console.error('Error en la consulta de autenticación: ' + error.message);
-        return res.status(500).send({ error: true, message: 'Error en la autenticación' });
-      }
-  
-      console.log("Resultados de la consulta:", results);
-  
-      // Verificar si se encontró una coincidencia
-      if (results.length === 1) {
-        // Credenciales válidas
-        res.status(200).json({ success: true, message: 'Autenticación exitosa' });
-      } else {
-        // Credenciales inválidas
-        res.status(401).json({ success: false, message: 'Credenciales incorrectas' });
-      }
+    connection.query('SELECT * FROM users WHERE usuari = ? AND password = ?', [usuari, password], (error, results, fields) => {
+        if (error) {
+            console.error('Error en la consulta de autenticación: ' + error.message);
+            return res.status(500).send({ error: true, message: 'Error en la autenticación' });
+        }
+
+        console.log("Resultados de la consulta:", results);
+
+        // Verificar si se encontró una coincidencia
+        if (results.length === 1) {
+            // Credenciales válidas
+            res.status(200).json({ success: true, message: 'Autenticación exitosa' });
+        } else {
+            // Credenciales inválidas
+            res.status(401).json({ success: false, message: 'Credenciales incorrectas' });
+        }
     });
-  });
+});
 
 // Ruta POST para la inserción de usuarios
 // establecemos una ruta POST en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes POST enviadas a esa URL específica.
