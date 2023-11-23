@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registrarse</title>
+    <!-- Link al CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Link a los iconos de el formaulario -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+    <!-- boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!------------------------ menu ---------------------------------->
+    <nav class="navbar navbar-expand-lg" style="background-color: #fcf8ad;">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Vueling</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="./Inicio_Sesion.html">Login</a>
+                    <a class="nav-link" href="./Nuevo_Usuario.html">Registrarse</a>
+                    <a class="nav-link" href="./Buscar_vuelo.html">Buscar vuelo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!------------------------ Contenido ---------------------------------->
+    <form class="formulario">
+
+        <!-- informacion del vuelo-->
+        <div>
+            <u>
+                <h1>Informacion del vuelo</h1><br>
+            </u>
+
+            <!-- datos del vuelo-->
+            <ul>
+                <li>
+                    <label for="Origen">Origen: </label>
+                    <span id="Origen"></span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label for="Destino">Destino: </label>
+                    <span id="Destino"></span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label for="Ida">Fecha de ida: </label>
+                    <span id="Ida"></span>
+                </li>
+            </ul>
+            <ul id="info_vue">
+                <li>
+                    <label for="Vuelta">Fecha de vuelta: </label>
+                    <span id="Vuelta"></span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <label for="Adult">Numero de Adultos: </label>
+                    <span id="Adult"></span>
+                </li>
+            </ul>
+            <ul id="ul_Nin_beb">
+                <li id="li_nin">
+                    <label for="Nen">Numero de niños: </label>
+                    <span id="Nen"></span>
+                </li><br>
+                <li id="li_beb">
+                    <label for="Beb">Numero de bebes: </label>
+                    <span id="Beb"></span>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Preguntamos el horario que quiere el usuario -->
+        <u>
+            <h3>Que horario quieres?</h3>
+        </u>
+
+
+        <!-- Horas de ida -->
+        <ul>
+            <li>
+                <!-- Titulo -->
+                <h4>Posibles Horas de ida</h4>
+
+                <!-- Posibles horas de ida -->
+                <input type="radio" name="hora_ida" checked><span id="Hora_ida_1"></span>
+                <br><input type="radio" name="hora_ida"><span id="Hora_ida_2"></span>
+
+            </li>
+        </ul>
+
+
+        <!-- Horas de vueltas -->
+        <div id="div_pos_fecha_vue">
+            <ul>
+                <li>
+                    <!-- Titulo -->
+                    <h4>Posibles Horas de vuelta</h4>
+
+                    <!-- Posibles horas de ida -->
+                    <input type="radio" name="hora_vue" checked><span id="Hora_vue_1"></span>
+                    <br><input type="radio" name="hora_vue"><span id="Hora_vue_2"></span>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Precio de el vuelo -->
+        <div style="display: flex; color: red;">
+            <u>
+                <p>Precio final del vuelo:&nbsp;</p>
+            </u>
+            <span id="precio_vuelo"></span>
+        </div>
+    </form>
+
+    <!-- Script -->
+    <script src="js/Vuelo.js"></script>
+</body>
+
+</html>

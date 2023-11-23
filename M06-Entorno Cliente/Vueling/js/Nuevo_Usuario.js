@@ -1,11 +1,5 @@
-//hacer push a las variables de la base de datos
-function push(usuari, password) {
-    usuaris.push(usuari);
-    contrasenyes.push(password);
-}
-
-// Registro de un nuevo usuario
-document.getElementById("myBtn_registro").addEventListener("click", function () {
+ // Registro de un nuevo usuario
+ document.getElementById("myBtn_registro").addEventListener("click", function () {
     //booleano para saber si estan bien las credenciales
     var flag_registro = true;
 
@@ -90,7 +84,7 @@ document.getElementById("myBtn_registro").addEventListener("click", function () 
 
         // Mostramos que el usuario se a registrado correctamente
         alert("USUARI ENREGISTRAT CORRECTAMENT");
-
+        
         // redirigimos a la misma paguina
         window.location.reload();
     } else { // si alguna credencial esta mal

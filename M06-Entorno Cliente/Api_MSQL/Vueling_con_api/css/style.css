@@ -102,38 +102,22 @@ input[type="password"] {
     color: white;
 }
 
-/*boton de login/registro */
-.myBtn_logout {
-
-    /* color de la letra */
-    color: black;
-
-    /* tamaño de la letra */
-    font-size: 15px;
-
-    /* color de el boton */
-    background: #fcf8ad;
-
-    /* tamaño de el boton (largo) (ancho) */
-    padding: 5px 15px;
-
-    border-radius: 5px;
-}
-
-/* cuando pasas por encima del boton de login/registro cambia de color */
-.myBtn_logout:hover {
-    /* Color de el fondo */
-    background: black;
-
-    /* Color de la letra */
-    color: white;
-}
-
-
 /* Estilos de la etiqueta p (frases) */
 p {
     /* Lo centramos*/
     text-align: center;
+}
+
+/* estilo de el link de la frase que ponemos si ya tiene una cuenta o quiere registrarse */
+.link {
+    text-decoration: none;
+    color: #1a2537;
+    font-weight: 600;
+}
+
+/* cuando pasemos por encima del link cambiara de color */
+.link:hover {
+    color: cadetblue;
 }
 
 /* estilo para poner el formulario en el medio i los campos tambien */
@@ -151,6 +135,21 @@ p {
     }
 }
 
-.cookies{
-    text-align: center;
+
+/* Estilo personalizado para los selectores */
+.select-contenedor {
+
+    /* para que ocupe todo el ancho el selector */
+    display: flex;
+    
+    margin: 10px 0;
+}
+
+.select-contenedor select {
+    flex: 1;
+    padding: 5px;
+}
+
+.select-contenedor i {
+    padding: 5px;
 }
