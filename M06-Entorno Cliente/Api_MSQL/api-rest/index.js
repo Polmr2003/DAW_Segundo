@@ -44,14 +44,16 @@ var connection = mysql.createConnection({
 /////// fem servir la BBDD que tenim
 
 // Ruta GET para autenticación
-// establecemos una ruta GET en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes GET enviadas a esa URL específica.
+// establecemos una ruta post en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes GET enviadas a esa URL específica.
 app.post('/vueling/login', (req, res) => {
+    // extraemos las propiedades usuari y password del cuerpo de la solicitud (req.body). Estos valores se envían desde el cliente como parte de la solicitud POST
     const { usuari, password } = req.body;
 
+    // comprovamos lo que nos a llegado al servidor
     console.log("Usuario recibido en el servidor:", usuari);
     console.log("Contraseña recibida en el servidor:", password);
 
-    // Consultar la base de datos para verificar las credenciales
+    /// Realiza una consulta SQL para consultar la base de datos si existe el usuario i la contraseña en la tabla 'users'
     connection.query(
         'SELECT * FROM users WHERE usuari = ? AND password = ?',
         [usuari, password],
@@ -76,7 +78,7 @@ app.post('/vueling/login', (req, res) => {
 });
 
 // Ruta POST para la inserción de usuarios
-// establecemos una ruta POST en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes POST enviadas a esa URL específica.
+// establecemos una ruta POST en la aplicación Express. La ruta es '/vueling/register', lo que significa que manejará solicitudes POST enviadas a esa URL específica.
 app.post('/vueling/register', function (req, res) {
     // extraemos las propiedades nom, cognom, gmail, password, y usuari del cuerpo de la solicitud (req.body). Estos valores se envían desde el cliente como parte de la solicitud POST
     const { nom, cognom, gmail, password, usuari } = req.body;
