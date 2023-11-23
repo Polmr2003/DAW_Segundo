@@ -201,8 +201,8 @@ document.getElementById("myBtn_registro").addEventListener("click", function () 
             //Manejo de la Respuesta del Servidor
             .then(response => response.json())
             .then(data => {
-                // Manejar la respuesta del servidor
-                alert(data.mensaje);
+                // Mostramos el menssaje que nos a enviado el servidor
+                alert(data.message);
             })
             // Si no se a podido conectar al servidor
             .catch(error => {

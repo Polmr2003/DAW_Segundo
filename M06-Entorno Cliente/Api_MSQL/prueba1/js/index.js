@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
           // Mostramos el menssaje que nos a enviado el servidor
-          alert(data.mensaje);
+          alert(data.message);
         })
         // Si no se a podido conectar al servidor
         .catch(error => {
