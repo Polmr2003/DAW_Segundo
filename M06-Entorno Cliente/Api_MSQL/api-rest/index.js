@@ -43,8 +43,8 @@ var connection = mysql.createConnection({
 
 /////// fem servir la BBDD que tenim
 
-// Ruta GET para autenticación
-// establecemos una ruta post en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes GET enviadas a esa URL específica.
+// Ruta POST para el login de los usuarios
+// establecemos una ruta POST en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes POST enviadas a esa URL específica.
 app.post('/vueling/login', (req, res) => {
     // extraemos las propiedades usuari y password del cuerpo de la solicitud (req.body). Estos valores se envían desde el cliente como parte de la solicitud POST
     const { usuari, password } = req.body;
@@ -60,24 +60,46 @@ app.post('/vueling/login', (req, res) => {
         function (error, results) {
             // Manejo de errores
             if (error) {
-                console.error('Error en la consulta de autenticación: ' + error.message);
-                return res.status(500).send({ error: true, message: 'Error en la autenticación' });
+                // mostramos por consola el error
+                console.error('Error en la consulta de autenticación:', error.message);
+
+                // Si hay un error
+                // Enviamos una respuesta con un código de estado 500 ("Internal Server Error" (Error interno del servidor)) y un objeto JSON con:
+                // un booleno de error a true, un array de resultats a null i enviamos un mensage con el string "Error en la autenticación"
+                res.status(500).json({
+                    error: true,
+                    resultats: null,
+                    message: "Error en la autenticación"
+                });
             }
 
+            // mostramos el resultado (La informacion del usuario) si no a habido error en la consulta
             console.log("Resultados de la consulta:", results);
 
             // Verificar si se encontró una coincidencia
             if (results.length === 1) {
-                // Credenciales válidas
-                res.status(200).json({ success: true, message: 'Autenticación exitosa' });
+                // Credenciales válidas, a encontrado el usuario
+                // Enviamos una respuesta con un código de estado 200 (OK) y un objeto JSON con:
+                // un booleno de error a false, un array de resultats con los resultados i enviamos un mensage con el string "Autenticación exitosa"
+                res.status(200).json({
+                    error: false,
+                    resultats: results,
+                    message: "Autenticación exitosa"
+                });
             } else {
-                // Credenciales inválidas
-                res.status(401).json({ success: false, message: 'Credenciales incorrectas' });
+                // Si no a encontrado ningin usuario
+                // Enviamos una respuesta con un código de estado 401 ( No a encontrado el usuario o "Unauthorized" (No autorizado)) y un objeto JSON con:
+                // un booleno de error a true, un array de resultats a null i enviamos un mensage con el string "Credenciales incorrectas"
+                res.status(401).json({
+                    error: true,
+                    resultats: null,
+                    message: "Credenciales incorrectas"
+                });
             }
         });
 });
 
-// Ruta POST para la inserción de usuarios
+// Ruta POST para el registro de los usuarios
 // establecemos una ruta POST en la aplicación Express. La ruta es '/vueling/register', lo que significa que manejará solicitudes POST enviadas a esa URL específica.
 app.post('/vueling/register', function (req, res) {
     // extraemos las propiedades nom, cognom, gmail, password, y usuari del cuerpo de la solicitud (req.body). Estos valores se envían desde el cliente como parte de la solicitud POST
@@ -90,20 +112,25 @@ app.post('/vueling/register', function (req, res) {
         function (error, results) {
             // Manejo de errores
             if (error) {
-                console.error('Error en la inserción de usuario:', error);
+                // mostramos por consola el error
+                console.error('Error en la inserción de usuario:', error.message);
 
-                // Envía una respuesta con un código de estado 400 (Bad Request) y un objeto JSON indicando el error
-                res.status(400).send({
+                // Credenciales inválidas
+                // Enviamos una respuesta con un código de estado 400 ("Bad Request" (Solicitud incorrecta)) y un objeto JSON con:
+                // un booleno de error a true, un array de resultats a null i enviamos un mensage con el string "Error en la inserción de usuario"
+                res.status(400).json({
                     error: true,
                     resultats: null,
-                    mensaje: "Error en la inserción de usuario"
+                    message: "Error en la inserción de usuario"
                 });
             } else {
-                // Envía una respuesta con un código de estado 200 (OK) y un objeto JSON indicando el éxito
-                res.status(200).send({
+                // Credenciales válidas
+                // Enviamos una respuesta con un código de estado 200 (OK) y un objeto JSON con:
+                // un booleno de error a false, un array de resultats con los resultados i enviamos un mensage con el string "Usuario insertado con éxito"
+                res.status(200).json({
                     error: false,
                     resultats: results,
-                    mensaje: "Usuario insertado con éxito"
+                    message: "Usuario insertado con éxito"
                 });
             }
         }

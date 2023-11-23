@@ -202,13 +202,7 @@ document.getElementById("myBtn_registro").addEventListener("click", function () 
             .then(response => response.json())
             .then(data => {
                 // Manejar la respuesta del servidor
-                if (data.success) {
-                    alert("Usuari registrat correctament");
-                    //document.getElementById("errorLogin_usuario").innerHTML = "USUARI CORRECTE";
-                } else {
-                    alert("No se a podido registrar");
-                    //document.getElementById("errorLogin_usuario").innerHTML = "CREDENCIALS INCORRECTES";
-                }
+                alert(data.mensaje);
             })
             // Si no se a podido conectar al servidor
             .catch(error => {

@@ -149,14 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then(response => response.json())
         .then(data => {
-          // Manejar la respuesta del servidor
-          if (data.success) {
-            alert("USUARI CORRECTE");
-            //document.getElementById("errorLogin_usuario").innerHTML = "USUARI CORRECTE";
-          } else {
-            alert("CREDENCIALS INCORRECTES");
-            //document.getElementById("errorLogin_usuario").innerHTML = "CREDENCIALS INCORRECTES";
-          }
+          // Mostramos el menssaje que nos a enviado el servidor
+          alert(data.mensaje);
         })
         // Si no se a podido conectar al servidor
         .catch(error => {
