@@ -96,7 +96,9 @@ document.getElementById("minim-cookie").addEventListener("click", function () {
 
 
 
-// Registro de un nuevo usuario
+
+//--------------------------------------------------- Registro de un nuevo usuario ---------------------------------------------------
+// cuando cargue la pagina
 document.getElementById("myBtn_registro").addEventListener("click", function () {
     //booleano para saber si estan bien las credenciales
     var flag_registro = true;
@@ -108,7 +110,7 @@ document.getElementById("myBtn_registro").addEventListener("click", function () 
     var usuari = document.getElementById("new_usuari").value;
     var password = document.getElementById("new_password").value;
 
-    //--------------------------Realizar validaciones aquí para el registro ---------------------------------
+    //--------------------------Realizamos las validaciones aquí para el registro ---------------------------------
 
     // verifico el nombre
     if (nombre.length < 1) {
@@ -175,7 +177,9 @@ document.getElementById("myBtn_registro").addEventListener("click", function () 
         document.getElementById("errorPassword").innerHTML = "";
     }
 
-    if (flag_registro) { // si las credenciales están bien
+
+    // si las credenciales están bien
+    if (flag_registro) {
 
         // Creación de un objeto userData
         const userData = {
@@ -209,7 +213,7 @@ document.getElementById("myBtn_registro").addEventListener("click", function () 
             // Si no se a podido conectar al servidor
             .catch(error => {
                 console.error('Error al realizar la solicitud:', error);
-              });
+            });
     } else { // si alguna credencial está mal
         event.preventDefault();
     }

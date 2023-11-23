@@ -96,44 +96,78 @@ document.getElementById("minim-cookie").addEventListener("click", function () {
 
 
 
+
+//--------------------------------------------------- Login usuario---------------------------------------------------
 // Cuando cargue la pagina
 document.addEventListener("DOMContentLoaded", function () {
-  // ------------------------------------------ Login usuario ------------------------------------------
-  // Inicio de sesión
+  // Cuando le demos al boton myBtn_login
   document.getElementById("myBtn_login").addEventListener("click", function () {
+    //booleano para saber si estan bien las credenciales
+    var flag_registro = true;
+
+    // Obtener los valores del formulario de login
     let usuari = document.getElementById("login_usuario").value;
     let password = document.getElementById("login_password").value;
 
-    // Creación de un objeto userData
-    const userData = {
-      usuari: usuari,
-      password: password
-    };
+    //--------------------------Realizamos las validaciones aquí para el login ---------------------------------
 
-    // Realizar la solicitud POST usando fetch
-    fetch('http://localhost:3000/vueling/login', {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json;charset=UTF-8"
-      },
-      body: JSON.stringify(userData)
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Manejar la respuesta del servidor
-        if (data.success) {
-          alert("USUARI CORRECTE");
-          //document.getElementById("errorLogin_usuario").innerHTML = "USUARI CORRECTE";
-        } else {
-          alert("CREDENCIALS INCORRECTES");
-          //document.getElementById("errorLogin_usuario").innerHTML = "CREDENCIALS INCORRECTES";
-        }
+    // verifico el nombre
+    if (usuari.length < 1) {
+      document.getElementById("errorLogin_usuario").innerHTML = "No puede estar vacio";
+      document.getElementById("login_usuario").value = "";
+      flag_registro = false;
+    } else {
+      document.getElementById("errorLogin_usuario").innerHTML = "";
+    }
+
+    // verifico la password
+    if (password.length < 1) {
+      document.getElementById("errorLogin_password").innerHTML = "No puede estar vacio";
+      document.getElementById("login_password").value = "";
+      flag_registro = false;
+    } else {
+      document.getElementById("errorLogin_password").innerHTML = "";
+    }
+
+
+    // si las credenciales están bien
+    if (flag_registro) {
+
+      // Creación de un objeto userData
+      const userData = {
+        usuari: usuari,
+        password: password
+      };
+
+      // Realizar la solicitud POST usando fetch
+      fetch('http://localhost:3000/vueling/login', {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json;charset=UTF-8"
+        },
+        body: JSON.stringify(userData)
       })
-      // Si no se a podido conectar al servidor
-      .catch(error => {
-        console.error('Error al realizar la solicitud:', error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          // Manejar la respuesta del servidor
+          if (data.success) {
+            alert("USUARI CORRECTE");
+            //document.getElementById("errorLogin_usuario").innerHTML = "USUARI CORRECTE";
+          } else {
+            alert("CREDENCIALS INCORRECTES");
+            //document.getElementById("errorLogin_usuario").innerHTML = "CREDENCIALS INCORRECTES";
+          }
+        })
+        // Si no se a podido conectar al servidor
+        .catch(error => {
+          console.error('Error al realizar la solicitud:', error);
+        });
+    } else { // si alguna credencial está mal
+      event.preventDefault();
+    }
+
   });
+
 });
 
 
