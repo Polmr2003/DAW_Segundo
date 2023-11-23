@@ -122,14 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(data => {
         // Manejar la respuesta del servidor
         if (data.success) {
-          document.getElementById("errorLogin_usuario").innerHTML = "USUARI CORRECTE";
-
-          // Redirigir a la página de inicio o realizar alguna acción adicional
+          alert("USUARI CORRECTE");
+          //document.getElementById("errorLogin_usuario").innerHTML = "USUARI CORRECTE";
         } else {
-          document.getElementById("errorLogin_usuario").innerHTML = "CREDENCIALS INCORRECTES";
-          // Mostrar un mensaje de error al usuario o realizar alguna acción adicional
+          alert("CREDENCIALS INCORRECTES");
+          //document.getElementById("errorLogin_usuario").innerHTML = "CREDENCIALS INCORRECTES";
         }
       })
+      // Si no se a podido conectar al servidor
       .catch(error => {
         console.error('Error al realizar la solicitud:', error);
       });

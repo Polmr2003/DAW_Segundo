@@ -194,18 +194,22 @@ document.getElementById("myBtn_registro").addEventListener("click", function () 
             },
             body: JSON.stringify(userData)
         })
-
             //Manejo de la Respuesta del Servidor
             .then(response => response.json())
             .then(data => {
-                if (data.error) {
-                    console.error("Error en la inserción de usuario:", data.mensaje);
+                // Manejar la respuesta del servidor
+                if (data.success) {
+                    alert("Usuari registrat correctament");
+                    //document.getElementById("errorLogin_usuario").innerHTML = "USUARI CORRECTE";
                 } else {
-                    alert("USUARIO REGISTRADO CORRECTAMENTE");
-                    window.location.reload();
+                    alert("No se a podido registrar");
+                    //document.getElementById("errorLogin_usuario").innerHTML = "CREDENCIALS INCORRECTES";
                 }
             })
-            .catch(err => console.log(err));
+            // Si no se a podido conectar al servidor
+            .catch(error => {
+                console.error('Error al realizar la solicitud:', error);
+              });
     } else { // si alguna credencial está mal
         event.preventDefault();
     }
