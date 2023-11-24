@@ -137,6 +137,41 @@ app.post('/vueling/register', function (req, res) {
     );
 });
 
+// Ruta GET para recojer las ciudades de los vuelos en la base de datos
+// establecemos una ruta GET en la aplicación Express. La ruta es '/vueling/ciudades', lo que significa que manejará solicitudes GET enviadas a esa URL específica.
+app.get('/vueling/ciudades', (req, res) => {
+
+    // Realiza una consulta SQL para obtener las ciudades desde la base de datos
+    connection.query('SELECT name FROM ciudades', function (error, results) {
+        // Manejo de errores
+        if (error) {
+            // mostramos por consola el error
+            console.error('Error en la consulta de autenticación:', error.message);
+
+            // Si hay un error
+            // Enviamos una respuesta con un código de estado 500 ("Internal Server Error" (Error interno del servidor)) y un objeto JSON con:
+            // un booleno de error a true, un array de resultats a null i enviamos un mensage con el string "Error en la autenticación"
+            res.status(500).json({
+                error: true,
+                resultats: null,
+                message: "Error en la autenticación"
+            });s
+        } else {
+            // Creamos un nuevo array para almacenar solo los nombres de las ciudades, si no nos pasara un array de objetos con los nombres de las ciudades
+            const ciudades = results.map(ciudad => ciudad.name);
+
+            // Envia la lista de ciudades como respuesta con un código de estado 200 (OK) y un objeto JSON con:
+            // un booleno de error a false, un array de resultats con el array de todas ciudades i enviamos un mensage con el string "Ciudades recojidas de la base de datos"
+            res.status(200).json({
+                error: false,
+                resultats: ciudades,
+                message: "Ciudades recojidas de la base de datos"
+            });
+
+        }
+    });
+});
+
 app.listen(3000, () => {
     console.log("Aquesta és la nostra web node express pel port 3000!!");
 })

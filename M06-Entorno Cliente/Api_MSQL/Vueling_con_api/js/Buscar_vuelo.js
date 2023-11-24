@@ -30,30 +30,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    //array con las ciudades
-    let ciutats = ["Barcelona", "Girona", "Tarragona", "Lleida", "Valencia"];
+    // Realizar una solicitud para obtener la lista de ciudades
+    fetch('http://localhost:3000/vueling/ciudades', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+            // Puedes agregar otras cabeceras si es necesario
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Verificar si hay errores en la respuesta
+            if (data.error) {
+                console.error('Error al obtener la lista de ciudades:', data.message);
+                return;
+            }
 
-    //selectores en el html que vamos a poner las ciudades
-    let ciudades_origen = document.getElementById("ciudades_origen");
-    let ciudades_destino = document.getElementById("ciudades_destino");
+            // Obtener la lista de ciudades desde la respuesta
+            let ciutats = data.resultats;
 
-    //añadir las ciudades_origen al selector de el html
-    for (let i = 0; i < ciutats.length; i++) {
-        let option = document.createElement("option");
-        option.value = ciutats[i];
-        option.innerHTML = ciutats[i];
+            //añadir las ciudades_origen al selector de el html
+            for (let i = 0; i < ciutats.length; i++) {
+                let option = document.createElement("option");
+                option.value = ciutats[i];
+                option.innerHTML = ciutats[i];
 
-        ciudades_origen.appendChild(option);
-    }
+                ciudades_origen.appendChild(option);
+            }
 
-    //añadir las ciudades_destino al selector de el html
-    for (let i = 0; i < ciutats.length; i++) {
-        let option = document.createElement("option");
-        option.value = ciutats[i];
-        option.innerHTML = ciutats[i];
+            //añadir las ciudades_destino al selector de el html
+            for (let i = 0; i < ciutats.length; i++) {
+                let option = document.createElement("option");
+                option.value = ciutats[i];
+                option.innerHTML = ciutats[i];
 
-        ciudades_destino.appendChild(option);
-    }
+                ciudades_destino.appendChild(option);
+            }
+        })
+        .catch(error => {
+            console.error('Error al realizar la solicitud de ciudades:', error.message);
+        });
 
 
     // Buscamos un vuelo
