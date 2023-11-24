@@ -155,7 +155,7 @@ app.get('/vueling/ciudades', (req, res) => {
                 error: true,
                 resultats: null,
                 message: "Error en la autenticación"
-            });s
+            });
         } else {
             // Creamos un nuevo array para almacenar solo los nombres de las ciudades, si no nos pasara un array de objetos con los nombres de las ciudades
             const ciudades = results.map(ciudad => ciudad.name);
