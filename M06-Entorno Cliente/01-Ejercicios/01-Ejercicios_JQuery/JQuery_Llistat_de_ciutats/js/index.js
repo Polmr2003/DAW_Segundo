@@ -11,6 +11,11 @@ $(document).ready(function () {
 
     // Añadir un elemento al final de la lista, con append
     $("#end_list").click(function () {
+        // let nuevaCiudad = prompt("Introduce el nombre de la ciudad:");
+        // if (nuevaCiudad) {
+        //     ciudades_origen.prepend($("<li>").text(nuevaCiudad));
+        // }
+
         // verficamos si aun hay ciudades en el array
         if (posicion_ciudad < ciutats.length) {
             // si aun no se an añadido todas las ciudades
