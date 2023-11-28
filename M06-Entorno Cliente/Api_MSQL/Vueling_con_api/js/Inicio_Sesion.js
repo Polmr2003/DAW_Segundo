@@ -151,6 +151,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
           // Mostramos el menssaje que nos a enviado el servidor
           alert(data.message);
+
+          if(data.error==false){
+            localStorage.user = usuari;
+          }
         })
         // Si no se a podido conectar al servidor
         .catch(error => {

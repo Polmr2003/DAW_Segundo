@@ -50,25 +50,25 @@ document.addEventListener("DOMContentLoaded", function () {
             let ciutats = data.resultats;
 
             // Select de las ciudades
-            let ciudades_origen= document.getElementById("ciudades_origen");
-            let ciudades_destino= document.getElementById("ciudades_destino");
+            let Select_ciudades_origen= document.getElementById("ciudades_origen");
+            let Select_ciudades_destino= document.getElementById("ciudades_destino");
 
-            //añadir las ciudades_origen al selector de el html
+            //añadir las ciudades al selector (Origen) de el html
             for (let i = 0; i < ciutats.length; i++) {
                 let option = document.createElement("option");
                 option.value = ciutats[i];
                 option.innerHTML = ciutats[i];
 
-                ciudades_origen.appendChild(option);
+                Select_ciudades_origen.appendChild(option);
             }
 
-            //añadir las ciudades_destino al selector de el html
+             //añadir las ciudades al selector (Destino) de el html
             for (let i = 0; i < ciutats.length; i++) {
                 let option = document.createElement("option");
                 option.value = ciutats[i];
                 option.innerHTML = ciutats[i];
 
-                ciudades_destino.appendChild(option);
+                Select_ciudades_destino.appendChild(option);
             }
         })
         .catch(error => {
