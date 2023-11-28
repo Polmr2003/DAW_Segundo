@@ -49,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
             // Obtener la lista de ciudades desde la respuesta
             let ciutats = data.resultats;
 
+            // Select de las ciudades
+            let ciudades_origen= document.getElementById("ciudades_origen");
+            let ciudades_destino= document.getElementById("ciudades_destino");
+
             //añadir las ciudades_origen al selector de el html
             for (let i = 0; i < ciutats.length; i++) {
                 let option = document.createElement("option");
