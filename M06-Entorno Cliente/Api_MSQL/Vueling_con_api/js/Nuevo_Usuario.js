@@ -35,64 +35,64 @@ cronometro = setInterval(Fecha_actual, 1000);
 
 
 //--------------------------------------------------- Mostramos el mensaje de las Cookies ---------------------------------------------------
-var cookieMessage = document.getElementById("cookie-message");
-var acceptButton = document.getElementById("accept-cookie");
+// var cookieMessage = document.getElementById("cookie-message");
+// var acceptButton = document.getElementById("accept-cookie");
 
-var formulario = document.getElementById("formulario");
+// var formulario = document.getElementById("formulario");
 
-// Comprobar si la cookie de aceptación ya existe
-if (getCookie("usuari") !== "Acepteda la cookie") {
-    // Si no se ha aceptado la cookie
-    // Deshabilitar todos los elementos del formulario
-    const formElements = formulario.elements;
-    for (let i = 0; i < formElements.length; i++) {
-        formElements[i].disabled = true;
-    }
+// // Comprobar si la cookie de aceptación ya existe
+// if (getCookie("usuari") !== "Acepteda la cookie") {
+//     // Si no se ha aceptado la cookie
+//     // Deshabilitar todos los elementos del formulario
+//     const formElements = formulario.elements;
+//     for (let i = 0; i < formElements.length; i++) {
+//         formElements[i].disabled = true;
+//     }
 
-    // Mostramos el mensaje de aceptar la cookie
-    cookieMessage.style.display = "block";
-}
+//     // Mostramos el mensaje de aceptar la cookie
+//     cookieMessage.style.display = "block";
+// }
 
-if (getCookie("contador")) {
-    checkCookie("contador");
-}
+// if (getCookie("contador")) {
+//     checkCookie("contador");
+// }
 
-// Si el usario a echo click a el boton de aceptar la cookie
-document.getElementById("accept-cookie").addEventListener("click", function () {
-    // Configurar una cookie que expire en un año
-    setCookie("usuari", "Acepteda la cookie", 365);
+// // Si el usario a echo click a el boton de aceptar la cookie
+// document.getElementById("accept-cookie").addEventListener("click", function () {
+//     // Configurar una cookie que expire en un año
+//     setCookie("usuari", "Acepteda la cookie", 365);
 
-    setCookie("contador", "1", 365);
+//     setCookie("contador", "1", 365);
 
-    // Habilito todos los elementos del formulario
-    const formElements = formulario.elements;
-    for (let i = 0; i < formElements.length; i++) {
-        formElements[i].disabled = false;
-    }
+//     // Habilito todos los elementos del formulario
+//     const formElements = formulario.elements;
+//     for (let i = 0; i < formElements.length; i++) {
+//         formElements[i].disabled = false;
+//     }
 
-    // Ocultar el mensaje de cookies
-    cookieMessage.style.display = "none";
-});
+//     // Ocultar el mensaje de cookies
+//     cookieMessage.style.display = "none";
+// });
 
-// Si el usario a echo click a el boton de aceptar la cookie
-document.getElementById("rechazar-cookie").addEventListener("click", function () {
+// // Si el usario a echo click a el boton de aceptar la cookie
+// document.getElementById("rechazar-cookie").addEventListener("click", function () {
 
-});
+// });
 
-// Si el usario a echo click a el boton de aceptar la cookie
-document.getElementById("minim-cookie").addEventListener("click", function () {
-    // Configurar una cookie que expire en un año
-    setCookie("usuari", "Acepteda la cookie", 365);
+// // Si el usario a echo click a el boton de aceptar la cookie
+// document.getElementById("minim-cookie").addEventListener("click", function () {
+//     // Configurar una cookie que expire en un año
+//     setCookie("usuari", "Acepteda la cookie", 365);
 
-    // Habilito todos los elementos del formulario
-    const formElements = formulario.elements;
-    for (let i = 0; i < formElements.length; i++) {
-        formElements[i].disabled = false;
-    }
+//     // Habilito todos los elementos del formulario
+//     const formElements = formulario.elements;
+//     for (let i = 0; i < formElements.length; i++) {
+//         formElements[i].disabled = false;
+//     }
 
-    // Ocultar el mensaje de cookies
-    cookieMessage.style.display = "none";
-});
+//     // Ocultar el mensaje de cookies
+//     cookieMessage.style.display = "none";
+// });
 
 
 
