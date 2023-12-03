@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "./Inicio_Sesion.html";
     }
 
+    // ponemos el nombre de el usuario en el mensaje de bienvenida
     let nobre_usuario = document.getElementById("nombreUsuario");
     nobre_usuario.innerHTML=localStorage.user;
 
