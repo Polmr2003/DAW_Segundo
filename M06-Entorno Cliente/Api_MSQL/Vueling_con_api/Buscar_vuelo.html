@@ -30,9 +30,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="./Inicio_Sesion.html" id="Menu_login">Login</a>
-          <a class="nav-link" href="./Nuevo_Usuario.html" id="Menu_register">Registrarse</a>
-          <a class="nav-link" href="./Buscar_vuelo.html" id="Menu_vuelo" style="display: none;">Buscar vuelo</a>
+          <a class="nav-link" href="./Buscar_vuelo.html" id="Menu_vuelo">Buscar vuelo</a>
+        </div>
+      </div>
+
+      <!-- Mensaje de bienvenida y el menú desplegable -->
+      <div class="navbar-nav ml-auto">
+        <span class="nav-link">Hola <span id="nombreUsuario"></span></span>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Opciones
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <!-- Desplegable de cerrar sesion -->
+            <a class="dropdown-item" href="./Cerrar_Sesion.html" id="cerrarSesionBtn">Cerrar Sesion</a>
+          </div>
         </div>
       </div>
     </div>
@@ -126,7 +139,6 @@
   </div>
 
   <!-- Script -->
-
   <script src="js/Buscar_vuelo.js"></script>
 </body>
 

@@ -100,30 +100,6 @@ cronometro = setInterval(Fecha_actual, 1000);
 //--------------------------------------------------- Registro de un nuevo usuario ---------------------------------------------------
 // Cuando cargue la pagina
 document.addEventListener("DOMContentLoaded", function () {
-    //
-    if (localStorage.getItem("user")) {
-        console.log("hola");
-        //
-        let Menu_login=document.getElementById("Menu_login");
-        let Menu_register=document.getElementById("Menu_register");
-        let Menu_vuelo=document.getElementById("Menu_vuelo");
-
-        //
-        Menu_login.style.display="none";
-        Menu_register.style.display="none";
-        Menu_vuelo.style.display="block";
-    }else{
-        console.log("adios");
-        //
-        let Menu_login=document.getElementById("Menu_login");
-        let Menu_register=document.getElementById("Menu_register");
-        let Menu_vuelo=document.getElementById("Menu_vuelo");
-
-        //
-        Menu_login.style.display="block";
-        Menu_register.style.display="block";
-        Menu_vuelo.style.display="none";
-    }
     // Cuando le demos al boton myBtn_registro
     document.getElementById("myBtn_registro").addEventListener("click", function () {
         //booleano para saber si estan bien las credenciales

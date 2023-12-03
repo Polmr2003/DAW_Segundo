@@ -152,8 +152,13 @@ document.addEventListener("DOMContentLoaded", function () {
           // Mostramos el menssaje que nos a enviado el servidor
           alert(data.message);
 
+          // Si se a logeado correctamente
           if(data.error==false){
+            // cremos la variable user en la local storage
             localStorage.user = usuari;
+
+            // redirigimos a la misma paguina
+            window.location.href = "./Buscar_vuelo.html";
           }
         })
         // Si no se a podido conectar al servidor
