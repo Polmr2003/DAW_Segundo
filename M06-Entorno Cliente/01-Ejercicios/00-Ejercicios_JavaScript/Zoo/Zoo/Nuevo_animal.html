@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Configuración del encabezado de la página -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Enlaces a Bootstrap (localmente) -->
+    <link rel="stylesheet" href="./vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="./vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Título de la página -->
+    <title>Listar</title>
+</head>
+
+<body>
+    <!------------------------ menu ---------------------------------->
+    <nav class="navbar navbar-expand-lg" style="background-color: #fcf8ad;">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./home.html">Zoo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="./index.html" id="Menu_login">Listar</a>
+              <a class="nav-link" href="./Nuevo_animal.html" id="Menu_login">Añadir</a>
+            </div>
+          </div>
+      </div>
+      </nav>
+    <!------------------------ Contenido ----------------------------------> 
+    
+    <div class="formulario" id="formulario">
+        <!------------------------ hora actual ---------------------------------->
+        <p id="hora"></p>
+        <h1>Añadir nuevo animal</h1>
+        <div class="contenedor">
+            <!-- Pedimos la especie -->
+            <div class="input-contenedor">
+                <!-- icono de la persona -->
+                <i class="fas fa-user icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra el Nombre en el formulario i lo pedimos -->
+                <input type="text" id="Especie" placeholder="Especie">
+                <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
+                <span style="color:red" id="errorEspecie"></span>
+            </div>
+
+            <!-- Preguntamos si el vuelo es de ida o ida y vuelta || name opcion para que solo pueda elegir uno, checked para que este seleccionada por defecto-->
+            <input type="radio" id="Mascle" name="opcion" checked>
+            <label for="ida_vuelta">Mascle</label><br>
+
+            <input type="radio" id="Femella" name="opcion">
+            <label for="ida">Femella</label><br>
+
+            <!-- Pedimos la fecha de ida y vuelta -->
+            <div id="div_fecha_ida">
+                <label for="ida_date">any_naicement</label><br>
+                <input type="date" id="any_naixement">
+            </div>
+            <span style="color: red;" id="errorAny_naixement"></span><br>
+
+            <!-- Pedimos el nombre de usuario -->
+            <div class="input-contenedor">
+                <!-- icono de la persona -->
+                <i class="fas fa-user-tag icon"></i>
+                <!-- ponemos el lugar donde el usuario pondra el Nombre de usuario en el formulario i lo pedimos -->
+                <input type="text" id="Pais_origen" placeholder="Pais de origen">
+                <!-- ponemos un span para poner el error si el usuario pone mal un campo -->
+                <span style="color:red" id="errorPais_origen"></span>
+            </div>
+
+            <!-- Selector de origen -->
+            <div class="select-contenedor">
+            <!-- icono de lugar -->
+            <i class="fas fa-map-marker-alt icon"></i>
+            <!-- selector con las ciudades -->
+            <select id="continent"></select>
+            </div>
+            <div style="text-align: center; color: red;" id="errorContinente"></div>
+
+
+            <!-- boton de registro -->
+            <button id="myBtn_registro" class="button">Añadir nuevo animal</button>
+
+        </div>
+    </div>
+
+    <div class="cookies">
+        <!------------------------ Cookies ---------------------------------->
+        <div id="cookie-message" style="display: none;">
+            <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al hacer clic en Aceptar, acepta
+                nuestra política de cookies.</p>
+            <button id="accept-cookie">Aceptar todas</button>
+            <button id="rechazar-cookie">Rechazar</button>
+            <button id="minim-cookie">Aceptar minimas</button>
+        </div>
+    </div>
+
+    <!-- Enlaces a jQuery y jQuery UI (localmente) -->
+    <script src="vendor/jquery-3.7.1.min.js"></script>
+    <script src="vendor/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+
+    <!-- Script -->
+    <script src="js/Nuevo_animal.js"></script>
+</body>
+
+</html>
