@@ -3,7 +3,7 @@
 
 //cuando cargue la página
 document.addEventListener("DOMContentLoaded", function () {
-    // Miramos si esta nos hemos logeado, si no lo estamos nos rediriguira automaticamente a la paguina de inicio de sesion 
+    // Miramos si nos hemos logeado, si no lo estamos nos rediriguira automaticamente a la paguina de inicio de sesion 
     if (!localStorage.getItem("user")) {
         window.location.href = "./Inicio_Sesion.html";
     }
