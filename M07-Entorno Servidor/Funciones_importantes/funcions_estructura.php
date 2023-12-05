@@ -68,7 +68,7 @@ function myFooter(){
         <footer>
             <hr>
             <p>
-            Arshdeep Kaur, Pol Moreno y Julia Prieto
+            Pol Moreno
             </p>
         </footer>
     MYFOOTER;
