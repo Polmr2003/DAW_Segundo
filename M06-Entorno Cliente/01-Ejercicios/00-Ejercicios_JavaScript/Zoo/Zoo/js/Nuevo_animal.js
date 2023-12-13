@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var Especie = document.getElementById("Especie").value;
         var any_naixement = document.getElementById("any_naixement").value;
         var Pais_de_origen = document.getElementById("Pais_origen").value;
+        var continent_value =document.getElementById("continent").value;
 
 
         // Miramos si el radio "Ida" está seleccionado
@@ -208,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 sexe: sexe_animal,
                 any_naixement: any_naixement,
                 pais: Pais_de_origen,
-                continent: continent
+                continent: continent_value
             };
 
             // Enviar datos al servidor utilizando fetch
