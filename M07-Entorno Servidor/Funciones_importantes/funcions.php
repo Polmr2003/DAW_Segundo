@@ -50,7 +50,7 @@ function println($something): string
 
 /* ------------------------------------------- Funcion para reemplazar un string por otro ---------------------------------------------------------------- */
 /**
- * Funcion 
+ * Funcion para cambiar un string por otro
  * @param string $string - string al que le queremos reemplazar texto
  * @param string $From - texto que queremos cambiar
  * @param string $To - texto al que queremos cambiar
@@ -90,18 +90,30 @@ function limpiarDatos($data)
 
 
 
-/* ------------------------------------------- Funciones de Session ---------------------------------------------------------------- */
+/* ------------------------------------------- Funciones de Sesion ---------------------------------------------------------------- */
+/**
+ * Funcion para crear la sesion
+ * @return $session_start() - es la funcion de php para crear la sesion
+ */
 function session_start()
 {
     return session_start();
 };
 
+/**
+ * Funcion para destruir la sesion
+ * @return $session_unset() - es la funcion de php para destruir la sesion
+ */
 function remove_session()
 {
     // destroy the session
     return session_destroy();
 };
 
+/**
+ * Funcion para destruir las variables de la sesion
+ * @return $session_unset() - es la funcion de php para destruir las variables de la sesion
+ */
 function remove_var_session()
 {
     // remove all session variables
