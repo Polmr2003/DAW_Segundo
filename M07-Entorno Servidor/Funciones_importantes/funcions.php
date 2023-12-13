@@ -73,6 +73,23 @@ function Strtr_function($string, $From, $To)
 
 
 
+/* ------------------------------------------- Funcion para Limpiar los datos ---------------------------------------------------------------- */
+/**
+ * Limpiar los datos introducidos por el usuario
+ * @param $data - datos del formulario
+ * @return $data - dato limpio
+ */
+function limpiarDatos($data)
+{
+    $data = trim($data); //eliminar los caracteres innecesarios (espacio adicional, tabulación, nueva línea)
+    $data = stripslashes($data); //eliminar las barras invertidas (\)
+    $data = htmlspecialchars($data); //evita que el usuario ponga codigo html, convierte la cadena que ponga el usuario en html
+    return $data;
+}
+
+
+
+
 /* ------------------------------------------- Funcion para mostrar contenido con display flex ---------------------------------------------------------------- */
 /**
  * Funcion de muestra para poner el display flex
