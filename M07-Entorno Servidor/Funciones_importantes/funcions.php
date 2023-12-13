@@ -90,6 +90,27 @@ function limpiarDatos($data)
 
 
 
+/* ------------------------------------------- Funciones de Session ---------------------------------------------------------------- */
+function session_start()
+{
+    return session_start();
+};
+
+function remove_session()
+{
+    // destroy the session
+    return session_destroy();
+};
+
+function remove_var_session()
+{
+    // remove all session variables
+    return session_unset();
+};
+
+
+
+
 /* ------------------------------------------- Funcion para mostrar contenido con display flex ---------------------------------------------------------------- */
 /**
  * Funcion de muestra para poner el display flex
