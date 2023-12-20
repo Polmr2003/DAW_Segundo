@@ -6,7 +6,6 @@ declare(strict_types=1);
 require_once './funcions_estructura.php';
 require_once './funcions_archivos.php';
 require_once './funcions_array.php';
-require_once './funcions_array.php';
 
 //funciones
 myHeader();
@@ -41,11 +40,8 @@ session_start();
 
         echo "As visitado esta pagina " . $_SESSION['Jugadores'] . " vez/es";
 
-        // recojer los datos
-        $data = read_info_csv_with_return("../lligaACB - lligaACB.csv");
-
-        // mostrar los jugadores
-        print_Array_layout($data, 1);
+        //mostrar los jugadores
+        read_info_csv_with_table_list("../lligaACB - lligaACB.csv", true);
     }
 
     //Web Code

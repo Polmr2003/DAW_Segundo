@@ -6,9 +6,8 @@ declare(strict_types=1);
 require_once './funcions_estructura.php';
 require_once './funcions_archivos.php';
 require_once './funcions_array.php';
-require_once './funcions_array.php';
 
-//funciones
+// funciones
 myHeader();
 myMenu();
 
@@ -21,31 +20,32 @@ session_start();
 
 <body>
     <?php
-    //Function Main
+    //Main
     //----------------------------------------------------------------
-    /**
-     * $Title - cremaos la variable Title i guardamos el contenido en nuestro caso un titulo i un segundo titulo
-     * echo - mostramos el Title para visualizar el contenido en nuestra paguina
-     */
     function main(): void
     {
-
         //contador de visitas de la paguina
-        if (isset($_SESSION['Jugadores'])) { // isset comprueba una variable i devuelve un booleano (true: si esta creada i tiene valores | falso: si no esta creado o esta null)
+        if (isset($_SESSION['clubes'])) { // isset comprueba una variable i devuelve un booleano (true: si esta creada i tiene valores | falso: si no esta creado o esta null)
             //si esta definida sumamos los puntos anteriores mas los que a sacado ahora
-            $_SESSION['Jugadores']++;
+            $_SESSION['clubes']++;
         } else {
             // Si no está definida, la creamos e inicializamos con los puntos de la primera tirada
-            $_SESSION['Jugadores'] = 1;
+            $_SESSION['clubes'] = 1;
         }
 
-        echo "As visitado esta pagina " . $_SESSION['Jugadores'] . " vez/es";
+        echo "As visitado esta pagina " . $_SESSION['clubes'] . " vez/es";
+        echo "<br>";
 
-        // recojer los datos
-        $data = read_info_csv_with_return("../lligaACB - lligaACB.csv");
 
-        // mostrar los jugadores
-        print_Array_layout($data, 1);
+        // recojemos los valores de el fichero clubs.txt
+        $data_txt=read_info_txt_with_return("../clubs.txt");
+
+        // pasamos los strings de los valores de el fichero a array para poder mostrar sus imagenes
+        $array_content_txt=convert_string_in_array($data_txt);
+
+        // hacemos un echo con las imagenes
+        print_Array_with_img($array_content_txt);
+
     }
 
     //Web Code
