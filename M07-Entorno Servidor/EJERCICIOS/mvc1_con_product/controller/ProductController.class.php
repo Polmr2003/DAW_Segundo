@@ -2,13 +2,13 @@
 //crido de manera general tot el que necessitaré cridar
 
 require_once "controller/ControllerInterface.php";
-require_once "view/CategoryView.class.php";
-require_once "model/persist/CategoryDAO.class.php";
-require_once "model/Category.class.php";
-require_once "util_Category/CategoryMessage.class.php";
-require_once "util_Category/CategoryFormValidation.class.php";
+require_once "view/ProductView.class.php";
+require_once "model/persist/ProductDAO.class.php";
+require_once "model/Product.class.php";
+require_once "util_Product/ProductMessage.class.php";
+require_once "util_Product/ProductFormValidation.class.php";
 
-class CategoryController implements ControllerInterface {
+class ProductController implements ControllerInterface {
 
     //atributs que segur que tindran tots els controladors
     private $view;
@@ -20,10 +20,10 @@ class CategoryController implements ControllerInterface {
     public function __construct() {
 
         // càrrega de la vista
-        $this->view=new CategoryView();
+        $this->view=new ProductView();
 
         // càrrega del model de dades
-        $this->model=new CategoryDAO();
+        $this->model=new ProductDAO();
     }
 
     // aquest mètode el tenen tots els nostres controladors
@@ -70,52 +70,52 @@ class CategoryController implements ControllerInterface {
 
 //carrega el llistat de totes les categories
     public function listAll() {
-        $categories=array();
+        $product=array();
         //necessitem cridar al model
-        $categories=$this->model->listAll();
+        $product=$this->model->listAll();
         
-        if (!empty($categories)) { // array void or array of Category objects?
-            $_SESSION['info']=CategoryMessage::INF_FORM['found'];
+        if (!empty($product)) { // array void or array of Category objects?
+            $_SESSION['info']=ProductMessage::INF_FORM['found'];
         }
         else {
-            $_SESSION['error']=CategoryMessage::ERR_FORM['not_found'];
+            $_SESSION['error']=ProductMessage::ERR_FORM['not_found'];
         }
         
-        $this->view->display("view/form_Category/CategoryList.php", $categories);
+        $this->view->display("view/form_Product/ProductList.php", $product);
     }
 
     
 // carrega el formulari d'insertar categoria
     public function formAdd() {
-        $this->view->display("view/form_Category/CategoryFormAdd.php"); //li passem la variable que es diu $template a la vista CategoryView.class.php
+        $this->view->display("view/form_Product/ProductFormAdd.php"); //li passem la variable que es diu $template a la vista CategoryView.class.php
     }
 
 // ejecuta la acción de insertar categoría
     public function add() {
        //validem i omplim missatges d'error, si n'hi hagués
-        $categoryValid=CategoryFormValidation::checkData(CategoryFormValidation::ADD_FIELDS);        
+        $productValid=ProductFormValidation::checkData(ProductFormValidation::ADD_FIELDS);        
         
         //si no hi ha declarat cap sessió d'error
         if (empty($_SESSION['error'])) {
             //busco per id, a veure si n'hi ha un altre d'igual
-            $category=$this->model->searchById($categoryValid->getId());
+            $product=$this->model->searchById($productValid->getId());
 
             //si no hem trobat l'id...
-            if (is_null($category)) {
+            if (is_null($product)) {
                 //afegim la categoria a l'arxiu
-                $result=$this->model->add($categoryValid);
+                $result=$this->model->add($productValid);
 
                 if ($result == TRUE) {
-                    $_SESSION['info']=CategoryMessage::INF_FORM['insert'];
-                    $categoryValid=NULL;
+                    $_SESSION['info']=ProductMessage::INF_FORM['insert'];
+                    $productValid=NULL;
                 }
             }
             else {
-                $_SESSION['error']=CategoryMessage::ERR_FORM['exists_id'];          
+                $_SESSION['error']=ProductMessage::ERR_FORM['exists_id'];          
             }
         }
 
-        $this->view->display("view/form_Category/CategoryFormAdd.php", $categoryValid);
+        $this->view->display("view/form_Product/ProductFormAdd.php", $productValid);
     }
 
 //aquests mètodes els deixem ara per ara així

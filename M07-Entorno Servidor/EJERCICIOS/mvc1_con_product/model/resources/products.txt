@@ -1,0 +1,7 @@
+01;Marca0;nom0; descripcio0; 1000€;
+02;Marca1;nom1; descripcio1; 1001€;
+03;Marca2;nom2; descripcio2; 1002€;
+04;Marca3;nom3; descripcio3; 1003€;
+05;Marca4;nom4; descripcio4; 1004€; 
+06;Marca5;nom5; descripcio5; 1005€;
+01;asd;asd;asd;1;

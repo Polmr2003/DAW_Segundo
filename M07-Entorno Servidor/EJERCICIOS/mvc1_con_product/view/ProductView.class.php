@@ -1,5 +1,5 @@
 <?php
-class CategoryView {
+class ProductView {
     
     public function __construct() {
 
@@ -24,7 +24,7 @@ class CategoryView {
         }
         
         //sempre incloim una zona de missatgeria
-        include("view/form_Category/MessageForm.php");
+        include("view/form_Product/MessageForm.php");
     }    
 
 }
