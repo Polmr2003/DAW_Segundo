@@ -38,8 +38,11 @@ class MainController {
             // si hi haguessin molts controladors, faríem un case per cadascun d'ells. Aquí 
             // per defecte fiquem l'únic controlador que hi ha CategoryController
             // en el cas que hi haguessin molts:
-            //case "category":
-            //case "products": 
+            case "category":
+                $controlCategory=new CategoryController();
+                $controlCategory->processRequest();
+                break;
+            case "products": 
             //ficaríem un case per cada controlador
 
             //en el cas que volguessim carregar alguna vista per defecte fora de la que ens vindrà dels controladors
