@@ -4,4 +4,3 @@
 04;Marca3;nom3; descripcio3; 1003€;
 05;Marca4;nom4; descripcio4; 1004€; 
 06;Marca5;nom5; descripcio5; 1005€;
-01;asd;asd;asd;1;
