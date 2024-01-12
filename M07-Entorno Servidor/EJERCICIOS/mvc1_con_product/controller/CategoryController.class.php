@@ -147,9 +147,23 @@ class CategoryController implements ControllerInterface
 
     public function list()
     {
-       
+        $categoryValid = CategoryFormValidation::checkData(CategoryFormValidation::SEARCH_FIELDS);
+
+        if (empty($_SESSION['error'])) {
+            $category = $this->model->searchById($categoryValid->getId());
+            if (!is_null($category)) {
+                $_SESSION['info'] = CategoryMessage::INF_FORM['found'];
+                $categoryValid = $category;
+            } else {
+                $_SESSION['error'] = CategoryMessage::ERR_FORM['not_found'];
+            }
+            $categoryArray = array();
+            $categoryArray[] = $categoryValid;
+
+            $this->view->display("view/form_Category/CategoryList_by_id.php", $categoryArray);
+        }
     }
-    
+
 
     /*
     // carregaria el formulari de modificar si el programessim al menú  
