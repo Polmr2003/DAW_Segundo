@@ -39,7 +39,7 @@ Plantilla bàsica per a tota l'aplicació
     <body>
         <div id="page">
             <header>
-                <a href="https://www.ies-provensana.com"><img src="<?=PATH_IMG?>proven.jpg" alt="proven.jpg"></a>
+                <a href="http://www.ies-provensana.com"><img src="<?=PATH_IMG?>proven.jpg" alt="proven.jpg"></a>
                 <h1>Institut Provençana Exemple-2 MVC amb PHP</h1>
             </header>
             <?php

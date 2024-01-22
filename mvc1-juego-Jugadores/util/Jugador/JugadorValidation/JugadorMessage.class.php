@@ -8,6 +8,7 @@ class JugadorMessage {
             'update' => 'Data updated successfully',
             'delete' => 'Data deleted successfully',
             'found'  => 'Data found',
+            'written'  => 'Data written successfully',
             '' => ''
         );
     
@@ -20,7 +21,7 @@ class JugadorMessage {
             'exists_id'     => 'Id already exists',
             'not_exists_id' => 'Id not exists',
             'not_found'     => 'No data found',
-            '' => ''
+            'not_written' => 'No data written'
         );
 
     const ERR_DAO =

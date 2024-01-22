@@ -11,6 +11,6 @@ interface ModelInterface
 
     public function searchById($id);
 
-    public function home();
+    public function listAll();
 
 }
