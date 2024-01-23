@@ -115,6 +115,7 @@ class UsersController implements ControllerInterface
         $loggedIn = '';
         $mensaje = '';
 
+        $_SESSION["loggedIn"]="";
         //si estamos logeados
         if ($_SESSION["loggedIn"]) {
             //mostramos el menu de los usuarios logeados
@@ -147,9 +148,8 @@ class UsersController implements ControllerInterface
                 } else {
                     $_SESSION["Rol"] = "basic";
                 }
-
                 //mostramos el menu de los usuarios logeados
-                $this->view->displayLoggedIn("view/options/home/UsersHome/usersHome.php");
+                $this->view->displayLoggedIn("view/options/home/usersHome.php");
             } else {
                 // si ponemos mal las credenciales nos aparecera el mensaje de invalid_user
                 $_SESSION['error'] = usersMessage::ERR_FORM['invalid_user'];
