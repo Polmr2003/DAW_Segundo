@@ -212,7 +212,7 @@ function print_Array_layout(array $data, int $layout_number)
 
     if ($layout_number == 1) {
         // Mostramos el contenido del csv en formato tabla
-        echo "<table class='table'>";
+        echo "<table class='table table-striped'>";
 
         echo "<tr>";
 
