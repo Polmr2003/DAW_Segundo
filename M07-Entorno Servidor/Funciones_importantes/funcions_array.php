@@ -218,19 +218,20 @@ function print_Array_layout(array $data, int $layout_number)
     $headers = array_shift($data);
 
     if ($layout_number == 1) {
-        // Mostramos el contenido del csv en formato tabla
-        echo "<table class='table table-striped'>";
+         // Mostramos el contenido del csv en formato tabla con la classe "table table-striped" de Boostrap
+         echo "<table class='table table-striped'>";
 
-        echo "<thead>";
-        echo "<tr>";
-
-        // Mostramos los encabezados ($headers) de la tabla dinámicamente que hemos obtenido con el array shift
-        foreach ($headers as $value) {
-            echo '<th scope="col">' . $value . '</th>';
-        }
-
-        echo "</tr>";
-        echo "</thead>";
+         // Ponemos las columnas impares (contando tambien el titulo que el titulo es la columna 1) con el color blanco en vez de el gris
+         echo "<thead>";
+         echo "<tr>";
+ 
+         // Mostramos los encabezados ($headers) de la tabla dinámicamente que hemos obtenido con el array shift
+         foreach ($headers as $value) {
+             echo '<th scope="col">' . $value . '</th>';
+         }
+ 
+         echo "</tr>";
+         echo "</thead>";
 
         // Mostramos el contenido de la tabla dinamicamente
         foreach ($data as $row) {
