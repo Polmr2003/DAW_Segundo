@@ -4,8 +4,8 @@ class DBConnection
 {
     //atributs 
     private $dsn = "mysql:host=localhost;dbname=mascotasclinic";
-    private $user = "root";
-    private $password = "";
+    private $user = "pol";
+    private $password = "pol";
     private $dbh;
     
     //mètode que necessitem per connectar-nos des dels altres

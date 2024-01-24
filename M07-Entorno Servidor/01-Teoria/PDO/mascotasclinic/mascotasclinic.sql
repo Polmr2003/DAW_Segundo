@@ -92,6 +92,8 @@ INSERT INTO `propietarios` (`nif`, `nom`, `email`, `movil`) VALUES
 ('01685047K', 'Maria', 'maria1@mail.com', '222222222'),
 ('02258461E', 'Mario', 'mario1@mail.com', '111111112');
 
+- --------------------------------------------------------
+
 --
 -- Índexs per a les taules bolcades
 --

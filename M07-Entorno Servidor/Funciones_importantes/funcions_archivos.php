@@ -84,7 +84,7 @@ function clear_csv(string $filename)
 }
 
 /** 
- *Función que lee contenido de un fichero csv i retorna el contenido
+ *Función que lee contenido de un fichero csv i retorna el contenido, (en el csv "," significa nueva linea i ";" en la misma linea)
  * @param string $filename - nombre de el fichero csv en el que queremos leer la informacion
  */
 function read_info_csv(string $filename)
