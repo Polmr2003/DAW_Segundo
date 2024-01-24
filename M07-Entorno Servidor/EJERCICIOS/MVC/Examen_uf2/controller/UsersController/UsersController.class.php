@@ -76,6 +76,10 @@ class UsersController implements ControllerInterface
                 $this->logout();
                 break;
 
+            case "Add a book": //opció de menu que trobem a MainMenu.html, menú de la vista que carreguem el primer cop amb el display
+                $this->logout();
+                break;
+
             default: //en el cas que vinguem per primer cop a categories o no haguem escollit res de res, $request=NULL;
                 $this->login();
                 break;
@@ -115,7 +119,7 @@ class UsersController implements ControllerInterface
         $loggedIn = '';
         $mensaje = '';
 
-        $_SESSION["loggedIn"]="";
+        $_SESSION["loggedIn"] = "";
         //si estamos logeados
         if ($_SESSION["loggedIn"]) {
             //mostramos el menu de los usuarios logeados
@@ -156,12 +160,6 @@ class UsersController implements ControllerInterface
                 $this->view->display("view/options/login/login.php"); //li passem la variable que es diu $template a la vista usersView.class.php
             }
         }
-    }
-
-    //carrega el llistat de totes les categories
-    public function ejer1()
-    {
-
     }
 
 
@@ -211,7 +209,7 @@ class UsersController implements ControllerInterface
             $searchID = $this->model->searchByIdModify($usersValid->getId());
 
 
-            $getName = $usersValid->getNombre();
+            $getName = $usersValid->getId();
 
             if ($searchID) {
                 $product = [$searchID, $getName];
