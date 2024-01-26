@@ -1,6 +1,6 @@
 <?php
 
-require_once "util/OwnerMessage.class.php";
+require_once "util/Owner/OwnerMessage.class.php";
 
 /**
  * Class used to validate user's input form for an Owner object

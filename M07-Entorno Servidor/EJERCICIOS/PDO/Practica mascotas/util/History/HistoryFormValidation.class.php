@@ -1,6 +1,6 @@
 <?php
 
-require_once "util/HistoryMessage.class.php";
+require_once "util/History/HistoryMessage.class.php";
 
 /**
  * Class used to validate user's input form for an History object

@@ -1,6 +1,6 @@
 <?php
 
-require_once "util/PetMessage.class.php";
+require_once "util/Pet/PetMessage.class.php";
 
 /**
  * Class used to validate user's input form for an Pet object

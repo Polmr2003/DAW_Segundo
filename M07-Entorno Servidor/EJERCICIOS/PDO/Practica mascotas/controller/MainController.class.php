@@ -11,6 +11,8 @@ class MainController
     public function processRequest()
     {
 
+        include("view/menu/MainMenu.html");
+        
         // PRIMERA MANERA - la que hem fet servir a classe fins ara
         // recuperem l' opció d'un menú
         if (isset($_GET["menu"])) {
@@ -33,29 +35,27 @@ class MainController
         //equivalentment en format comprimit:
         //$request=filter_has_var(INPUT_GET, 'menu')?filter_input(INPUT_GET, 'menu'):NULL;
 
-
         //mirem de quin menú venim
         switch ($request) {
             // si hi haguessin molts controladors, faríem un case per cadascun d'ells. Aquí 
             // per defecte fiquem l'únic controlador que hi ha CategoryController
             // en el cas que hi haguessin molts:
             case "owner": // URL: [...]/index.php?menu=owner
-				$ownerController = new OwnerController();
-				$ownerController->processRequest();
-				break;
+                $ownerController = new OwnerController();
+                $ownerController->processRequest();
+                break;
 
-			case "pet": // URL: [...]/index.php?menu=pet
-				$petController = new PetController();
-				$petController->processRequest();
-				break;
+            case "pet": // URL: [...]/index.php?menu=pet
+                $petController = new PetController();
+                $petController->processRequest();
+                break;
             //ficaríem un case per cada controlador
 
             //en el cas que volguessim carregar alguna vista per defecte fora de la que ens vindrà dels controladors
             //per a nosaltres, la vista primera és la que ens ofereix el menú de categories
 
-            default:
-                
-                break;
+            // default:
+            //     break;
         }
     }
 }
