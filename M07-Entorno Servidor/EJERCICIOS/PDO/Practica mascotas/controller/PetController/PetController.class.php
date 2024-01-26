@@ -105,12 +105,12 @@ class PetController implements ControllerInterface
         else
             $_SESSION["error"][] = PetMessage::SELECT_ERROR;
 
-        $this->view->display("view/form/PetList.php", $pets); // display data
+        $this->view->display("view/form/PetForm/PetList.php", $pets); // display data
     }
 
     public function formSearchById()
     {
-        $this->view->display("view/form/PetFormSearchById.php"); // display form
+        $this->view->display("view/form/PetForm/PetFormSearchById.php"); // display form
     }
 
     /**
@@ -156,7 +156,7 @@ class PetController implements ControllerInterface
         $item = array($pet, $owner, $history);
 
         // DISPLAY FORM AGAIN WITH ITEM'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
-        $this->view->display("view/form/PetDetail.php", $item);
+        $this->view->display("view/form/PetForm/PetDetail.php", $item);
     }
 
     /**
@@ -164,7 +164,7 @@ class PetController implements ControllerInterface
      **/
     public function formAddHistory()
     {
-        $this->view->display("view/form/HistoryFormInsert.php");
+        $this->view->display("view/form/HistoryForm/HistoryFormInsert.php");
     }
 
     /**
@@ -198,7 +198,7 @@ class PetController implements ControllerInterface
         }
 
         // DISPLAY FORM AGAIN WITH ITEM'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
-        $this->view->display("view/form/HistoryFormInsert.php", $historyInput);
+        $this->view->display("view/form/HistoryForm/HistoryFormInsert.php", $historyInput);
     }
 
     /**
@@ -220,7 +220,7 @@ class PetController implements ControllerInterface
             }
         }
 
-        $this->view->display("view/form/PetFormUpdate.php", $petFinal);
+        $this->view->display("view/form/PetForm/PetFormUpdate.php", $petFinal);
     }
 
     /**
@@ -261,7 +261,7 @@ class PetController implements ControllerInterface
         }
 
         // DISPLAY FORM AGAIN WITH PET'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
-        $this->view->display("view/form/PetFormUpdate.php", $petFinal);
+        $this->view->display("view/form/PetForm/PetFormUpdate.php", $petFinal);
     }
 
 

@@ -90,7 +90,7 @@ class OwnerController implements ControllerInterface
         if (!empty($owners)) $_SESSION["info"][]  = OwnerMessage::SELECT_SUCCESS;
         else                 $_SESSION["error"][] = OwnerMessage::SELECT_ERROR;
 
-        $this->view->display("view/form/OwnerList.php", $owners); // display data
+        $this->view->display("view/form/OwnerForm/OwnerList.php", $owners); // display data
     }
 
     /**
@@ -98,7 +98,7 @@ class OwnerController implements ControllerInterface
      **/
     public function formSearchPetByOwner ()
     {
-        $this->view->display("view/form/PetFormSearchByOwner.php");
+        $this->view->display("view/form/PetForm/PetFormSearchByOwner.php");
     }
 
     /**
@@ -106,7 +106,7 @@ class OwnerController implements ControllerInterface
      **/
     public function formFindOwnerToUpdate ()
     {
-        $this->view->display("view/form/OwnerFormSelect.php");
+        $this->view->display("view/form/OwnerForm/OwnerFormSelect.php");
     }
 
     /**
@@ -145,7 +145,7 @@ class OwnerController implements ControllerInterface
 
         // DISPLAY FORM AGAIN WITH OWNER'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
         if (empty($_SESSION["error"])) $this->view->display("view/form/OwnerFormUpdate.php", $ownerFound);
-        else $this->view->display("view/form/OwnerFormSelect.php", $owner);
+        else $this->view->display("view/form/OwnerForm/OwnerFormSelect.php", $owner);
     }
 
     /**
@@ -180,7 +180,7 @@ class OwnerController implements ControllerInterface
         }
 
         // DISPLAY FORM AGAIN WITH OWNER'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
-        $this->view->display("view/form/OwnerFormUpdate.php", $ownerFinal);
+        $this->view->display("view/form/OwnerForm/OwnerFormUpdate.php", $ownerFinal);
     }
 
     public function searchPetByOwner ()
@@ -203,7 +203,7 @@ class OwnerController implements ControllerInterface
         }
 
         // DISPLAY FORM AGAIN WITH ITEM'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
-        $this->view->display("view/form/PetList.php", $item);
+        $this->view->display("view/form/PetForm/PetList.php", $item);
     }
 
 
@@ -241,7 +241,7 @@ class OwnerController implements ControllerInterface
         }
 
         // DISPLAY FORM AGAIN WITH ITEM'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
-        $this->view->display("view/form/OwnerFormAdd.php", $item);
+        $this->view->display("view/form/OwnerForm/OwnerFormAdd.php", $item);
     }
 
     /**
