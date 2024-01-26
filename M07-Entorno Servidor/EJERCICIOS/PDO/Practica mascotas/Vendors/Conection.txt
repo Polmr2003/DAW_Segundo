@@ -1,0 +1,12 @@
+----------------------------------------------------Header-------------------------------------------
+<!-- Enlaces a Bootstrap (localmente) -->
+    <link rel="stylesheet" href="./vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="./vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+----------------------------------------------------Pie de paguina---------------------------------------------
+<!-- Enlaces a jQuery y jQuery UI (localmente) -->
+    <script src="vendor/jquery-3.7.1.min.js"></script>
+    <script src="vendor/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
