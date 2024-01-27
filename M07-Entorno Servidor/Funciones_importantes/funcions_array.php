@@ -16,8 +16,7 @@ Archivo con todas las funciones de los arrays
 function print_Array_Pretty(array $array)
 {
     echo "<pre>" . print_r($array, true) . "</pre>";
-}
-;
+};
 
 
 
@@ -33,10 +32,8 @@ function print_Array_Indexado_content(array $array)
     // Para mostrar el array
     foreach ($array as $value) {
         echo $value . '<br>';
-    }
-    ;
-}
-;
+    };
+};
 
 /**
  * Funcion para mostrar el contenido de un array Asociativo
@@ -114,8 +111,7 @@ function Random_array_content(array $array, int $numero_positions_random): mixed
     }
 
     return $random_positions;
-}
-;
+};
 
 
 
@@ -131,8 +127,7 @@ function print_Array_with_img(array $array): void
     foreach ($array as $value) {
         echo "<img src='./img/" . $value . ".png' width='100' height='100'>";
     }
-}
-;
+};
 
 /**
  * Funcion que recibe un array con el nombre de imagenes i las muestra por pantalla con un link que si le damos a la img nos llevara a otro sitio
@@ -144,8 +139,7 @@ function print_Array_with_img_and_link(array $array): void
     foreach ($array as $value) {
         echo "<a href='./" . $value . ".php'><img src='../images/logos_clubs/" . $value . ".png' width='150' height='150'></a>";
     }
-}
-;
+};
 
 
 
@@ -162,8 +156,7 @@ function del_first_position_array(array $array): mixed
     $first_img = array_shift($array); //array_shift quita el primer elemento de el array i lo devuevle
 
     return $array;
-}
-;
+};
 
 
 
@@ -180,11 +173,12 @@ function del_first_position_array(array $array): mixed
  */
 function sort_array_alphanumerically(array $array, string $key_to_sort)
 {
-    usort($array, function ($a, $b, ) use ($key_to_sort) { //usort -> ordena un array de la forma en la que nosotros le digamos || use -> Utilizamos 'use' para pasar la variable al ámbito de la función anónima
+    usort($array, function ($a, $b,) use ($key_to_sort) { //usort -> ordena un array de la forma en la que nosotros le digamos || use -> Utilizamos 'use' para pasar la variable al ámbito de la función anónima
         return strcmp($a[$key_to_sort], $b[$key_to_sort]); // strcmp ->  implementa un algoritmo de comparación que ordena strings alfanuméricos, devuelve un valor negativo si la primera cadena es menor que la segunda, un valor positivo si es mayor o cero si son iguales.
     });
     return $array;
 }
+
 
 
 
@@ -205,6 +199,27 @@ function return_array_keys(array $array): array
 
 
 
+/* ------------------------------------------- Funcion que Extrae las claves de un array i las devuelve ---------------------------------------------------------------- */
+/** 
+ *Función que recibe un array bidimensonal i devuelve un array de una dimension
+ * @param array $array - recojemos el array bidimensonal al que queremos convertir en una dimenson
+ * @return array $arrayUnidimensional - devolvemos el nuevo array unidimensional
+ */
+function convert_twoDimensional_in_oneDimensional_array(array $array): array
+{
+    // Utilizamos la función array_map para recorrer cada subarray y obtener el valor de la segunda columna.
+    $arrayUnidimensional = array_map(function ($subarray) {
+        // Devolvemos el valor de la segunda columna (índice 1) de cada subarray.
+        return $subarray[1];
+    }, $array);
+
+    // Retornamos el nuevo array unidimensional.
+    return $arrayUnidimensional;
+}
+
+
+
+
 /* ------------------------------------------- Funcion para maquetar el contenido de un array ---------------------------------------------------------------- */
 /**
  * Función que lee contenido de un fichero csv y lo muestra maquetado
@@ -218,20 +233,17 @@ function print_Array_layout(array $data, int $layout_number)
     $headers = array_shift($data);
 
     if ($layout_number == 1) {
-         // Mostramos el contenido del csv en formato tabla con la classe "table table-striped" de Boostrap
-         echo "<table class='table table-striped'>";
+        // Mostramos el contenido del csv en formato tabla
+        echo "<table class='table'>";
 
-         // Ponemos las columnas impares (contando tambien el titulo que el titulo es la columna 1) con el color blanco en vez de el gris
-         echo "<thead>";
-         echo "<tr>";
- 
-         // Mostramos los encabezados ($headers) de la tabla dinámicamente que hemos obtenido con el array shift
-         foreach ($headers as $value) {
-             echo '<th scope="col">' . $value . '</th>';
-         }
- 
-         echo "</tr>";
-         echo "</thead>";
+        echo "<tr>";
+
+        // Mostramos los encabezados ($headers) de la tabla dinámicamente que hemos obtenido con el array shift
+        foreach ($headers as $value) {
+            echo "<th>$value</th>";
+        }
+
+        echo "</tr>";
 
         // Mostramos el contenido de la tabla dinamicamente
         foreach ($data as $row) {
