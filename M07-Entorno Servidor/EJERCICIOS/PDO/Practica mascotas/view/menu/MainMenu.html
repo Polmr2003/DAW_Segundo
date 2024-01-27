@@ -11,19 +11,27 @@
           <a class="dropdown-item" href='index.php?menu=owner&option=list_all'>Listar todos</a>
           <a class="dropdown-item" href='index.php?menu=owner&option=form_search_pet_by_owner'>Buscar mascotas</a>
           <a class="dropdown-item" href='index.php?menu=owner&option=form_find_owner_to_update'>Modificar</a>
+          <a class="dropdown-item" href='index.php?menu=owner&option=add_owner'>Añadir propietario</a>
         </div>
       </div>
 
       <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Mascotas
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href='index.php?menu=pet&option=list_all'>Listar todas</a>
-          <a class="dropdown-item" href='index.php?menu=pet&option=form_search_pet_by_id'>Buscar</a>
-          <a class="dropdown-item" href='index.php?menu=pet&option=form_add_history'>Añadir una LineaHistorial</a>
+        <div class="dropdown mr-2">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Mascotas
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href='index.php?menu=pet&option=list_all'>Listar todas</a>
+            <a class="dropdown-item" href='index.php?menu=pet&option=form_search_pet_by_id'>Buscar</a>
+            <a class="dropdown-item" href='index.php?menu=pet&option=form_add_history'>Añadir una LineaHistorial</a>
+            <a class="dropdown-item" href='index.php?menu=owner&option=add_pet'>Añadir mascota</a>
+
+          </div>
         </div>
+      </div>
+      <div>
+        <a class="btn btn-primary" href='index.php?menu=history&option=list_all'>Historial</a>
       </div>
     </div>
 

@@ -9,6 +9,8 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
         </thead>
 
@@ -23,6 +25,8 @@
             echo "<td>{$element->getName()}</td>";
             echo "<td>{$element->getEmail()}</td>";
             echo "<td>{$element->getPhone()}</td>";
+            echo '<td><input type="submit" class="btn btn-warning" name="action" value="Update" /></td>';
+            echo '<td><input type="submit" class="btn btn-danger" name="action" value="Delete" /></td>';
             echo "</tr>";
         }
         ?>
