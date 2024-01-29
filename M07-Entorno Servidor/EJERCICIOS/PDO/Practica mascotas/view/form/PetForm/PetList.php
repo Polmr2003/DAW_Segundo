@@ -11,8 +11,6 @@
             <th>Pet Name</th>
             <th>Update</th>
             <th>Delete</th>
-            <th>Update</th>
-            <th>Delete</th>
       <!--      <th>Modify</th>-->
         </tr>
         </thead>
@@ -29,8 +27,8 @@
             echo "<td>{$element->getId()}</td>";
             echo "<td>{$element->getIdOwner()}</td>";
             echo "<td>{$element->getName()}</td>";
-            echo '<td><button class="btn btn-warning"><a href="http://localhost/M07-PHP/UF3/Practica_mascotas_ampliacion/index.php?menu=pet&option=update&id=' . $element->getId() . '" style="text-decoration: none;">Update</a></button></td>';
-            echo '<td><button class="btn btn-danger"><a href="http://localhost/M07-PHP/UF3/Practica_mascotas_ampliacion/index.php?menu=pet&option=delete&id=' . $element->getId() . '" style="text-decoration: none;">Delete</a></button></td>';
+            echo '<td><button class="btn btn-warning"><a href="index.php?menu=pet&option=update&id=' . $element->getId() . '">Update</a></button></td>';
+            echo '<td><button class="btn btn-danger"><a href="index.php?menu=pet&option=delete&id=' . $element->getId() . '">Delete</a></button></td>';
             echo "</tr>";
             
             echo "</form>";

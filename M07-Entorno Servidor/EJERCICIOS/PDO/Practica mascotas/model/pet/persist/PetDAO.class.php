@@ -174,7 +174,7 @@ class PetDAO implements ModelInterface
     /**
      * GET ID from the URL to do the sql and get the pets paramaters
      */
-    public function getOwnerByUrl() {
+    public function getPetByUrl() {
         if(isset($_GET['id'])) {
             $id = $_GET['id'];
 

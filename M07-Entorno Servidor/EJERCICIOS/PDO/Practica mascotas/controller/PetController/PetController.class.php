@@ -326,7 +326,7 @@ class PetController implements ControllerInterface
      */
     public function updatePetByBtn()
     {
-        $pet = $this->model->getOwnerByUrl();
+        $pet = $this->model->getPetByUrl();
 
         if($pet !== NULL) {
             $this->view->display("view/form/PetForm/PetFormUpdate.php", $pet);
