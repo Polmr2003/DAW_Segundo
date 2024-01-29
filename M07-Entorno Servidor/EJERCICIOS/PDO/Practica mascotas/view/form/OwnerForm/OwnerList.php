@@ -1,8 +1,6 @@
-<!-- only a div -->
 <div id="content">
     <table class="table">
 
-        <!-- table headers -->
         <thead class="thead-light">
         <tr>
             <th>Nif</th>
@@ -11,10 +9,11 @@
             <th>Phone</th>
             <th>Update</th>
             <th>Delete</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
         </thead>
 
-        <!-- table content -->
         <tbody>
         <?php
         foreach ($content as $element)
@@ -25,8 +24,8 @@
             echo "<td>{$element->getName()}</td>";
             echo "<td>{$element->getEmail()}</td>";
             echo "<td>{$element->getPhone()}</td>";
-            echo '<td><input type="submit" class="btn btn-warning" name="action" value="Update" /></td>';
-            echo '<td><input type="submit" class="btn btn-danger" name="action" value="Delete" /></td>';
+            echo '<td><button class="btn btn-warning"><a href="http://localhost/M07-PHP/UF3/Practica_mascotas_ampliacion/index.php?menu=owner&option=update&nif=' . $element->getNif() . '" style="text-decoration: none;">Update</a></button></td>';
+            echo '<td><button class="btn btn-danger"><a href="http://localhost/M07-PHP/UF3/Practica_mascotas_ampliacion/index.php?menu=owner&option=delete&nif=' . $element->getNif() . '" style="text-decoration: none;">Delete</a></button></td>';
             echo "</tr>";
         }
         ?>

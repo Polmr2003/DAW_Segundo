@@ -132,18 +132,97 @@ class OwnerDAO implements ModelInterface
      */
     public function delete($nif)
     {
-        // myQuery params
-        $sql = "DELETE FROM propietarios WHERE nif=?";
-        $vector = array($nif);
 
-        // prepare sentence
-        $sentence = $this->dbConnection->myQuery($sql, $vector);
-        
-        if ($sentence != null && $sentence->rowCount() != 0)
-        {
-            return true;
+        $hasAssociatedRecords = $this->hasAssociatedRecordsInMascotas($nif);
+
+
+        if ($hasAssociatedRecords) {
+            $deleteMascotas = $this->deleteAssociatedMascotas($nif);
+
+            if($deleteMascotas) {
+                // myQuery params
+                $sql = "DELETE FROM propietarios WHERE nif=?";
+                $vector = array($nif);
+
+                // prepare sentence
+                $sentence = $this->dbConnection->myQuery($sql, $vector);
+
+                if ($sentence != null && $sentence->rowCount() != 0)
+                {
+                    return true;
+                }
+            }
         }
+
+
 
         return false;
     }
+
+
+
+    //GET NIF FROM URL WITH METHOD $GET
+    /**
+     * GET NIF from the URL to do the sql and get the owner paramaters
+     */
+    public function getOwnerByUrl() {
+        if(isset($_GET['nif'])) {
+            $nif = $_GET['nif'];
+
+            return $this->searchById($nif);
+        } else {
+            return null;
+        }
+    }
+
+
+
+
+
+
+
+
+    /*--------------------------------------------- Existen Mascotas ------------------------------------------------------------ */
+
+    /**
+     * Comprobar si existen mascotas relacionadas a un owner que va a ser eliminado
+     */
+    private function hasAssociatedRecordsInMascotas($nif)
+    {
+        // Query to check if there are associated records in the `mascotas` table
+        $sql = "SELECT COUNT(*) FROM mascotas WHERE nifpropietario=?";
+        $vector = array($nif);
+
+        $sentence = $this->dbConnection->myQuery($sql, $vector);
+
+        // Fetch the result
+        $rowCount = $sentence->fetchColumn();
+
+        // If there are associated records, return true; otherwise, return false
+        return $rowCount > 0;
+    }
+
+
+    /**
+     * if there is data that is associated with the owner, then first we will delete that data and then the OWNER so we will not have constraint error
+     * @param $nif --> nif del propietario (OWNER)
+     * @return bool
+     */
+    private function deleteAssociatedMascotas($nif)
+    {
+        // Delete associated records in the `lineas_de_historial` table first
+        $sql1 = "DELETE FROM lineas_de_historial WHERE idmascota IN (SELECT id FROM mascotas WHERE nifpropietario=?)";
+        $vector1 = array($nif);
+        $sentence1 = $this->dbConnection->myQuery($sql1, $vector1);
+
+        // Delete associated records in the `mascotas` table
+        $sql2 = "DELETE FROM mascotas WHERE nifpropietario=?";
+        $vector2 = array($nif);
+        $sentence2 = $this->dbConnection->myQuery($sql2, $vector2);
+
+        // Check if the deletion was successful
+        return ($sentence1 !== null && $sentence2 !== null);
+    }
+
+
 }

@@ -6,7 +6,6 @@ Archivo con las funciones generales
 
 
 
-
 /* ------------------------------------------- Calcular edad ---------------------------------------------------------------- */
 /**
  * Funcion para calcular la edad de una persona

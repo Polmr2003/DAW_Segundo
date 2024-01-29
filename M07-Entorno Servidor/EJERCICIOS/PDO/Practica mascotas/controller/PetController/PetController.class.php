@@ -73,7 +73,23 @@ class PetController implements ControllerInterface
                 $this->modify();
                 break;
 
-            // DEFAULT
+            case "add_pet":
+                $this->modify();
+                break;
+
+            case "add":
+                $this->add();
+                break;
+
+            case "update":
+                $this->updatePetByBtn();
+                break;
+
+            case "delete":
+                $this->delete();
+                break;
+
+                // DEFAULT
 
             default:
                 // if (str_contains($request, "modify_pet_"))
@@ -85,13 +101,12 @@ class PetController implements ControllerInterface
                 // {
                 // URL PARAM "option" DOES NOT EXIST AND THE FORM SUBMIT BUTTON WAS NOT PRESSED --> DISPLAY VIEW (ONLY PET MENU)
                 $this->view->display();
-            // }
+                // }
         }
     }
 
     public function home()
     {
-
     }
     /**
      * Display all pets in a table using view. The pets were retrieved using model.
@@ -264,6 +279,11 @@ class PetController implements ControllerInterface
         $this->view->display("view/form/PetForm/PetFormUpdate.php", $petFinal);
     }
 
+    public function add_pet()
+    {
+        $this->view->display("view/form/PetForm/PetFormAdd.php");
+    }
+
 
 
     // ============== UNUSED METHODS ============== //
@@ -274,7 +294,49 @@ class PetController implements ControllerInterface
      **/
     public function add()
     {
+        // VALIDATE ITEM
+        $item = PetFormValidation::checkData(PetFormValidation::INSERT);
+
+        if (empty($_SESSION["error"])) // If the validation didn't have any errors...
+        {
+            // CHECK IF ITEM ALREADY EXISTS
+            $alreadyExists = $this->model->searchById($item->getId());
+            if ($alreadyExists) {
+                $_SESSION["error"][] = PetMessage::ID_ALREADY_EXISTS;
+            } else {
+                // ADD ITEM TO DB
+                $success = $this->model->add($item);
+                if ($success) $_SESSION["info"][]  = PetMessage::INSERT_SUCCESS;
+                else          $_SESSION["error"][] = PetMessage::INSERT_ERROR;
+            }
+        }
+
+        // DISPLAY FORM AGAIN WITH ITEM'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
+        $this->view->display("view/form/PetForm/PetFormAdd.php", $item);
     }
+
+
+
+
+
+    //UPDATE BUTTON FOR OWNER
+
+    /**
+     * Update owner By clicking on the button Update
+     */
+    public function updatePetByBtn()
+    {
+        $pet = $this->model->getOwnerByUrl();
+
+        if($pet !== NULL) {
+            $this->view->display("view/form/PetForm/PetFormUpdate.php", $pet);
+        }else {
+            $_SESSION["error"][] = PetMessage::SELECT_ERROR;
+        }
+
+    }
+
+
 
     /**
      * Delete pet.
@@ -282,5 +344,22 @@ class PetController implements ControllerInterface
      */
     public function delete()
     {
+        $pet = $this->model->getOwnerByUrl();
+
+        if($pet !== NULL) {
+
+            $deletePet = $this->model->delete($pet->getId());
+
+            if($deletePet) {
+                $_SESSION["info"][] = PetMessage::DELETE_SUCCESS;
+                $this->view->display("view/form/PetForm/PetDeleteMessageShow.php");
+            }else {
+                $_SESSION["error"][] = PetMessage::DELETE_ERROR;
+            }
+
+        }else {
+            $_SESSION["error"][] = PetMessage::SELECT_ERROR;
+        }
     }
+
 }

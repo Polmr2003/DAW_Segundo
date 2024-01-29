@@ -53,8 +53,8 @@ class PetDAO implements ModelInterface
     public function add($pet)
     {
         // myQuery params
-        $sql = "INSERT INTO mascotas (nom, email, movil) VALUES (?, ?, ?)";
-        $vector = array($pet->getName(), $pet->getEmail(), $pet->getPhone());
+        $sql = "INSERT INTO mascotas (id, nifpropietario, nom) VALUES (?, ?, ?)";
+        $vector = array($pet->getId(), $pet->getIdOwner(), $pet->getName());
 
         // prepare sentence
         $sentence = $this->dbConnection->myQuery($sql, $vector);
@@ -148,17 +148,65 @@ class PetDAO implements ModelInterface
      */
     public function delete($id)
     {
-        // myQuery params
-        $sql = "DELETE FROM mascotas WHERE id=?";
-        $vector = array($id);
 
-        // prepare sentence
-        $sentence = $this->dbConnection->myQuery($sql, $vector);
+        $deleteAssociatedHistory = $this->deleteAssociatedMascotasHistory($id);
 
-        if ($sentence != null && $sentence->rowCount() != 0) {
-            return true;
+        if($deleteAssociatedHistory) {
+            // myQuery params
+            $sql = "DELETE FROM mascotas WHERE id=?";
+            $vector = array($id);
+
+            // prepare sentence
+            $sentence = $this->dbConnection->myQuery($sql, $vector);
+
+            if ($sentence != null && $sentence->rowCount() != 0) {
+                return true;
+            }
         }
+
 
         return false;
     }
+
+
+
+    //GET ID FROM URL WITH METHOD $GET
+    /**
+     * GET ID from the URL to do the sql and get the pets paramaters
+     */
+    public function getOwnerByUrl() {
+        if(isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            return $this->searchById($id);
+        } else {
+            return null;
+        }
+    }
+
+
+
+
+    /*--------------------------------------------- Existen Mascotas ------------------------------------------------------------ */
+
+
+    /**
+     * whenever we delete a pet we will check if the pet has an associative data, like any other table is using the pets $id, so if there is
+     * we will delete first that data and then the pet
+     * @param $id --> id of the pet
+     * @return bool
+     */
+    private function deleteAssociatedMascotasHistory($id)
+    {
+        // Delete associated records in the `lineas_de_historial` table first
+        $sql1 = "DELETE FROM lineas_de_historial WHERE idmascota IN (SELECT id FROM mascotas WHERE id=?)";
+        $vector1 = array($id);
+        $sentence1 = $this->dbConnection->myQuery($sql1, $vector1);
+
+        // Check if the deletion was successful
+        return ($sentence1 !== null);
+    }
+
+
+
 }
