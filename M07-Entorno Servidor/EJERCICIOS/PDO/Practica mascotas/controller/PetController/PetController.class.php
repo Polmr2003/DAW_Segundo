@@ -344,7 +344,7 @@ class PetController implements ControllerInterface
      */
     public function delete()
     {
-        $pet = $this->model->getOwnerByUrl();
+        $pet = $this->model->getPetByUrl();
 
         if($pet !== NULL) {
 

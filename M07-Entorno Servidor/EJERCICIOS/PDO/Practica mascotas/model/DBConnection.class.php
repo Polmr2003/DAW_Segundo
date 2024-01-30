@@ -1,5 +1,6 @@
 <?php
 
+// importamos el achivo de configuracion de la base de datos
 require_once("model/Config.php");
 
 class DBConnection
@@ -13,11 +14,8 @@ class DBConnection
     {
         $flag = true;
 
-        // creamos la classe con la configuracion de la base de datos
-        $Config_db = new Config_db;
-
         try {
-            $this->dbh = new PDO($Config_db->dsn, $Config_db->user, $Config_db->password);
+            $this->dbh = new PDO(constDSN, constUSUARIO, constPASSWORD);
         } catch (PDOException $e) {
             $flag = false;
         }
