@@ -152,8 +152,19 @@ class OwnerDAO implements ModelInterface
                     return true;
                 }
             }
-        }
+        }else {
+            // myQuery params
+            $sql = "DELETE FROM propietarios WHERE nif=?";
+            $vector = array($nif);
 
+            // prepare sentence
+            $sentence = $this->dbConnection->myQuery($sql, $vector);
+
+            if ($sentence != null && $sentence->rowCount() != 0)
+            {
+                return true;
+            }
+        }
 
 
         return false;
