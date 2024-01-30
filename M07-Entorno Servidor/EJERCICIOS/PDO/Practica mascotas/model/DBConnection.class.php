@@ -6,7 +6,7 @@ class DBConnection
 {
     //atributs 
     private $dbh;
-
+    
     //mètode que necessitem per connectar-nos des dels altres
     //mètodes
     private function connect()
