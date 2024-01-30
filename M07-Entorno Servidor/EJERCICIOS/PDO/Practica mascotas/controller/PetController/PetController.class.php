@@ -74,7 +74,7 @@ class PetController implements ControllerInterface
                 break;
 
             case "add_pet":
-                $this->modify();
+                $this->add_pet();
                 break;
 
             case "add":
