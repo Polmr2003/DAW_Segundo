@@ -1,7 +1,7 @@
-Exemple 1: DOCUMENTACIÓ D'UNA FUNCIÓ
+Exemple 1: DOCUMENTACIï¿½ D'UNA FUNCIï¿½
 /**
    * Determina el volumen de un cilindro con la altura y radio especificado
-   * @param {number} radio -  El radio de los círculos laterales del cilindro
+   * @param {number} radio -  El radio de los cï¿½rculos laterales del cilindro
    * @param {number} altura - La altura del cilindro
    * @return {number}
 */
@@ -11,8 +11,21 @@ Exemple 1: DOCUMENTACIÓ D'UNA FUNCIÓ
   }
 
 
-Exemple 2: DOCUMENTACIÓ D'UN FITXER
+Exemple 2: DOCUMENTACIï¿½ D'UN FITXER
 /**
    * @file Manages the configuration settings for the widget.
    * @author Pep Garcia
+*/
+
+
+Exemple 3: DOCUMENTACIï¿½ DE CODI
+/*
+|--------------------------------------------------------------------------
+| Application Name
+|--------------------------------------------------------------------------
+|
+| This value is the name of your application. This value is used when the
+| framework needs to place the application's name in a notification or
+| any other location as required by the application or its packages.
+|
 */
