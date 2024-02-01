@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,4 +52,41 @@ Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
 Route::get('cursos/{curso}', function ($curso) {
     return "Bienvenido al curso: $curso";
 })->where('curso', '[A-Za-z]+'); // para poner dos restricciones: ->where(['curso' => '[0-9]+', 'categoria' => '[a-z]+'])
+
+
+
+/*
+|--------------------------------------------------------------------------
+| GET
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+
+/*
+|--------------------------------------------------------------------------
+| POST
+|--------------------------------------------------------------------------
+*/
+
+Route::post('/post', [PostController::class, 'store']);
+
+/*
+|--------------------------------------------------------------------------
+| PUT
+|--------------------------------------------------------------------------
+*/
+
+Route::put('/posts/{post}', [PostController::class, 'update']);
+
+/*
+|--------------------------------------------------------------------------
+| DELETE
+|--------------------------------------------------------------------------
+*/
+
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
