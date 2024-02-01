@@ -11,13 +11,16 @@ export class ValidarEmailDirective implements Validator {
 
   constructor() { }
   validate(control: AbstractControl): ValidationErrors | null {
-    const patron = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; //patrón email
+    // patron email
+    const patron = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     if (!patron.test(control.value)) {
-      return { custom: true };//en cas d'error
+      // en caso de error
+      return { custom: true };
     }
 
-    return null;//quan tot ok
+    // cuando todo esta bien
+    return null;
   }
 
 

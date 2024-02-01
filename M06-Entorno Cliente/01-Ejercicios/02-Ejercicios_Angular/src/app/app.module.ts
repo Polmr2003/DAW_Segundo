@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -15,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,15 @@ import { LogoutComponent } from './components/logout/logout.component';
     ListUsersComponent,
     EditarUsuarioComponent,
     LogoutComponent,
+    PaginationComponent,
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    AppRoutingModule,
+    NgxPaginationModule,
+  ],
   providers: [CookieService],
   bootstrap: [AppComponent],
 })

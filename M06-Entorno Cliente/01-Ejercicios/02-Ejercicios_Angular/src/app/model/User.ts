@@ -1,4 +1,6 @@
 export class User {
+
+  // variables
   #nomUsuari: string;
   #contrasenya: string;
   #correuElectronic: string;
@@ -7,15 +9,8 @@ export class User {
   #informacio: string;
   #condicions: boolean;
 
-  constructor(
-    nomUsuari: string,
-    contrasenya: string,
-    correuElectronic: string = '',
-    estatCivil: string = '',
-    sexe: string = '',
-    informacio: string = '',
-    condicions: boolean = true
-  ) {
+  // contructor
+  constructor(nomUsuari: string, contrasenya: string, correuElectronic: string = '', estatCivil: string = '', sexe: string = '', informacio: string = '', condicions: boolean = true) {
     this.#nomUsuari = nomUsuari;
     this.#contrasenya = contrasenya;
     this.#correuElectronic = correuElectronic;
@@ -25,6 +20,7 @@ export class User {
     this.#condicions = condicions;
   }
 
+  // setters i getters
   get nomUsuari(): string {
     return this.#nomUsuari;
   }
@@ -68,6 +64,8 @@ export class User {
   set condicions(condicions: boolean) {
     this.#condicions = condicions;
   }
+
+  // funciones
   toObjectJS(): any {
     let myObject = {
       nomUsuari: this.#nomUsuari,

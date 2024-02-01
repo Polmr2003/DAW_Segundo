@@ -51,3 +51,4 @@ Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
 Route::get('cursos/{curso}', function ($curso) {
     return "Bienvenido al curso: $curso";
 })->where('curso', '[A-Za-z]+'); // para poner dos restricciones: ->where(['curso' => '[0-9]+', 'categoria' => '[a-z]+'])
+
