@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // // cuando el usuario no pone nada ("/") nos redirigira a cursos ("/cursos") || para que esto funcione hay que comentar la linea get que tenga la /
 // Route::redirect('/', 'posts');
 
-Route::view('/', 'welcome')->name('home');
+Route::view('/', 'Layouts.app')->name('home');
 Route::view('/contact', 'Options.contact')->name('contact');
 Route::view('/blog', 'Options.blog')->name('blog');
 Route::view('/about', 'Options.about')->name('about');
