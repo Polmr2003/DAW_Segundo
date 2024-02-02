@@ -97,7 +97,7 @@ Route::get('/', function () {
 */
 
 // Only
-Route::resource('/posts', PostController::class)->only(['index']);
+// Route::resource('/posts', PostController::class)->only(['index']);
 
-// Except
-Route::resource('/posts', PostController::class)->except(['index']);
+// // Except
+// Route::resource('/posts', PostController::class)->except(['index']);
