@@ -154,18 +154,8 @@
 </head>
 
 <body>
-    <a href="{{ route('posts.index') }}">List</a>
-    <ul>
-        <li>
-            <a href="{{ route('posts.show', 1) }}">1</a>
-        </li>
-        <li>
-            <a href="{{ route('posts.show', 2) }}">2</a>
-        </li>
-        <li>
-            <a href="{{ route('posts.show', 3) }}">3</a>
-        </li>
-    </ul>
+    {{-- Incluimos la vista navigation donde esta el menu --}}
+    @include('Menu.navigation')
 
 </body>
 

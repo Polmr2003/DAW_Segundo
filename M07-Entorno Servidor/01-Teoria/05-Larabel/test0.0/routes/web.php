@@ -17,18 +17,23 @@ use Illuminate\Support\Facades\Route;
 // // cuando el usuario no pone nada ("/") nos redirigira a cursos ("/cursos") || para que esto funcione hay que comentar la linea get que tenga la /
 // Route::redirect('/', 'posts');
 
+Route::view('/', 'welcome')->name('home');
+Route::view('/contact', 'Options.contact')->name('contact');
+Route::view('/blog', 'Options.blog')->name('blog');
+Route::view('/about', 'Options.about')->name('about');
+
 // // cuando el usuario no pone nada ("/") nos redirigira aqui
-Route::get('/', function () {
-    return view('welcome');
-    // return "Bienvenido a la paguina web";
-});
+// Route::get('/', function () {
+//     return view('welcome');
+//     // return "Bienvenido a la paguina web";
+// });
 
 // // cuando el usuario pone cursos ("/cursos") nos redirigira aqui
 // Route::get('cursos', function () {
 //     return "Bienvenido a cursos";
 // });
 
-// // cuando el usuario pone cursos ("/cursos/create") nos redirigira aqui
+// // cuando el usuario pone ("/cursos/create") nos redirigira aqui
 // Route::get('cursos/create', function () {
 //     return "Bienvenido a cursos create";
 // });
