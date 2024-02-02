@@ -10,32 +10,38 @@ class PostController extends Controller
     |--------------------------------------------------------------------------
     | GET
     |--------------------------------------------------------------------------
+    | Larabel ya entiende que las vistas estan en /resources/views asi que no
+    | hace falta poner toda la ruta completa
     */
 
     public function index()
     {
-        return "index";
+        return view('POSTS.index'); // en larabel no se pone la "/" en cambio se pone un punto
     }
 
     public function create()
     {
-        return "Create";
+        return view('POSTS.create'); // en larabel no se pone la "/" en cambio se pone un punto
     }
 
     public function show($post)
     {
-        return "show ($post)";
+        return view('POSTS.show', [ // en larabel no se pone la "/" en cambio se pone un punto
+            'prueba' => $post
+        ]);
     }
 
     public function edit($post)
     {
-        return "edit ($post)";
+        return view('POSTS.edit'); // en larabel no se pone la "/" en cambio se pone un punto
     }
 
     /*
     |--------------------------------------------------------------------------
     | post
     |--------------------------------------------------------------------------
+    | Larabel ya entiende que las vistas estan en /resources/views asi que no
+    | hace falta poner toda la ruta completa
     */
 
     public function store()
@@ -47,6 +53,8 @@ class PostController extends Controller
     |--------------------------------------------------------------------------
     | PUT
     |--------------------------------------------------------------------------
+    | Larabel ya entiende que las vistas estan en /resources/views asi que no
+    | hace falta poner toda la ruta completa
     */
 
     public function update($post)
@@ -58,6 +66,8 @@ class PostController extends Controller
     |--------------------------------------------------------------------------
     | DELELTE
     |--------------------------------------------------------------------------
+    | Larabel ya entiende que las vistas estan en /resources/views asi que no
+    | hace falta poner toda la ruta completa
     */
 
     public function destroy($post)
