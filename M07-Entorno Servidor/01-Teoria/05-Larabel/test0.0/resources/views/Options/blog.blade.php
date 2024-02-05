@@ -3,7 +3,7 @@
 
 <!-- Titulo de la paguina -->
 @section('title')
-blog
+    blog
 @endsection
 
 <!-- Contenido de la paguina -->
