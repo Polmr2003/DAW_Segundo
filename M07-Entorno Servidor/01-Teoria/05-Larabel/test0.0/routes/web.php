@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 // Route::redirect('/', 'posts');
 
 Route::view('/', 'Layouts.app')->name('home');
-Route::view('/contact', 'Options.contact')->name('contact');
-Route::view('/blog', 'Options.blog')->name('blog');
-Route::view('/about', 'Options.about')->name('about');
+Route::view('/listar', 'Options.List')->name('listar');
+Route::view('/buscar', 'Options.Buscar')->name('buscar');
+Route::view('/modificar', 'Options.Modificar')->name('modificar');
 
 // // cuando el usuario no pone nada ("/") nos redirigira aqui
 // Route::get('/', function () {

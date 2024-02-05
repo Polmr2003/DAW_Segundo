@@ -3,11 +3,11 @@
 
 <!-- Titulo de la paguina -->
 @section('title')
-    contact
+    Listar propietarios
 @endsection
 
 <!-- Contenido de la paguina -->
 @section('content')
     <!-- Contenido de la paguina -->
-    <h1>contact</h1>
+    <h1>Listar propietarios</h1>
 @endsection
