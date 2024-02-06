@@ -10,4 +10,10 @@
 @section('content')
     <!-- Contenido de la paguina -->
     <h1>Buscar propietarios</h1>
+    {{-- @dump($post) --}}
+
+    @foreach($post as $content)
+        <h2>{{ $content['title']}}</h2>
+    @endforeach
+
 @endsection

@@ -14,6 +14,10 @@ class PostController extends Controller
     | hace falta poner toda la ruta completa
     */
 
+    // public function __invoke(){
+    //     return 'glob';
+    // }
+
     public function index()
     {
         return view('POSTS.index'); // en larabel no se pone la "/" en cambio se pone un punto

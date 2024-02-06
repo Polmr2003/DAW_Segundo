@@ -20,6 +20,8 @@
 </head>
 
 <body>
+    {{-- <x-navigation> --}}
+
     <!-- Header de la paguina -->
     <header>
         <h1>Laravel</h1>
