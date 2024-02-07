@@ -36,7 +36,7 @@ function main() : void{
     array_asociativo();
     
     echo "<h2> array normal </h2>";
-    array_normal();
+    // array_normal();
 };
 
 //mostrar Main
