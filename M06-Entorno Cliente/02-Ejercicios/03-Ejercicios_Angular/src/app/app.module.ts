@@ -17,6 +17,8 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { CompraComponent } from './components/compra/compra.component';
+import { MerchandisingComponent } from './components/merchandising/merchandising.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     EditarUsuarioComponent,
     LogoutComponent,
     PaginationComponent,
+    CompraComponent,
+    MerchandisingComponent
   ],
   imports: [
     BrowserModule, 

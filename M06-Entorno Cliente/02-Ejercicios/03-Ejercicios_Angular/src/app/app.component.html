@@ -15,19 +15,26 @@
         <!-- Menu -->
         <!-- *ngIf="logeado" -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="/formulari">Formulari de registre</a>
+          <a *ngIf="!logeado" class="nav-link" routerLink="/formulari">Formulari de registre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/pagination">pagination</a>
+          <a *ngIf="!logeado" class="nav-link" routerLink="/pagination">pagination</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/list-users">Listar usuarios</a>
+          <a *ngIf="!logeado" class="nav-link" routerLink="/list-users">Listar usuarios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Login</a>
+          <a *ngIf="!logeado" class="nav-link" routerLink="/login">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a *ngIf="logeado" class="nav-link" routerLink="/compra">Compra</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/logout">Logout</a>
+          <a *ngIf="logeado" class="nav-link" routerLink="/merchandising">Merchandising</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="logeado" class="nav-link" routerLink="/logout">Logout</a>
         </li>
 
       </ul>
