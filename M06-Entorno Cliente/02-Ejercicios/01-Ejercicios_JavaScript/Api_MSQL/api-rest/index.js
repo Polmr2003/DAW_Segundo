@@ -140,7 +140,9 @@ app.post('/vueling/register', function (req, res) {
 // Ruta GET para recojer las ciudades de los vuelos en la base de datos
 // establecemos una ruta GET en la aplicación Express. La ruta es '/vueling/ciudades', lo que significa que manejará solicitudes GET enviadas a esa URL específica.
 app.get('/vueling/ciudades', (req, res) => {
-
+    // api.get....(api/:username)
+    // const usuario= req.params.username;
+    
     // Realiza una consulta SQL para obtener las ciudades desde la base de datos
     connection.query('SELECT name FROM ciudades', function (error, results) {
         // Manejo de errores
