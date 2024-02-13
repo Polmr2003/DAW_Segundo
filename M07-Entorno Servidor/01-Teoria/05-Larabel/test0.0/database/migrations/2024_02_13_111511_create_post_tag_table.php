@@ -22,10 +22,10 @@ return new class extends Migration {
 
             // nombre de la fila con la foreign key
             $table->unsignedBigInteger('tags_id');
-            // $table->foreign('tags_id')
-            //     ->references('id') // le especificamos la columna a la que vamos a hacer la referencia
-            //     ->on('tags') // le especificamos la tabla a la que vamos a hacer la referencia
-            //     ->cascadeOnDelete(); // eliminamos en cascada
+            $table->foreign('tags_id')
+                ->references('id') // le especificamos la columna a la que vamos a hacer la referencia
+                ->on('tags') // le especificamos la tabla a la que vamos a hacer la referencia
+                ->cascadeOnDelete(); // eliminamos en cascada
 
 
             $table->timestamps();
