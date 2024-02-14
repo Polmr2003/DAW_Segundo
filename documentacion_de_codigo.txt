@@ -1,4 +1,4 @@
-Exemple 1: DOCUMENTACI� D'UNA FUNCI�
+﻿Exemple 1: DOCUMENTACI� D'UNA FUNCI�
 /**
    * Determina el volumen de un cilindro con la altura y radio especificado
    * @param {number} radio -  El radio de los c�rculos laterales del cilindro
@@ -29,3 +29,12 @@ Exemple 3: DOCUMENTACI� DE CODI
 | any other location as required by the application or its packages.
 |
 */
+
+
+Exemple 4: DOCUMENTACI� ESTRUCTURA CODI
+# Folder structure 
+# . 
+# -- server.rb 
+# -- public 
+#    |-- project-name 
+#        |-- index.html 
