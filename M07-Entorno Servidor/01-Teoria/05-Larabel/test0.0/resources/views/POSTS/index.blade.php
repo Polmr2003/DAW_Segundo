@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,3 +10,10 @@
     <h1>Aqui se mostrara el listado de post</h1>
 </body>
 </html>
+ --}}
+
+ <x-Layouts.app>
+    <div>
+        <h1>Crear un nuevo Post</h1>
+    </div>
+</x-Layouts.app>

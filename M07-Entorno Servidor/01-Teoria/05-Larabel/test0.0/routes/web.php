@@ -29,6 +29,7 @@ Route::view('/', 'Layouts.app')->name('home');
 Route::view('/listar', 'Options.List')->name('listar');
 Route::view('/buscar', 'Options.Buscar', ['post' => $post])->name('buscar');
 Route::view('/modificar', 'Options.Modificar')->name('modificar');
+Route::view('/create', 'POSTS.create')->name('POSTS.create');
 
 // Route::get('/buscar', function () {
 //     $post = [
