@@ -1,0 +1,64 @@
+<div class="container">
+
+  <h2 class="mt-5 text-center">Formulari de registre</h2>
+
+  <form [formGroup]="formulari" (ngSubmit)="enviament()" class="mt-5">
+    <fieldset>
+      <!--Nom-->
+      <div class="form-group">
+        <legend class="mt-4">Nom d'usuari* :</legend>
+        <input type="text" class="form-control" id="nomUsuari" placeholder="Nom" formControlName="nomUsuari"
+          appValidarEmail>
+
+        <div *ngIf="this.formulari.get('nomUsuari')?.errors?.['required'] && this.formulari.get('nomUsuari')?.touched"
+          class="alert alert-danger">
+          Aquest camp és obligatori.
+        </div>
+        <div *ngIf="this.formulari.get('nomUsuari')?.errors?.['custom'] && this.formulari.get('nomUsuari')?.touched"
+          class="alert alert-danger">A de tenir un Email valid
+        </div>
+      </div>
+
+      <!--Contrasenya-->
+      <div class="form-group">
+        <legend class="mt-4">Contrasenya* :</legend>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contrasenya"
+          autocomplete="off" formControlName="contrasenya">
+        <div
+          *ngIf="this.formulari.get('contrasenya')?.errors?.['required'] && this.formulari.get('contrasenya')?.touched"
+          class="alert alert-danger">
+          Aquest camp és obligatori.
+        </div>
+        <div
+          *ngIf="this.formulari.get('contrasenya')?.errors?.['pattern'] && this.formulari.get('contrasenya')?.touched"
+          class="alert alert-danger">
+          Ha de contenir lletres i números i tenir un mínim de 8 caràcters.
+        </div>
+
+      </div>
+
+      <!--Confirmar-->
+      <div class="form-group">
+        <legend class="mt-4">Repeteix la Contrasenya* :</legend>
+        <input type="password" appValidarRepetir=contrasenya class="form-control" id="exampleInputPassword2"
+          placeholder="Repeteix contrasenya" autocomplete="off" formControlName="confirmarContrasenya">
+        <div
+          *ngIf="this.formulari.get('confirmarContrasenya')?.errors?.['required'] && this.formulari.get('confirmarContrasenya')?.touched"
+          class="alert alert-danger">
+          Aquest camp és obligatori.
+        </div>
+        <div
+          *ngIf="this.formulari.get('confirmarContrasenya')?.errors?.['custom'] && this.formulari.get('confirmarContrasenya')?.touched"
+          class="alert alert-danger">
+          Les contrasenyes no coincideixen
+        </div>
+
+      </div>
+      <!-- Boton -->
+      <div class="text-center mt-5">
+        <button type="submit" class="btn btn-primary" [disabled]="formulari.invalid">Registram</button>
+      </div>
+    </fieldset>
+  </form>
+
+</div>

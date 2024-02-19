@@ -1,0 +1,62 @@
+<div class="container">
+
+  <h2 class="mt-5 text-center">Login</h2>
+
+  <form [formGroup]="login" (ngSubmit)="enviament()" class="mt-5">
+    <fieldset>
+      <!--Nom-->
+      <div class="form-group">
+        <legend class="mt-4">Nom d'usuari* :</legend>
+        <input type="text" class="form-control" id="nomUsuari" placeholder="(Email)" formControlName="nomUsuari"
+          appValidarEmail>
+
+        <!-- Es obligatoria -->
+        <div *ngIf="this.login.get('nomUsuari')?.errors?.['required'] && this.login.get('nomUsuari')?.touched"
+          class="alert alert-danger">
+          Aquest camp és obligatori.
+        </div>
+
+        <!-- Tiene que tener un Email valid que le pasa el servicio -->
+        <div *ngIf="this.login.get('nomUsuari')?.errors?.['custom'] && this.login.get('nomUsuari')?.touched"
+          class="alert alert-danger"> A de tenir un Email valid
+        </div>
+      </div>
+
+      <!--Contrasenya-->
+      <div class="form-group">
+        <legend class="mt-4">Contrasenya* :</legend>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="(Dni)" autocomplete="off"
+          formControlName="contrasenya" appValidarDni>
+        <!-- Es obligatoria -->
+        <div *ngIf="this.login.get('contrasenya')?.errors?.['required'] && this.login.get('contrasenya')?.touched"
+          class="alert alert-danger">
+          Aquest camp és obligatori.
+        </div>
+        <!-- Tiene que tener un dni valid que le pasa el servicio -->
+        <div *ngIf="this.login.get('contrasenya')?.errors?.['custom'] && this.login.get('contrasenya')?.touched"
+          class="alert alert-danger">
+          Posa un Dni valid
+        </div>
+      </div>
+
+      <!-- Mensaje de errores -->
+      <div *ngIf="mensaje" [ngClass]="mensaje.includes('incorrectes') ? 'alert-danger' : 'alert-success'"
+        class="alert mt-3">
+        {{ mensaje }}
+      </div>
+
+      <!-- Boton Seguent-->
+      <div class="text-center mt-5">
+        <button type="submit" class="btn btn-primary" [disabled]="login.invalid">Seguent</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <form [formGroup]="login" (ngSubmit)="Enrere()" class="mt-5">
+    <!-- Boton Enrere-->
+    <div class="text-center mt-5">
+      <button type="submit" class="btn btn-primary" [disabled]="login.invalid">Enrere</button>
+    </div>
+  </form>
+
+</div>
