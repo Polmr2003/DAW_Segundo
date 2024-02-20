@@ -2,8 +2,11 @@
 | Web with the comands
 |--------------------------------------------------------------------------
 
+-oficial:
 https://artisan.page/#makeview
 
+-guia de comandos
+https://jrgonzalez.es/guia-comandos-artisan
 
 |--------------------------------------------------------------------------
 | Install bootstrap 5 to larabel
