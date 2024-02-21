@@ -1,7 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 #content {
     width: 100%;
     float: left;
     margin-top: 1em;
+    background-color: lightgray;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 #info {
@@ -35,4 +40,23 @@ input[type="radio"], input[type="checkbox"] {
 table, th, tr, td {
     border: 0.1em solid black;
     border-collapse: collapse;
+}
+
+.title{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.table-responsive{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.img{
+    float: left;
+    height: 3em; 
+}
+
+.form{
+    text-align: center;
 }

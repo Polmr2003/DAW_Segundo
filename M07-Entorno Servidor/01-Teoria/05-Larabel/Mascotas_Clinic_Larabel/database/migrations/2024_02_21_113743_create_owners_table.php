@@ -23,7 +23,7 @@ return new class extends Migration {
             //     ->on('users') // le especificamos la tabla a la que vamos a hacer la referencia
             //     ->cascadeOnDelete(); // eliminamos en cascada
 
-            //$table->timestamps(); // pone null el valor para que sea opcional
+            $table->timestamps(); // pone null el valor para que sea opcional
 
 
         });

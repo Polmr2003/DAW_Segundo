@@ -17,7 +17,7 @@ require_once "controller/MainController.class.php"; // INDEX NEEDS MAIN CONTROLL
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- META TAGS -->
 
 <!-- css, folder VENDORS -->
-    <link rel="stylesheet" href="vendors/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Vendors/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 
  <!-- js, folder VENDORS-->
     <script src="vendors/jquery-3.5.1/jquery-3.5.1.min.js"></script>

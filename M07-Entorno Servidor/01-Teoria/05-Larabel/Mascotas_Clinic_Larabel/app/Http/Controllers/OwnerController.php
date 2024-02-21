@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Owner;
 use Illuminate\Http\Request;
+use Psy\Readline\Hoa\Console;
 
 class OwnerController extends Controller
 {
@@ -27,7 +28,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        //
+        return view("Options.Owner.Create_Owner");
     }
 
     /**
@@ -36,6 +37,20 @@ class OwnerController extends Controller
     public function store(Request $request)
     {
 
+        // creamos el owner en solo una linea
+        //Owner::create($request->all());
+        
+        // creamos el owner cojiendo los valores del input
+        $Owner = new Owner();
+        $Owner->name = $request->input('name');
+        $Owner->email = $request->input('email');
+        $Owner->save();
+
+        // luego de crear el owner volvemos a la pantalla anterior (create) 
+        //return redirect()->back();
+
+        // luego de crear el owner vamos a el listado
+        return redirect("Owner");
     }
 
     /**

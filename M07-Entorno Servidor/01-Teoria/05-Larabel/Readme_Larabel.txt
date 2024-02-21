@@ -1,9 +1,15 @@
 |--------------------------------------------------------------------------
+| Web oficial
+|--------------------------------------------------------------------------
+
+https://laravel.com/docs/10.x/installation
+
+|--------------------------------------------------------------------------
 | Web with the comands
 |--------------------------------------------------------------------------
 
 -oficial:
-https://artisan.page/#makeview
+https://artisan.page
 
 -guia de comandos
 https://jrgonzalez.es/guia-comandos-artisan

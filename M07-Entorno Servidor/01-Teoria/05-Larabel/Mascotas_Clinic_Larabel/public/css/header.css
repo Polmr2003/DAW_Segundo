@@ -37,7 +37,7 @@ li a {
     text-align: center;
     line-height: 2.5em;
     text-decoration: none;
-    margin-right: 0.1em;    
+    margin-right: 0.1em;
 }
 
 /*Hover state for top level links*/
@@ -77,15 +77,17 @@ li ul li a {
 }
 
 /*Display the dropdown on hover*/
-ul li a:hover + .hidden, .hidden:hover {
+ul li a:hover+.hidden,
+.hidden:hover {
     display: block;
     position: fixed;
 }
 
 /*Responsive styles*/
-@media screen and (max-width: 32em){
-    
-    header, section {
+@media screen and (max-width: 32em) {
+
+    header,
+    section {
         font-size: 60%;
     }
 
@@ -93,19 +95,34 @@ ul li a:hover + .hidden, .hidden:hover {
     ul {
         position: static;
     }
-    
+
     /*Create vertical spacing*/
     li {
         margin-bottom: 0.1em;
     }
-    
+
     /*Make all menu links full width*/
-    ul li, li a {
+    ul li,
+    li a {
         width: 100%;
     }
 
     /*Display the dropdown on hover*/
-    ul li a:hover + .hidden, .hidden:hover {
+    ul li a:hover+.hidden,
+    .hidden:hover {
         position: static;
     }
+
+    
+}
+.menu-loggedIn {
+    background: blue;
+    color: white;
+    display: block;
+    min-width: 10em;
+    height: 2.5em;
+    text-align: center;
+    line-height: 2.5em;
+    text-decoration: none;
+    margin-right: 0.1em;
 }
