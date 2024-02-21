@@ -14,18 +14,5 @@
                 </div>
             </div>
 
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Mascotas
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('home') }}">Listar Propietarios</a>
-                    <a class="dropdown-item" href="{{ route('home') }}">Buscar</a>
-                    <a class="dropdown-item" href="{{ route('home') }}">Añadir una LineaHistorial</a>
-                </div>
-            </div>
-        </div>
-
     </div>
     <div class="card-body">

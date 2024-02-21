@@ -5,8 +5,9 @@
     <!-- Titulo -->
     <title>@yield('title')</title>
 
+    <!-- META TAGS -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- META TAGS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- css, folder VENDORS -->
     <link href="{{ asset('vendors/bootstrap-4.0.0-dist/css/bootstrap.min.css') }}" rel="stylesheet">

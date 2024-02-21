@@ -34,29 +34,31 @@ class OwnerController implements ControllerInterface
     public function processRequest()
     {
         // Set $request depending on the $_POST or the $_GET variables (form's submit button action / URL option param):
-            
-        if (isset($_POST["action"])) $request = $_POST["action"];
-        else if (isset($_GET ["option"])) $request = $_GET ["option"];
-        else $request = NULL;
-		
-		// Process the $request by calling a method in this class:
 
-        switch ($request)
-        {
+        if (isset($_POST["action"]))
+            $request = $_POST["action"];
+        else if (isset($_GET["option"]))
+            $request = $_GET["option"];
+        else
+            $request = NULL;
+
+        // Process the $request by calling a method in this class:
+
+        switch ($request) {
             // $_GET requests:
             case "list_all":
                 $this->listAll();
                 break;
-                
+
             case "form_search_pet_by_owner":
                 $this->formSearchPetByOwner();
                 break;
-                
+
             case "form_find_owner_to_update":
                 $this->formFindOwnerToUpdate();
                 break;
-                         
-            
+
+
             // $_POST requests:
             case "find_owner_to_update":
                 $this->findOwnerToUpdate();
@@ -84,8 +86,10 @@ class OwnerController implements ControllerInterface
     {
         $owners = $this->model->listAll(); // gather data from DAO
 
-        if (!empty($owners)) $_SESSION["info"][]  = OwnerMessage::SELECT_SUCCESS;
-        else                 $_SESSION["error"][] = OwnerMessage::SELECT_ERROR;
+        if (!empty($owners))
+            $_SESSION["info"][] = OwnerMessage::SELECT_SUCCESS;
+        else
+            $_SESSION["error"][] = OwnerMessage::SELECT_ERROR;
 
         $this->view->display("view/form/OwnerList.php", $owners); // display data
     }
@@ -93,7 +97,7 @@ class OwnerController implements ControllerInterface
     /**
      * Display form for searching pet by owner's NIF, using the view.
      **/
-    public function formSearchPetByOwner ()
+    public function formSearchPetByOwner()
     {
         $this->view->display("view/form/PetFormSearchByOwner.php");
     }
@@ -101,7 +105,7 @@ class OwnerController implements ControllerInterface
     /**
      * Display form for modifying owner, using the view.
      **/
-    public function formFindOwnerToUpdate ()
+    public function formFindOwnerToUpdate()
     {
         $this->view->display("view/form/OwnerFormSelect.php");
     }
@@ -115,10 +119,10 @@ class OwnerController implements ControllerInterface
     // }
 
     /**
-    * Find owner to modify.
-    * Access user's form input through $_POST, and access database through the DAO. Then display the result using the view.
-    */
-    public function findOwnerToUpdate ()
+     * Find owner to modify.
+     * Access user's form input through $_POST, and access database through the DAO. Then display the result using the view.
+     */
+    public function findOwnerToUpdate()
     {
         // VALIDATE OWNER's NIF
         $owner = OwnerFormValidation::checkData(OwnerFormValidation::SELECT);
@@ -127,8 +131,7 @@ class OwnerController implements ControllerInterface
         {
             // CHECK IF OWNER ALREADY EXISTS
             $ownerFound = $this->model->searchById($owner->getNif());
-            if ($ownerFound == NULL)
-            {
+            if ($ownerFound == NULL) {
                 $_SESSION["error"][] = OwnerMessage::NIF_DOES_NOT_EXIST;
             }
             // else
@@ -141,38 +144,39 @@ class OwnerController implements ControllerInterface
         }
 
         // DISPLAY FORM AGAIN WITH OWNER'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
-        if (empty($_SESSION["error"])) $this->view->display("view/form/OwnerFormUpdate.php", $ownerFound);
-        else $this->view->display("view/form/OwnerFormSelect.php", $owner);
+        if (empty($_SESSION["error"]))
+            $this->view->display("view/form/OwnerFormUpdate.php", $ownerFound);
+        else
+            $this->view->display("view/form/OwnerFormSelect.php", $owner);
     }
 
     /**
-    * Modify owner.
-    * Access user's form input through $_POST, and access database through the DAO. Then display the result using the view.
-    */
-    public function modify ()
+     * Modify owner.
+     * Access user's form input through $_POST, and access database through the DAO. Then display the result using the view.
+     */
+    public function modify()
     {
         // VALIDATE INPUT
         $ownerInput = OwnerFormValidation::checkData(OwnerFormValidation::UPDATE);
         $ownerFinal = $ownerInput;
-        
+
         if (empty($_SESSION["error"])) // If the validation didn't have any errors...
         {
             // CHECK IF OWNER ALREADY EXISTS
             $ownerFound = $this->model->searchById($ownerInput->getNif());
-            if ($ownerFound == NULL)
-            {
+            if ($ownerFound == NULL) {
                 $_SESSION["error"][] = OwnerMessage::NIF_DOES_NOT_EXIST;
-            }
-            else
-            {
+            } else {
                 $ownerFinal = $ownerFound;
                 $ownerFinal->setEmail($ownerInput->getEmail());
                 $ownerFinal->setPhone($ownerInput->getPhone());
 
                 // UPDATE OWNER IN DB
                 $success = $this->model->modify($ownerFinal);
-                if ($success) $_SESSION["info"][]  = OwnerMessage::UPDATE_SUCCESS;
-                else          $_SESSION["error"][] = OwnerMessage::UPDATE_ERROR;
+                if ($success)
+                    $_SESSION["info"][] = OwnerMessage::UPDATE_SUCCESS;
+                else
+                    $_SESSION["error"][] = OwnerMessage::UPDATE_ERROR;
             }
         }
 
@@ -180,23 +184,22 @@ class OwnerController implements ControllerInterface
         $this->view->display("view/form/OwnerFormUpdate.php", $ownerFinal);
     }
 
-    public function searchPetByOwner ()
+    public function searchPetByOwner()
     {
         $nif = $_POST["nif"];
 
         $item = null;
-        if ($nif==null)
-        {
+        if ($nif == null) {
             $_SESSION["error"][] = OwnerMessage::FORM_EMPTY_NIF;
-        }
-        else
-        {
+        } else {
             // SEARCH ITEM IN DB
             $modelPet = new PetDAO();
             $item = $modelPet->searchByOwnerNif($nif);
-    
-            if (isset($item[0])) $_SESSION["info"][]  = OwnerMessage::SELECT_SUCCESS;
-            else                 $_SESSION["error"][] = OwnerMessage::SELECT_ERROR;
+
+            if (isset($item[0]))
+                $_SESSION["info"][] = OwnerMessage::SELECT_SUCCESS;
+            else
+                $_SESSION["error"][] = OwnerMessage::SELECT_ERROR;
         }
 
         // DISPLAY FORM AGAIN WITH ITEM'S PARAMETERS, AND SUCCESS/ERROR MESSAGES
@@ -224,16 +227,15 @@ class OwnerController implements ControllerInterface
         {
             // CHECK IF ITEM ALREADY EXISTS
             $alreadyExists = $this->model->searchById($item->getNif());
-            if ($alreadyExists)
-            {
+            if ($alreadyExists) {
                 $_SESSION["error"][] = OwnerMessage::NIF_ALREADY_EXISTS;
-            }
-            else
-            {
+            } else {
                 // ADD ITEM TO DB
                 $success = $this->model->add($item);
-                if ($success) $_SESSION["info"][]  = OwnerMessage::INSERT_SUCCESS;
-                else          $_SESSION["error"][] = OwnerMessage::INSERT_ERROR;
+                if ($success)
+                    $_SESSION["info"][] = OwnerMessage::INSERT_SUCCESS;
+                else
+                    $_SESSION["error"][] = OwnerMessage::INSERT_ERROR;
             }
         }
 
@@ -242,13 +244,22 @@ class OwnerController implements ControllerInterface
     }
 
     /**
-    * Display single owner by id.
-    */
+     * Display single owner by id.
+     */
 
-    public function searchById () {}
+    public function searchById()
+    {
+    }
     /**
      * Delete owner.
      * Access user's form input through $_POST, and access database through the DAO. Then display the result using the view.
-    */
-    public function delete () {}
+     */
+    public function delete()
+    {
+    }
+
+    public function home()
+    {
+
+    }
 }

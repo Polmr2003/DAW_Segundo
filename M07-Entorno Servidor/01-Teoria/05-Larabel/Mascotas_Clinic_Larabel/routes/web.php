@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\OwnerController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'Layouts.app')->name('home');
-// Route::view('/listar', 'Options.List')->name('listar');
+
+// recurso owner con el crud
+Route::resource('Owner', OwnerController::class);
+
 // Route::view('/buscar', 'Options.Buscar', ['post' => $post])->name('buscar');
 // Route::view('/modificar', 'Options.Modificar')->name('modificar');

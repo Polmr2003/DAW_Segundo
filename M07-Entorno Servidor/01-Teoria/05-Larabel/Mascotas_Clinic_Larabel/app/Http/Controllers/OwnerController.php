@@ -12,7 +12,14 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        //
+        // recojemos descendentemente todos los owners de la base de datos por orden de fecha (created_at)
+        //$owners = Owner::latest()->get();
+
+        // recojemos todos los owners de la base de datos
+        $owners = Owner::all();
+
+        // retornamos la vista donde visualizamos todos los owners i le pasamos los owners recojidos enteriormente con un array asociativo con la key owners
+        return view("Options.Owner.List_Owner", ['owners' => $owners]);
     }
 
     /**
@@ -28,11 +35,7 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        // recojemos todos los owners de la base de datos
-        $owners=Owner::all();
 
-        // retornamos la vista donde visualizamos todos los owners i le pasamos los owners recojidos enteriormente
-        return view();
     }
 
     /**
