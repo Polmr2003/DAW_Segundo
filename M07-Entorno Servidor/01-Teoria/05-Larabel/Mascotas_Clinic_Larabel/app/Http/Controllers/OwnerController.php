@@ -40,6 +40,12 @@ class OwnerController extends Controller
         // creamos el owner en solo una linea
         //Owner::create($request->all());
 
+        // validaciones
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required'
+        ]);
+
         // creamos el owner cojiendo los valores del input
         $Owner = new Owner();
         $Owner->name = $request->input('name');

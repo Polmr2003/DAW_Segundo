@@ -13,6 +13,20 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
+
+                <!-- mostramos los errores al introducir los campos -->
+                @if ($errors->any())
+                    <div class="alert alert-danger" id="errors_div">
+                        <strong>Error:</strong><br><br>
+                        <ul >
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <!-- Formulario donde añadimos el usuario -->
                 <form action="{{ route('Owner.store') }}" method="post">
                     <!-- Token necesario para hacer el create -->
                     @csrf
