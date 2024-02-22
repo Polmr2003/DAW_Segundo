@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">email</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Modificar</th>
                     <th scope="col">Eliminar</th>
                 </tr>
@@ -33,19 +33,27 @@
                         <td id="buton">
                             <!-- Boton tipo modal -->
                             <button type="button" class="btn btn-success btn-log" data-bs-toggle="modal"
-                                data-bs-target="#modify">
+                                data-bs-target="#modify{{ $owner->id }}">
                                 Modificar Propietario
                             </button>
                         </td>
                         <td id="buton">
-                            <button type="button" class="btn btn-danger">Eliminar Propietario</button>
+                            <!-- Boton tipo modal -->
+                            <button type="button" class="btn btn-danger btn-log" data-bs-toggle="modal"
+                                data-bs-target="#delete{{ $owner->id }}">
+                                Eliminar Propietario
+                            </button>
                         </td>
                     </tr>
+                    <!-- Incluimos la vista tipo modal donde esta modificar usuarios -->
+                    @include('Options.Owner.Modify_Owner_Modal')
+
+                    <!-- Incluimos la vista tipo modal donde esta eliminar usuarios -->
+                    @include('Options.Owner.Delete_Owner_Modal')
                 @endforeach
             </tbody>
         </table>
     </div>
 
-    <!-- Contenido -->
-    @include('Options.Owner.Modify_Owner_Modal')
+
 @endsection

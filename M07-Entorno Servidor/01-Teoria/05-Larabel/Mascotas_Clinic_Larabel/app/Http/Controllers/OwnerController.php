@@ -73,22 +73,39 @@ class OwnerController extends Controller
      */
     public function edit(Owner $owner)
     {
-        return view("Options.Owner.Modify_Owner");
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Owner $owner)
+    public function update(Request $request, $id)
     {
-        //
+        // Buscamos el owner con el id que le hemos pasado
+        $Owner = Owner::find($id);
+
+        // Actualizamos su nombre, su email i lo actualizamos en la base de datos
+        $Owner->name = $request->input('name');
+        $Owner->email = $request->input('email');
+        $Owner->update();
+
+        // luego de actualizar el owner vamos a el listado
+        return redirect("Owner");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Owner $owner)
+    public function destroy(Owner $owner, $id)
     {
-        //
+        // Buscamos el owner con el id que le hemos pasado
+        $Owner = Owner::find($id);
+
+        // borramos el usuario
+        $Owner->delete();
+
+        // luego de actualizar el owner vamos a el listado
+        return redirect("Owner");
+
     }
 }

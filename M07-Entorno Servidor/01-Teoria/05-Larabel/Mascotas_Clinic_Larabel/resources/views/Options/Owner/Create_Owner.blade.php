@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
-                <form method="post" action="{{ route('Owner.store') }}">
+                <form action="{{ route('Owner.store') }}" method="post">
                     <!-- Token necesario para hacer el create -->
                     @csrf
 
