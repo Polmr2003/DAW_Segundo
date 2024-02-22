@@ -1,4 +1,4 @@
-<x-Layouts.app>
+<!-- <x-Layouts.app>
 
     <x-slot name="title">
         Create
@@ -62,4 +62,4 @@
             <input type="submit" value="Enviar formulario" />
         </form>
     </div>
-</x-Layouts.app>
+</x-Layouts.app> -->

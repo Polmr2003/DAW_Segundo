@@ -60,6 +60,8 @@ Listar propietarios
             @endforeach
         </tbody>
     </table>
+    <!-- Paginator -->
+    {{$owners->links()}}
 </div>
 
 

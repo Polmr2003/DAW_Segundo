@@ -14,22 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$post = [
-    ['title' => '1r post'],
-    ['title' => '2n post'],
-    ['title' => '3r post'],
-    ['title' => '4t post'],
-];
+// $post = [
+    // ['title' => '1r post'],
+    // ['title' => '2n post'],
+//     ['title' => '3r post'],
+//     ['title' => '4t post'],
+// ];
 
 // // cuando el usuario no pone nada ("/") nos redirigira a cursos ("/cursos") || para que esto funcione hay que comentar la linea get que tenga la /
 // Route::redirect('/', 'posts');
 
 // Route::view(direccion en la URL, Nombre de la Vista, cotenido que le pasamos a la vista)->name(Nombre que nos referiremos a esta vista);
-Route::view('/', 'Layouts.app')->name('home');
-Route::view('/listar', 'Options.List')->name('listar');
-Route::view('/buscar', 'Options.Buscar', ['post' => $post])->name('buscar');
-Route::view('/modificar', 'Options.Modificar')->name('modificar');
-Route::view('/create', 'POSTS.create')->name('POSTS.create');
+// Route::view('/', 'Layouts.app')->name('home');
+// Route::view('/listar', 'Options.List')->name('listar');
+// Route::view('/buscar', 'Options.Buscar', ['post' => $post])->name('buscar');
+// Route::view('/modificar', 'Options.Modificar')->name('modificar');
+// Route::view('/create', 'POSTS.create')->name('POSTS.create');
 
 // Route::get('/buscar', function () {
 //     $post = [
@@ -87,10 +87,10 @@ Route::view('/create', 'POSTS.create')->name('POSTS.create');
 */
 
 // Route::get('/posts', PostController::class)->name('posts.index');
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crate');
-Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+// Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+// Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crate');
+// Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+// Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 
 /*
 |--------------------------------------------------------------------------
@@ -98,7 +98,7 @@ Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.e
 |--------------------------------------------------------------------------
 */
 
-Route::post('/post', [PostController::class, 'store'])->name('posts.store');
+// Route::post('/post', [PostController::class, 'store'])->name('posts.store');
 
 /*
 |--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ Route::post('/post', [PostController::class, 'store'])->name('posts.store');
 |--------------------------------------------------------------------------
 */
 
-Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+// Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
 
 /*
 |--------------------------------------------------------------------------
@@ -114,7 +114,7 @@ Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.upda
 |--------------------------------------------------------------------------
 */
 
-Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+// Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 /*
 |--------------------------------------------------------------------------

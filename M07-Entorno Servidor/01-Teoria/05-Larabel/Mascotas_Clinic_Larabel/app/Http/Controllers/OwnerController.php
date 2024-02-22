@@ -16,8 +16,9 @@ class OwnerController extends Controller
         // recojemos descendentemente todos los owners de la base de datos por orden de fecha (created_at)
         //$owners = Owner::latest()->get();
 
-        // recojemos todos los owners de la base de datos
-        $owners = Owner::all();
+        // recojemos descendentemente todos los owners de la base de datos por orden de fecha (created_at) i lo ponemos con paginate
+        // -> paginate no funciona con all() solo con latest()
+        $owners = Owner::latest()->paginate(5);
 
         // retornamos la vista donde visualizamos todos los owners i le pasamos los owners recojidos enteriormente con un array asociativo con la key owners
         return view("Options.Owner.List_Owner", ['owners' => $owners]);
@@ -56,7 +57,7 @@ class OwnerController extends Controller
         //return redirect()->back();
 
         // luego de crear el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso 
-        return redirect("Owner")->with('success','Propietario creado exitosamente');
+        return redirect("Owner")->with('success', 'Propietario creado exitosamente');
     }
 
     /**
@@ -79,7 +80,6 @@ class OwnerController extends Controller
      */
     public function edit(Owner $owner)
     {
-
     }
 
     /**
@@ -111,7 +111,6 @@ class OwnerController extends Controller
         $owner->delete();
 
         // luego de actualizar el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso 
-        return redirect("Owner")->with('success','Propietario eliminado exitosamente');
-
+        return redirect("Owner")->with('success', 'Propietario eliminado exitosamente');
     }
 }
