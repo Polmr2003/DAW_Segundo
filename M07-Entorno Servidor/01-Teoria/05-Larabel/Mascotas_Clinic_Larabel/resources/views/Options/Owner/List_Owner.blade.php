@@ -30,11 +30,22 @@
                         <td>{{ $owner->id }}</td>
                         <td>{{ $owner->name }}</td>
                         <td>{{ $owner->email }}</td>
-                        <td id="buton"><button type="button" class="btn btn-success">Modificar Propietario</button></td>
-                        <td id="buton"><button type="button" class="btn btn-danger">Eliminar Propietario</button></td>
+                        <td id="buton">
+                            <!-- Boton tipo modal -->
+                            <button type="button" class="btn btn-success btn-log" data-bs-toggle="modal"
+                                data-bs-target="#modify">
+                                Modificar Propietario
+                            </button>
+                        </td>
+                        <td id="buton">
+                            <button type="button" class="btn btn-danger">Eliminar Propietario</button>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+
+    <!-- Contenido -->
+    @include('Options.Owner.Modify_Owner_Modal')
 @endsection
