@@ -8,7 +8,7 @@
 
 <!-- Contenido de la paguina -->
 @section('content')
-    <!-- Contenido de la paguina -->
+    <!-- Contenido -->
     <h1>Buscar propietarios</h1>
 
     <div class="table-responsive">
@@ -34,5 +34,4 @@
             </tbody>
         </table>
     </div>
-
 @endsection
