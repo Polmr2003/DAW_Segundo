@@ -16,14 +16,18 @@ use App\Http\Controllers\OwnerController;
 |
 */
 
-// cuando no ponga nada el usuario nos ira a la ruta que le halla puesto en este caso el controlador OwnerController
-// -> i nos ejecutara el metodo que le hemos puesto en este caso 'index'
-Route::get('/', [App\Http\Controllers\OwnerController::class, 'index']);
+// cuando no ponga nada el usuario se ira al controlador OwnerController i nos ejecutara 
+// -> el metodo que le hemos puesto en este caso 'index'
+Route::get('/', [OwnerController::class, 'index']);
+
+Route::get('/Owner/search_by_id', [OwnerController::class, 'search_by_id'])->name('Owner.search_by_id');
+Route::get('/Owner/search', [OwnerController::class, 'search'])->name('Owner.search');
 
 // recurso owner con el crud, lo definimos con resource i el nombre del controlador, cuando lo creas ya te define
 // -> las rutas con el nombre que le hallas puesto en este caso Owner i luego el metodo (Owner.index, etc...,
 //-> Solamante te crea para los metodos que estan por defecto)
 Route::resource('Owner', OwnerController::class);
+
 
 // Si queremos crear la ruta para un metodo que hallamos creado nosotros (no los que estan por defecto):
 //Route::get('/Owner/NombreDeLaRutaQueQueramosParaElMetodo', [App\Http\Controllers\OwnerController::class, 'Metodo'])->name('Owner.Metodo');

@@ -9,7 +9,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="{{ route('Owner.index') }}">Listar Propietarios</a>
                     <a class="dropdown-item" href="{{ route('Owner.create') }}">Añadir un Propietario</a>
-                    {{-- <a class="dropdown-item" href="{{ route('Owner.modify') }}">Modificar un Propietario</a> --}}
+                    <a class="dropdown-item" href="{{ route('Owner.search_by_id') }}">Buscar Propietario por ID</a>
                 </div>
             </div>
 

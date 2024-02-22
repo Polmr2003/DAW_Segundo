@@ -65,14 +65,6 @@ class OwnerController extends Controller
      */
     public function show(Owner $owner)
     {
-        // recojemos descendentemente todos los owners de la base de datos por orden de fecha (created_at)
-        //$owners = Owner::latest()->get();
-
-        // recojemos todos los owners de la base de datos
-        $owners = Owner::all();
-
-        // retornamos la vista donde visualizamos todos los owners i le pasamos los owners recojidos enteriormente con un array asociativo con la key owners
-        return view("Options.Owner.List_Owner", ['owners' => $owners]);
     }
 
     /**
@@ -112,5 +104,31 @@ class OwnerController extends Controller
 
         // luego de actualizar el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso 
         return redirect("Owner")->with('success', 'Propietario eliminado exitosamente');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function search_by_id()
+    {
+        return view("Options.Owner.Search_Owner");
+    }
+
+    public function search(Request $request)
+    {
+        // recojemos el valor de el input con el id
+        $id_owner = $request->input('id');
+
+        // Buscamos el owner con el id que le hemos pasado
+        $owner = Owner::find($id_owner);
+
+        // Convertimos el resultado en una colección, independientemente de si se encontró o no el owner
+        $owners = collect();
+        if ($owner) {
+            $owners->push($owner);
+        }
+
+        // Retornamos la vista pasando la colección de owners
+        return view("Options.Owner.Owner", ['owner_find' => $owners]);
     }
 }
