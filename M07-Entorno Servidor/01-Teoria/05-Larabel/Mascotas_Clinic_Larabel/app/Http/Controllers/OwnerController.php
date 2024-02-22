@@ -55,8 +55,8 @@ class OwnerController extends Controller
         // luego de crear el owner volvemos a la pantalla anterior (create)
         //return redirect()->back();
 
-        // luego de crear el owner vamos a el listado
-        return redirect("Owner");
+        // luego de crear el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso 
+        return redirect("Owner")->with('success','Propietario creado exitosamente');
     }
 
     /**
@@ -105,13 +105,13 @@ class OwnerController extends Controller
     public function destroy(Owner $owner, $id)
     {
         // Buscamos el owner con el id que le hemos pasado
-        $Owner = Owner::find($id);
+        $owner = Owner::find($id);
 
         // borramos el usuario
-        $Owner->delete();
+        $owner->delete();
 
-        // luego de actualizar el owner vamos a el listado
-        return redirect("Owner");
+        // luego de actualizar el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso 
+        return redirect("Owner")->with('success','Propietario eliminado exitosamente');
 
     }
 }

@@ -65,8 +65,14 @@ table, th, tr, td {
     max-width: 50px;
 }
 
-#errors_div{
+#div_info{
     margin-top: 10px;
     max-width: 400px;
     margin-left: 120px;
+}
+#div_info_success{
+    text-align: center;
+    margin-top: 10px;
+    max-width: 400px;
+    margin-left: 550px;
 }
