@@ -20,6 +20,8 @@
                     <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">email</th>
+                    <th scope="col">Modificar</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +30,8 @@
                         <td>{{ $owner->id }}</td>
                         <td>{{ $owner->name }}</td>
                         <td>{{ $owner->email }}</td>
+                        <td id="buton"><button type="button" class="btn btn-success">Modificar Propietario</button></td>
+                        <td id="buton"><button type="button" class="btn btn-danger">Eliminar Propietario</button></td>
                     </tr>
                 @endforeach
             </tbody>

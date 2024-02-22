@@ -34,7 +34,7 @@ input[type="submit"], input[type="reset"] {
 }
 
 input[type="radio"], input[type="checkbox"] {
-    display: inline;    
+    display: inline;
 }
 
 table, th, tr, td {
@@ -54,9 +54,13 @@ table, th, tr, td {
 
 .img{
     float: left;
-    height: 3em; 
+    height: 3em;
 }
 
 .form{
     text-align: center;
+}
+
+#buton{
+    max-width: 50px;
 }

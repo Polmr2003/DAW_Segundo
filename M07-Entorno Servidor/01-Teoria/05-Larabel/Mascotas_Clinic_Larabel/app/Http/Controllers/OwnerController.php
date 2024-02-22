@@ -39,14 +39,14 @@ class OwnerController extends Controller
 
         // creamos el owner en solo una linea
         //Owner::create($request->all());
-        
+
         // creamos el owner cojiendo los valores del input
         $Owner = new Owner();
         $Owner->name = $request->input('name');
         $Owner->email = $request->input('email');
         $Owner->save();
 
-        // luego de crear el owner volvemos a la pantalla anterior (create) 
+        // luego de crear el owner volvemos a la pantalla anterior (create)
         //return redirect()->back();
 
         // luego de crear el owner vamos a el listado
@@ -58,7 +58,14 @@ class OwnerController extends Controller
      */
     public function show(Owner $owner)
     {
-        //
+        // recojemos descendentemente todos los owners de la base de datos por orden de fecha (created_at)
+        //$owners = Owner::latest()->get();
+
+        // recojemos todos los owners de la base de datos
+        $owners = Owner::all();
+
+        // retornamos la vista donde visualizamos todos los owners i le pasamos los owners recojidos enteriormente con un array asociativo con la key owners
+        return view("Options.Owner.List_Owner", ['owners' => $owners]);
     }
 
     /**
@@ -66,7 +73,7 @@ class OwnerController extends Controller
      */
     public function edit(Owner $owner)
     {
-        //
+        return view("Options.Owner.Modify_Owner");
     }
 
     /**
