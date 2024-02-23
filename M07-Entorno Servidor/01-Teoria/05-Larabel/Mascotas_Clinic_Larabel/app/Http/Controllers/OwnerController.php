@@ -29,7 +29,10 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        return view("Options.Owner.Create_Owner");
+        // cojemos los valores de el enum i se lo pasamos a la vista
+        $options = Owner::getStatusOptions();
+
+        return view("Options.Owner.Create_Owner", ['enum' => $options]);
     }
 
     /**
@@ -44,19 +47,21 @@ class OwnerController extends Controller
         // validaciones
         $request->validate([
             'name' => 'required',
-            'email' => 'required'
+            'email' => 'required',
+            'sexe' => 'required'
         ]);
 
         // creamos el owner cojiendo los valores del input
         $Owner = new Owner();
         $Owner->name = $request->input('name');
         $Owner->email = $request->input('email');
+        $Owner->sexe = $request->input('sexe');
         $Owner->save();
 
         // luego de crear el owner volvemos a la pantalla anterior (create)
         //return redirect()->back();
 
-        // luego de crear el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso 
+        // luego de crear el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso
         return redirect("Owner")->with('success', 'Propietario creado exitosamente');
     }
 
@@ -102,7 +107,7 @@ class OwnerController extends Controller
         // borramos el usuario
         $owner->delete();
 
-        // luego de actualizar el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso 
+        // luego de actualizar el owner vamos a el listado i le pasamos como variable de session un key secces con valor con un mensaje exitoso
         return redirect("Owner")->with('success', 'Propietario eliminado exitosamente');
     }
 
