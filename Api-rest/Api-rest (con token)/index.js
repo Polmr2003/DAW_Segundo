@@ -22,12 +22,16 @@ const users = [
 //carrega del framework express
 const express =require('express');
 const app = express();
+
 //carrega del paquet jsonwebtoken
+//tenemos que instalarlo con: npm i --save body-parser jsonwebtoken
 const jwt = require('jsonwebtoken');
+
 //carrega del body-parser per a recollir el que ens vindrà
 //del frontend
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+
 //paraula secreta necessària en el token
 const accessTokenSecret = 'youraccesstokensecret';
 
