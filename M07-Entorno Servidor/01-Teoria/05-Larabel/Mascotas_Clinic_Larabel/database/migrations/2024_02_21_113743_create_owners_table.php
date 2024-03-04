@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->id(); // id auto incremental
             $table->string('name', 45); // tipe string de nombre name con un maximo de 45 caracteres i unico
             $table->string('email')->unique(); // tipe string de nombre email
+            $table->enum('sexe', ['home', 'dona', 'altra']); //->default('home')s
 
             // 2n metodo de crear una clave foranea: foreign key references
             // $table->unsignedBigInteger('users_id_');

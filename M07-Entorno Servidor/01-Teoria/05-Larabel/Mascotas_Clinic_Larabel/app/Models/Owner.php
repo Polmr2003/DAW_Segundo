@@ -18,4 +18,16 @@ class Owner extends Model
     // campos que se pueden editar de la tabla
     protected $fillable = ['name', 'telefono'];
 
+
+
+    /**
+     * Get the possible enum values for status.
+     *
+     * @return array
+     */
+    public static function getStatusOptions()
+    {
+        return ['home', 'dona', 'altra'];
+    }
+
 }

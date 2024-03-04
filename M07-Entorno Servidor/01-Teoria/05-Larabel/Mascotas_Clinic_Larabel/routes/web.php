@@ -16,7 +16,7 @@ use App\Http\Controllers\OwnerController;
 |
 */
 
-// cuando no ponga nada el usuario se ira al controlador OwnerController i nos ejecutara 
+// cuando no ponga nada el usuario se ira al controlador OwnerController i nos ejecutara
 // -> el metodo que le hemos puesto en este caso 'index'
 Route::get('/', [OwnerController::class, 'index']);
 
