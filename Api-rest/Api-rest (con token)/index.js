@@ -37,6 +37,8 @@ const accessTokenSecret = 'youraccesstokensecret';
 
 //atenem la petició de login
 app.post('/login', (req, res) => {
+    //res.sendFile(process.cwd()+"/view/index.html"); //angular dins del servidor
+    
     // Read username and password from request body
     const { username, password } = req.body;
 
