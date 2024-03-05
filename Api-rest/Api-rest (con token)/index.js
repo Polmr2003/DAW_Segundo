@@ -5,19 +5,6 @@
 //  * 
 //  */
 
-//usuaris  fixos per a fer la prova. 
-// const users = [
-//     {
-//         username: 'john',
-//         password: 'password123admin',
-//         role: 'admin'
-//     }, {
-//         username: 'anna',
-//         password: 'password123member',
-//         role: 'member'
-//     }
-// ];
-
 //carrega del framework express
 const express = require('express');
 const app = express();
@@ -33,6 +20,29 @@ app.use(bodyParser.json());
 
 //paraula secreta necessària en el token
 const accessTokenSecret = 'youraccesstokensecret';
+
+//usuaris  fixos per a fer la prova. 
+// const users = [
+//     {
+//         username: 'john',
+//         password: 'password123admin',
+//         role: 'admin'
+//     }, {
+//         username: 'anna',
+//         password: 'password123member',
+//         role: 'member'
+//     }
+// ];
+
+////// COMPTE: hem d'instal·lar mysql per a Node Express amb npm i -S mysql
+
+////// declarem els paràmetres de connexió
+var connection = mysql.createConnection({
+    host: 'localhost',
+    database: 'Zoo',
+    user: 'root',
+    password: ''
+});
 
 //creem una constant que farà de middleware a qui el faci servir (get i post de books)
 const authenticateJWT = (req, res, next) => {
