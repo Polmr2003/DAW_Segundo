@@ -103,7 +103,7 @@ app.get('/zoo/listar', (req, res) => {
                 message: "Error en la autenticación"
             });
         } else {
-
+            
             let id = results.map(results => results.id);
             let especie = results.map(results => results.especie);
             let sexe = results.map(results => results.sexe);

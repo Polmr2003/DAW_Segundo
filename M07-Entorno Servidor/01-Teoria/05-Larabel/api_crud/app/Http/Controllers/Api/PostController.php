@@ -42,7 +42,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        // return response()->json([
+        //     'message' => "Successfully deleted",
+        //     'success' => true
+        // ], 200);
     }
 
     /**
