@@ -19,12 +19,20 @@ export class ProvesConnectarComponent implements OnInit {
 
   getUsers() {
     this.ConectarService.getUsers().subscribe(
-      (result) => {
+      (result: any) => {
         // Accedemos a la posicion que queramos de el array de objetos i mostramos el valor
         //result.resultats[posicion].nombreDeLaColumnaQueHayEnLaBaseDeDatos
         const usuario = result.resultats[0].username;
+        
+        // Para añadirlo en un array de objetos tipo events
+        // for (let index = 0; index < result.resultats.length; index++) {
+        //   this.events.push(new Events(result.resultats[index].id, result.resultats[index].nombre));
+        //   }
 
         console.log(result.resultats);
+      },
+      error => {
+        console.error('Error al obtener los eventos:', error);
       }
     );
   }
