@@ -10,7 +10,10 @@ import { map} from 'rxjs/operators';
 })
 export class HttpService {
 
+  // url de la api
   url:string='http://localhost:3000';
+
+  //
   private usuariSubject: BehaviorSubject<any>;
   public usuario:Observable<any>;//part public del Behabiour Subject
 
@@ -25,8 +28,8 @@ export class HttpService {
 
   }
 
-
-
+  // funciones para conectarse a la api con sus recursos
+  
   getUsers():Observable<any>{
     return this._http.get(this.url+"/allUsers");
   }
