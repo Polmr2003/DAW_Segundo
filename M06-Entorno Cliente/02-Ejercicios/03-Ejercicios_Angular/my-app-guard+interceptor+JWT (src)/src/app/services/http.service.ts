@@ -32,12 +32,9 @@ export class HttpService {
   }
 
   validateLogin(name: string,pass:string):Observable<any>{
-    console.log("enviar ==> login");
-    
+        
     return this._http.post<any>(this.url+"/login", {"usuari":name,"contrasenya":pass}, {responseType: "json" }).pipe(
       map(res =>{
-        console.log("Resposta del servidor");
-        console.log(JSON.stringify(res));
 
         if(!res.error){
           //  const user:User=new User(res.data.dni ,res.data.role);
