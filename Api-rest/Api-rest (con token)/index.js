@@ -44,7 +44,7 @@ var connection = mysql.createConnection({
     password: ''
 });
 
-//creem una constant que farà de middleware a qui el faci servir (get i post de books)
+//creemos una constant que hara de middleware a quien la haga servir
 const authenticateJWT = (req, res, next) => {
     // cojemos el atributo authorization de la request(req) que contiene la información de autenticación
     const authHeader = req.headers.authorization;

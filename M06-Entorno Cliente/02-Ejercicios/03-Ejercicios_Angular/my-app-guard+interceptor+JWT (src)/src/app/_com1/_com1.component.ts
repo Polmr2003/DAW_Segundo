@@ -32,7 +32,7 @@ export class Com1Component implements OnInit {
   ngOnInit(): void {
 
   }
-  
+
   testLogin():void{
     //login
     let usuari:any=this.loginForm.value.usuari;
@@ -47,8 +47,9 @@ export class Com1Component implements OnInit {
           console.log("Usuari correcte");
           this.route.navigate(['/home']);
         }
-
-
+      },
+      error => {
+        console.error('Error al obtener los eventos:', error);
       }
      );
   }

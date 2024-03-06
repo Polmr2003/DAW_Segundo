@@ -44,24 +44,40 @@ var connection = mysql.createConnection({
     password: ''
 });
 
-//creem una constant que farà de middleware a qui el faci servir (get i post de books)
+//creemos una constant que hara de middleware a quien la haga servir
 const authenticateJWT = (req, res, next) => {
+    // cojemos el atributo authorization de la request(req) que contiene la información de autenticación
     const authHeader = req.headers.authorization;
 
+    // verificamos si existe un encabezado de autorización en la solicitud HTTP 
     if (authHeader) {
-        const token = authHeader.split(' ')[1];
+        // dividimos el encabezado de autorización para extraer el token
+        const token = authHeader.split(' ')[1]; // [índice 1] contiene el token de autenticación real
 
+        // verificamos la validez del token de autenticación utilizando una función proporcionada por una biblioteca de JWT
         jwt.verify(token, accessTokenSecret, (err, user) => {
+            // comprobamos los errores
             if (err) {
-                console.log(err)
+                // si a habido un error
+                // mostramos por console el error
+                console.error('Error: ' + err.stack);
+
+                // retornamos una respuesta con un código de estado 403(Forbidden) 
                 return res.sendStatus(403);
+            } else {
+                // si no a habido un error
+                // recojemos los datos, La propiedad user(req.user) se utiliza para almacenar los datos del usuario autenticado
+                // i user es el objeto que contiene los datos del usuario autenticado
+                req.user = user;
+
+                // pasamos el control al siguiente middleware en la cadena(La funcion con el CRUD)
+                next();
             }
 
-            req.user = user;
-            next();
         });
     } else {
-        res.sendStatus(401);
+        // si no existe un encabezado de autorizacion mandaremos una respuesta con un mensaje de error
+        res.json({ error: true, data: "Permís denegat al servidor" });
     }
 };
 

@@ -25,8 +25,9 @@ export class Com2Component implements OnInit {
         }else{
             this.message=result.data;
         }
-
-
+      },
+      error => {
+        console.error('Error al obtener los eventos:', error);
       }
     );
   }
