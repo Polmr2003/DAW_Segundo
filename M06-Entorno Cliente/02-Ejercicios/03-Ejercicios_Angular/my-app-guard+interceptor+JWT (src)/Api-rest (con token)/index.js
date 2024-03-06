@@ -67,7 +67,7 @@ const authenticateJWT = (req, res, next) => {
             } else {
                 // si no a habido un error
                 // recojemos los datos, La propiedad user(req.user) se utiliza para almacenar los datos del usuario autenticado
-                // i user es el objeto que contiene los datos del usuario autenticado
+                // i user es el objeto que contiene los datos del usuario autenticado que hemos añadido al crear el token
                 req.user = user;
 
                 // pasamos el control al siguiente middleware en la cadena(La funcion con el CRUD)
@@ -117,8 +117,8 @@ app.post('/login', (req, res) => {
             // Verificar si se encontró una coincidencia
             if (results.length === 1) {
                 // Si no a habido ningun error, a encontrado el usuario
-                // generem un token
-                const accessToken = jwt.sign({ username: user.username, role: user.role }, accessTokenSecret);
+                // generem un token, que incluira el nombre de usuario de el resultado de la consulta i su rol
+                const accessToken = jwt.sign({ username: results[0].username, role: results[0].role }, accessTokenSecret); // si queremos que expire pondremos accessTokenSecret, { expiresIn: '20m' }
 
                 // Enviamos una respuesta con un código de estado 200 (OK) y un objeto JSON con:
                 // un booleno de error a false, un array de resultats con los resultados i enviamos un mensage satisfactorio
@@ -175,6 +175,7 @@ const books = [
 //get de books: si passa el control del middleware hi entrarà 
 //i enviarà tots els llibres
 app.get('/books', authenticateJWT, (req, res) => {
+    // api.get....(api/:username)
     res.json(books);
 });
 
@@ -182,7 +183,7 @@ app.get('/books', authenticateJWT, (req, res) => {
 //i comprovarà el rol. Només si som admin ens deixa afegir un llibre
 
 app.post('/books', authenticateJWT, (req, res) => {
-    //recollim el rol del user autenticat
+    // Accedemos al objeto user i cojemos la propiedad de role que hemos añadido a nuestro token cunando lo hemos creado en el recurso de login
     const role = req.user.role;
 
     if (role !== 'admin') {
