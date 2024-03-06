@@ -27,6 +27,7 @@ var connection = mysql.createConnection({
 // Ruta POST para el login de los usuarios
 // establecemos una ruta POST en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes POST enviadas a esa URL específica.
 app.post('/zoo/login', (req, res) => {
+    // api.get....(api/:username)
     // extraemos los valores del cuerpo de la solicitud (req.body). Estos valores se envían desde el cliente como parte de la solicitud POST
     const { usuari, password } = req.body;
 
