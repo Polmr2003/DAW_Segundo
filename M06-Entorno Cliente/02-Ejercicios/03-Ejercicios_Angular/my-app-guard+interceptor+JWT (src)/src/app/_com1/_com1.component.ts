@@ -32,6 +32,7 @@ export class Com1Component implements OnInit {
   ngOnInit(): void {
 
   }
+  
   testLogin():void{
     //login
     let usuari:any=this.loginForm.value.usuari;
