@@ -42,12 +42,12 @@ export class HttpService {
         if(!res.error){
           //  const user:User=new User(res.data.dni ,res.data.role);
            console.log("Objecte Usuari");
-           console.log(res.data);
+           console.log(res.token);
 
-          localStorage.setItem('myToken',res.data);
+          localStorage.setItem('myToken',res.token);
 
 
-          this.usuariSubject.next(res.data);
+          this.usuariSubject.next(res.token);
         }
         return res;
 
