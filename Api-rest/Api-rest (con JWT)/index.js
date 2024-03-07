@@ -9,6 +9,13 @@
 const express = require('express');
 const app = express();
 
+//DEJO ENTRAR A LAS RUTAS DESDE FUERA, EVITO ERROR CORS
+const cors = require('cors');
+app.use(cors())
+
+// carrega la base de datos
+const mysql = require('mysql');
+
 //carrega del paquet jsonwebtoken
 //tenemos que instalarlo con: npm i --save body-parser jsonwebtoken
 const jwt = require('jsonwebtoken');
