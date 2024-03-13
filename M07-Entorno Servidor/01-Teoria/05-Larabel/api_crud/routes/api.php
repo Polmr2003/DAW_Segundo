@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// verifiacacion con middleware Auth para ver si esta creado el token qye eso lo hace con sanctum
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -25,3 +26,5 @@ Route::apiResource('posts', PostController::class)->except([
     'show',
     'edit'
 ]);
+
+Route::post('/login', [PostController::class, 'login']);
