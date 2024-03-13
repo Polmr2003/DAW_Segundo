@@ -199,7 +199,30 @@ app.post('/books', authenticateJWT, (req, res) => {
     const book = req.body
     books.push(book);
     res.send('Book added successfully');
-    
+
+});
+
+app.put('/update/:id', function (req, res) {
+    const { id } = req.params;
+    const { nombre, descripcion, fecha, hora, creado_por } = req.body;
+
+    const sql = 'UPDATE events SET nombre = ?, descripcion = ?, fecha = ?, hora = ?, creado_por = ? WHERE id = ?';
+
+    connection.query(sql, [nombre, descripcion, fecha, hora, creado_por, id], function (error, results) {
+        if (error) {
+            console.error('Error al actualizar el evento:', error.message);
+            res.status(400).json({
+                error: true,
+                message: "Error al actualizar el evento"
+            });
+        } else {
+            res.status(200).json({
+                error: false,
+                results: results,
+                message: "Evento actualizado correctamente"
+            });
+        }
+    });
 });
 
 app.listen(3000, () => {

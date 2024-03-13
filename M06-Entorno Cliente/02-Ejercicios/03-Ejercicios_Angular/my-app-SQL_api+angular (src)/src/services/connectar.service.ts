@@ -19,4 +19,13 @@ export class ConnectarService {
 
   }
 
+  // update(id: string, event: any): Observable<any> {
+  //   return this._http.put<any>(`${this.url}/events/${id}`, event, { responseType: 'json' }).pipe(
+  //     map(res => {
+  //       console.log("Respuesta del servidor al actualizar:", JSON.stringify(res));
+  //       return res;
+  //     })
+  //   );
+  // }
+
 }

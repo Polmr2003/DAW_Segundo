@@ -36,4 +36,18 @@ export class ProvesConnectarComponent implements OnInit {
       }
     );
   }
+
+  // editarEvento() {
+  //   if (this.editEvent.valid) {
+  //     this.db.update(this.editEvent.value.id, this.editEvent.value).subscribe(
+  //       (result: any) => {
+  //         this.getEvents();
+  //       },
+  //       error => {
+  //         console.error('Error al actualizar el evento:', error);
+  //       }
+  //     );
+  //   }
+  // }
+  
 }

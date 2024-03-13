@@ -26,7 +26,7 @@ var connection = mysql.createConnection({
 
 // Ruta POST para el login de los usuarios
 // establecemos una ruta POST en la aplicación Express. La ruta es '/vueling/login', lo que significa que manejará solicitudes POST enviadas a esa URL específica.
-app.post('/zoo/login', (req, res) => {
+app.post('/login', (req, res) => {
     // api.get....(api/:username)
     // extraemos los valores del cuerpo de la solicitud (req.body). Estos valores se envían desde el cliente como parte de la solicitud POST
     const { usuari, password } = req.body;
@@ -83,7 +83,7 @@ app.post('/zoo/login', (req, res) => {
 
 // Ruta POST para el registro de los usuarios
 // establecemos una ruta POST en la aplicación Express. La ruta es '/vueling/register', lo que significa que manejará solicitudes POST enviadas a esa URL específica.
-app.post('/zoo/register', function (req, res) {
+app.post('/register', function (req, res) {
     // extraemos los valores del cuerpo de la solicitud (req.body). Estos valores se envían desde el cliente como parte de la solicitud POST
     const {especie, sexe, any_naixement, pais, continent } = req.body;
 
@@ -121,7 +121,7 @@ app.post('/zoo/register', function (req, res) {
 
 // Ruta GET para recojer las ciudades de los vuelos en la base de datos
 // establecemos una ruta GET en la aplicación Express. La ruta es '/vueling/ciudades', lo que significa que manejará solicitudes GET enviadas a esa URL específica.
-app.get('/zoo/listar', (req, res) => {
+app.get('/listar', (req, res) => {
 
     // Realiza una consulta SQL para obtener las ciudades desde la base de datos
     connection.query('SELECT * FROM animals', function (error, results) {
@@ -153,6 +153,29 @@ app.get('/zoo/listar', (req, res) => {
                 message: "Datos recojidos correctamente"
             });
 
+        }
+    });
+});
+
+app.put('/update/:id', function (req, res) {
+    const { id } = req.params;
+    const { nombre, descripcion, fecha, hora, creado_por } = req.body;
+
+    const sql = 'UPDATE events SET nombre = ?, descripcion = ?, fecha = ?, hora = ?, creado_por = ? WHERE id = ?';
+
+    connection.query(sql, [nombre, descripcion, fecha, hora, creado_por, id], function (error, results) {
+        if (error) {
+            console.error('Error al actualizar el evento:', error.message);
+            res.status(400).json({
+                error: true,
+                message: "Error al actualizar el evento"
+            });
+        } else {
+            res.status(200).json({
+                error: false,
+                results: results,
+                message: "Evento actualizado correctamente"
+            });
         }
     });
 });
