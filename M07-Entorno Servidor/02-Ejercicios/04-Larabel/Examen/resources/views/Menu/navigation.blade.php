@@ -7,7 +7,9 @@
                     Shows
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('show.list') }}">Listar Shows</a>
+                    <a class="dropdown-item" href="{{ route('show.list_all') }}">Listar todos</a>
+                    <a class="dropdown-item" href="{{ route('show.list_by_price') }}">Listar ordenados por precio</a>
+                    <a class="dropdown-item" href="{{ route('show.list_show_and_comment') }}">Listar Shows y VER comentarios</a>
                 </div>
             </div>
 
@@ -19,9 +21,8 @@
                     Commnets
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('show.view_com') }}">Ver comentarios</a>
-                    <a class="dropdown-item" href="{{ route('show.comment') }}">Comentar un show</a>
-                    <a class="dropdown-item" href="{{ route('show.modify_val') }}">Modificar valoracion</a>
+                    <a class="dropdown-item" href="{{ route('comment.comment_show') }}">Comentar un show</a>
+                    <a class="dropdown-item" href="{{ route('comment.update_view') }}">Actualizar un comentario</a>
                 </div>
             </div>
 
@@ -33,7 +34,7 @@
                     Categories
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('home') }}">Listar categorías y sus shows</a>
+                    <a class="dropdown-item" href="{{ route('categories.list') }}">Listar categorías y sus shows</a>
                 </div>
             </div>
 

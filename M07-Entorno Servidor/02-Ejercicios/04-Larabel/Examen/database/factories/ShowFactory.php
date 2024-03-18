@@ -17,12 +17,12 @@ class ShowFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'fecha' => fake()->date(),
-            'idioma' => fake()->name(),
+            'nombre' => fake()->name(),
+            'duracion' => fake()->time(),
+            'fechas' => fake()->date(),
+            'idiomas' => fake()->randomElement($idioma=['español', 'inglés', 'francés', 'alemán', 'italiano']),
             'precio' => fake()->numerify(),
-            'valoracion' => ""
+            'valoracion' => fake()->numberBetween(1, 5)
         ];
-
     }
 }
