@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ShowCategoriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,11 +23,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//
-Route::apiResource('posts', PostController::class)->except([
-    'create',
-    'show',
-    'edit'
-]);
+// C: Create
+Route::post('comment/create', [CommentController::class, 'store']);
 
-Route::post('/login', [PostController::class, 'login']);
+// R: Read
+Route::get('comment/get', [CommentController::class, 'index']);
+
+// U: Update
+Route::post('comment/update', [CommentController::class, 'update']);
+
+// D: Delete
+Route::post('comment/delete', [CommentController::class, 'destroy']);
+
+// Route::resource('comments', CommentController::class)->only([
+//     'index', 'show', 'store', 'update', 'destroy'
+// ]);
+
+// Route::apiResource('posts', PostController::class)->except([
+    //     'create',
+    //     'show',
+    //     'edit'
+    // ]);
