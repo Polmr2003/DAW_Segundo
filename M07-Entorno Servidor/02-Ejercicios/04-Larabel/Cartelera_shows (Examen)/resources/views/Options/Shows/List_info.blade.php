@@ -38,7 +38,7 @@ Listar propietarios
                 <td>{{ $shows->idiomas }}</td>
                 <td>{{ $shows->precio }}</td>
                 <td>{{ $shows->valoracion }}</td>
-                <td><img src="{{ asset('img/2.jpg') }}" alt="" style="max-width: 200px"></a></td>
+                <td><img src="{{ asset('img/'.$shows->id.'.jpg') }}" alt="" style="max-width: 200px"></a></td>
             </tr>
             @endforeach
         </tbody>
