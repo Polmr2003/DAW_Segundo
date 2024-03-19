@@ -47,6 +47,7 @@ class OwnerController extends Controller
         // validaciones
         $request->validate([
             'name' => 'required|string',
+            'edad' => 'required|integer|min:18',
             'email' => 'required',
             'sexe' => 'required'
         ]);
