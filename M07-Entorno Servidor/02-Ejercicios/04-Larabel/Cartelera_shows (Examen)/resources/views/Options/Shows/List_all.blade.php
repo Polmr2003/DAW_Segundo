@@ -27,7 +27,7 @@ Listar propietarios
             <tr>
                 <td>{{ $shows->nombre }}</td>
                 <td> <a href="{{ route('show.list_info', ['id' => $shows->id]) }}"> <!-- Link a la vista i le pasamos el id de el show -->
-                        <img src="{{ asset('img/2.jpg') }}" alt="" style="max-width: 200px"></a></td>
+                        <img src="{{ asset('img/'.$shows->id.'.jpg') }}" alt="" style="max-width: 200px"></a></td>
             </tr>
             @endforeach
         </tbody>

@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <!-- Menu -->
+        <!-- *ngIf="logeado" -->
+        <li class="nav-item">
+          <a *ngIf="!logeado" class="nav-link" routerLink="/register">Registro</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!logeado" class="nav-link" routerLink="/login">Identificarse</a>
+        </li>
+
+        <li class="nav-item">
+          <a *ngIf="logeado" class="nav-link" routerLink="/QuiSom">Qui som</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="logeado" class="nav-link" routerLink="/colecions">Col.lecions</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="logeado" class="nav-link" routerLink="/cistella">Cistella</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="logeado" class="nav-link" routerLink="/areaprivada">Area Privada</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="logeado" class="nav-link" routerLink="/logout">Logout</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

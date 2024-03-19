@@ -37,7 +37,7 @@ Listar propietarios
             <tr>
                 <td>{{ $shows->id }}</td>
                 <td>{{ $shows->nombre }}</td>
-                <td><img src="{{ asset('img/2.jpg') }}" alt="" style="max-width: 200px"></td>
+                <td><img src="{{ asset('img/'.$shows->id.'.jpg') }}" alt="" style="max-width: 200px"></td>
                 <td>
                     <a href="{{ route('comment.add_comment', ['id' => $shows->id]) }}" class="btn btn-primary">Comentar</a>
                 </td>

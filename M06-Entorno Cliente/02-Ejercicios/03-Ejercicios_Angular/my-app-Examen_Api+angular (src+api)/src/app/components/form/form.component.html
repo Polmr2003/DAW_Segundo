@@ -1,0 +1,78 @@
+<div class="login-container">
+  <div class="login-form">
+    <h2>Register</h2>
+    <form [formGroup]="formulari" (ngSubmit)="enviament()">
+      <!-- Nombre -->
+      <div class="form-group">
+        <label for="text">Enter your Name</label>
+        <input type="text" id="nanomUsuarime" formControlName="nomUsuari" class="form-control" placeholder="(email)" appValidarEmail>
+
+        <!-- Es obligatoria -->
+        <div *ngIf="this.formulari.get('nomUsuari')?.errors?.['required'] && this.formulari.get('nomUsuari')?.touched"
+          class="alert alert-danger" id="errors_div">
+          Aquest camp és obligatori.
+        </div>
+
+        <!-- Directiva con el patron -->
+        <div *ngIf="this.formulari.get('nomUsuari')?.errors?.['custom'] && this.formulari.get('nomUsuari')?.touched"
+          class="alert alert-danger" id="errors_div">
+          Pon un Email valido
+        </div>
+      </div>
+      
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Enter your password</label>
+        <input type="password" id="contrasenya" formControlName="contrasenya" class="form-control" placeholder="(DNI)" appValidarDni>
+
+        <!-- Es obligatoria -->
+        <div *ngIf="this.formulari.get('contrasenya')?.errors?.['required'] && this.formulari.get('contrasenya')?.touched"
+          class="alert alert-danger" id="errors_div">
+          Aquest camp és obligatori.
+        </div>
+
+        <!-- Directiva con el patron -->
+        <div *ngIf="this.formulari.get('contrasenya')?.errors?.['custom'] && this.formulari.get('contrasenya')?.touched"
+          class="alert alert-danger" id="errors_div">
+          Pon un Dni valido
+        </div>
+      </div>
+
+      <!-- Passowrd repeat -->
+      <div class="form-group">
+        <label for="password">Repeat your password</label>
+        <input type="password" appValidarRepetir=contrasenya class="form-control" id="password2"
+        placeholder="Repeteix contrasenya" autocomplete="off" formControlName="confirmarContrasenya">
+
+        <!-- Es obligatoria -->
+        <div *ngIf="this.formulari.get('confirmarContrasenya')?.errors?.['required'] && this.formulari.get('confirmarContrasenya')?.touched"
+          class="alert alert-danger" id="errors_div">
+          Aquest camp és obligatori.
+        </div>
+
+        <!-- Es obligatoria -->
+        <div *ngIf="this.formulari.get('confirmarContrasenya')?.errors?.['custom'] && this.formulari.get('confirmarContrasenya')?.touched"
+          class="alert alert-danger" id="errors_div">
+          Tienen que ser iguales las contrasenyas
+        </div>
+      </div>
+
+      <!-- Mensaje de errores -->
+      <div *ngIf="mensaje" [ngClass]="mensaje.includes('Error') ? 'alert-danger' : 'alert-success'"
+        class="alert mt-3">
+        {{ mensaje }}
+      </div>
+
+      <!-- Boton enviar-->
+      <button type="submit" class="btn register-btn" [disabled]="formulari.invalid">Create an account</button>
+    </form>
+
+    <form [formGroup]="formulari" (ngSubmit)="Enrere()" class="mt-5">
+      <!-- Boton Enrere-->
+      <div class="text-center mt-5">
+        <button type="submit" class="btn register-btn" [disabled]="formulari.invalid">Enrere</button>
+      </div>
+    </form>
+  
+  </div>
+</div>
