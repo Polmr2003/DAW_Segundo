@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <li *ngFor="let item of article |
+      paginate: { itemsPerPage: 10, currentPage: p }">
+                <strong>Nom:</strong> {{ item.nom }} | 
+                <strong>Descripcio:</strong> {{ item.descripcio }} | 
+                <strong>Preu:</strong> {{ item.preu }}€ 
+            </li>
+            <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Posterior">
+            </pagination-controls>
+        </div>
+    </div>
+</div>

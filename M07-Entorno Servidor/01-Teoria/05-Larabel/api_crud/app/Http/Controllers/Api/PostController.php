@@ -82,6 +82,7 @@ class PostController extends Controller
     {
         // recojemos los datos de la consulta
         $data = json_decode($request->getContent());
+        // $data = json_decode($request->getContent());
 
         // miramos si el usuario existe i lo recojemos en la variable user
         $user = User::where('email', $data->email)->first(); // first para recojer la primera coincidencia
