@@ -46,7 +46,7 @@ class OwnerController extends Controller
 
         // validaciones
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|string',
             'email' => 'required',
             'sexe' => 'required'
         ]);
