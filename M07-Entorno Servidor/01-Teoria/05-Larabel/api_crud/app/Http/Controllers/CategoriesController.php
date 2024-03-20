@@ -19,7 +19,7 @@ class CategoriesController extends Controller
         $categori = Categories::all();
 
         // si no esta vacio
-        if ($categori->isNotEmpty()) {
+        if ($categori) {
             // Si no esta vacio la variable categori
             // Enviamos una respuesta con un código de estado 200 ("ok") y un objeto JSON con:
             // un booleno de error a false, un array de data con los categorias i enviamos un mensage de error
@@ -67,7 +67,7 @@ class CategoriesController extends Controller
         $categori->save();
 
         // Verificamos si el categoria se creó correctamente
-        if ($categori->isNotEmpty()) {
+        if ($categori) {
             // Si no esta vacio la variable categori
             // Enviamos una respuesta con un código de estado 200 ("ok") y un objeto JSON con:
             // un booleno de error a false, un array de data con el categoria i enviamos un mensage de error
@@ -125,7 +125,7 @@ class CategoriesController extends Controller
         $categori->update();
 
         // Verificamos si el categoria se creó correctamente
-        if ($categori->isNotEmpty()) {
+        if ($categori) {
             // Si no esta vacio la variable categori
             // Enviamos una respuesta con un código de estado 200 ("ok") y un objeto JSON con:
             // un booleno de error a false, un array de data con el categoria i enviamos un mensage de error
@@ -163,7 +163,7 @@ class CategoriesController extends Controller
         $categori->delete();
 
         // Verificamos si el categoria se creó correctamente
-        if ($categori->isNotEmpty()) {
+        if ($categori) {
             // Si no esta vacio la variable categori
             // Enviamos una respuesta con un código de estado 200 ("ok") y un objeto JSON con:
             // un booleno de error a false, un array de data con el categoria i enviamos un mensage de error
