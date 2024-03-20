@@ -44,15 +44,16 @@ class CommentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function view_comments_by_show(Request $request)
+    public function view_comments_by_show($id)
     {
-        // Validamos lo que nos viene de la solicitud
-        $request->validate([
-            'show_id' => 'required|integer',
-        ]);
+        // // Validamos lo que nos viene de la solicitud
+        // $request->validate([
+        //     'show_id' => 'required|integer',
+        // ]);
 
         // Obtenemos todos los comentarios del show con el ID especificado
-        $comments = Comment::with('show')->where('show_id', $request->input('show_id'))->get();
+        // $comments = Comment::with('show')->where('show_id', $request->input('show_id'))->get();
+        $comments = Comment::with('show')->where('show_id', $id)->get();
 
         if ($comments->isNotEmpty()) {
             // Si no esta vacio la variable comments

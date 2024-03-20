@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Http\Requests\StoreCategoriesRequest;
 use App\Http\Requests\UpdateCategoriesRequest;
-use Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller

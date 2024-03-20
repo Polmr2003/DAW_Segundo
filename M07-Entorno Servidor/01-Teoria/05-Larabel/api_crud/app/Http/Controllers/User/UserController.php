@@ -18,11 +18,10 @@ class UserController extends Controller
 
         // si existe el usuario
         if ($user) {
-
-            // miramos si su contraseña coincide, como esta cifrada tendremos que utilizar Hash::check para hacer eso
+            // miramos si su contraseña coincide
+            // si esta cifrada tendremos que utilizar Hash::check para hacer eso
             // Hash::check($user->password, $request->password)
             if ($user->password == $request->password) {
-
                 // creamos el token (para esto hay que poner "use HasApiTokens" en el modelo) , que tendra de nombre el nombre de usuario
                 $token = $user->createToKen($user->email);
 
@@ -51,6 +50,46 @@ class UserController extends Controller
                 'error' => true,
                 'message' => "No existe el usuario"
             ], 401);
+        }
+    }
+
+    public function registro(Request $request)
+    {
+        // Validar la solicitud
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8',
+        ]);
+
+        // Crear y guardar el nuevo usuario
+        $usuario = new User();
+        $usuario->name = $request->input('name');
+        $usuario->email = $request->input('email');
+        $usuario->password = Hash::make($$request->input('password'));
+        $usuario->roles = 'user';
+
+        // guardamos el usuario en la base de datos
+        $usuario->save();
+
+        if ($usuario) {
+            // Si no esta vacio la variable comments
+            // Enviamos una respuesta con un código de estado 200 ("ok") y un objeto JSON con:
+            // un booleno de error a false, un array de data con los comentarios i enviamos un mensage de error
+            return response()->json([
+                'error' => false,
+                'data' => $usuario,
+                'message' => "Datos recojidos exitosamente"
+            ], 200);
+        } else {
+            // Si esta vacio la variable comments
+            // Enviamos una respuesta con un código de estado 400 y un objeto JSON con:
+            // un booleno de error a false, un array de data a null i enviamos un mensage de error
+            return response()->json([
+                'error' => true,
+                'data' => null,
+                'message' => "Error al obtener los datos"
+            ], 400);
         }
     }
 }

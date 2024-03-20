@@ -35,6 +35,11 @@ Route::post('comment/update', [CommentController::class, 'update']);
 // D: Delete
 Route::post('comment/delete', [CommentController::class, 'destroy']);
 
+//Other routes
+// Route::post('comment/view_comments_by_show', [CommentController::class, 'view_comments_by_show']);
+Route::get('comment/view_comments_by_show/{id}', [CommentController::class, 'view_comments_by_show']);
+
+
 // Route::resource('comments', CommentController::class)->only([
 //     'index', 'show', 'store', 'update', 'destroy'
 // ]);
